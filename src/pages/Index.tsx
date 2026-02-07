@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/landing/Hero";
+import ProblemSection from "@/components/landing/ProblemSection";
+import ArchitectureSection from "@/components/landing/ArchitectureSection";
+import HardwareSection from "@/components/landing/HardwareSection";
+import TokenUtility from "@/components/landing/TokenUtility";
+import TokenomicsSnapshot from "@/components/landing/TokenomicsSnapshot";
+import Roadmap from "@/components/landing/Roadmap";
+import TrustGovernance from "@/components/landing/TrustGovernance";
+import FAQSection from "@/components/landing/FAQSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <ProblemSection />
+      <ArchitectureSection />
+      <HardwareSection />
+      <TokenUtility />
+      <TokenomicsSnapshot />
+      <Roadmap />
+      <TrustGovernance />
+      <FAQSection />
+      <Footer />
     </div>
   );
 };
