@@ -7,32 +7,32 @@ const phases = [
     title: "Foundation",
     status: "active",
     items: [
-      "Token launch & initial distribution",
-      "Validator hardware prototype",
-      "Core protocol development",
-      "Community formation",
+      "Core hardware validation",
+      "Initial system deployment",
+      "Infrastructure testing",
+      "Protocol development",
     ],
   },
   {
     phase: "Phase 2",
-    title: "Infrastructure",
+    title: "Expansion",
     status: "upcoming",
     items: [
-      "Mainnet validator deployment",
-      "Energy partner onboarding",
-      "Staking mechanism activation",
-      "Governance framework launch",
+      "Expanded deployment",
+      "Ecosystem integrations",
+      "Performance optimization",
+      "Validator network growth",
     ],
   },
   {
     phase: "Phase 3",
-    title: "Scale",
+    title: "Global Scale",
     status: "upcoming",
     items: [
-      "Global validator network expansion",
-      "Institutional data marketplace",
-      "Cross-chain coordination",
-      "Enterprise API access",
+      "Global scalable infrastructure rollout",
+      "Long-term operational refinement",
+      "Institutional integration",
+      "Ecosystem maturity",
     ],
   },
 ];
@@ -53,9 +53,12 @@ const Roadmap = () => {
             Roadmap
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Development{" "}
-            <span className="metal-gradient">Timeline</span>
+            Infrastructure Deployment{" "}
+            <span className="metal-gradient">Roadmap</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+            Timelines adapt based on real-world infrastructure deployment conditions
+          </p>
         </motion.div>
 
         <div className="mx-auto max-w-4xl">

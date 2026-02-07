@@ -4,21 +4,21 @@ import { AlertTriangle, Database, Lock } from "lucide-react";
 const problems = [
   {
     icon: AlertTriangle,
-    title: "Unverified Energy Data",
+    title: "Lack of Verifiable Energy Data",
     description:
-      "Energy markets rely on self-reported data with no hardware-level verification. This creates systemic risk and trust gaps across the value chain.",
+      "Energy data is often difficult to verify at the source and can be vulnerable to manipulation.",
   },
   {
     icon: Database,
-    title: "Centralized Validation",
+    title: "Centralized Validation Mechanisms",
     description:
-      "Current validation infrastructure depends on single points of failure. Centralized systems can be manipulated, delayed, or compromised.",
+      "Many existing systems rely on centralized validation, reducing transparency and resilience.",
   },
   {
     icon: Lock,
-    title: "Opaque Coordination",
+    title: "Inefficient Physical-to-Digital Coordination",
     description:
-      "Energy producers, validators, and consumers operate in silos. There is no transparent, immutable coordination layer connecting them.",
+      "Physical infrastructure and digital systems often operate without unified verification or coordination layers.",
   },
 ];
 
@@ -34,13 +34,19 @@ const ProblemSection = () => {
           className="mb-16 text-center"
         >
           <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
-            The Problem
+            Structural Challenges
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Infrastructure Without
+            Structural Challenges in
             <br />
-            <span className="metal-gradient">Verification Is Fragile</span>
+            <span className="metal-gradient">Global Energy Systems</span>
           </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground">
+            Global energy systems face three core challenges
+          </p>
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-muted-foreground/80">
+            Zelion addresses these gaps by anchoring validation at the infrastructure edge, not at the application layer.
+          </p>
         </motion.div>
 
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">

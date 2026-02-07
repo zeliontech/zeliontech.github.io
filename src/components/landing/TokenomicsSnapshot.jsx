@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 
 const allocations = [
-  { label: "Validators & Infrastructure", pct: 35, color: "bg-primary" },
-  { label: "Ecosystem Development", pct: 20, color: "bg-silver-mid" },
-  { label: "Team & Advisors", pct: 15, color: "bg-silver-dark" },
-  { label: "Community & Governance", pct: 15, color: "bg-foreground" },
-  { label: "Liquidity & Reserves", pct: 10, color: "bg-muted-foreground" },
-  { label: "Strategic Partners", pct: 5, color: "bg-border" },
+  { label: "Ecosystem & Infrastructure", pct: 30, color: "bg-primary" },
+  { label: "Development & Operations", pct: 15, color: "bg-silver-mid" },
+  { label: "Liquidity & Market Stability", pct: 15, color: "bg-silver-dark" },
+  { label: "Community Programs", pct: 10, color: "bg-foreground" },
+  { label: "Strategic Partnerships", pct: 10, color: "bg-muted-foreground" },
+  { label: "Core Contributors (Team)", pct: 20, color: "bg-border" },
 ];
 
 const TokenomicsSnapshot = () => {
@@ -40,12 +40,15 @@ const TokenomicsSnapshot = () => {
             className="glass-card mb-8 p-6 text-center lg:p-8"
           >
             <div className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
-              Total Supply
+              Total Supply (Fixed)
             </div>
             <div className="mt-2 font-heading text-4xl font-bold text-foreground lg:text-5xl">
-              1,000,000,000
+              500,000,000
             </div>
             <div className="mt-1 font-heading text-lg text-primary">$ZLN</div>
+            <div className="mt-3 text-xs text-muted-foreground">
+              Team and core contributor allocations follow long-term vesting
+            </div>
           </motion.div>
 
           {/* Allocation Bar */}

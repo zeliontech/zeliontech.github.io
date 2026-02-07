@@ -3,22 +3,22 @@ import { Users, Eye, ShieldCheck } from "lucide-react";
 
 const pillars = [
   {
-    icon: Users,
-    title: "Community Governance",
+    icon: ShieldCheck,
+    title: "Technical Integrity",
     description:
-      "All protocol decisions pass through on-chain governance. $ZLN holders vote on upgrades, parameter changes, and resource allocation.",
+      "Infrastructure reliability and hardware-level validation ensure system integrity across all deployment environments.",
   },
   {
     icon: Eye,
-    title: "Full Transparency",
+    title: "Infrastructure Reliability",
     description:
-      "Open-source validation logic, public audit trails, and real-time network telemetry. Every data point is verifiable on-chain.",
+      "Long-term operational stability prioritized over rapid expansion. Systems designed for resilient, deterministic performance.",
   },
   {
-    icon: ShieldCheck,
-    title: "Security First",
+    icon: Users,
+    title: "Long-Term Ecosystem Alignment",
     description:
-      "Hardware-anchored trust model with cryptographic attestation. Slashing conditions ensure validator integrity across the network.",
+      "Governance evolves gradually and remains subordinate to infrastructure stability. Protocol decisions align with long-term sustainability.",
   },
 ];
 
@@ -35,12 +35,15 @@ const TrustGovernance = () => {
           className="mb-16 text-center"
         >
           <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
-            Trust & Governance
+            Governance
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Built on{" "}
-            <span className="metal-gradient">Transparency</span>
+            Governance{" "}
+            <span className="metal-gradient">Principles</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+            Zelion governance prioritizes technical integrity, infrastructure reliability, and long-term ecosystem alignment
+          </p>
         </motion.div>
 
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">

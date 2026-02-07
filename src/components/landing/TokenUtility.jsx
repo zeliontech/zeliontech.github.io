@@ -4,23 +4,23 @@ import { Zap, Vote, Shield, Server } from "lucide-react";
 const utilities = [
   {
     icon: Zap,
-    title: "Validation Rewards",
-    description: "Node operators earn $ZLN for providing deterministic energy data validation through hardware-verified infrastructure.",
-  },
-  {
-    icon: Vote,
-    title: "Governance",
-    description: "Token holders participate in protocol governance, including network upgrades, parameter adjustments, and validator policies.",
-  },
-  {
-    icon: Shield,
-    title: "Staking Security",
-    description: "Validators stake $ZLN as collateral to ensure honest data reporting. Slashing mechanisms protect network integrity.",
+    title: "Validator Coordination",
+    description: "Participation in validator coordination mechanisms to support network integrity and infrastructure alignment.",
   },
   {
     icon: Server,
-    title: "Data Access",
-    description: "Institutions use $ZLN to access verified energy data feeds, enabling trust-minimized decision making across energy markets.",
+    title: "Infrastructure Services",
+    description: "Access to ecosystem-level infrastructure services and validated data feeds for institutional integration.",
+  },
+  {
+    icon: Shield,
+    title: "Ecosystem Alignment",
+    description: "Alignment of long-term contributors and ecosystem participants through coordinated incentive structures.",
+  },
+  {
+    icon: Vote,
+    title: "Governance Signaling",
+    description: "Governance signaling for protocol-level decisions. The token does not represent equity, ownership, or profit-sharing.",
   },
 ];
 
@@ -42,9 +42,8 @@ const TokenUtility = () => {
           <h2 className="mb-4 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
             <span className="metal-gradient">$ZLN</span> Utility Token
           </h2>
-          <p className="mx-auto max-w-xl text-sm text-muted-foreground lg:text-base">
-            $ZLN is a utility token that powers the Zelion validation network.
-            It is not a financial product or investment vehicle.
+          <p className="mx-auto max-w-2xl text-sm text-muted-foreground lg:text-base">
+            The Zelion token is a utility and coordination instrument. Primary utilities include validator coordination, infrastructure service access, ecosystem alignment, and governance signaling.
           </p>
         </motion.div>
 

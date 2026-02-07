@@ -66,14 +66,15 @@ const HardwareSection = () => {
               Hardware Validators
             </span>
             <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Physical Validation
+              Validation
               <br />
-              <span className="metal-gradient">At the Source</span>
+              <span className="metal-gradient">at the Source</span>
             </h2>
             <p className="mb-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
-              Zelion validators are purpose-built hardware units deployed at energy production
-              sites. Each device cryptographically signs measured data, creating a tamper-proof
-              chain of verification from physical source to blockchain settlement.
+              Zelion integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems.
+            </p>
+            <p className="mb-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
+              By validating data at the physical source, Zelion reduces attack surfaces and improves data reliability across infrastructure systems.
             </p>
 
             <div className="grid grid-cols-2 gap-4">

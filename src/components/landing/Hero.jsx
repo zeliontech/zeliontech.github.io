@@ -35,7 +35,7 @@ const Hero = () => {
           >
             <Shield className="h-4 w-4 text-primary" />
             <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
-              DePIN Infrastructure Protocol
+              Infrastructure-First Energy Validation Network
             </span>
           </motion.div>
 
@@ -43,15 +43,13 @@ const Hero = () => {
           <h1 className="mb-6 font-heading text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="metal-gradient">Infrastructure-First</span>
             <br />
-            <span className="text-foreground">Energy Validation</span>
-            <br />
-            <span className="text-foreground">Network</span>
+            <span className="text-foreground">Energy Validation Network</span>
           </h1>
 
           {/* Subtitle */}
           <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Deterministic energy data validation through hardware-anchored infrastructure.
-            Built for institutions. Powered by blockchain coordination.
+            Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment.
+            The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.
           </p>
 
           {/* CTA Buttons */}
@@ -78,10 +76,10 @@ const Hero = () => {
             className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8"
           >
             {[
-              { value: "1B", label: "Total Supply" },
+              { value: "500M", label: "Total Supply" },
               { value: "3-Layer", label: "Architecture" },
-              { value: "99.9%", label: "Uptime Target" },
-              { value: "100+", label: "Validator Nodes" },
+              { value: "Hardware", label: "Validation" },
+              { value: "Long-Term", label: "Infrastructure" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-heading text-2xl font-bold text-foreground sm:text-3xl">

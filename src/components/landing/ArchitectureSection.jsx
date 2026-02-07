@@ -5,25 +5,25 @@ const layers = [
   {
     icon: Cpu,
     name: "Physical Layer",
-    tag: "Hardware",
+    tag: "Layer 1",
     description:
-      "On-site validator devices measure and verify energy production data at the source. Tamper-resistant hardware ensures data integrity from point of origin.",
+      "Energy-related hardware and validation devices operate at the infrastructure edge, capturing real-world energy data and performing local integrity checks.",
     color: "text-primary",
   },
   {
     icon: Shield,
     name: "Validation Layer",
-    tag: "Verification",
+    tag: "Layer 2",
     description:
-      "Deterministic validation protocols cross-reference hardware data against network consensus. Multi-node verification eliminates single points of failure.",
+      "Deterministic processing, cryptographic verification, and data integrity validation ensure trusted data before it enters digital coordination systems.",
     color: "text-silver-mid",
   },
   {
     icon: LinkIcon,
-    name: "Blockchain Coordination Layer",
-    tag: "Settlement",
+    name: "Coordination Layer",
+    tag: "Layer 3",
     description:
-      "Immutable on-chain records of validated data. Smart contract automation for token distribution, governance, and transparent energy data coordination.",
+      "Blockchain-based coordination records validated outcomes and supports ecosystem-level transparency and coordination. Each layer operates independently while remaining interoperable.",
     color: "text-foreground",
   },
 ];
@@ -44,9 +44,9 @@ const ArchitectureSection = () => {
             Architecture
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Three-Layer
+            Three-Layer Infrastructure
             <br />
-            <span className="metal-gradient">Validation Stack</span>
+            <span className="metal-gradient">Architecture</span>
           </h2>
         </motion.div>
 
