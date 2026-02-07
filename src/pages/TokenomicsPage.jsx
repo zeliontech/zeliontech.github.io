@@ -3,21 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const allocations = [
-  { label: "Validators & Infrastructure", pct: 35, color: "bg-primary" },
-  { label: "Ecosystem Development", pct: 20, color: "bg-silver-mid" },
-  { label: "Team & Advisors", pct: 15, color: "bg-silver-dark" },
-  { label: "Community & Governance", pct: 15, color: "bg-foreground" },
-  { label: "Liquidity & Reserves", pct: 10, color: "bg-muted-foreground" },
-  { label: "Strategic Partners", pct: 5, color: "bg-border" },
-];
-
-const vestingSchedule = [
-  { category: "Validators", cliff: "None", vesting: "Monthly over 48 months", tge: "10%" },
-  { category: "Ecosystem", cliff: "3 months", vesting: "Monthly over 36 months", tge: "5%" },
-  { category: "Team", cliff: "12 months", vesting: "Monthly over 36 months", tge: "0%" },
-  { category: "Community", cliff: "None", vesting: "Monthly over 24 months", tge: "15%" },
-  { category: "Liquidity", cliff: "None", vesting: "Immediate", tge: "100%" },
-  { category: "Partners", cliff: "6 months", vesting: "Monthly over 24 months", tge: "0%" },
+  { label: "Ecosystem & Infrastructure", amount: "150,000,000", pct: 30, color: "bg-primary" },
+  { label: "Development & Operations", amount: "75,000,000", pct: 15, color: "bg-silver-mid" },
+  { label: "Liquidity & Market Stability", amount: "75,000,000", pct: 15, color: "bg-silver-dark" },
+  { label: "Community Programs", amount: "50,000,000", pct: 10, color: "bg-foreground" },
+  { label: "Strategic Partnerships", amount: "50,000,000", pct: 10, color: "bg-muted-foreground" },
+  { label: "Core Contributors (Team)", amount: "100,000,000", pct: 20, color: "bg-border" },
 ];
 
 const TokenomicsPage = () => {
@@ -34,13 +25,17 @@ const TokenomicsPage = () => {
               className="mb-16 text-center"
             >
               <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
-                Tokenomics
+                Token Economics
               </span>
               <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
-                <span className="metal-gradient">$ZLN</span> Token Economics
+                Zelion Token Structure
               </h1>
-              <p className="mx-auto max-w-xl text-muted-foreground">
-                Transparent allocation, structured vesting, and utility-driven distribution.
+              <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
+                The Zelion token is designed as a utility and coordination instrument within the infrastructure ecosystem.
+                It supports validator coordination, ecosystem participation, and long-term network alignment.
+              </p>
+              <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+                The token does not represent equity, ownership, or profit-sharing.
               </p>
             </motion.div>
 
@@ -49,18 +44,29 @@ const TokenomicsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass-card mx-auto mb-12 max-w-xl p-8 text-center"
+              className="mx-auto mb-12 max-w-4xl"
             >
-              <div className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Total Supply</div>
-              <div className="mt-2 font-heading text-5xl font-bold text-foreground">1,000,000,000</div>
-              <div className="mt-1 font-heading text-xl text-primary">$ZLN</div>
+              <h2 className="mb-6 text-center font-heading text-2xl font-semibold text-foreground">
+                Fixed Supply Model
+              </h2>
+              <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground">
+                The Zelion token has a fixed total supply designed to support long-term ecosystem sustainability and infrastructure deployment.
+              </p>
+              <div className="glass-card mx-auto max-w-xl p-8 text-center">
+                <div className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Total Supply</div>
+                <div className="mt-2 font-heading text-5xl font-bold text-foreground">500,000,000</div>
+                <div className="mt-1 font-heading text-xl text-primary">$ZLN</div>
+              </div>
             </motion.div>
 
             {/* Allocation */}
             <div className="mx-auto max-w-4xl">
               <h2 className="mb-6 text-center font-heading text-2xl font-semibold text-foreground">
-                Allocation
+                Token Allocation Structure
               </h2>
+              <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground">
+                Token distribution is designed to support infrastructure deployment, ecosystem growth, and long-term system stability.
+              </p>
               <div className="mb-8 flex h-4 overflow-hidden rounded-full">
                 {allocations.map((alloc, i) => (
                   <motion.div
@@ -73,45 +79,128 @@ const TokenomicsPage = () => {
                   />
                 ))}
               </div>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2">
                 {allocations.map((alloc) => (
-                  <div key={alloc.label} className="flex items-center gap-3 rounded-lg border border-border/50 bg-muted/30 px-4 py-3">
-                    <div className={`h-3 w-3 flex-shrink-0 rounded-sm ${alloc.color}`} />
-                    <span className="flex-1 text-sm text-foreground">{alloc.label}</span>
-                    <span className="font-heading text-sm font-semibold text-foreground">{alloc.pct}%</span>
+                  <div key={alloc.label} className="glass-card p-4">
+                    <div className="mb-2 flex items-center gap-3">
+                      <div className={`h-3 w-3 flex-shrink-0 rounded-sm ${alloc.color}`} />
+                      <span className="flex-1 text-sm font-medium text-foreground">{alloc.label}</span>
+                      <span className="font-heading text-sm font-semibold text-foreground">{alloc.pct}%</span>
+                    </div>
+                    <div className="pl-6 text-xs text-muted-foreground">
+                      {alloc.amount} $ZLN
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Vesting Table */}
+            {/* Vesting */}
             <div className="mx-auto mt-16 max-w-4xl">
               <h2 className="mb-6 text-center font-heading text-2xl font-semibold text-foreground">
-                Vesting Schedule
+                Long-Term Alignment
               </h2>
-              <div className="glass-card overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-border">
-                        <th className="px-6 py-4 text-left text-xs font-medium tracking-wider text-muted-foreground uppercase">Category</th>
-                        <th className="px-6 py-4 text-left text-xs font-medium tracking-wider text-muted-foreground uppercase">Cliff</th>
-                        <th className="px-6 py-4 text-left text-xs font-medium tracking-wider text-muted-foreground uppercase">Vesting</th>
-                        <th className="px-6 py-4 text-left text-xs font-medium tracking-wider text-muted-foreground uppercase">TGE Unlock</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {vestingSchedule.map((row, i) => (
-                        <tr key={row.category} className={i < vestingSchedule.length - 1 ? "border-b border-border/50" : ""}>
-                          <td className="px-6 py-4 text-sm font-medium text-foreground">{row.category}</td>
-                          <td className="px-6 py-4 text-sm text-muted-foreground">{row.cliff}</td>
-                          <td className="px-6 py-4 text-sm text-muted-foreground">{row.vesting}</td>
-                          <td className="px-6 py-4 text-sm text-primary">{row.tge}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              <div className="glass-card p-8">
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                  Team and core contributor allocations follow long-term vesting schedules designed to support ecosystem stability and long-term contributor alignment.
+                </p>
+                <div className="mb-6 rounded-lg border border-border/50 bg-muted/30 p-6">
+                  <h3 className="mb-4 text-sm font-medium text-foreground">Vesting Structure:</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      6-month cliff
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      12–24 months linear vesting following cliff period
+                    </li>
+                  </ul>
                 </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Liquidity allocations are managed strategically to support sustainable ecosystem growth and reduce short-term volatility.
+                </p>
+              </div>
+            </div>
+
+            {/* Economic Model */}
+            <div className="mx-auto mt-16 max-w-4xl">
+              <h2 className="mb-6 text-center font-heading text-2xl font-semibold text-foreground">
+                Infrastructure-Aligned Economic Model
+              </h2>
+              <div className="glass-card p-8">
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                  Zelion's economic structure is designed to avoid unsustainable emissions and short-term incentive cycles.
+                </p>
+                <div className="mb-6 rounded-lg border border-border/50 bg-muted/30 p-6">
+                  <h3 className="mb-4 text-sm font-medium text-foreground">The model prioritizes:</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      Controlled token supply
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      Infrastructure-backed utility
+                    </li>
+                    <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      Long-term ecosystem participation
+                    </li>
+                  </ul>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  The system favors resilience and infrastructure longevity over rapid expansion.
+                </p>
+              </div>
+            </div>
+
+            {/* Token Role */}
+            <div className="mx-auto mt-16 max-w-4xl">
+              <h2 className="mb-6 text-center font-heading text-2xl font-semibold text-foreground">
+                Utility and Coordination Function
+              </h2>
+              <div className="glass-card p-8">
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                  The Zelion token is used for:
+                </p>
+                <ul className="mb-6 space-y-3">
+                  <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    Validator coordination mechanisms
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    Access to infrastructure-level ecosystem services
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    Alignment of long-term ecosystem contributors
+                  </li>
+                  <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    Governance signaling for protocol-level decisions
+                  </li>
+                </ul>
+                <p className="text-sm font-medium text-foreground">
+                  The token is not designed as a financial product or investment instrument.
+                </p>
+              </div>
+            </div>
+
+            {/* Disclaimer */}
+            <div className="mx-auto mt-16 max-w-4xl">
+              <div className="glass-card border-2 border-yellow-500/20 bg-yellow-500/5 p-8">
+                <h2 className="mb-4 font-heading text-xl font-semibold text-foreground">
+                  Important Notice
+                </h2>
+                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                  The Zelion token is a utility and coordination instrument used within the ecosystem infrastructure.
+                  It does not represent ownership, equity, or entitlement to revenue or profit.
+                </p>
+                <p className="text-sm font-medium text-foreground">
+                  Participation in decentralized infrastructure ecosystems involves risk.
+                </p>
               </div>
             </div>
           </div>
