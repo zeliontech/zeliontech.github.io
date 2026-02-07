@@ -7,7 +7,7 @@ const layers = [
     name: "Physical Layer",
     tag: "Layer 1",
     description:
-      "Energy-related hardware and validation devices operate at the infrastructure edge, capturing real-world energy data and performing local integrity checks.",
+      "Hardware validators capture real-world energy data and perform local integrity checks at the infrastructure edge.",
     color: "text-silver-light",
   },
   {
@@ -15,7 +15,7 @@ const layers = [
     name: "Validation Layer",
     tag: "Layer 2",
     description:
-      "Deterministic processing, cryptographic verification, and data integrity validation ensure trusted data before it enters digital coordination systems.",
+      "Deterministic processing and cryptographic verification ensure trusted data before ecosystem coordination.",
     color: "text-silver-mid",
   },
   {
@@ -23,7 +23,7 @@ const layers = [
     name: "Coordination Layer",
     tag: "Layer 3",
     description:
-      "Blockchain-based coordination records validated outcomes and supports ecosystem-level transparency and coordination. Each layer operates independently while remaining interoperable.",
+      "Blockchain records validated outcomes and supports transparent coordination across the ecosystem.",
     color: "text-foreground",
   },
 ];

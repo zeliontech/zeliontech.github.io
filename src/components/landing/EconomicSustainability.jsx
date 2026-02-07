@@ -35,11 +35,11 @@ const EconomicSustainability = () => {
             </div>
             
             <p className="mb-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              Zelion's economic model is designed to avoid short-term incentive cycles and unsustainable emissions.
+              Zelion's economic model avoids short-term incentive cycles and unsustainable emissions.
             </p>
             
             <div className="mb-6">
-              <p className="mb-4 text-sm font-medium text-foreground">The system focuses on:</p>
+              <p className="mb-4 text-sm font-medium text-foreground">Focused on:</p>
               <ul className="space-y-3">
                 {sustainabilityFocus.map((item, index) => (
                   <motion.li

@@ -30,12 +30,12 @@ const TeamPhilosophy = () => {
             </div>
             
             <p className="mb-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              Zelion is developed by a multidisciplinary team with experience across energy infrastructure, hardware systems, and decentralized coordination architectures.
+              Zelion is developed by a multidisciplinary team experienced in energy infrastructure, hardware systems, and decentralized coordination.
             </p>
             
             <div className="border-t border-border pt-6">
               <p className="text-sm text-muted-foreground">
-                For operational security and regulatory reasons, individual identities are disclosed selectively to strategic partners when required.
+                Individual identities are disclosed selectively to strategic partners when required for security and regulatory reasons.
               </p>
             </div>
           </div>

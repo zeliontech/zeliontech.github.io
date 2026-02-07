@@ -4,21 +4,21 @@ import { AlertTriangle, Database, Lock } from "lucide-react";
 const problems = [
   {
     icon: AlertTriangle,
-    title: "Lack of Verifiable Energy Data",
+    title: "Unverified Energy Data",
     description:
       "Energy data is often difficult to verify at the source and can be vulnerable to manipulation.",
   },
   {
     icon: Database,
-    title: "Centralized Validation Mechanisms",
+    title: "Centralized Validation",
     description:
-      "Many existing systems rely on centralized validation, reducing transparency and resilience.",
+      "Many systems rely on centralized validation, reducing transparency and resilience.",
   },
   {
     icon: Lock,
-    title: "Inefficient Physical-to-Digital Coordination",
+    title: "Physical–Digital Disconnect",
     description:
-      "Physical infrastructure and digital systems often operate without unified verification or coordination layers.",
+      "Infrastructure and digital systems often operate without unified verification layers.",
   },
 ];
 
@@ -42,10 +42,10 @@ const ProblemSection = () => {
             <span className="metal-gradient">Global Energy Systems</span>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground">
-            Global energy systems face three core challenges
+            Global energy systems face three core validation challenges.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-muted-foreground/80">
-            Zelion addresses these gaps by anchoring validation at the infrastructure edge, not at the application layer.
+            Zelion addresses these gaps by validating data at the infrastructure edge.
           </p>
         </motion.div>
 

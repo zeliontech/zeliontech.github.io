@@ -36,7 +36,7 @@ const BlockchainRole = () => {
             </div>
             
             <p className="mb-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              In the Zelion ecosystem, blockchain is used for:
+              Blockchain supports:
             </p>
             
             <ul className="mb-6 space-y-3">
@@ -59,7 +59,7 @@ const BlockchainRole = () => {
               <p className="text-sm leading-relaxed text-muted-foreground">
                 <span className="font-medium text-foreground">Blockchain does not control physical infrastructure.</span>
                 <br />
-                It records validated outcomes produced by infrastructure-level processes, improving resilience and scalability.
+                It records validated outcomes from infrastructure-level processes.
               </p>
             </div>
           </div>

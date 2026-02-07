@@ -26,7 +26,7 @@ const techLayers = [
     icon: Shield,
     title: "Deterministic Validation Processing",
     description:
-      "The validation layer performs deterministic processing and cryptographic verification of infrastructure data.",
+      "The validation layer performs deterministic processing and cryptographic verification of infrastructure data before ecosystem coordination.",
     capabilities: [
       "Data integrity verification",
       "Deterministic validation processing",
@@ -70,7 +70,7 @@ const Technology = () => {
                 <span className="metal-gradient">Validation Architecture</span>
               </h1>
               <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
-                Zelion is designed as an infrastructure-first system focused on deterministic energy data validation through hardware-anchored verification and blockchain coordination.
+                Zelion is an infrastructure-first system enabling deterministic energy data validation through hardware verification and blockchain coordination.
               </p>
             </motion.div>
           </div>
@@ -86,25 +86,25 @@ const Technology = () => {
                 <span className="metal-gradient">Architecture</span>
               </h2>
               <p className="mb-6 text-base leading-relaxed text-muted-foreground">
-                The Zelion system is structured across three independent but interoperable layers:
+                Zelion operates across three interoperable layers:
               </p>
               <div className="glass-card mx-auto max-w-xl p-6">
                 <ul className="space-y-3 text-left">
                   <li className="flex items-center gap-3 text-sm text-foreground">
                     <div className="h-2 w-2 rounded-full bg-silver-light" />
-                    Physical Infrastructure Layer
+                    Physical infrastructure hardware
                   </li>
                   <li className="flex items-center gap-3 text-sm text-foreground">
                     <div className="h-2 w-2 rounded-full bg-silver-light" />
-                    Validation Processing Layer
+                    Deterministic validation processing
                   </li>
                   <li className="flex items-center gap-3 text-sm text-foreground">
                     <div className="h-2 w-2 rounded-full bg-silver-light" />
-                    Blockchain Coordination Layer
+                    Blockchain coordination
                   </li>
                 </ul>
                 <p className="mt-6 text-xs text-muted-foreground">
-                  Each layer operates independently while maintaining system interoperability and long-term deployment flexibility.
+                  Each layer operates independently while maintaining system interoperability.
                 </p>
               </div>
             </div>
@@ -178,7 +178,7 @@ const Technology = () => {
               </h2>
               <div className="glass-card p-8">
                 <p className="text-base leading-relaxed text-muted-foreground">
-                  By validating infrastructure data before it enters digital systems, Zelion reduces potential attack surfaces and false reporting risks.
+                  Validating data before it enters digital systems reduces attack risk and improves infrastructure reliability.
                 </p>
                 <p className="mt-4 text-sm text-muted-foreground">
                   This design supports industrial-scale deployment and infrastructure-level reliability.

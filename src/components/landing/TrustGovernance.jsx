@@ -42,7 +42,7 @@ const TrustGovernance = () => {
             <span className="metal-gradient">Principles</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
-            Zelion governance prioritizes technical integrity, infrastructure reliability, and long-term ecosystem alignment
+            Zelion governance prioritizes:
           </p>
         </motion.div>
 

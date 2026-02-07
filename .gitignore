@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Development documentation (not for production)
+DESIGN_SYSTEM_REFACTOR.md
+CONTENT_OPTIMIZATION.md
+WEBSITE_CONTENT.txt
+*.docx
+~$*

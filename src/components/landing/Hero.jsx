@@ -49,7 +49,9 @@ const Hero = () => {
           {/* Subtitle */}
           <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment.
-            The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.
+          </p>
+          <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            It connects physical energy infrastructure with decentralized coordination through hardware-based validation and verifiable data integrity.
           </p>
 
           {/* CTA Buttons */}

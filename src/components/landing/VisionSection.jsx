@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 const visionPoints = [
   "Energy validation is hardware-based, not trust-based",
   "Infrastructure operates independently of speculative cycles",
-  "Blockchain functions as a coordination layer, not the core product",
+  "Blockchain functions as a coordination layer, not the core system",
 ];
 
 const VisionSection = () => {
@@ -27,7 +27,7 @@ const VisionSection = () => {
             <span className="metal-gradient">Validation</span>
           </h2>
           <p className="mb-8 text-base leading-relaxed text-muted-foreground lg:text-lg">
-            Zelion envisions a future where:
+            Zelion enables a system where:
           </p>
           <div className="mx-auto max-w-2xl space-y-4 text-left">
             {visionPoints.map((point, index) => (
@@ -45,7 +45,7 @@ const VisionSection = () => {
             ))}
           </div>
           <p className="mt-8 text-base text-muted-foreground">
-            The system is designed for long-term infrastructure deployment and real-world integration.
+            Built for long-term infrastructure deployment and real-world integration.
           </p>
         </motion.div>
       </div>

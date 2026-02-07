@@ -19,15 +19,15 @@ const WhatIsZelion = () => {
           </h2>
           <div className="space-y-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
             <p>
-              Most blockchain projects begin with tokens and attempt to later attach utility.
-              Zelion reverses this approach.
+              Most blockchain systems start with tokens and attempt to add utility later.
+              Zelion reverses this model.
             </p>
             <p className="font-medium text-foreground">
-              Zelion begins with infrastructure, hardware validation, and real-world system integration.
-              The token exists only as a coordination and alignment layer within the ecosystem.
+              Zelion starts with infrastructure, hardware validation, and real-world deployment.
+              The token exists only to coordinate and align ecosystem participation.
             </p>
             <p>
-              Zelion is designed for long-term deployment, real-world infrastructure integration, and institutional compatibility.
+              Designed for long-term infrastructure integration and institutional use.
             </p>
           </div>
         </motion.div>

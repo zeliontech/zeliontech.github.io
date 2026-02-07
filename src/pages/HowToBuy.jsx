@@ -26,7 +26,7 @@ const steps = [
   {
     step: 4,
     title: "Confirm Transaction",
-    description: "Confirm the transaction through your wallet interface. Blockchain transactions are irreversible once confirmed.",
+    description: "Confirm the transaction through your wallet. Blockchain transactions are irreversible once confirmed.",
     icon: Check,
   },
 ];
@@ -53,10 +53,10 @@ const HowToBuy = () => {
                 <span className="metal-gradient">Utility Token</span>
               </h1>
               <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
-                The Zelion token is a utility instrument used within the ecosystem for coordination and infrastructure-level participation.
+                $ZLN is a utility token used for ecosystem coordination and infrastructure participation.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
-                Participation involves interacting with blockchain-based systems using compatible digital wallets.
+                Access requires a compatible Web3 wallet and blockchain transaction.
               </p>
             </motion.div>
           </div>
@@ -71,10 +71,10 @@ const HowToBuy = () => {
               </h2>
               <div className="glass-card p-6">
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Accessing the Zelion token involves connecting a compatible Web3 wallet and interacting with the token contract through supported interfaces.
+                  Accessing $ZLN requires connecting a compatible wallet and interacting with the token contract through supported interfaces.
                 </p>
                 <p className="mt-4 text-sm font-medium text-foreground">
-                  Users should ensure they understand the risks associated with blockchain transactions before proceeding.
+                  Always understand blockchain risks before proceeding.
                 </p>
               </div>
             </div>
@@ -127,12 +127,9 @@ const HowToBuy = () => {
                 Transaction Notice
               </h2>
               <div className="glass-card p-8">
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                  Blockchain transactions may require network confirmation time.
-                  Transaction completion depends on network conditions and processing times.
-                </p>
-                <p className="text-sm font-medium text-foreground">
-                  Always verify wallet addresses and transaction details before confirming.
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Transaction speed depends on network conditions.
+                  Always verify wallet address and transaction details before confirming.
                 </p>
               </div>
             </div>

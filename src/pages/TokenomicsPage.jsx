@@ -31,11 +31,13 @@ const TokenomicsPage = () => {
                 Zelion Token Structure
               </h1>
               <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
-                The Zelion token is designed as a utility and coordination instrument within the infrastructure ecosystem.
+                $ZLN is a utility and coordination token used within the infrastructure ecosystem.
+              </p>
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
                 It supports validator coordination, ecosystem participation, and long-term network alignment.
               </p>
               <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
-                The token does not represent equity, ownership, or profit-sharing.
+                It does not represent equity, ownership, or profit-sharing.
               </p>
             </motion.div>
 
@@ -50,7 +52,7 @@ const TokenomicsPage = () => {
                 Fixed Supply Model
               </h2>
               <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground">
-                The Zelion token has a fixed total supply designed to support long-term ecosystem sustainability and infrastructure deployment.
+                $ZLN has a fixed supply designed to support long-term ecosystem sustainability and infrastructure deployment.
               </p>
               <div className="glass-card mx-auto max-w-xl p-8 text-center">
                 <div className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Total Supply</div>
@@ -130,10 +132,10 @@ const TokenomicsPage = () => {
               </h2>
               <div className="glass-card p-8">
                 <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                  Zelion's economic structure is designed to avoid unsustainable emissions and short-term incentive cycles.
+                  The Zelion economic model prioritizes:
                 </p>
                 <div className="mb-6 rounded-lg border border-border/50 bg-muted/30 p-6">
-                  <h3 className="mb-4 text-sm font-medium text-foreground">The model prioritizes:</h3>
+                  <h3 className="mb-4 text-sm font-medium text-foreground">Key priorities:</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3 text-sm text-muted-foreground">
                       <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />

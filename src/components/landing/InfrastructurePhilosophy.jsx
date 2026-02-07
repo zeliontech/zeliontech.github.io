@@ -29,16 +29,14 @@ const InfrastructurePhilosophy = () => {
           
           <div className="mb-10 space-y-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
             <p className="font-medium text-foreground">
-              Zelion does not aim to replace energy systems.
-            </p>
-            <p className="font-medium text-foreground">
-              It aims to validate, coordinate, and secure them.
+              Zelion does not replace energy systems.
+              It validates, coordinates, and secures them.
             </p>
           </div>
 
           <div className="glass-card mx-auto max-w-2xl p-8 text-left">
             <p className="mb-6 text-sm text-muted-foreground">
-              Core principles include:
+              Core principles:
             </p>
             <div className="space-y-4">
               {principles.map((principle, index) => (

@@ -43,7 +43,7 @@ const TokenUtility = () => {
             <span className="metal-gradient">$ZLN</span> Utility Token
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-muted-foreground lg:text-base">
-            The Zelion token is a utility and coordination instrument. Primary utilities include validator coordination, infrastructure service access, ecosystem alignment, and governance signaling.
+            $ZLN is a utility and coordination token used for:
           </p>
         </motion.div>
 

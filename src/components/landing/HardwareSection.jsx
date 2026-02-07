@@ -71,10 +71,10 @@ const HardwareSection = () => {
               <span className="metal-gradient">at the Source</span>
             </h2>
             <p className="mb-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
-              Zelion integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems.
+              Hardware validators capture real-world energy data, perform local verification, and prevent manipulation before data enters digital systems.
             </p>
             <p className="mb-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
-              By validating data at the physical source, Zelion reduces attack surfaces and improves data reliability across infrastructure systems.
+              This reduces attack surfaces and improves infrastructure data reliability.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
