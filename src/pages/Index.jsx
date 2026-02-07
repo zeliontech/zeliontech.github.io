@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/landing/Hero";
 import WhatIsZelion from "@/components/landing/WhatIsZelion";
+import InfrastructurePhilosophy from "@/components/landing/InfrastructurePhilosophy";
 import ProblemSection from "@/components/landing/ProblemSection";
 import VisionSection from "@/components/landing/VisionSection";
 import ArchitectureSection from "@/components/landing/ArchitectureSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <WhatIsZelion />
+      <InfrastructurePhilosophy />
       <ProblemSection />
       <VisionSection />
       <ArchitectureSection />

@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Cpu, Wifi, ShieldCheck, Thermometer } from "lucide-react";
 
 const specs = [
-  { icon: Cpu, label: "ARM-based Processor", detail: "Industrial grade" },
-  { icon: Wifi, label: "Multi-Protocol", detail: "LoRa / WiFi / LTE" },
-  { icon: ShieldCheck, label: "Tamper Resistant", detail: "Sealed enclosure" },
-  { icon: Thermometer, label: "Energy Sensors", detail: "Multi-input array" },
+  { icon: Cpu, label: "Industrial Grade", detail: "Energy validation" },
+  { icon: Wifi, label: "Connectivity", detail: "Infrastructure edge" },
+  { icon: ShieldCheck, label: "Tamper Resistant", detail: "Integrity checks" },
+  { icon: Thermometer, label: "Data Capture", detail: "Real-world data" },
 ];
 
 const HardwareSection = () => {
@@ -34,10 +34,10 @@ const HardwareSection = () => {
                       </div>
                       <div className="text-center">
                         <div className="font-heading text-sm font-semibold text-foreground">
-                          ZLN-V1 Validator
+                          Hardware Validator
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          Hardware Validation Unit
+                          Infrastructure Validation
                         </div>
                       </div>
                       <div className="flex items-center gap-2">

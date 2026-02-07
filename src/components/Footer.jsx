@@ -34,8 +34,8 @@ const Footer = () => {
               </span>
             </div>
             <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-              Infrastructure-first energy validation network. Deterministic data verification
-              through hardware-anchored infrastructure.
+              Zelion is designed for infrastructure validation, deterministic data processing, and long-term system deployment.
+              $ZLN is a utility token used for ecosystem coordination and does not represent ownership, equity, or profit-sharing.
             </p>
           </div>
 
