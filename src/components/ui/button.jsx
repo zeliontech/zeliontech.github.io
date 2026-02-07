@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-gradient-to-br from-silver-light via-silver-mid to-silver-dark text-background font-semibold shadow-lg hover:shadow-xl hover:from-silver-light/95 hover:via-silver-mid/95 hover:to-silver-dark/95 transition-all duration-300",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent text-foreground hover:bg-muted hover:text-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-muted hover:text-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground font-semibold hover:bg-primary/90 blue-glow",
-        "hero-outline": "border border-silver-mid/30 bg-transparent text-foreground hover:border-silver-mid/60 hover:bg-muted/50",
-        metal: "bg-gradient-to-r from-silver-light/10 via-silver-mid/15 to-silver-light/10 border border-silver-mid/20 text-foreground hover:border-silver-mid/40 hover:from-silver-light/15 hover:via-silver-mid/20 hover:to-silver-light/15",
-        wallet: "bg-primary text-primary-foreground font-semibold hover:bg-primary/90 rounded-full",
+        outline: "border-2 border-border bg-transparent text-foreground hover:bg-muted hover:border-silver-mid/40",
+        secondary: "bg-muted border border-border text-foreground hover:bg-muted/80 hover:border-silver-mid/30",
+        ghost: "hover:bg-muted/50 hover:text-foreground",
+        link: "text-silver-mid underline-offset-4 hover:underline hover:text-silver-light",
+        hero: "bg-gradient-to-br from-silver-light via-silver-mid to-silver-dark text-background font-semibold shadow-[0_0_30px_-5px_rgba(226,232,240,0.3)] hover:shadow-[0_0_40px_-5px_rgba(226,232,240,0.4)] hover:from-silver-light/95 hover:via-silver-mid/95 hover:to-silver-dark/95",
+        "hero-outline": "border-2 border-silver-mid/40 bg-transparent text-silver-light font-semibold hover:border-silver-light/60 hover:bg-silver-light/5 hover:shadow-[0_0_20px_-8px_rgba(226,232,240,0.2)]",
+        metal: "bg-gradient-to-r from-silver-light/8 via-silver-mid/12 to-silver-light/8 border-2 border-silver-mid/25 text-foreground font-semibold hover:border-silver-mid/50 hover:from-silver-light/12 hover:via-silver-mid/18 hover:to-silver-light/12 hover:shadow-[0_0_16px_-6px_rgba(226,232,240,0.15)]",
+        wallet: "bg-gradient-to-br from-silver-light via-silver-mid to-silver-dark text-background font-semibold rounded-full shadow-lg hover:shadow-xl hover:from-silver-light/95 hover:via-silver-mid/95 hover:to-silver-dark/95",
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -61,7 +61,7 @@ const Technology = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+              <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
                 Technology Architecture
               </span>
               <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
@@ -91,15 +91,15 @@ const Technology = () => {
               <div className="glass-card mx-auto max-w-xl p-6">
                 <ul className="space-y-3 text-left">
                   <li className="flex items-center gap-3 text-sm text-foreground">
-                    <div className="h-2 w-2 rounded-full bg-primary" />
+                    <div className="h-2 w-2 rounded-full bg-silver-light" />
                     Physical Infrastructure Layer
                   </li>
                   <li className="flex items-center gap-3 text-sm text-foreground">
-                    <div className="h-2 w-2 rounded-full bg-primary" />
+                    <div className="h-2 w-2 rounded-full bg-silver-light" />
                     Validation Processing Layer
                   </li>
                   <li className="flex items-center gap-3 text-sm text-foreground">
-                    <div className="h-2 w-2 rounded-full bg-primary" />
+                    <div className="h-2 w-2 rounded-full bg-silver-light" />
                     Blockchain Coordination Layer
                   </li>
                 </ul>
@@ -127,10 +127,10 @@ const Technology = () => {
                     <div className="border-b border-border/50 p-6 lg:p-8">
                       <div className="flex items-center gap-4">
                         <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-border bg-muted">
-                          <layer.icon className="h-7 w-7 text-primary" />
+                          <layer.icon className="h-7 w-7 text-silver-light" />
                         </div>
                         <div>
-                          <div className="text-xs font-medium tracking-wider text-primary uppercase">
+                          <div className="text-xs font-medium tracking-wider text-silver-light uppercase">
                             Layer {index + 1}
                           </div>
                           <h3 className="font-heading text-xl font-bold text-foreground">
@@ -150,7 +150,7 @@ const Technology = () => {
                         <ul className="space-y-3">
                           {layer.capabilities.map((capability) => (
                             <li key={capability} className="flex items-start gap-3 text-sm text-muted-foreground">
-                              <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                              <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                               {capability}
                             </li>
                           ))}
@@ -208,7 +208,7 @@ const Technology = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="flex items-start gap-3"
                     >
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-silver-light" />
                       <span className="text-base text-foreground">{principle}</span>
                     </motion.li>
                   ))}

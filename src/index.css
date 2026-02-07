@@ -6,52 +6,76 @@
 
 @layer base {
   :root {
-    --background: 222 84% 4.9%;
-    --foreground: 220 14% 91%;
+    /* Industrial Infrastructure Backgrounds */
+    --background: 222 47% 3%;
+    --background-elevated: 222 35% 5%;
+    --foreground: 210 20% 88%;
 
-    --card: 222 47% 11.2%;
-    --card-foreground: 220 14% 91%;
+    /* Surface/Card Layers - Deep Neutral Charcoal */
+    --card: 220 15% 7%;
+    --card-foreground: 210 20% 88%;
 
-    --popover: 222 47% 11.2%;
-    --popover-foreground: 220 14% 91%;
+    --popover: 220 15% 7%;
+    --popover-foreground: 210 20% 88%;
 
-    --primary: 199 89% 60%;
-    --primary-foreground: 222 84% 4.9%;
+    /* PRIMARY = SILVER (Main Brand Color) */
+    --primary: 220 14% 85%;
+    --primary-foreground: 222 47% 8%;
 
-    --secondary: 220 9% 77%;
-    --secondary-foreground: 222 47% 11.2%;
+    /* Secondary Silver Variants */
+    --secondary: 220 10% 70%;
+    --secondary-foreground: 222 35% 12%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 220 6% 58%;
+    /* Muted Surfaces */
+    --muted: 220 15% 11%;
+    --muted-foreground: 220 10% 64%;
 
-    --accent: 199 89% 60%;
-    --accent-foreground: 222 84% 4.9%;
+    /* Accent - Blue ONLY for micro-interactions (≤20% opacity) */
+    --accent: 210 15% 72%;
+    --accent-foreground: 222 35% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 20% 18%;
-    --input: 222 20% 18%;
-    --ring: 199 89% 60%;
+    /* Borders - Neutral without blue tint */
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    
+    /* Focus Ring - Subtle silver or very faint blue */
+    --ring: 220 15% 70%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 220 14% 91%;
-    --sidebar-primary: 199 89% 60%;
-    --sidebar-primary-foreground: 222 84% 4.9%;
-    --sidebar-accent: 222 30% 15%;
-    --sidebar-accent-foreground: 220 14% 91%;
-    --sidebar-border: 222 20% 18%;
-    --sidebar-ring: 199 89% 60%;
+    /* Sidebar */
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 210 20% 88%;
+    --sidebar-primary: 220 14% 85%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 220 15% 11%;
+    --sidebar-accent-foreground: 210 20% 88%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 220 15% 70%;
 
-    /* Custom Zelion tokens */
-    --silver-light: 220 14% 91%;
-    --silver-mid: 220 9% 77%;
-    --silver-dark: 220 6% 58%;
-    --surface: 222 35% 8%;
-    --surface-elevated: 222 30% 12%;
-    --glow-blue: 199 89% 60%;
+    /* Industrial Silver Tokens - Primary Brand Colors */
+    --silver-light: 210 20% 94%;
+    --silver-mid: 220 12% 80%;
+    --silver-dark: 220 10% 63%;
+    
+    /* Additional silver gradients */
+    --silver-gradient-1-start: 210 20% 94%;
+    --silver-gradient-1-mid: 220 14% 81%;
+    --silver-gradient-1-end: 220 10% 64%;
+    
+    --silver-gradient-2-start: 215 18% 89%;
+    --silver-gradient-2-mid: 220 12% 77%;
+    --silver-gradient-2-end: 220 10% 57%;
+
+    /* Surface Layers */
+    --surface: 220 15% 7%;
+    --surface-elevated: 220 15% 11%;
+    
+    /* Blue accent - ONLY for micro interactions */
+    --accent-blue-subtle: 199 70% 50%;
   }
 }
 
@@ -70,12 +94,14 @@
 }
 
 @layer components {
+  /* Industrial Metal Card Surfaces */
   .glass-card {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50 rounded-lg;
+    @apply bg-card/60 backdrop-blur-xl border border-border/40 rounded-lg;
     box-shadow: 
-      0 0 0 1px hsl(var(--border) / 0.1),
-      0 4px 24px -4px hsl(222 84% 4.9% / 0.6),
-      inset 0 1px 0 0 hsl(var(--silver-light) / 0.05);
+      0 0 0 1px hsl(var(--border) / 0.08),
+      0 4px 24px -4px hsl(222 47% 3% / 0.7),
+      inset 0 1px 0 0 hsl(var(--silver-light) / 0.03),
+      inset 0 -1px 0 0 hsl(220 10% 20% / 0.5);
   }
 
   .glass-card-hover {
@@ -83,62 +109,73 @@
   }
 
   .glass-card-hover:hover {
-    @apply border-border;
+    @apply border-border/70;
     box-shadow: 
-      0 0 0 1px hsl(var(--border) / 0.2),
-      0 8px 32px -4px hsl(222 84% 4.9% / 0.8),
-      0 0 20px -8px hsl(var(--glow-blue) / 0.1),
-      inset 0 1px 0 0 hsl(var(--silver-light) / 0.08);
+      0 0 0 1px hsl(var(--silver-mid) / 0.15),
+      0 8px 32px -4px hsl(222 47% 3% / 0.9),
+      0 0 24px -8px hsl(var(--silver-light) / 0.08),
+      inset 0 1px 0 0 hsl(var(--silver-light) / 0.06),
+      inset 0 -1px 0 0 hsl(220 10% 20% / 0.7);
     transform: translateY(-2px);
   }
 
+  /* Primary Metallic Silver Gradient - Main Brand Identity */
   .metal-gradient {
     background: linear-gradient(
       135deg,
-      hsl(var(--silver-light)) 0%,
-      hsl(var(--silver-mid)) 50%,
-      hsl(var(--silver-dark)) 100%
+      hsl(var(--silver-gradient-1-start)) 0%,
+      hsl(var(--silver-gradient-1-mid)) 50%,
+      hsl(var(--silver-gradient-1-end)) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  /* Subtle background gradient for surfaces */
   .metal-gradient-bg {
     background: linear-gradient(
       135deg,
-      hsl(var(--silver-light) / 0.1) 0%,
-      hsl(var(--silver-mid) / 0.05) 50%,
-      hsl(var(--silver-dark) / 0.02) 100%
+      hsl(var(--silver-light) / 0.04) 0%,
+      hsl(var(--silver-mid) / 0.02) 50%,
+      hsl(var(--silver-dark) / 0.01) 100%
     );
   }
 
-  .blue-glow {
-    box-shadow: 0 0 20px -4px hsl(var(--glow-blue) / 0.3),
-                0 0 40px -8px hsl(var(--glow-blue) / 0.15);
+  /* REMOVED: Blue glow - only used for micro-accents now */
+  .silver-glow {
+    box-shadow: 0 0 20px -4px hsl(var(--silver-light) / 0.15),
+                0 0 40px -8px hsl(var(--silver-mid) / 0.08);
   }
 
-  .blue-glow-text {
-    text-shadow: 0 0 20px hsl(var(--glow-blue) / 0.5);
+  .silver-glow-text {
+    text-shadow: 0 0 20px hsl(var(--silver-light) / 0.3);
   }
 
+  /* Section divider - silver gradient */
   .section-divider {
     @apply w-full h-px;
     background: linear-gradient(
       90deg,
       transparent 0%,
       hsl(var(--border)) 20%,
-      hsl(var(--silver-mid) / 0.3) 50%,
+      hsl(var(--silver-mid) / 0.4) 50%,
       hsl(var(--border)) 80%,
       transparent 100%
     );
   }
 
+  /* Neutral grid pattern without blue */
   .grid-pattern {
     background-image: 
-      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+      linear-gradient(hsl(var(--border) / 0.25) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.25) 1px, transparent 1px);
     background-size: 60px 60px;
+  }
+  
+  /* Micro blue accent - only for focus/loading (≤20% opacity) */
+  .focus-accent-blue {
+    box-shadow: 0 0 0 2px hsl(var(--accent-blue-subtle) / 0.15);
   }
 }
 

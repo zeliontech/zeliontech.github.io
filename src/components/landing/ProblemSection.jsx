@@ -33,7 +33,7 @@ const ProblemSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Structural Challenges
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -60,7 +60,7 @@ const ProblemSection = () => {
               className="glass-card-hover p-6 lg:p-8"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted">
-                <problem.icon className="h-6 w-6 text-primary" />
+                <problem.icon className="h-6 w-6 text-silver-light" />
               </div>
               <h3 className="mb-3 font-heading text-lg font-semibold text-foreground">
                 {problem.title}

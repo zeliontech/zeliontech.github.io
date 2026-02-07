@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-muted">
-            <span className="font-heading text-sm font-bold text-primary">Z</span>
+            <span className="font-heading text-sm font-bold text-silver-light">Z</span>
           </div>
           <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
             ZELION
@@ -36,7 +36,7 @@ const Navbar = () => {
               to={link.href}
               className={`px-4 py-2 text-sm font-medium transition-colors ${
                 location.pathname === link.href
-                  ? "text-primary"
+                  ? "text-silver-light"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -85,7 +85,7 @@ const Navbar = () => {
                   onClick={() => setMobileOpen(false)}
                   className={`rounded-md px-4 py-3 text-sm font-medium transition-colors ${
                     location.pathname === link.href
-                      ? "bg-muted text-primary"
+                      ? "bg-muted text-silver-light"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
                 >

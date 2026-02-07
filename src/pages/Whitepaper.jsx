@@ -33,7 +33,7 @@ const Whitepaper = () => {
                 transition={{ duration: 0.6 }}
                 className="mb-16 text-center"
               >
-                <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+                <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
                   Documentation
                 </span>
                 <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
@@ -78,7 +78,7 @@ const Whitepaper = () => {
                 className="glass-card mt-16 p-8 lg:p-12"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <FileText className="h-5 w-5 text-primary" />
+                  <FileText className="h-5 w-5 text-silver-light" />
                   <h2 className="font-heading text-xl font-semibold text-foreground">Abstract</h2>
                 </div>
                 <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">

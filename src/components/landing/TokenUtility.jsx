@@ -36,7 +36,7 @@ const TokenUtility = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Token Utility
           </span>
           <h2 className="mb-4 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -58,7 +58,7 @@ const TokenUtility = () => {
               className="glass-card-hover p-6 lg:p-8"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted">
-                <item.icon className="h-5 w-5 text-primary" />
+                <item.icon className="h-5 w-5 text-silver-light" />
               </div>
               <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
                 {item.title}

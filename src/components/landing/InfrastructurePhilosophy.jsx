@@ -18,7 +18,7 @@ const InfrastructurePhilosophy = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Philosophy
           </span>
           <h2 className="mb-8 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -50,7 +50,7 @@ const InfrastructurePhilosophy = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-silver-light" />
                   <span className="text-base text-foreground">{principle}</span>
                 </motion.div>
               ))}

@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const allocations = [
-  { label: "Ecosystem & Infrastructure", amount: "150,000,000", pct: 30, color: "bg-primary" },
+  { label: "Ecosystem & Infrastructure", amount: "150,000,000", pct: 30, color: "bg-silver-light" },
   { label: "Development & Operations", amount: "75,000,000", pct: 15, color: "bg-silver-mid" },
   { label: "Liquidity & Market Stability", amount: "75,000,000", pct: 15, color: "bg-silver-dark" },
   { label: "Community Programs", amount: "50,000,000", pct: 10, color: "bg-foreground" },
@@ -24,7 +24,7 @@ const TokenomicsPage = () => {
               transition={{ duration: 0.6 }}
               className="mb-16 text-center"
             >
-              <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+              <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
                 Token Economics
               </span>
               <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
@@ -55,7 +55,7 @@ const TokenomicsPage = () => {
               <div className="glass-card mx-auto max-w-xl p-8 text-center">
                 <div className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Total Supply</div>
                 <div className="mt-2 font-heading text-5xl font-bold text-foreground">500,000,000</div>
-                <div className="mt-1 font-heading text-xl text-primary">$ZLN</div>
+                <div className="mt-1 font-heading text-xl text-silver-light">$ZLN</div>
               </div>
             </motion.div>
 
@@ -108,11 +108,11 @@ const TokenomicsPage = () => {
                   <h3 className="mb-4 text-sm font-medium text-foreground">Vesting Structure:</h3>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                       6-month cliff
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                       12–24 months linear vesting following cliff period
                     </li>
                   </ul>
@@ -136,15 +136,15 @@ const TokenomicsPage = () => {
                   <h3 className="mb-4 text-sm font-medium text-foreground">The model prioritizes:</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                       Controlled token supply
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                       Infrastructure-backed utility
                     </li>
                     <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                       Long-term ecosystem participation
                     </li>
                   </ul>
@@ -166,19 +166,19 @@ const TokenomicsPage = () => {
                 </p>
                 <ul className="mb-6 space-y-3">
                   <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                     Validator coordination mechanisms
                   </li>
                   <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                     Access to infrastructure-level ecosystem services
                   </li>
                   <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                     Alignment of long-term ecosystem contributors
                   </li>
                   <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-silver-light" />
                     Governance signaling for protocol-level decisions
                   </li>
                 </ul>

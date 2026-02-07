@@ -45,7 +45,7 @@ const FAQSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             FAQ
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -68,7 +68,7 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="glass-card overflow-hidden border-border/50 px-6"
               >
-                <AccordionTrigger className="py-5 text-left font-heading text-sm font-medium text-foreground hover:no-underline hover:text-primary sm:text-base">
+                <AccordionTrigger className="py-5 text-left font-heading text-sm font-medium text-foreground hover:no-underline hover:text-silver-light sm:text-base">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">

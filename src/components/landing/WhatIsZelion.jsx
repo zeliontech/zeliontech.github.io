@@ -11,7 +11,7 @@ const WhatIsZelion = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             What is Zelion
           </span>
           <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">

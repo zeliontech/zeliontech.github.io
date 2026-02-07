@@ -44,7 +44,7 @@ const HowToBuy = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+              <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
                 How to Access $ZLN
               </span>
               <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
@@ -102,7 +102,7 @@ const HowToBuy = () => {
                   </div>
                   <div className="relative flex items-start gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-border bg-muted">
-                      <s.icon className="h-5 w-5 text-primary" />
+                      <s.icon className="h-5 w-5 text-silver-light" />
                     </div>
                     <div>
                       <h3 className="mb-2 font-heading text-base font-semibold text-foreground">

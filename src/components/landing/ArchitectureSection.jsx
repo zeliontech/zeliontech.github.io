@@ -8,7 +8,7 @@ const layers = [
     tag: "Layer 1",
     description:
       "Energy-related hardware and validation devices operate at the infrastructure edge, capturing real-world energy data and performing local integrity checks.",
-    color: "text-primary",
+    color: "text-silver-light",
   },
   {
     icon: Shield,
@@ -40,7 +40,7 @@ const ArchitectureSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Architecture
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">

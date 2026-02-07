@@ -1,0 +1,834 @@
+═══════════════════════════════════════════════════════════════════════════════
+ZELION PROJECT - COMPLETE WEBSITE TEXT CONTENT
+═══════════════════════════════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════════════════════════════
+GLOBAL NAVIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Brand: ZELION
+
+Navigation Links:
+- Technology
+- Tokenomics
+- How to Buy
+- Whitepaper
+
+Buttons:
+- Connect Wallet
+- Buy $ZLN
+
+═══════════════════════════════════════════════════════════════════════════════
+HOMEPAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+HERO SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Badge: Infrastructure-First Energy Validation Network
+
+Heading:
+Infrastructure-First
+Energy Validation Network
+
+Subtext:
+Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment.
+The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.
+
+Buttons:
+- Connect Wallet
+- Buy $ZLN
+
+Stats:
+- 500M Total Supply
+- 3-Layer Architecture
+- Hardware Validation
+- Long-Term Infrastructure
+
+───────────────────────────────────────────────────────────────────────────────
+WHAT IS ZELION SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: What is Zelion
+
+Heading: Infrastructure Before Token
+
+Body:
+Most blockchain projects begin with tokens and attempt to later attach utility.
+Zelion reverses this approach.
+
+Zelion begins with infrastructure, hardware validation, and real-world system integration.
+The token exists only as a coordination and alignment layer within the ecosystem.
+
+Zelion is designed for long-term deployment, real-world infrastructure integration, and institutional compatibility.
+
+───────────────────────────────────────────────────────────────────────────────
+INFRASTRUCTURE PHILOSOPHY SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Philosophy
+
+Heading:
+Infrastructure Before
+Speculation
+
+Body:
+Zelion does not aim to replace energy systems.
+It aims to validate, coordinate, and secure them.
+
+Core principles include:
+• Infrastructure before token
+• Deterministic processing over probabilistic consensus
+• Long-term deployment over short-term incentives
+
+───────────────────────────────────────────────────────────────────────────────
+PROBLEM SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Structural Challenges
+
+Heading:
+Structural Challenges in
+Global Energy Systems
+
+Subtext:
+Global energy systems face three core challenges
+
+Closing Text:
+Zelion addresses these gaps by anchoring validation at the infrastructure edge, not at the application layer.
+
+Problem 1: Lack of Verifiable Energy Data
+Energy data is often difficult to verify at the source and can be vulnerable to manipulation.
+
+Problem 2: Centralized Validation Mechanisms
+Many existing systems rely on centralized validation, reducing transparency and resilience.
+
+Problem 3: Inefficient Physical-to-Digital Coordination
+Physical infrastructure and digital systems often operate without unified verification or coordination layers.
+
+───────────────────────────────────────────────────────────────────────────────
+VISION SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Vision
+
+Heading:
+Long-Term Infrastructure
+Validation
+
+Body:
+Zelion envisions a future where:
+
+• Energy validation is hardware-based, not trust-based
+• Infrastructure operates independently of speculative cycles
+• Blockchain functions as a coordination layer, not the core product
+
+The system is designed for long-term infrastructure deployment and real-world integration.
+
+───────────────────────────────────────────────────────────────────────────────
+ARCHITECTURE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Architecture
+
+Heading:
+Three-Layer Infrastructure
+Architecture
+
+Layer 1 — Physical Layer
+Energy-related hardware and validation devices operate at the infrastructure edge, capturing real-world energy data and performing local integrity checks.
+
+Layer 2 — Validation Layer
+Deterministic processing, cryptographic verification, and data integrity validation ensure trusted data before it enters digital coordination systems.
+
+Layer 3 — Coordination Layer
+Blockchain-based coordination records validated outcomes and supports ecosystem-level transparency and coordination. Each layer operates independently while remaining interoperable.
+
+───────────────────────────────────────────────────────────────────────────────
+HARDWARE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Hardware Validators
+
+Heading:
+Validation
+at the Source
+
+Body:
+Zelion integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems.
+
+By validating data at the physical source, Zelion reduces attack surfaces and improves data reliability across infrastructure systems.
+
+Hardware Specifications:
+- Industrial Grade: Energy validation
+- Connectivity: Infrastructure edge
+- Tamper Resistant: Integrity checks
+- Data Capture: Real-world data
+
+Device Visual: Hardware Validator - Infrastructure Validation - Active
+
+───────────────────────────────────────────────────────────────────────────────
+BLOCKCHAIN ROLE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Blockchain Role
+
+Heading:
+Blockchain as a
+Coordination Layer
+
+Body:
+In the Zelion ecosystem, blockchain is used for:
+
+• Validator coordination
+• Infrastructure alignment
+• Ecosystem transparency
+
+Blockchain does not control physical infrastructure.
+It records validated outcomes produced by infrastructure-level processes, improving resilience and scalability.
+
+───────────────────────────────────────────────────────────────────────────────
+TOKEN UTILITY SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Token Utility
+
+Heading: $ZLN Utility Token
+
+Body:
+The Zelion token is a utility and coordination instrument. Primary utilities include validator coordination, infrastructure service access, ecosystem alignment, and governance signaling.
+
+Utility 1: Validator Coordination
+Participation in validator coordination mechanisms to support network integrity and infrastructure alignment.
+
+Utility 2: Infrastructure Services
+Access to ecosystem-level infrastructure services and validated data feeds for institutional integration.
+
+Utility 3: Ecosystem Alignment
+Alignment of long-term contributors and ecosystem participants through coordinated incentive structures.
+
+Utility 4: Governance Signaling
+Governance signaling for protocol-level decisions. The token does not represent equity, ownership, or profit-sharing.
+
+───────────────────────────────────────────────────────────────────────────────
+TOKENOMICS SNAPSHOT SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Tokenomics
+
+Heading:
+Supply &
+Allocation
+
+Total Supply (Fixed): 500,000,000 $ZLN
+
+Note: Team and core contributor allocations follow long-term vesting
+
+Allocation Breakdown:
+- Ecosystem & Infrastructure: 30%
+- Development & Operations: 15%
+- Liquidity & Market Stability: 15%
+- Community Programs: 10%
+- Strategic Partnerships: 10%
+- Core Contributors (Team): 20%
+
+───────────────────────────────────────────────────────────────────────────────
+ECONOMIC SUSTAINABILITY SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Economic Model
+
+Heading:
+Long-Term Economic
+Sustainability
+
+Body:
+Zelion's economic model is designed to avoid short-term incentive cycles and unsustainable emissions.
+
+The system focuses on:
+
+• Controlled token supply
+• Infrastructure-backed utility
+• Long-term ecosystem participation
+
+The model prioritizes system resilience over rapid expansion.
+
+───────────────────────────────────────────────────────────────────────────────
+ROADMAP SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Roadmap
+
+Heading:
+Infrastructure Deployment
+Roadmap
+
+Subtext: Timelines adapt based on real-world infrastructure deployment conditions
+
+Phase 1 — Foundation (Current)
+- Core hardware validation
+- Initial system deployment
+- Infrastructure testing
+- Protocol development
+
+Phase 2 — Expansion (Upcoming)
+- Expanded deployment
+- Ecosystem integrations
+- Performance optimization
+- Validator network growth
+
+Phase 3 — Global Scale (Upcoming)
+- Global scalable infrastructure rollout
+- Long-term operational refinement
+- Institutional integration
+- Ecosystem maturity
+
+───────────────────────────────────────────────────────────────────────────────
+GOVERNANCE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Governance
+
+Heading:
+Governance
+Principles
+
+Subtext: Zelion governance prioritizes technical integrity, infrastructure reliability, and long-term ecosystem alignment
+
+Pillar 1: Technical Integrity
+Infrastructure reliability and hardware-level validation ensure system integrity across all deployment environments.
+
+Pillar 2: Infrastructure Reliability
+Long-term operational stability prioritized over rapid expansion. Systems designed for resilient, deterministic performance.
+
+Pillar 3: Long-Term Ecosystem Alignment
+Governance evolves gradually and remains subordinate to infrastructure stability. Protocol decisions align with long-term sustainability.
+
+───────────────────────────────────────────────────────────────────────────────
+TEAM PHILOSOPHY SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Team
+
+Heading:
+Infrastructure-Focused
+Development Team
+
+Body:
+Zelion is developed by a multidisciplinary team with experience across energy infrastructure, hardware systems, and decentralized coordination architectures.
+
+For operational security and regulatory reasons, individual identities are disclosed selectively to strategic partners when required.
+
+───────────────────────────────────────────────────────────────────────────────
+FAQ SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: FAQ
+
+Heading:
+Frequently Asked
+Questions
+
+Q1: What is Zelion?
+A: Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment. The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.
+
+Q2: Why infrastructure before token?
+A: Most blockchain projects begin with tokens and attempt to later attach utility. Zelion reverses this approach by beginning with infrastructure, hardware validation, and real-world system integration. The token exists only as a coordination and alignment layer within the ecosystem.
+
+Q3: What does the $ZLN token do?
+A: $ZLN is a utility and coordination instrument. Primary utilities include participation in validator coordination mechanisms, access to ecosystem-level infrastructure services, alignment of long-term contributors, and governance signaling for protocol-level decisions. The token does not represent equity, ownership, or profit-sharing.
+
+Q4: How does hardware validation work?
+A: Zelion integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems. By validating data at the physical source, Zelion reduces attack surfaces and improves data reliability.
+
+Q5: What is the role of blockchain in Zelion?
+A: In the Zelion ecosystem, blockchain is used for validator coordination, infrastructure alignment, and ecosystem transparency. Blockchain does not control physical infrastructure—it records validated outcomes produced by infrastructure-level processes, improving resilience and scalability.
+
+Q6: Is Zelion an investment?
+A: No. Zelion is infrastructure technology designed for long-term deployment, real-world infrastructure integration, and institutional compatibility. Participation in decentralized infrastructure systems involves risk, and no guarantees are made regarding performance, adoption, or outcomes. Users should conduct independent research before participating.
+
+───────────────────────────────────────────────────────────────────────────────
+LEGAL NOTICE SECTION (HOMEPAGE)
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Important Notice
+
+Body:
+This project is provided for informational purposes only.
+
+Participation in decentralized infrastructure systems involves risk.
+No guarantees are made regarding performance, adoption, or outcomes.
+
+Users should conduct independent research before participating.
+
+═══════════════════════════════════════════════════════════════════════════════
+TOKENOMICS PAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+Page Title: Token Economics
+
+───────────────────────────────────────────────────────────────────────────────
+HERO SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Token Economics
+
+Heading: Zelion Token Structure
+
+Body:
+The Zelion token is designed as a utility and coordination instrument within the infrastructure ecosystem.
+It supports validator coordination, ecosystem participation, and long-term network alignment.
+
+The token does not represent equity, ownership, or profit-sharing.
+
+───────────────────────────────────────────────────────────────────────────────
+SUPPLY SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Fixed Supply Model
+
+Body:
+The Zelion token has a fixed total supply designed to support long-term ecosystem sustainability and infrastructure deployment.
+
+Total Supply: 500,000,000 $ZLN
+
+───────────────────────────────────────────────────────────────────────────────
+ALLOCATION SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Token Allocation Structure
+
+Body:
+Token distribution is designed to support infrastructure deployment, ecosystem growth, and long-term system stability.
+
+Allocation Breakdown:
+
+Ecosystem & Infrastructure
+150,000,000 $ZLN (30%)
+
+Development & Operations
+75,000,000 $ZLN (15%)
+
+Liquidity & Market Stability
+75,000,000 $ZLN (15%)
+
+Community Programs
+50,000,000 $ZLN (10%)
+
+Strategic Partnerships
+50,000,000 $ZLN (10%)
+
+Core Contributors (Team)
+100,000,000 $ZLN (20%)
+
+───────────────────────────────────────────────────────────────────────────────
+VESTING SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Long-Term Alignment
+
+Body:
+Team and core contributor allocations follow long-term vesting schedules designed to support ecosystem stability and long-term contributor alignment.
+
+Vesting Structure:
+• 6-month cliff
+• 12–24 months linear vesting following cliff period
+
+Liquidity allocations are managed strategically to support sustainable ecosystem growth and reduce short-term volatility.
+
+───────────────────────────────────────────────────────────────────────────────
+ECONOMIC MODEL SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Infrastructure-Aligned Economic Model
+
+Body:
+Zelion's economic structure is designed to avoid unsustainable emissions and short-term incentive cycles.
+
+The model prioritizes:
+
+• Controlled token supply
+• Infrastructure-backed utility
+• Long-term ecosystem participation
+
+The system favors resilience and infrastructure longevity over rapid expansion.
+
+───────────────────────────────────────────────────────────────────────────────
+TOKEN ROLE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Utility and Coordination Function
+
+Body:
+The Zelion token is used for:
+
+• Validator coordination mechanisms
+• Access to infrastructure-level ecosystem services
+• Alignment of long-term ecosystem contributors
+• Governance signaling for protocol-level decisions
+
+The token is not designed as a financial product or investment instrument.
+
+───────────────────────────────────────────────────────────────────────────────
+DISCLAIMER SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Important Notice
+
+Body:
+The Zelion token is a utility and coordination instrument used within the ecosystem infrastructure.
+It does not represent ownership, equity, or entitlement to revenue or profit.
+
+Participation in decentralized infrastructure ecosystems involves risk.
+
+═══════════════════════════════════════════════════════════════════════════════
+TECHNOLOGY PAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+Page Title: Technology Architecture
+
+───────────────────────────────────────────────────────────────────────────────
+HERO SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Technology Architecture
+
+Heading:
+Infrastructure-First
+Validation Architecture
+
+Subtext:
+Zelion is designed as an infrastructure-first system focused on deterministic energy data validation through hardware-anchored verification and blockchain coordination.
+
+───────────────────────────────────────────────────────────────────────────────
+ARCHITECTURE OVERVIEW SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading:
+Three-Layer Infrastructure
+Architecture
+
+Body:
+The Zelion system is structured across three independent but interoperable layers:
+
+• Physical Infrastructure Layer
+• Validation Processing Layer
+• Blockchain Coordination Layer
+
+Each layer operates independently while maintaining system interoperability and long-term deployment flexibility.
+
+───────────────────────────────────────────────────────────────────────────────
+PHYSICAL LAYER SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Layer 1
+
+Heading: Physical Infrastructure Layer
+
+Body:
+The physical layer consists of energy-related hardware and validation devices operating at the infrastructure edge.
+
+These devices are designed to:
+
+• Capture real-world energy-related data
+• Perform local data integrity validation
+• Reduce manipulation risk at the source
+
+This approach aligns with industrial and infrastructure-grade system requirements.
+
+───────────────────────────────────────────────────────────────────────────────
+VALIDATION LAYER SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Layer 2
+
+Heading: Deterministic Validation Processing
+
+Body:
+The validation layer performs deterministic processing and cryptographic verification of infrastructure data.
+
+Functions include:
+
+• Data integrity verification
+• Deterministic validation processing
+• Cryptographic verification of validated data
+
+This layer ensures data reliability before it enters ecosystem-level coordination systems.
+
+───────────────────────────────────────────────────────────────────────────────
+BLOCKCHAIN COORDINATION SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Layer 3
+
+Heading: Blockchain Coordination Layer
+
+Body:
+Blockchain is used for:
+
+• Validator coordination
+• Infrastructure alignment
+• Ecosystem transparency
+
+Blockchain does not control physical infrastructure systems.
+It records validated outcomes produced by infrastructure-level validation processes.
+
+This separation improves resilience and scalability.
+
+───────────────────────────────────────────────────────────────────────────────
+HARDWARE VALIDATION PHILOSOPHY SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading:
+Validation at the
+Infrastructure Edge
+
+Body:
+By validating infrastructure data before it enters digital systems, Zelion reduces potential attack surfaces and false reporting risks.
+
+This design supports industrial-scale deployment and infrastructure-level reliability.
+
+───────────────────────────────────────────────────────────────────────────────
+DESIGN PRINCIPLES SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading:
+Core Infrastructure
+Principles
+
+Body:
+• Infrastructure before token
+• Deterministic processing over probabilistic consensus
+• Long-term deployment over short-term incentives
+
+These principles guide system architecture and governance evolution.
+
+═══════════════════════════════════════════════════════════════════════════════
+HOW TO BUY PAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+Page Title: How to Access $ZLN
+
+───────────────────────────────────────────────────────────────────────────────
+HERO SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: How to Access $ZLN
+
+Heading:
+Access the Zelion
+Utility Token
+
+Subtext:
+The Zelion token is a utility instrument used within the ecosystem for coordination and infrastructure-level participation.
+
+Participation involves interacting with blockchain-based systems using compatible digital wallets.
+
+───────────────────────────────────────────────────────────────────────────────
+ACCESS OVERVIEW SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Access Process Overview
+
+Body:
+Accessing the Zelion token involves connecting a compatible Web3 wallet and interacting with the token contract through supported interfaces.
+
+Users should ensure they understand the risks associated with blockchain transactions before proceeding.
+
+───────────────────────────────────────────────────────────────────────────────
+ACCESS STEPS SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Access Steps
+
+Step 1 — Install a Compatible Wallet
+Install a Web3-compatible wallet application that supports blockchain-based token transactions.
+
+Step 2 — Connect Wallet
+Connect your wallet through the platform interface and approve the connection request.
+
+Step 3 — Select Token Amount
+Specify the token amount for transaction and review transaction details carefully.
+
+Step 4 — Confirm Transaction
+Confirm the transaction through your wallet interface. Blockchain transactions are irreversible once confirmed.
+
+───────────────────────────────────────────────────────────────────────────────
+TRANSACTION NOTICE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Transaction Notice
+
+Body:
+Blockchain transactions may require network confirmation time.
+Transaction completion depends on network conditions and processing times.
+
+Always verify wallet addresses and transaction details before confirming.
+
+───────────────────────────────────────────────────────────────────────────────
+RISK NOTICE SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Important Risk Information
+
+Body:
+• Blockchain transactions are irreversible.
+• Digital asset participation involves risk.
+• Users are responsible for compliance with local laws and regulations.
+
+───────────────────────────────────────────────────────────────────────────────
+UTILITY DISCLAIMER SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Utility Token Notice
+
+Body:
+The Zelion token is designed as a utility instrument for ecosystem coordination.
+
+It is not designed as a financial product, investment instrument, or security.
+
+═══════════════════════════════════════════════════════════════════════════════
+WHITEPAPER PAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+Page Title: Documentation
+
+───────────────────────────────────────────────────────────────────────────────
+HERO SECTION
+───────────────────────────────────────────────────────────────────────────────
+
+Label: Documentation
+
+Heading: Whitepaper
+
+Subtext:
+A comprehensive technical overview of the Zelion protocol, architecture, and token economics.
+
+Button: Download PDF
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION NAVIGATION
+───────────────────────────────────────────────────────────────────────────────
+
+Sections:
+01. Abstract
+02. Introduction
+03. Problem Statement
+04. Architecture Overview
+05. Physical Layer
+06. Validation Layer
+07. Blockchain Coordination
+08. Token Economics
+09. Governance Framework
+10. Roadmap
+11. Conclusion
+12. References
+
+───────────────────────────────────────────────────────────────────────────────
+ABSTRACT PREVIEW
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Abstract
+
+Body:
+Zelion presents an infrastructure-first approach to energy data validation using hardware-anchored verification nodes. The protocol establishes a three-layer architecture—physical, validation, and blockchain coordination—that enables deterministic energy data verification without centralized trust assumptions.
+
+This whitepaper describes the technical architecture, consensus mechanisms, token economics, and governance framework that constitute the Zelion protocol. The system is designed for institutional-grade reliability while maintaining the transparency and immutability properties of decentralized coordination.
+
+Key innovations include tamper-resistant hardware validators with cryptographic attestation, Byzantine fault tolerant multi-node verification, and a utility token model aligned with long-term network sustainability.
+
+═══════════════════════════════════════════════════════════════════════════════
+LEGAL PAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+Page Title: Legal Disclaimer
+
+Last Updated: February 2026
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 1: GENERAL DISCLAIMER
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: General Disclaimer
+
+Body:
+The information provided on this website and related materials is for informational purposes only. Nothing contained herein constitutes financial advice, investment advice, trading advice, or any other sort of professional advice. $ZLN is a utility token designed to function within the Zelion protocol infrastructure. It is not a security, commodity, or financial instrument.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 2: NO INVESTMENT ADVICE
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: No Investment Advice
+
+Body:
+The content on this website does not constitute a recommendation or solicitation to buy, sell, or hold any token, cryptocurrency, or digital asset. You should conduct your own research and consult with qualified professionals before making any decisions regarding digital assets.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 3: RISK DISCLOSURE
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Risk Disclosure
+
+Body:
+Digital assets involve substantial risk and are not suitable for everyone. The value of digital assets can fluctuate significantly. You should only participate with funds you can afford to lose. Past performance does not guarantee future results.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 4: FORWARD-LOOKING STATEMENTS
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Forward-Looking Statements
+
+Body:
+This website may contain forward-looking statements regarding the Zelion protocol, technology development, and token utility. Such statements are based on current expectations and assumptions, and actual results may differ materially from those projected.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 5: REGULATORY COMPLIANCE
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Regulatory Compliance
+
+Body:
+Users are solely responsible for understanding and complying with all applicable laws and regulations in their jurisdiction regarding digital assets and cryptocurrency. The availability of $ZLN tokens may be restricted in certain jurisdictions.
+
+───────────────────────────────────────────────────────────────────────────────
+SECTION 6: LIMITATION OF LIABILITY
+───────────────────────────────────────────────────────────────────────────────
+
+Heading: Limitation of Liability
+
+Body:
+To the maximum extent permitted by applicable law, Zelion and its contributors shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, arising from your use of the protocol or tokens.
+
+═══════════════════════════════════════════════════════════════════════════════
+GLOBAL FOOTER
+═══════════════════════════════════════════════════════════════════════════════
+
+Brand: ZELION
+
+Brand Description:
+Zelion is designed for infrastructure validation, deterministic data processing, and long-term system deployment.
+$ZLN is a utility token used for ecosystem coordination and does not represent ownership, equity, or profit-sharing.
+
+Protocol Links:
+- Technology
+- Whitepaper
+- Tokenomics
+
+Community Links:
+- Discord
+- Twitter
+- Telegram
+
+Legal Links:
+- Disclaimer
+- Privacy Policy
+- Terms of Use
+
+Footer Text:
+© 2026 Zelion Protocol. All rights reserved.
+$ZLN is a utility token. Not a financial product.
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF CONTENT EXTRACTION
+═══════════════════════════════════════════════════════════════════════════════

@@ -20,7 +20,7 @@ const BlockchainRole = () => {
           className="mx-auto max-w-3xl"
         >
           <div className="text-center mb-8">
-            <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+            <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
               Blockchain Role
             </span>
             <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -32,7 +32,7 @@ const BlockchainRole = () => {
           
           <div className="glass-card p-8 lg:p-10">
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-muted">
-              <Blocks className="h-7 w-7 text-primary" />
+              <Blocks className="h-7 w-7 text-silver-light" />
             </div>
             
             <p className="mb-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
@@ -49,7 +49,7 @@ const BlockchainRole = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-center gap-3 text-base text-muted-foreground"
                 >
-                  <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-silver-light" />
                   {role}
                 </motion.li>
               ))}

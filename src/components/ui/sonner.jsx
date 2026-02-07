@@ -13,7 +13,7 @@ const Toaster = ({ ...props }) => {
           toast:
             "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
           description: "group-[.toast]:text-muted-foreground",
-          actionButton: "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+          actionButton: "group-[.toast]:bg-gradient-to-br group-[.toast]:from-silver-light group-[.toast]:via-silver-mid group-[.toast]:to-silver-dark group-[.toast]:text-foreground",
           cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
         },
       }}

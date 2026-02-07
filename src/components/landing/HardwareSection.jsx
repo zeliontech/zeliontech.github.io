@@ -29,8 +29,8 @@ const HardwareSection = () => {
                   {/* Device visual */}
                   <div className="h-48 w-64 rounded-lg border border-border bg-gradient-to-b from-silver-light/10 to-silver-dark/5 shadow-lg lg:h-56 lg:w-72">
                     <div className="flex h-full flex-col items-center justify-center gap-4 p-6">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-primary/30 bg-muted">
-                        <Cpu className="h-8 w-8 text-primary" />
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-silver-light/30 bg-muted">
+                        <Cpu className="h-8 w-8 text-silver-light" />
                       </div>
                       <div className="text-center">
                         <div className="font-heading text-sm font-semibold text-foreground">
@@ -41,15 +41,15 @@ const HardwareSection = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="h-2 w-2 animate-pulse-glow rounded-full bg-primary" />
-                        <span className="text-[10px] font-medium text-primary uppercase tracking-wider">
+                        <div className="h-2 w-2 animate-pulse-glow rounded-full bg-silver-light" />
+                        <span className="text-[10px] font-medium text-silver-light uppercase tracking-wider">
                           Active
                         </span>
                       </div>
                     </div>
                   </div>
                   {/* Glow effect */}
-                  <div className="absolute -inset-4 -z-10 rounded-xl bg-primary/5 blur-2xl" />
+                  <div className="absolute -inset-4 -z-10 rounded-xl bg-silver-light/10 blur-2xl" />
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ const HardwareSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+            <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
               Hardware Validators
             </span>
             <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl">
@@ -87,7 +87,7 @@ const HardwareSection = () => {
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                   className="glass-card p-4"
                 >
-                  <spec.icon className="mb-2 h-5 w-5 text-primary" />
+                  <spec.icon className="mb-2 h-5 w-5 text-silver-light" />
                   <div className="text-sm font-medium text-foreground">{spec.label}</div>
                   <div className="text-xs text-muted-foreground">{spec.detail}</div>
                 </motion.div>

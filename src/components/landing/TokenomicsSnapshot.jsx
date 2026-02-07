@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const allocations = [
-  { label: "Ecosystem & Infrastructure", pct: 30, color: "bg-primary" },
+  { label: "Ecosystem & Infrastructure", pct: 30, color: "bg-silver-light" },
   { label: "Development & Operations", pct: 15, color: "bg-silver-mid" },
   { label: "Liquidity & Market Stability", pct: 15, color: "bg-silver-dark" },
-  { label: "Community Programs", pct: 10, color: "bg-foreground" },
-  { label: "Strategic Partnerships", pct: 10, color: "bg-muted-foreground" },
+  { label: "Community Programs", pct: 10, color: "bg-foreground/80" },
+  { label: "Strategic Partnerships", pct: 10, color: "bg-muted-foreground/80" },
   { label: "Core Contributors (Team)", pct: 20, color: "bg-border" },
 ];
 
@@ -21,7 +21,7 @@ const TokenomicsSnapshot = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Tokenomics
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -45,7 +45,7 @@ const TokenomicsSnapshot = () => {
             <div className="mt-2 font-heading text-4xl font-bold text-foreground lg:text-5xl">
               500,000,000
             </div>
-            <div className="mt-1 font-heading text-lg text-primary">$ZLN</div>
+            <div className="mt-1 font-heading text-lg text-silver-light">$ZLN</div>
             <div className="mt-3 text-xs text-muted-foreground">
               Team and core contributor allocations follow long-term vesting
             </div>

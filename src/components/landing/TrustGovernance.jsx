@@ -34,7 +34,7 @@ const TrustGovernance = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Governance
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -57,7 +57,7 @@ const TrustGovernance = () => {
               className="glass-card-hover p-6 text-center lg:p-8"
             >
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted">
-                <pillar.icon className="h-6 w-6 text-primary" />
+                <pillar.icon className="h-6 w-6 text-silver-light" />
               </div>
               <h3 className="mb-3 font-heading text-lg font-semibold text-foreground">
                 {pillar.title}

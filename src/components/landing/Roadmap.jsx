@@ -49,7 +49,7 @@ const Roadmap = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Roadmap
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -81,7 +81,7 @@ const Roadmap = () => {
                 <div
                   className={`absolute left-2.5 top-6 h-3 w-3 rounded-full border-2 md:top-6 ${
                     phase.status === "active"
-                      ? "border-primary bg-primary blue-glow"
+                      ? "border-silver-light bg-silver-light shadow-[0_0_12px_-2px_rgba(226,232,240,0.6)]"
                       : "border-border bg-muted"
                   } ${index % 2 === 0 ? "md:left-auto md:-right-[6.5px]" : "md:-left-[6.5px]"}`}
                 />
@@ -90,13 +90,13 @@ const Roadmap = () => {
                   <div className="mb-1 flex items-center gap-3">
                     <span
                       className={`text-xs font-medium tracking-wider uppercase ${
-                        phase.status === "active" ? "text-primary" : "text-muted-foreground"
+                        phase.status === "active" ? "text-silver-light" : "text-muted-foreground"
                       }`}
                     >
                       {phase.phase}
                     </span>
                     {phase.status === "active" && (
-                      <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+                      <span className="rounded-full bg-silver-light/15 px-2 py-0.5 text-[10px] font-medium text-silver-light">
                         Current
                       </span>
                     )}
@@ -108,7 +108,7 @@ const Roadmap = () => {
                     {phase.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
                         {phase.status === "active" ? (
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-silver-light" />
                         ) : (
                           <Circle className="mt-0.5 h-4 w-4 flex-shrink-0 text-border" />
                         )}

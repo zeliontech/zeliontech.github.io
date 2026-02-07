@@ -14,7 +14,7 @@ const TeamPhilosophy = () => {
           className="mx-auto max-w-3xl"
         >
           <div className="text-center mb-8">
-            <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-primary uppercase">
+            <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
               Team
             </span>
             <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
@@ -26,7 +26,7 @@ const TeamPhilosophy = () => {
           
           <div className="glass-card p-8 lg:p-10 text-center">
             <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-muted">
-              <Users className="h-7 w-7 text-primary" />
+              <Users className="h-7 w-7 text-silver-light" />
             </div>
             
             <p className="mb-6 text-base leading-relaxed text-muted-foreground lg:text-lg">

@@ -27,7 +27,7 @@ const Footer = () => {
           <div>
             <div className="mb-4 flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-muted">
-                <span className="font-heading text-sm font-bold text-primary">Z</span>
+                <span className="font-heading text-sm font-bold text-silver-light">Z</span>
               </div>
               <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
                 ZELION
