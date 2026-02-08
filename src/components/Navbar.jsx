@@ -30,11 +30,11 @@ const Navbar = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center">
+          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white p-1">
             <img src="/logo.svg" alt="Zelion Logo" className="h-full w-full text-silver-light" />
           </div>
           <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
-            ZELION
+            ZelionTech
           </span>
         </Link>
 
