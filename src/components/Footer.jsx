@@ -5,11 +5,13 @@ const footerLinks = {
     { label: "Technology", href: "/technology" },
     { label: "Whitepaper", href: "/whitepaper" },
     { label: "Tokenomics", href: "/tokenomics" },
+    { label: "Contact Us", href: "/contact" },
   ],
   Community: [
-    { label: "Discord", href: "#" },
-    { label: "Twitter", href: "#" },
-    { label: "Telegram", href: "#" },
+    { label: "Telegram", href: "https://t.me/zelionglobal", external: true },
+    { label: "Twitter (X)", href: "https://x.com/zeliontech", external: true },
+    { label: "Website", href: "https://www.zeliontech.com", external: true },
+    { label: "Email", href: "mailto:info@zeliontech.com", external: false },
   ],
   Legal: [
     { label: "Disclaimer", href: "/legal" },
@@ -34,8 +36,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-              Zelion is designed for infrastructure validation, deterministic data processing, and long-term system deployment.
-              $ZLN is a utility token used for ecosystem coordination and does not represent ownership, equity, or profit-sharing.
+              Zelion Energy Network enables trustless verification of renewable energy at the source.
             </p>
           </div>
 
@@ -48,12 +49,23 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target={link.href.startsWith("mailto:") ? "_self" : "_blank"}
+                        rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -65,7 +77,7 @@ const Footer = () => {
         <div className="section-divider mt-12 mb-6" />
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © 2026 Zelion Protocol. All rights reserved.
+            © {new Date().getFullYear()} Zelion. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
             $ZLN is a utility token. Not a financial product.

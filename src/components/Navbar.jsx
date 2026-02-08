@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Tokenomics", href: "/tokenomics" },
   { label: "How to Buy", href: "/how-to-buy" },
   { label: "Whitepaper", href: "/whitepaper" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {

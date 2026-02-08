@@ -9,6 +9,7 @@ import TokenomicsPage from "./pages/TokenomicsPage";
 import Technology from "./pages/Technology";
 import Whitepaper from "./pages/Whitepaper";
 import Legal from "./pages/Legal";
+import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/technology" element={<Technology />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
