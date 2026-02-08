@@ -15,6 +15,7 @@ import TrustGovernance from "@/components/landing/TrustGovernance";
 import TeamPhilosophy from "@/components/landing/TeamPhilosophy";
 import FAQSection from "@/components/landing/FAQSection";
 import LegalNotice from "@/components/landing/LegalNotice";
+import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -37,6 +38,7 @@ const Index = () => {
       <TeamPhilosophy />
       <FAQSection />
       <LegalNotice />
+      <ContactSection />
       <Footer />
     </div>
   );

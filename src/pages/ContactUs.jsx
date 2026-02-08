@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import { Mail, Globe, Send } from "lucide-react";
 
 const contactLinks = [
@@ -111,6 +112,18 @@ const ContactUs = () => {
                     Zelion is designed for infrastructure validation, deterministic data processing, and long-term system deployment. We prioritize resilience and infrastructure longevity over rapid expansion.
                   </p>
                 </div>
+              </motion.div>
+
+              {/* Divider */}
+              <div className="my-16 border-t border-border/50"></div>
+
+              {/* Contact Form Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <ContactForm />
               </motion.div>
             </motion.div>
           </div>
