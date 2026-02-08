@@ -12,6 +12,8 @@ Zelion is a decentralized infrastructure system focused on real-world energy val
 - Industrial-grade design system with silver-primary color scheme
 - Mobile-optimized content presentation
 - Comprehensive tokenomics and technical documentation
+- MetaMask wallet integration (Extension + Mobile SDK)
+- BNB Smart Chain integration for $ZLN purchases
 
 ## Tech Stack
 
@@ -21,6 +23,8 @@ Zelion is a decentralized infrastructure system focused on real-world energy val
 - **UI Components**: shadcn/ui
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
+- **Blockchain**: ethers.js 6.x
+- **Wallet Integration**: MetaMask SDK
 
 ## Getting Started
 
@@ -41,11 +45,27 @@ cd zelion-grid
 # Install dependencies
 npm install
 
+# Configure environment variables (see Configuration section)
+cp .env.example .env
+
 # Start development server
 npm run dev
 ```
 
 The application will be available at `http://localhost:8080` (or the next available port).
+
+### Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# Treasury Wallet Address for BNB Payments
+VITE_TREASURY_ADDRESS=0xYourTreasuryAddressHere
+
+# Network Configuration
+VITE_CHAIN_ID=56
+VITE_CHAIN_NAME=BNB Smart Chain
+```
 
 ### Available Scripts
 
@@ -75,15 +95,41 @@ zelion-grid/
 │   │   ├── landing/          # Homepage sections
 │   │   ├── ui/               # Reusable UI components
 │   │   ├── Navbar.jsx        # Main navigation
-│   │   └── Footer.jsx        # Site footer
+│   │   ├── Footer.jsx        # Site footer
+│   │   └── MetaMaskModal.jsx # MetaMask connection modal
 │   ├── pages/                # Route pages
+│   │   ├── BuyZelion.jsx     # Purchase page with BNB
+│   │   ├── PurchaseSuccess.jsx     # Success confirmation
+│   │   └── PurchaseError.jsx       # Error handling
+│   ├── context/
+│   │   └── WalletContext.jsx # Wallet state management
+│   ├── utils/
+│   │   └── deviceDetection.js      # Device/browser detection
 │   ├── hooks/                # Custom React hooks
 │   ├── lib/                  # Utility functions
+│   ├── metamask.js           # MetaMask SDK initialization
 │   ├── App.jsx               # Root component
 │   └── main.jsx              # Entry point
 ├── public/                   # Static assets
 └── index.html                # HTML template
 ```
+
+## Wallet Integration
+
+The application uses **MetaMask SDK** for wallet connections, supporting:
+
+### Desktop Users
+- **MetaMask Extension**: Direct connection via browser extension
+- **MetaMask Mobile**: QR code scanning automatically handled by SDK
+
+### Mobile Users
+- **MetaMask Browser**: Direct connection if using MetaMask app browser
+- **Deep Linking**: Automatic redirect to MetaMask app from mobile browsers
+
+### Supported Network
+- **BNB Smart Chain (Chain ID 56)** only
+- Automatic network switching with MetaMask
+- Network validation before transactions
 
 ## Design System
 

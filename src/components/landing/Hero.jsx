@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield } from "lucide-react";
 import heroImage from "@/assets/hero-infrastructure.jpg";
@@ -63,12 +64,11 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <Button variant="hero" size="xl">
-              Buy $ZLN Token
-              <ArrowRight className="ml-1 h-5 w-5" />
-            </Button>
-            <Button variant="hero-outline" size="xl">
-              Connect Wallet
+            <Button asChild variant="hero" size="xl">
+              <Link to="/buy">
+                Buy $ZLN Token
+                <ArrowRight className="ml-1 h-5 w-5" />
+              </Link>
             </Button>
           </motion.div>
 

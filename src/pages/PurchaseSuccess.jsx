@@ -1,0 +1,111 @@
+import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, Home, ExternalLink } from "lucide-react";
+
+const PurchaseSuccess = () => {
+  const location = useLocation();
+  const { txHash, zlnAmount } = location.state || {};
+
+  // Generate mock transaction hash if not provided
+  const displayTxHash = txHash || `0x${Array.from({ length: 64 }, () => 
+    Math.floor(Math.random() * 16).toString(16)
+  ).join("")}`;
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      
+      <main className="container mx-auto px-4 py-24 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          {/* Success Icon */}
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="relative">
+              <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-silver-light/30 bg-silver-light/10">
+                <CheckCircle2 className="h-12 w-12 text-silver-light" />
+              </div>
+              <div className="absolute inset-0 -z-10 rounded-full bg-silver-light/20 blur-2xl" />
+            </div>
+          </motion.div>
+
+          {/* Title */}
+          <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl">
+            Purchase <span className="metal-gradient">Completed</span>
+          </h1>
+
+          {/* Description */}
+          <div className="glass-card mx-auto mb-8 max-w-lg p-8">
+            <p className="mb-4 text-base leading-relaxed text-muted-foreground">
+              Your BNB payment has been processed and $ZLN has been sent to your wallet.
+            </p>
+            <p className="text-sm text-muted-foreground/80">
+              Confirmation times depend on network conditions.
+            </p>
+            {zlnAmount && (
+              <div className="mt-6 rounded-lg border border-border/50 bg-muted/20 p-4">
+                <div className="text-sm text-muted-foreground mb-1">Amount Received</div>
+                <div className="font-heading text-2xl font-bold text-foreground">
+                  {zlnAmount.toLocaleString()} <span className="text-base text-muted-foreground">$ZLN</span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Transaction Details */}
+          <div className="glass-card mx-auto mb-8 max-w-lg p-6 text-left">
+            <div className="mb-2 text-xs font-medium uppercase tracking-wider text-silver-light">
+              Transaction Hash
+            </div>
+            <div className="mb-4 break-all font-mono text-sm text-muted-foreground">
+              {displayTxHash}
+            </div>
+            <div className="text-xs text-muted-foreground/60">
+              Transaction details are available on the blockchain explorer
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Button asChild variant="hero" size="lg">
+              <Link to="/">
+                <Home className="mr-2 h-5 w-5" />
+                Return Home
+              </Link>
+            </Button>
+            <Button asChild variant="hero-outline" size="lg">
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <ExternalLink className="mr-2 h-5 w-5" />
+                View Transaction
+              </a>
+            </Button>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-12 text-sm text-muted-foreground">
+            <p className="mb-2">
+              Need assistance? Contact support through official channels.
+            </p>
+            <p className="text-xs text-muted-foreground/60">
+              Always verify transaction details on the blockchain
+            </p>
+          </div>
+        </motion.div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default PurchaseSuccess;
