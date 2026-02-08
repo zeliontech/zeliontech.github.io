@@ -3,14 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContractAddressDisplay from "@/components/ContractAddressDisplay";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertTriangle, ArrowRight, RefreshCw, Wallet } from "lucide-react";
+import { AlertTriangle, ArrowRight, RefreshCw, Wallet, Info } from "lucide-react";
 import { useWallet } from "@/context/WalletContext";
+import { useZlnConversion } from "@/hooks/useZlnConversion";
 import MetaMaskModal from "@/components/MetaMaskModal";
 import TransactionProcessingModal from "@/components/TransactionProcessingModal";
+
+// Contract address from environment variable
+const ZLN_CONTRACT_ADDRESS = import.meta.env.VITE_ZLN_CONTRACT_ADDRESS || "0x0000000000000000000000000000000000000000";
 
 const BuyZelion = () => {
   const navigate = useNavigate();
@@ -24,9 +29,18 @@ const BuyZelion = () => {
     connectMetaMaskWallet,
     purchaseZLNWithBNB 
   } = useWallet();
+  
+  // Use conversion hook
+  const {
+    bnbAmount,
+    zlnAmount,
+    handleBnbChange,
+    handleZlnChange,
+    zlnRate,
+  } = useZlnConversion();
+  
   const [showConnectModal, setShowConnectModal] = useState(false);
   const [showProcessingModal, setShowProcessingModal] = useState(false);
-  const [bnbAmount, setBnbAmount] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [purchaseError, setPurchaseError] = useState("");
   const [connectionAttempted, setConnectionAttempted] = useState(false);
@@ -52,14 +66,30 @@ const BuyZelion = () => {
   // Check if on correct network (BSC = 56)
   const isCorrectNetwork = chainId === 56;
 
+  // Validation for buy button
+  const isBuyDisabled = !walletConnected || 
+                        !bnbAmount || 
+                        parseFloat(bnbAmount) <= 0 || 
+                        isProcessing || 
+                        !isCorrectNetwork ||
+                        (balance && parseFloat(bnbAmount) > parseFloat(balance));
+
   const handlePurchase = async () => {
     if (!walletConnected) {
       setShowConnectModal(true);
       return;
     }
 
-    if (!bnbAmount || parseFloat(bnbAmount) <= 0) {
+    const bnbValue = parseFloat(bnbAmount);
+    
+    if (!bnbAmount || bnbValue <= 0) {
       setPurchaseError("Please enter a valid BNB amount");
+      return;
+    }
+
+    // Check if amount exceeds balance
+    if (balance && bnbValue > parseFloat(balance)) {
+      setPurchaseError("Insufficient BNB balance");
       return;
     }
 
@@ -67,14 +97,20 @@ const BuyZelion = () => {
     setIsProcessing(true);
     setShowProcessingModal(true);
 
-    // Call real purchase function
-    const result = await purchaseZLNWithBNB(parseFloat(bnbAmount));
+    // Call real purchase function (still uses BNB only)
+    const result = await purchaseZLNWithBNB(bnbValue);
     
     setShowProcessingModal(false);
     setIsProcessing(false);
     
     if (result.success) {
-      navigate("/purchase-success", { state: { txHash: result.txHash, zlnAmount: result.zlnAmount, bnbAmount: parseFloat(bnbAmount) } });
+      navigate("/purchase-success", { 
+        state: { 
+          txHash: result.txHash, 
+          zlnAmount: result.zlnAmount, 
+          bnbAmount: bnbValue 
+        } 
+      });
     } else {
       setPurchaseError(result.error || "Transaction failed");
       navigate("/purchase-error", { state: { error: result.error } });
@@ -295,6 +331,17 @@ const BuyZelion = () => {
                 </div>
               )}
 
+              {/* Smart Contract Address */}
+              <ContractAddressDisplay contractAddress={ZLN_CONTRACT_ADDRESS} />
+
+              {/* Conversion Info Banner */}
+              <Alert className="border-silver-light/20 bg-silver-light/5">
+                <Info className="h-4 w-4 text-silver-light" />
+                <AlertDescription className="text-xs text-muted-foreground">
+                  <strong className="text-foreground">Auto-conversion:</strong> Values update automatically based on current rate (1 BNB = {zlnRate.toLocaleString()} ZLN)
+                </AlertDescription>
+              </Alert>
+
               {/* BNB Amount Input */}
               <div className="space-y-2">
                 <Label htmlFor="bnbAmount" className="text-sm font-medium text-foreground">
@@ -304,10 +351,10 @@ const BuyZelion = () => {
                   id="bnbAmount"
                   type="number"
                   min="0"
-                  step="0.001"
+                  step="0.000001"
                   placeholder="0.00"
                   value={bnbAmount}
-                  onChange={(e) => setBnbAmount(e.target.value)}
+                  onChange={(e) => handleBnbChange(e.target.value)}
                   disabled={!walletConnected || isProcessing || !isCorrectNetwork}
                   className="text-lg"
                 />
@@ -316,18 +363,50 @@ const BuyZelion = () => {
                 </div>
               </div>
 
-              {/* Estimated ZLN Output */}
-              <div className="glass-card p-4 bg-muted/20">
-                <div className="text-sm text-muted-foreground mb-1">
-                  Estimated ZLN Received
-                </div>
-                <div className="font-heading text-2xl font-bold text-foreground">
-                  {estimatedZLN} <span className="text-base text-muted-foreground">$ZLN</span>
-                </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  Rate: 1 BNB = 10,000 ZLN
+              {/* ZLN Amount Input */}
+              <div className="space-y-2">
+                <Label htmlFor="zlnAmount" className="text-sm font-medium text-foreground">
+                  ZLN Amount
+                </Label>
+                <Input
+                  id="zlnAmount"
+                  type="number"
+                  min="0"
+                  step="1"
+                  placeholder="0.00"
+                  value={zlnAmount}
+                  onChange={(e) => handleZlnChange(e.target.value)}
+                  disabled={!walletConnected || isProcessing || !isCorrectNetwork}
+                  className="text-lg"
+                />
+                <div className="text-xs text-muted-foreground">
+                  Enter the amount of ZLN you want to receive
                 </div>
               </div>
+
+              {/* Estimated ZLN Output - Keep for clarity */}
+              {bnbAmount && zlnAmount && (
+                <div className="glass-card p-4 bg-muted/20">
+                  <div className="text-sm text-muted-foreground mb-1">
+                    Transaction Summary
+                  </div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm text-muted-foreground">You Send:</span>
+                    <span className="font-heading text-lg font-bold text-foreground">
+                      {parseFloat(bnbAmount).toFixed(6)} BNB
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">You Receive:</span>
+                    <span className="font-heading text-lg font-bold text-foreground">
+                      {parseFloat(zlnAmount).toLocaleString()} $ZLN
+                    </span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-2 text-center">
+                    Rate: 1 BNB = {zlnRate.toLocaleString()} ZLN
+                  </div>
+                </div>
+              )}
 
               {/* Notice */}
               <Alert className="border-border/50 bg-muted/30">
@@ -341,7 +420,7 @@ const BuyZelion = () => {
               {/* CTA Button */}
               <Button
                 onClick={handlePurchase}
-                disabled={!walletConnected || !bnbAmount || parseFloat(bnbAmount) <= 0 || isProcessing || !isCorrectNetwork}
+                disabled={isBuyDisabled}
                 className="w-full"
                 variant="hero"
                 size="lg"
