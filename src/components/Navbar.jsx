@@ -3,9 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useWallet } from "@/context/WalletContext";
-import UserAvatar from "@/components/UserAvatar";
-import UserWalletMenu from "@/components/UserWalletMenu";
 
 const navLinks = [
   { label: "Technology", href: "/technology" },
@@ -17,9 +14,16 @@ const navLinks = [
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const location = useLocation();
-  const { walletConnected } = useWallet();
+
+  // Scroll to notify section
+  const handleGetNotified = () => {
+    const notifySection = document.getElementById("notify-launch");
+    if (notifySection) {
+      notifySection.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
@@ -53,19 +57,9 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-3 md:flex">
-          {walletConnected ? (
-            <div className="relative">
-              <UserAvatar onClick={() => setUserMenuOpen(!userMenuOpen)} />
-              <UserWalletMenu
-                open={userMenuOpen}
-                onClose={() => setUserMenuOpen(false)}
-              />
-            </div>
-          ) : (
-            <Button asChild variant="wallet" size="sm">
-              <Link to="/buy">Buy $ZLN</Link>
-            </Button>
-          )}
+          <Button onClick={handleGetNotified} variant="wallet" size="sm">
+            Get Notified
+          </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -106,21 +100,9 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="mt-4">
-                {walletConnected ? (
-                  <div className="relative">
-                    <UserAvatar onClick={() => setUserMenuOpen(!userMenuOpen)} />
-                    <UserWalletMenu
-                      open={userMenuOpen}
-                      onClose={() => setUserMenuOpen(false)}
-                    />
-                  </div>
-                ) : (
-                  <Button asChild variant="wallet" className="w-full">
-                    <Link to="/buy" onClick={() => setMobileOpen(false)}>
-                      Buy $ZLN
-                    </Link>
-                  </Button>
-                )}
+                <Button onClick={handleGetNotified} variant="wallet" className="w-full">
+                  Get Notified
+                </Button>
               </div>
             </div>
           </motion.div>
