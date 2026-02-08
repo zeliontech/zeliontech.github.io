@@ -47,11 +47,8 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="hero-outline" size="sm">
-            Connect Wallet
-          </Button>
-          <Button variant="wallet" size="sm">
-            Buy $ZLN
+          <Button asChild variant="wallet" size="sm">
+            <Link to="/buy">Buy $ZLN</Link>
           </Button>
         </div>
 
@@ -92,12 +89,11 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="mt-4 flex flex-col gap-2">
-                <Button variant="hero-outline" className="w-full">
-                  Connect Wallet
-                </Button>
-                <Button variant="wallet" className="w-full">
-                  Buy $ZLN
+              <div className="mt-4">
+                <Button asChild variant="wallet" className="w-full">
+                  <Link to="/buy" onClick={() => setMobileOpen(false)}>
+                    Buy $ZLN
+                  </Link>
                 </Button>
               </div>
             </div>
