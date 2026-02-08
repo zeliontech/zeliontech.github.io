@@ -30,8 +30,8 @@ const Navbar = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-muted">
-            <span className="font-heading text-sm font-bold text-silver-light">Z</span>
+          <div className="flex h-8 w-8 items-center justify-center">
+            <img src="/logo.svg" alt="Zelion Logo" className="h-full w-full text-silver-light" />
           </div>
           <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
             ZELION
