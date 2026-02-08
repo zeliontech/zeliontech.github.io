@@ -32,5 +32,20 @@ dist-ssr
 DESIGN_SYSTEM_REFACTOR.md
 CONTENT_OPTIMIZATION.md
 WEBSITE_CONTENT.txt
+IMPLEMENTATION_SUMMARY.md
+MODERN_DAPP_STANDARDS.md
+QUICKSTART_WEB3.md
+QUICK_START.md
+WALLET_SETUP.md
+WEB3_INTEGRATION.md
 *.docx
 ~$*
+
+# Unused wallet/Web3 components (pre-launch only uses email signup)
+src/context/WalletContext.jsx
+src/metamask.js
+src/components/UserAvatar.jsx
+src/components/UserWalletMenu.jsx
+src/components/WalletStatusBadge.jsx
+src/components/ContractAddressDisplay.jsx
+src/hooks/useZlnConversion.js
