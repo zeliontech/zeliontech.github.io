@@ -10,7 +10,7 @@ const specs = [
 
 const HardwareSection = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-subtle">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -70,12 +70,14 @@ const HardwareSection = () => {
               <br />
               <span className="metal-gradient">at the Source</span>
             </h2>
-            <p className="mb-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
-              Hardware validators capture real-world energy data, perform local verification, and prevent manipulation before data enters digital systems.
-            </p>
-            <p className="mb-8 text-sm leading-relaxed text-muted-foreground lg:text-base">
-              This reduces attack surfaces and improves infrastructure data reliability.
-            </p>
+            <div className="mb-10 space-y-5">
+              <p className="text-sm leading-relaxed text-muted-foreground lg:text-base">
+                Hardware validators capture real-world energy data, perform local verification, and prevent manipulation before data enters digital systems.
+              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground lg:text-base">
+                This reduces attack surfaces and improves infrastructure data reliability.
+              </p>
+            </div>
 
             <div className="grid grid-cols-2 gap-4">
               {specs.map((spec, index) => (

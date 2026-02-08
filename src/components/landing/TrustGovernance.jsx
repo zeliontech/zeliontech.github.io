@@ -24,7 +24,7 @@ const pillars = [
 
 const TrustGovernance = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-subtle">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -46,7 +46,7 @@ const TrustGovernance = () => {
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl gap-6 md:gap-8 md:grid-cols-3">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
@@ -54,7 +54,7 @@ const TrustGovernance = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card-hover p-6 text-center lg:p-8"
+              className="glass-card-hover p-8 text-center lg:p-10"
             >
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-muted">
                 <pillar.icon className="h-6 w-6 text-silver-light" />

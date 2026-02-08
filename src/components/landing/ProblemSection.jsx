@@ -24,7 +24,7 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-alternate">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,15 +41,17 @@ const ProblemSection = () => {
             <br />
             <span className="metal-gradient">Global Energy Systems</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground">
-            Global energy systems face three core validation challenges.
-          </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm text-muted-foreground/80">
-            Zelion addresses these gaps by validating data at the infrastructure edge.
-          </p>
+          <div className="mx-auto mt-8 max-w-2xl space-y-4">
+            <p className="text-base text-muted-foreground">
+              Global energy systems face three core validation challenges.
+            </p>
+            <p className="text-sm text-muted-foreground/80">
+              Zelion addresses these gaps by validating data at the infrastructure edge.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl gap-6 md:gap-8 md:grid-cols-3">
           {problems.map((problem, index) => (
             <motion.div
               key={problem.title}

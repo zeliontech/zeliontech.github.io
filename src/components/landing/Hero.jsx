@@ -47,12 +47,14 @@ const Hero = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment.
-          </p>
-          <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            It connects physical energy infrastructure with decentralized coordination through hardware-based validation and verifiable data integrity.
-          </p>
+          <div className="mx-auto mb-10 max-w-2xl space-y-4">
+            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment.
+            </p>
+            <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+              It connects physical energy infrastructure with decentralized coordination through hardware-based validation and verifiable data integrity.
+            </p>
+          </div>
 
           {/* CTA Buttons */}
           <motion.div
@@ -75,7 +77,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8"
+            className="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10"
           >
             {[
               { value: "500M", label: "Total Supply" },

@@ -9,7 +9,7 @@ const principles = [
 
 const InfrastructurePhilosophy = () => {
   return (
-    <section className="relative bg-muted/20 py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-alternate">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,24 +21,26 @@ const InfrastructurePhilosophy = () => {
           <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Philosophy
           </span>
-          <h2 className="mb-8 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="mb-10 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
             Infrastructure Before
             <br />
             <span className="metal-gradient">Speculation</span>
           </h2>
           
-          <div className="mb-10 space-y-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
-            <p className="font-medium text-foreground">
-              Zelion does not replace energy systems.
-              It validates, coordinates, and secures them.
-            </p>
+          <div className="mb-10">
+            <div className="glass-card mx-auto max-w-2xl p-6 lg:p-8 border-silver-light/20">
+              <p className="text-base font-medium leading-relaxed text-foreground lg:text-lg">
+                Zelion does not replace energy systems.
+                It validates, coordinates, and secures them.
+              </p>
+            </div>
           </div>
 
-          <div className="glass-card mx-auto max-w-2xl p-8 text-left">
+          <div className="glass-card mx-auto max-w-2xl p-8 lg:p-10 text-left">
             <p className="mb-6 text-sm text-muted-foreground">
               Core principles:
             </p>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {principles.map((principle, index) => (
                 <motion.div
                   key={index}

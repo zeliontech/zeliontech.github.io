@@ -148,6 +148,47 @@
                 0 0 40px -8px hsl(var(--silver-mid) / 0.08);
   }
 
+  /* Section Background Material Depth - Subtle separation < 8% opacity */
+  .section-bg-subtle {
+    position: relative;
+    background: radial-gradient(
+      ellipse 120% 80% at 50% 20%,
+      hsl(var(--silver-light) / 0.02) 0%,
+      transparent 50%
+    );
+  }
+
+  .section-bg-subtle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        hsl(var(--silver-light) / 0.005) 0px,
+        transparent 1px,
+        transparent 2px,
+        hsl(var(--silver-light) / 0.005) 3px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        hsl(var(--silver-light) / 0.005) 0px,
+        transparent 1px,
+        transparent 2px,
+        hsl(var(--silver-light) / 0.005) 3px
+      );
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .section-bg-alternate {
+    background: radial-gradient(
+      ellipse 100% 60% at 50% 50%,
+      hsl(var(--silver-mid) / 0.015) 0%,
+      transparent 60%
+    );
+  }
+
   .silver-glow-text {
     text-shadow: 0 0 20px hsl(var(--silver-light) / 0.3);
   }

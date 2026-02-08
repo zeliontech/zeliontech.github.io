@@ -30,7 +30,7 @@ const layers = [
 
 const ArchitectureSection = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-subtle">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -50,7 +50,7 @@ const ArchitectureSection = () => {
           </h2>
         </motion.div>
 
-        <div className="mx-auto max-w-3xl space-y-6">
+        <div className="mx-auto max-w-3xl space-y-8 lg:space-y-10">
           {layers.map((layer, index) => (
             <motion.div
               key={layer.name}
@@ -58,7 +58,7 @@ const ArchitectureSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="glass-card-hover relative overflow-hidden p-6 lg:p-8"
+              className="glass-card-hover relative overflow-hidden p-8 lg:p-10 shadow-lg"
             >
               {/* Layer number */}
               <div className="absolute right-6 top-6 font-heading text-5xl font-bold text-muted/50 lg:text-7xl">

@@ -9,7 +9,7 @@ const blockchainRoles = [
 
 const BlockchainRole = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-alternate">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -30,7 +30,7 @@ const BlockchainRole = () => {
             </h2>
           </div>
           
-          <div className="glass-card p-8 lg:p-10">
+          <div className="glass-card p-8 lg:p-12">
             <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-muted">
               <Blocks className="h-7 w-7 text-silver-light" />
             </div>
@@ -39,7 +39,7 @@ const BlockchainRole = () => {
               Blockchain supports:
             </p>
             
-            <ul className="mb-6 space-y-3">
+            <ul className="mb-8 space-y-4">
               {blockchainRoles.map((role, index) => (
                 <motion.li
                   key={index}

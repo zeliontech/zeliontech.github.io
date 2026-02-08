@@ -39,7 +39,7 @@ const phases = [
 
 const Roadmap = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-alternate">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -86,7 +86,7 @@ const Roadmap = () => {
                   } ${index % 2 === 0 ? "md:left-auto md:-right-[6.5px]" : "md:-left-[6.5px]"}`}
                 />
 
-                <div className="glass-card p-6">
+                <div className="glass-card p-8 lg:p-10">
                   <div className="mb-1 flex items-center gap-3">
                     <span
                       className={`text-xs font-medium tracking-wider uppercase ${
@@ -104,7 +104,7 @@ const Roadmap = () => {
                   <h3 className="mb-4 font-heading text-xl font-semibold text-foreground">
                     {phase.title}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {phase.items.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
                         {phase.status === "active" ? (

@@ -11,7 +11,7 @@ const allocations = [
 
 const TokenomicsSnapshot = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-alternate">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -59,7 +59,7 @@ const TokenomicsSnapshot = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8"
           >
-            <div className="flex h-3 overflow-hidden rounded-full">
+            <div className="flex h-4 overflow-hidden rounded-full shadow-inner">
               {allocations.map((alloc, i) => (
                 <motion.div
                   key={alloc.label}
@@ -74,7 +74,7 @@ const TokenomicsSnapshot = () => {
           </motion.div>
 
           {/* Legend */}
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {allocations.map((alloc, index) => (
               <motion.div
                 key={alloc.label}
@@ -82,7 +82,7 @@ const TokenomicsSnapshot = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="flex items-center gap-3 rounded-lg border border-border/50 bg-muted/30 px-4 py-3"
+                className="flex items-center gap-3 rounded-lg border border-border/50 bg-muted/30 px-4 py-3.5"
               >
                 <div className={`h-3 w-3 flex-shrink-0 rounded-sm ${alloc.color}`} />
                 <div className="flex-1">

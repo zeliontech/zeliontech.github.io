@@ -3,7 +3,7 @@ import { Users } from "lucide-react";
 
 const TeamPhilosophy = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-subtle">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -13,23 +13,23 @@ const TeamPhilosophy = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl"
         >
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
               Team
             </span>
-            <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="mb-8 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Infrastructure-Focused
               <br />
               <span className="metal-gradient">Development Team</span>
             </h2>
           </div>
           
-          <div className="glass-card p-8 lg:p-10 text-center">
+          <div className="glass-card p-8 lg:p-12 text-center">
             <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-muted">
               <Users className="h-7 w-7 text-silver-light" />
             </div>
             
-            <p className="mb-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
+            <p className="mb-8 text-base leading-relaxed text-muted-foreground lg:text-lg">
               Zelion is developed by a multidisciplinary team experienced in energy infrastructure, hardware systems, and decentralized coordination.
             </p>
             

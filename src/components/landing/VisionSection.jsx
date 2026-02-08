@@ -9,7 +9,7 @@ const visionPoints = [
 
 const VisionSection = () => {
   return (
-    <section className="relative bg-muted/20 py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-subtle">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,7 +21,7 @@ const VisionSection = () => {
           <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
             Vision
           </span>
-          <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          <h2 className="mb-8 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
             Long-Term Infrastructure
             <br />
             <span className="metal-gradient">Validation</span>
@@ -29,20 +29,22 @@ const VisionSection = () => {
           <p className="mb-8 text-base leading-relaxed text-muted-foreground lg:text-lg">
             Zelion enables a system where:
           </p>
-          <div className="mx-auto max-w-2xl space-y-4 text-left">
-            {visionPoints.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-start gap-3"
-              >
-                <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-silver-light" />
-                <span className="text-base text-muted-foreground">{point}</span>
-              </motion.div>
-            ))}
+          <div className="glass-card mx-auto max-w-2xl p-6 lg:p-8">
+            <div className="space-y-5 text-left">
+              {visionPoints.map((point, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-silver-light" />
+                  <span className="text-base text-muted-foreground">{point}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
           <p className="mt-8 text-base text-muted-foreground">
             Built for long-term infrastructure deployment and real-world integration.

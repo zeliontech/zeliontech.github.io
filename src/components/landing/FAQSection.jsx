@@ -35,7 +35,7 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative py-24 lg:py-32 section-bg-alternate">
       <div className="section-divider mb-24" />
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -61,12 +61,12 @@ const FAQSection = () => {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl"
         >
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass-card overflow-hidden border-border/50 px-6"
+                className="glass-card overflow-hidden border-border/50 px-8"
               >
                 <AccordionTrigger className="py-5 text-left font-heading text-sm font-medium text-foreground hover:no-underline hover:text-silver-light sm:text-base">
                   {faq.q}
