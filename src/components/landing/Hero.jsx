@@ -3,14 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield } from "lucide-react";
 import heroImage from "@/assets/hero-infrastructure.jpg";
-import { useWallet } from "@/context/WalletContext";
-import { useState } from "react";
-import WalletConnectModal from "@/components/WalletConnectModal";
 
 const Hero = () => {
-  const { walletConnected } = useWallet();
-  const [showConnectModal, setShowConnectModal] = useState(false);
-
   return (
     <section className="relative min-h-screen overflow-hidden pt-16">
       {/* Background Image with Overlay */}
@@ -76,13 +70,6 @@ const Hero = () => {
                 <ArrowRight className="ml-1 h-5 w-5" />
               </Link>
             </Button>
-            <Button 
-              variant="hero-outline" 
-              size="xl"
-              onClick={() => setShowConnectModal(true)}
-            >
-              {walletConnected ? "Wallet Connected" : "Connect Wallet"}
-            </Button>
           </motion.div>
 
           {/* Stats */}
@@ -113,12 +100,6 @@ const Hero = () => {
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-
-      {/* Wallet Connect Modal */}
-      <WalletConnectModal
-        open={showConnectModal}
-        onOpenChange={setShowConnectModal}
-      />
     </section>
   );
 };

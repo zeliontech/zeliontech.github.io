@@ -35,17 +35,16 @@ const PurchaseError = () => {
 
           {/* Title */}
           <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl">
-            Transaction <span className="text-destructive">Not Completed</span>
+            Transaction <span className="text-destructive">Failed</span>
           </h1>
 
           {/* Description */}
           <div className="glass-card mx-auto mb-8 max-w-lg p-8">
             <p className="mb-4 text-base leading-relaxed text-muted-foreground">
-              The transaction was not completed.
+              The BNB transaction was not completed.
             </p>
             <p className="text-sm text-muted-foreground/80">
-              Please review transaction details and try again.
-              If the issue persists, contact support.
+              Please review details and try again.
             </p>
           </div>
 

@@ -5,14 +5,14 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Wallet, CheckCircle2, Loader2, Shield } from "lucide-react";
 import { useWallet } from "@/context/WalletContext";
 
-const WalletConnectModal = ({ open, onOpenChange }) => {
-  const { connectWallet, isConnecting, walletAddress } = useWallet();
+const MetaMaskConnectModal = ({ open, onOpenChange }) => {
+  const { connectMetaMaskWallet, isConnecting, walletAddress } = useWallet();
   const [connectionState, setConnectionState] = useState("idle"); // idle | connecting | connected
 
   const handleConnect = async () => {
     setConnectionState("connecting");
     try {
-      await connectWallet();
+      await connectMetaMaskWallet();
       setConnectionState("connected");
       // Close modal after short delay to show success state
       setTimeout(() => {
@@ -35,12 +35,10 @@ const WalletConnectModal = ({ open, onOpenChange }) => {
       <DialogContent className="glass-card max-w-md border-silver-mid/20">
         <DialogHeader>
           <DialogTitle className="font-heading text-2xl font-bold text-foreground">
-            Connect Wallet
+            Connect MetaMask Wallet
           </DialogTitle>
           <DialogDescription className="text-muted-foreground">
-            Connect your Web3 wallet to continue.
-            <br />
-            Wallet connection is required to access the $ZLN purchase interface.
+            Connect your MetaMask wallet to purchase $ZLN using BNB.
           </DialogDescription>
         </DialogHeader>
 
@@ -58,7 +56,7 @@ const WalletConnectModal = ({ open, onOpenChange }) => {
                 </div>
                 <div>
                   <div className="font-heading text-base font-semibold text-foreground">
-                    MetaMask
+                    Connect with MetaMask Wallet
                   </div>
                   <div className="text-sm text-muted-foreground">
                     {connectionState === "idle" && "Click to connect"}
@@ -85,7 +83,7 @@ const WalletConnectModal = ({ open, onOpenChange }) => {
           <Alert className="border-border/50 bg-muted/30">
             <Shield className="h-4 w-4 text-silver-light" />
             <AlertDescription className="text-sm text-muted-foreground">
-              Always verify wallet requests before approving connections.
+              Always verify connection requests inside MetaMask before approving.
             </AlertDescription>
           </Alert>
         </div>
@@ -94,4 +92,4 @@ const WalletConnectModal = ({ open, onOpenChange }) => {
   );
 };
 
-export default WalletConnectModal;
+export default MetaMaskConnectModal;

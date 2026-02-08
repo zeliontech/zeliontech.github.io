@@ -9,15 +9,15 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 import { useWallet } from "@/context/WalletContext";
-import WalletConnectModal from "@/components/WalletConnectModal";
+import MetaMaskConnectModal from "@/components/MetaMaskConnectModal";
 import TransactionProcessingModal from "@/components/TransactionProcessingModal";
 
 const BuyZelion = () => {
   const navigate = useNavigate();
-  const { walletConnected, walletAddress } = useWallet();
+  const { walletConnected, walletAddress, purchaseZLNWithBNB } = useWallet();
   const [showConnectModal, setShowConnectModal] = useState(false);
   const [showProcessingModal, setShowProcessingModal] = useState(false);
-  const [tokenAmount, setTokenAmount] = useState("");
+  const [bnbAmount, setBnbAmount] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
 
   // Check wallet connection on mount
@@ -27,30 +27,34 @@ const BuyZelion = () => {
     }
   }, [walletConnected]);
 
-  const handlePurchase = () => {
+  const handlePurchase = async () => {
     if (!walletConnected) {
       setShowConnectModal(true);
       return;
     }
 
-    if (!tokenAmount || parseFloat(tokenAmount) <= 0) {
+    if (!bnbAmount || parseFloat(bnbAmount) <= 0) {
       return;
     }
 
     setIsProcessing(true);
     setShowProcessingModal(true);
-  };
 
-  const handleTransactionComplete = (success) => {
+    // Call mock purchase function
+    const result = await purchaseZLNWithBNB(parseFloat(bnbAmount));
+    
     setShowProcessingModal(false);
     setIsProcessing(false);
     
-    if (success) {
-      navigate("/purchase-success");
+    if (result.success) {
+      navigate("/purchase-success", { state: { txHash: result.txHash, zlnAmount: result.zlnAmount } });
     } else {
       navigate("/purchase-error");
     }
   };
+
+  // Calculate estimated ZLN (mock conversion rate: 1 BNB = 10000 ZLN)
+  const estimatedZLN = bnbAmount ? (parseFloat(bnbAmount) * 10000).toLocaleString() : "0";
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,13 +70,13 @@ const BuyZelion = () => {
           {/* Header */}
           <div className="mb-8 text-center">
             <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl">
-              Purchase <span className="metal-gradient">$ZLN</span>
+              Purchase <span className="metal-gradient">$ZLN with BNB</span>
             </h1>
             <p className="mb-2 text-base text-muted-foreground">
               $ZLN is a utility token used for ecosystem coordination and infrastructure participation.
             </p>
             <p className="text-sm text-muted-foreground/80">
-              Blockchain transactions require wallet confirmation.
+              Purchases are processed using BNB only. Transactions require MetaMask confirmation.
             </p>
           </div>
 
@@ -82,7 +86,7 @@ const BuyZelion = () => {
               {/* Wallet Address */}
               <div className="space-y-2">
                 <Label htmlFor="wallet" className="text-sm font-medium text-foreground">
-                  Wallet Address
+                  Connected Wallet Address
                 </Label>
                 <Input
                   id="wallet"
@@ -93,24 +97,37 @@ const BuyZelion = () => {
                 />
               </div>
 
-              {/* Token Amount */}
+              {/* BNB Amount Input */}
               <div className="space-y-2">
-                <Label htmlFor="amount" className="text-sm font-medium text-foreground">
-                  Token Amount
+                <Label htmlFor="bnbAmount" className="text-sm font-medium text-foreground">
+                  BNB Amount
                 </Label>
                 <Input
-                  id="amount"
+                  id="bnbAmount"
                   type="number"
                   min="0"
-                  step="0.01"
+                  step="0.001"
                   placeholder="0.00"
-                  value={tokenAmount}
-                  onChange={(e) => setTokenAmount(e.target.value)}
+                  value={bnbAmount}
+                  onChange={(e) => setBnbAmount(e.target.value)}
                   disabled={!walletConnected || isProcessing}
                   className="text-lg"
                 />
                 <div className="text-xs text-muted-foreground">
-                  Enter the amount of $ZLN tokens you wish to purchase
+                  Enter the amount of BNB you wish to spend
+                </div>
+              </div>
+
+              {/* Estimated ZLN Output */}
+              <div className="glass-card p-4 bg-muted/20">
+                <div className="text-sm text-muted-foreground mb-1">
+                  Estimated ZLN Received
+                </div>
+                <div className="font-heading text-2xl font-bold text-foreground">
+                  {estimatedZLN} <span className="text-base text-muted-foreground">$ZLN</span>
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">
+                  Rate: 1 BNB = 10,000 ZLN
                 </div>
               </div>
 
@@ -118,20 +135,20 @@ const BuyZelion = () => {
               <Alert className="border-border/50 bg-muted/30">
                 <AlertTriangle className="h-4 w-4 text-silver-light" />
                 <AlertDescription className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Important:</strong> Blockchain transactions are irreversible once confirmed.
-                  Always verify transaction details before proceeding.
+                  <strong className="text-foreground">Important:</strong> Purchases are processed using BNB only. 
+                  Blockchain transactions are irreversible once confirmed.
                 </AlertDescription>
               </Alert>
 
               {/* CTA Button */}
               <Button
                 onClick={handlePurchase}
-                disabled={!walletConnected || !tokenAmount || parseFloat(tokenAmount) <= 0 || isProcessing}
+                disabled={!walletConnected || !bnbAmount || parseFloat(bnbAmount) <= 0 || isProcessing}
                 className="w-full"
                 variant="hero"
                 size="lg"
               >
-                Confirm Purchase
+                Buy $ZLN with BNB
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
 
@@ -158,14 +175,13 @@ const BuyZelion = () => {
       <Footer />
 
       {/* Modals */}
-      <WalletConnectModal
+      <MetaMaskConnectModal
         open={showConnectModal}
         onOpenChange={setShowConnectModal}
       />
       <TransactionProcessingModal
         open={showProcessingModal}
         onOpenChange={setShowProcessingModal}
-        onComplete={handleTransactionComplete}
       />
     </div>
   );

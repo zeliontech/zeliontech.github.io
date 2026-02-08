@@ -6,9 +6,9 @@ const TransactionProcessingModal = ({ open, onOpenChange, onComplete }) => {
   const [step, setStep] = useState(0); // 0: Submitting, 1: Pending, 2: Confirmed
 
   const steps = [
-    { label: "Submitting", icon: Loader2, color: "text-silver-light" },
-    { label: "Pending", icon: Clock, color: "text-silver-mid" },
-    { label: "Confirmed", icon: CheckCircle2, color: "text-silver-light" },
+    { label: "Submitting Transaction", icon: Loader2, color: "text-silver-light" },
+    { label: "Waiting Confirmation", icon: Clock, color: "text-silver-mid" },
+    { label: "Transaction Finalized", icon: CheckCircle2, color: "text-silver-light" },
   ];
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const TransactionProcessingModal = ({ open, onOpenChange, onComplete }) => {
       <DialogContent className="glass-card max-w-md border-silver-mid/20" hideClose>
         <DialogHeader>
           <DialogTitle className="font-heading text-2xl font-bold text-foreground text-center">
-            Processing Transaction
+            Processing BNB Transaction
           </DialogTitle>
         </DialogHeader>
 

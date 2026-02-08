@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Home, ExternalLink } from "lucide-react";
 
 const PurchaseSuccess = () => {
+  const location = useLocation();
+  const { txHash, zlnAmount } = location.state || {};
+
+  // Generate mock transaction hash if not provided
+  const displayTxHash = txHash || `0x${Array.from({ length: 64 }, () => 
+    Math.floor(Math.random() * 16).toString(16)
+  ).join("")}`;
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -34,29 +41,34 @@ const PurchaseSuccess = () => {
 
           {/* Title */}
           <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl">
-            Transaction <span className="metal-gradient">Completed</span>
+            Purchase <span className="metal-gradient">Completed</span>
           </h1>
 
           {/* Description */}
           <div className="glass-card mx-auto mb-8 max-w-lg p-8">
             <p className="mb-4 text-base leading-relaxed text-muted-foreground">
-              Your $ZLN transaction has been submitted to the blockchain.
+              Your BNB payment has been processed and $ZLN has been sent to your wallet.
             </p>
             <p className="text-sm text-muted-foreground/80">
-              Confirmation time depends on network conditions.
-              You will receive your tokens once the transaction is confirmed.
+              Confirmation times depend on network conditions.
             </p>
+            {zlnAmount && (
+              <div className="mt-6 rounded-lg border border-border/50 bg-muted/20 p-4">
+                <div className="text-sm text-muted-foreground mb-1">Amount Received</div>
+                <div className="font-heading text-2xl font-bold text-foreground">
+                  {zlnAmount.toLocaleString()} <span className="text-base text-muted-foreground">$ZLN</span>
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Transaction Details (Mock) */}
+          {/* Transaction Details */}
           <div className="glass-card mx-auto mb-8 max-w-lg p-6 text-left">
             <div className="mb-2 text-xs font-medium uppercase tracking-wider text-silver-light">
               Transaction Hash
             </div>
             <div className="mb-4 break-all font-mono text-sm text-muted-foreground">
-              0x{Array.from({ length: 64 }, () => 
-                Math.floor(Math.random() * 16).toString(16)
-              ).join("")}
+              {displayTxHash}
             </div>
             <div className="text-xs text-muted-foreground/60">
               Transaction details are available on the blockchain explorer
