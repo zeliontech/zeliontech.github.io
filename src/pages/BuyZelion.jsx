@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 import { useWallet } from "@/context/WalletContext";
-import MultiWalletModal from "@/components/MultiWalletModal";
+import MetaMaskModal from "@/components/MetaMaskModal";
 import TransactionProcessingModal from "@/components/TransactionProcessingModal";
 
 const BuyZelion = () => {
@@ -236,7 +236,7 @@ const BuyZelion = () => {
       <Footer />
 
       {/* Modals */}
-      <MultiWalletModal
+      <MetaMaskModal
         open={showConnectModal}
         onOpenChange={setShowConnectModal}
       />
