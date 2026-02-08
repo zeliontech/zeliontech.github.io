@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle2, Mail, User } from "lucide-react";
+import { addWaitlistSubscriber } from "@/services/firestoreService";
 
 const NotifySignup = ({ className = "" }) => {
   const [formData, setFormData] = useState({
@@ -48,25 +49,30 @@ const NotifySignup = ({ className = "" }) => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-
-    // Simulate API call
-    // TODO: Replace with actual API integration (Mailchimp, SendGrid, Supabase, etc.)
-    console.log("Early Access Signup:", formData);
-    
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    
-    // Reset form
-    setFormData({ email: "", name: "" });
     setErrors({});
 
-    // Hide success message after 8 seconds
-    setTimeout(() => {
-      setSubmitSuccess(false);
-    }, 8000);
+    try {
+      const result = await addWaitlistSubscriber(formData.email, formData.name);
+      
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFormData({ email: "", name: "" });
+        
+        // Hide success message after 8 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 8000);
+      } else if (result.status === "already_exists") {
+        setErrors({ email: result.message });
+      } else {
+        setErrors({ submit: result.message });
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      setErrors({ submit: "Something went wrong. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Handle input changes
@@ -174,6 +180,13 @@ const NotifySignup = ({ className = "" }) => {
             >
               {isSubmitting ? "Joining..." : "Join Early Access List"}
             </Button>
+
+            {/* Error Message */}
+            {errors.submit && (
+              <Alert variant="destructive" role="alert">
+                <AlertDescription>{errors.submit}</AlertDescription>
+              </Alert>
+            )}
 
             {/* Privacy Notice */}
             <Alert className="border-border/50 bg-muted/30">

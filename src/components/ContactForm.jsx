@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, AlertCircle } from "lucide-react";
+import { addContactMessage } from "@/services/firestoreService";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -76,40 +77,35 @@ const ContactForm = () => {
     }
 
     setIsSubmitting(true);
+    setErrors({});
 
     try {
-      // Placeholder for future API integration
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
+      const result = await addContactMessage(
+        formData.name,
+        formData.email,
+        formData.phone,
+        formData.message
+      );
 
-      // For now, just log the data
-      console.log("Form submitted:", formData);
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
 
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Show success message
-      setSubmitSuccess(true);
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 5000);
+      } else {
+        setErrors({ submit: result.message });
+      }
     } catch (error) {
       console.error("Form submission error:", error);
-      setErrors({ submit: "Something went wrong. Please try again." });
+      setErrors({ submit: "Failed to send message. Please try again." });
     } finally {
       setIsSubmitting(false);
     }
