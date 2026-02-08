@@ -9,16 +9,17 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 import { useWallet } from "@/context/WalletContext";
-import MetaMaskConnectModal from "@/components/MetaMaskConnectModal";
+import MultiWalletModal from "@/components/MultiWalletModal";
 import TransactionProcessingModal from "@/components/TransactionProcessingModal";
 
 const BuyZelion = () => {
   const navigate = useNavigate();
-  const { walletConnected, walletAddress, purchaseZLNWithBNB } = useWallet();
+  const { walletConnected, walletAddress, chainId, balance, error, purchaseZLNWithBNB } = useWallet();
   const [showConnectModal, setShowConnectModal] = useState(false);
   const [showProcessingModal, setShowProcessingModal] = useState(false);
   const [bnbAmount, setBnbAmount] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [purchaseError, setPurchaseError] = useState("");
 
   // Check wallet connection on mount
   useEffect(() => {
@@ -27,6 +28,9 @@ const BuyZelion = () => {
     }
   }, [walletConnected]);
 
+  // Check if on correct network (BSC = 56)
+  const isCorrectNetwork = chainId === 56;
+
   const handlePurchase = async () => {
     if (!walletConnected) {
       setShowConnectModal(true);
@@ -34,22 +38,25 @@ const BuyZelion = () => {
     }
 
     if (!bnbAmount || parseFloat(bnbAmount) <= 0) {
+      setPurchaseError("Please enter a valid BNB amount");
       return;
     }
 
+    setPurchaseError("");
     setIsProcessing(true);
     setShowProcessingModal(true);
 
-    // Call mock purchase function
+    // Call real purchase function
     const result = await purchaseZLNWithBNB(parseFloat(bnbAmount));
     
     setShowProcessingModal(false);
     setIsProcessing(false);
     
     if (result.success) {
-      navigate("/purchase-success", { state: { txHash: result.txHash, zlnAmount: result.zlnAmount } });
+      navigate("/purchase-success", { state: { txHash: result.txHash, zlnAmount: result.zlnAmount, bnbAmount: parseFloat(bnbAmount) } });
     } else {
-      navigate("/purchase-error");
+      setPurchaseError(result.error || "Transaction failed");
+      navigate("/purchase-error", { state: { error: result.error } });
     }
   };
 
@@ -83,6 +90,36 @@ const BuyZelion = () => {
           {/* Purchase Card */}
           <div className="glass-card p-8 lg:p-10">
             <div className="space-y-6">
+              {/* Network Warning */}
+              {walletConnected && !isCorrectNetwork && (
+                <Alert className="border-destructive/50 bg-destructive/10">
+                  <AlertTriangle className="h-4 w-4 text-destructive" />
+                  <AlertDescription className="text-sm text-destructive">
+                    <strong>Wrong Network:</strong> Please switch MetaMask to BNB Smart Chain (Chain ID: 56)
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              {/* Wallet Context Error */}
+              {error && (
+                <Alert className="border-destructive/50 bg-destructive/10">
+                  <AlertTriangle className="h-4 w-4 text-destructive" />
+                  <AlertDescription className="text-sm text-destructive">
+                    {error}
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              {/* Purchase Error */}
+              {purchaseError && (
+                <Alert className="border-destructive/50 bg-destructive/10">
+                  <AlertTriangle className="h-4 w-4 text-destructive" />
+                  <AlertDescription className="text-sm text-destructive">
+                    {purchaseError}
+                  </AlertDescription>
+                </Alert>
+              )}
+
               {/* Wallet Address */}
               <div className="space-y-2">
                 <Label htmlFor="wallet" className="text-sm font-medium text-foreground">
@@ -97,6 +134,24 @@ const BuyZelion = () => {
                 />
               </div>
 
+              {/* Balance Display */}
+              {balance && walletConnected && (
+                <div className="glass-card p-3 bg-muted/20">
+                  <div className="text-xs text-muted-foreground">Available Balance</div>
+                  <div className="font-heading text-lg font-bold text-foreground">
+                    {parseFloat(balance).toFixed(4)} <span className="text-sm text-muted-foreground">BNB</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Network Info */}
+              {chainId && (
+                <div className="text-xs text-muted-foreground">
+                  Network: {chainId === 56 ? "BNB Smart Chain" : `Chain ID ${chainId}`}
+                  {chainId === 56 && " ✓"}
+                </div>
+              )}
+
               {/* BNB Amount Input */}
               <div className="space-y-2">
                 <Label htmlFor="bnbAmount" className="text-sm font-medium text-foreground">
@@ -110,7 +165,7 @@ const BuyZelion = () => {
                   placeholder="0.00"
                   value={bnbAmount}
                   onChange={(e) => setBnbAmount(e.target.value)}
-                  disabled={!walletConnected || isProcessing}
+                  disabled={!walletConnected || isProcessing || !isCorrectNetwork}
                   className="text-lg"
                 />
                 <div className="text-xs text-muted-foreground">
@@ -143,18 +198,24 @@ const BuyZelion = () => {
               {/* CTA Button */}
               <Button
                 onClick={handlePurchase}
-                disabled={!walletConnected || !bnbAmount || parseFloat(bnbAmount) <= 0 || isProcessing}
+                disabled={!walletConnected || !bnbAmount || parseFloat(bnbAmount) <= 0 || isProcessing || !isCorrectNetwork}
                 className="w-full"
                 variant="hero"
                 size="lg"
               >
-                Buy $ZLN with BNB
+                {!isCorrectNetwork && walletConnected ? "Wrong Network" : "Buy $ZLN with BNB"}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
 
               {!walletConnected && (
                 <div className="text-center text-sm text-muted-foreground">
-                  Please connect your wallet to continue
+                  Please connect your MetaMask wallet to continue
+                </div>
+              )}
+
+              {walletConnected && !isCorrectNetwork && (
+                <div className="text-center text-sm text-destructive">
+                  Please switch to BNB Smart Chain in MetaMask
                 </div>
               )}
             </div>
@@ -175,7 +236,7 @@ const BuyZelion = () => {
       <Footer />
 
       {/* Modals */}
-      <MetaMaskConnectModal
+      <MultiWalletModal
         open={showConnectModal}
         onOpenChange={setShowConnectModal}
       />

@@ -12,6 +12,8 @@ Zelion is a decentralized infrastructure system focused on real-world energy val
 - Industrial-grade design system with silver-primary color scheme
 - Mobile-optimized content presentation
 - Comprehensive tokenomics and technical documentation
+- Multi-wallet support (MetaMask Extension, WalletConnect, Mobile)
+- BNB Smart Chain integration for $ZLN purchases
 
 ## Tech Stack
 
@@ -21,6 +23,8 @@ Zelion is a decentralized infrastructure system focused on real-world energy val
 - **UI Components**: shadcn/ui
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
+- **Blockchain**: ethers.js 6.x
+- **Wallet Integration**: WalletConnect v2, MetaMask
 
 ## Getting Started
 
@@ -41,11 +45,37 @@ cd zelion-grid
 # Install dependencies
 npm install
 
+# Configure environment variables (see Configuration section)
+cp .env.example .env
+
 # Start development server
 npm run dev
 ```
 
 The application will be available at `http://localhost:8080` (or the next available port).
+
+### Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# Treasury Wallet Address for BNB Payments
+VITE_TREASURY_ADDRESS=0xYourTreasuryAddressHere
+
+# Network Configuration
+VITE_CHAIN_ID=56
+VITE_CHAIN_NAME=BNB Smart Chain
+
+# WalletConnect Configuration
+# Get your Project ID from https://cloud.walletconnect.com/
+VITE_WALLETCONNECT_PROJECT_ID=your_project_id_here
+```
+
+**To get a WalletConnect Project ID:**
+1. Visit [WalletConnect Cloud](https://cloud.walletconnect.com/)
+2. Create a free account
+3. Create a new project
+4. Copy your Project ID and add it to `.env`
 
 ### Available Scripts
 
@@ -75,8 +105,21 @@ zelion-grid/
 │   │   ├── landing/          # Homepage sections
 │   │   ├── ui/               # Reusable UI components
 │   │   ├── Navbar.jsx        # Main navigation
-│   │   └── Footer.jsx        # Site footer
+│   │   ├── Footer.jsx        # Site footer
+│   │   ├── MultiWalletModal.jsx    # Wallet connection modal
+│   │   ├── WalletConnectQR.jsx     # QR code for pairing
+│   │   └── WalletDownloadQR.jsx    # MetaMask download screen
 │   ├── pages/                # Route pages
+│   │   ├── BuyZelion.jsx     # Purchase page with BNB
+│   │   ├── PurchaseSuccess.jsx     # Success confirmation
+│   │   └── PurchaseError.jsx       # Error handling
+│   ├── context/
+│   │   └── WalletContext.jsx # Wallet state management
+│   ├── services/
+│   │   ├── web3.js           # MetaMask/Web3 integration
+│   │   └── walletconnectService.js # WalletConnect integration
+│   ├── utils/
+│   │   └── deviceDetection.js      # Device/browser detection
 │   ├── hooks/                # Custom React hooks
 │   ├── lib/                  # Utility functions
 │   ├── App.jsx               # Root component
@@ -84,6 +127,23 @@ zelion-grid/
 ├── public/                   # Static assets
 └── index.html                # HTML template
 ```
+
+## Wallet Integration
+
+The application supports multiple wallet connection methods:
+
+### Desktop Users
+- **MetaMask Extension**: Direct connection via browser extension
+- **WalletConnect QR**: Scan QR code with MetaMask mobile app
+
+### Mobile Users
+- **MetaMask Browser**: Direct connection if using MetaMask app browser
+- **Deep Linking**: Automatic redirect to MetaMask app
+
+### Supported Network
+- **BNB Smart Chain (Chain ID 56)** only
+- Automatic network switching for MetaMask
+- Network validation before transactions
 
 ## Design System
 
