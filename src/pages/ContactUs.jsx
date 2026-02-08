@@ -29,8 +29,8 @@ const contactLinks = [
   {
     icon: Globe,
     label: "Twitter (X)",
-    value: "@zeliontech",
-    href: "https://x.com/zeliontech",
+    value: "@zelion_tech",
+    href: "https://x.com/zelion_tech",
     ariaLabel: "Follow us on X (Twitter)",
   },
 ];
