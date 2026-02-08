@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react";
-import { getEthereumProvider } from "@/metamask";
+import { getEthereumProvider, resetSDK } from "@/metamask";
 import { ethers } from "ethers";
 
 // Treasury address for ZLN purchases
@@ -36,13 +36,13 @@ export const WalletProvider = ({ children }) => {
   const [chainId, setChainId] = useState(null);
   const [balance, setBalance] = useState(null);
   const [error, setError] = useState(null);
-
-  // Get ethereum provider
-  const ethereum = getEthereumProvider();
+  const [ensName, setEnsName] = useState(null);
+  const [networkName, setNetworkName] = useState(null);
 
   // Check if already connected on mount
   useEffect(() => {
     const checkConnection = async () => {
+      const ethereum = getEthereumProvider();
       if (!ethereum) return;
       
       try {
@@ -55,11 +55,17 @@ export const WalletProvider = ({ children }) => {
           
           // Get chain ID
           const chainIdHex = await ethereum.request({ method: 'eth_chainId' });
-          setChainId(parseInt(chainIdHex, 16));
+          const currentChainId = parseInt(chainIdHex, 16);
+          setChainId(currentChainId);
+          setNetworkName(getNetworkName(currentChainId));
           
           // Get balance
           const balance = await getBNBBalance(accounts[0]);
           setBalance(balance);
+          
+          // Try to get ENS name if on mainnet
+          const ens = await getENSName(accounts[0]);
+          setEnsName(ens);
         }
       } catch (error) {
         // Silently ignore - user just isn't connected yet
@@ -73,6 +79,7 @@ export const WalletProvider = ({ children }) => {
   // Helper function to get BNB balance
   const getBNBBalance = async (address) => {
     try {
+      const ethereum = getEthereumProvider();
       const provider = new ethers.BrowserProvider(ethereum);
       const balance = await provider.getBalance(address);
       return ethers.formatEther(balance);
@@ -82,12 +89,43 @@ export const WalletProvider = ({ children }) => {
     }
   };
 
+  // Helper function to get network name
+  const getNetworkName = (chainId) => {
+    const networks = {
+      1: "Ethereum Mainnet",
+      56: "BNB Smart Chain",
+      97: "BNB Testnet",
+      137: "Polygon",
+      43114: "Avalanche",
+    };
+    return networks[chainId] || `Chain ID ${chainId}`;
+  };
+
+  // Helper function to get ENS name (only for Ethereum mainnet)
+  const getENSName = async (address) => {
+    try {
+      // ENS only works on Ethereum mainnet
+      if (chainId !== 1) return null;
+      
+      const ethereum = getEthereumProvider();
+      const provider = new ethers.BrowserProvider(ethereum);
+      const ensName = await provider.lookupAddress(address);
+      return ensName;
+    } catch (error) {
+      // ENS lookup failed or not available
+      return null;
+    }
+  };
+
   // Connect MetaMask wallet using SDK
   const connectMetaMaskWallet = useCallback(async () => {
     setIsConnecting(true);
     setError(null);
     
     try {
+      // Get fresh provider instance (important after disconnect/reset)
+      const ethereum = getEthereumProvider();
+      
       // Ensure provider is available
       if (!ethereum) {
         throw new Error("MetaMask SDK not initialized");
@@ -111,8 +149,13 @@ export const WalletProvider = ({ children }) => {
       
       setWalletAddress(address);
       setChainId(currentChainId);
+      setNetworkName(getNetworkName(currentChainId));
       setBalance(currentBalance);
       setWalletConnected(true);
+      
+      // Try to get ENS name if on mainnet
+      const ens = await getENSName(address);
+      setEnsName(ens);
       
       return address;
     } catch (err) {
@@ -124,10 +167,11 @@ export const WalletProvider = ({ children }) => {
     } finally {
       setIsConnecting(false);
     }
-  }, [ethereum]);
+  }, []);
 
   // Switch to BSC network
   const switchToBSC = async () => {
+    const ethereum = getEthereumProvider();
     if (!ethereum) {
       throw new Error("MetaMask provider not available");
     }
@@ -150,12 +194,22 @@ export const WalletProvider = ({ children }) => {
     }
   };
 
-  const disconnectWallet = useCallback(() => {
+  const disconnectWallet = useCallback(async () => {
+    try {
+      // Terminate and reset the MetaMask SDK connection
+      await resetSDK();
+    } catch (error) {
+      console.error("Error terminating SDK:", error);
+    }
+    
+    // Clear all state
     setWalletConnected(false);
     setWalletAddress(null);
     setChainId(null);
     setBalance(null);
     setError(null);
+    setEnsName(null);
+    setNetworkName(null);
   }, []);
 
   // Real BNB purchase function
@@ -168,6 +222,9 @@ export const WalletProvider = ({ children }) => {
         throw new Error("Wallet not connected");
       }
 
+      // Get fresh provider instance
+      const ethereum = getEthereumProvider();
+      
       // Ensure provider is available
       if (!ethereum) {
         throw new Error("MetaMask provider not available");
@@ -215,10 +272,11 @@ export const WalletProvider = ({ children }) => {
         error: errorMessage,
       };
     }
-  }, [walletConnected, walletAddress, chainId, ethereum]);
+  }, [walletConnected, walletAddress, chainId]);
 
   // Handle account and chain changes
   useEffect(() => {
+    const ethereum = getEthereumProvider();
     if (!ethereum) return;
 
     const handleAccountsChanged = (accounts) => {
@@ -227,15 +285,18 @@ export const WalletProvider = ({ children }) => {
       } else if (accounts[0] !== walletAddress) {
         setWalletAddress(accounts[0]);
         getBNBBalance(accounts[0]).then(setBalance).catch(console.error);
+        getENSName(accounts[0]).then(setEnsName).catch(console.error);
       }
     };
 
     const handleChainChanged = (chainIdHex) => {
       const newChainId = parseInt(chainIdHex, 16);
       setChainId(newChainId);
+      setNetworkName(getNetworkName(newChainId));
       
       if (walletAddress) {
         getBNBBalance(walletAddress).then(setBalance).catch(console.error);
+        getENSName(walletAddress).then(setEnsName).catch(console.error);
       }
     };
 
@@ -257,6 +318,8 @@ export const WalletProvider = ({ children }) => {
     chainId,
     balance,
     error,
+    ensName,
+    networkName,
     connectMetaMaskWallet,
     disconnectWallet,
     purchaseZLNWithBNB,

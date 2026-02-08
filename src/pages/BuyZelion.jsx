@@ -7,26 +7,47 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertTriangle, ArrowRight } from "lucide-react";
+import { AlertTriangle, ArrowRight, RefreshCw, Wallet } from "lucide-react";
 import { useWallet } from "@/context/WalletContext";
 import MetaMaskModal from "@/components/MetaMaskModal";
 import TransactionProcessingModal from "@/components/TransactionProcessingModal";
 
 const BuyZelion = () => {
   const navigate = useNavigate();
-  const { walletConnected, walletAddress, chainId, balance, error, purchaseZLNWithBNB } = useWallet();
+  const { 
+    walletConnected, 
+    walletAddress, 
+    chainId, 
+    balance, 
+    error, 
+    isConnecting,
+    connectMetaMaskWallet,
+    purchaseZLNWithBNB 
+  } = useWallet();
   const [showConnectModal, setShowConnectModal] = useState(false);
   const [showProcessingModal, setShowProcessingModal] = useState(false);
   const [bnbAmount, setBnbAmount] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [purchaseError, setPurchaseError] = useState("");
+  const [connectionAttempted, setConnectionAttempted] = useState(false);
 
   // Check wallet connection on mount
   useEffect(() => {
     if (!walletConnected) {
-      setShowConnectModal(true);
+      setConnectionAttempted(true);
     }
   }, [walletConnected]);
+
+  // Retry connection handler
+  const handleRetryConnection = async () => {
+    try {
+      setConnectionAttempted(false);
+      await connectMetaMaskWallet();
+    } catch (err) {
+      setConnectionAttempted(true);
+      console.error("Connection failed:", err);
+    }
+  };
 
   // Check if on correct network (BSC = 56)
   const isCorrectNetwork = chainId === 56;
@@ -63,6 +84,128 @@ const BuyZelion = () => {
   // Calculate estimated ZLN (mock conversion rate: 1 BNB = 10000 ZLN)
   const estimatedZLN = bnbAmount ? (parseFloat(bnbAmount) * 10000).toLocaleString() : "0";
 
+  // Connection failure state
+  if (error && connectionAttempted && !walletConnected) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        
+        <main className="container mx-auto px-4 py-24 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl"
+          >
+            <div className="glass-card p-8 lg:p-10 text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="rounded-full bg-destructive/10 p-4">
+                  <AlertTriangle className="h-12 w-12 text-destructive" />
+                </div>
+              </div>
+              
+              <h1 className="mb-4 font-heading text-3xl font-bold text-foreground">
+                Connection Failed
+              </h1>
+              
+              <p className="mb-6 text-base text-muted-foreground">
+                We could not connect to your wallet. Please check MetaMask permissions and try again.
+              </p>
+              
+              {error && (
+                <div className="mb-6 p-3 rounded-lg bg-destructive/10 border border-destructive/20">
+                  <p className="text-sm text-destructive font-mono">{error}</p>
+                </div>
+              )}
+              
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button
+                  onClick={handleRetryConnection}
+                  variant="hero"
+                  size="lg"
+                  disabled={isConnecting}
+                >
+                  {isConnecting ? (
+                    <>
+                      <RefreshCw className="mr-2 h-5 w-5 animate-spin" />
+                      Connecting...
+                    </>
+                  ) : (
+                    <>
+                      <RefreshCw className="mr-2 h-5 w-5" />
+                      Retry Connection
+                    </>
+                  )}
+                </Button>
+                
+                <Button
+                  onClick={() => window.location.reload()}
+                  variant="outline"
+                  size="lg"
+                >
+                  Reload Page
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        </main>
+        
+        <Footer />
+      </div>
+    );
+  }
+
+  // Wallet not connected - connection required gate
+  if (!walletConnected) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        
+        <main className="container mx-auto px-4 py-24 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl"
+          >
+            <div className="glass-card p-8 lg:p-10 text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="rounded-full bg-muted p-4 border border-border">
+                  <Wallet className="h-12 w-12 text-silver-light" />
+                </div>
+              </div>
+              
+              <h1 className="mb-4 font-heading text-3xl font-bold text-foreground">
+                Wallet Connection Required
+              </h1>
+              
+              <p className="mb-6 text-base text-muted-foreground">
+                Please connect your wallet to purchase $ZLN tokens.
+              </p>
+              
+              <Button
+                onClick={() => setShowConnectModal(true)}
+                variant="hero"
+                size="lg"
+              >
+                <Wallet className="mr-2 h-5 w-5" />
+                Connect Wallet
+              </Button>
+            </div>
+          </motion.div>
+        </main>
+        
+        <Footer />
+        
+        <MetaMaskModal
+          open={showConnectModal}
+          onOpenChange={setShowConnectModal}
+        />
+      </div>
+    );
+  }
+
+  // Main purchase UI (wallet connected)
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
