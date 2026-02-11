@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { Mail, Globe, Send } from "lucide-react";
+import { trackExternalLink } from "@/services/analyticsService";
 
 const contactLinks = [
   {
@@ -75,6 +76,7 @@ const ContactUs = () => {
                     target={contact.href.startsWith("mailto:") ? "_self" : "_blank"}
                     rel={contact.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                     aria-label={contact.ariaLabel}
+                    onClick={() => trackExternalLink(contact.href, contact.label)}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}

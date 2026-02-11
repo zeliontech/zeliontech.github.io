@@ -90,3 +90,15 @@ export const trackExternalLink = (url, label) => {
     label,
   });
 };
+
+/**
+ * Track scroll depth milestone
+ * @param {number} depth - Scroll depth percentage (25, 50, 75, 100)
+ * @param {string} pagePath - Current page path
+ */
+export const trackScrollDepth = (depth, pagePath) => {
+  trackEvent("scroll_depth", {
+    depth_percentage: depth,
+    page_path: pagePath,
+  });
+};

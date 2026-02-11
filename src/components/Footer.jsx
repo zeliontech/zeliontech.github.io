@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import { trackExternalLink } from "@/services/analyticsService";
 
 const footerLinks = {
   Protocol: [
     { label: "Technology", href: "/technology" },
     { label: "Whitepaper", href: "/whitepaper" },
     { label: "Tokenomics", href: "/tokenomics" },
+    { label: "Get Notified", href: "/notify" },
     { label: "Contact Us", href: "/contact" },
   ],
   Community: [
@@ -54,6 +56,7 @@ const Footer = () => {
                         href={link.href}
                         target={link.href.startsWith("mailto:") ? "_self" : "_blank"}
                         rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                        onClick={() => trackExternalLink(link.href, link.label)}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}

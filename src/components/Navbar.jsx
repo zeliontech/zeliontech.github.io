@@ -1,28 +1,46 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import NotifyModal from "@/components/NotifyModal";
 
 const navLinks = [
   { label: "Technology", href: "/technology" },
   { label: "Tokenomics", href: "/tokenomics" },
   { label: "How to Buy", href: "/how-to-buy" },
   { label: "Whitepaper", href: "/whitepaper" },
+  { label: "Get Notified", href: "/notify" },
   { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [notifyModalOpen, setNotifyModalOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Scroll to notify section
   const handleGetNotified = () => {
+    setMobileOpen(false);
+    
+    // If not on home page, navigate to home first
+    if (location.pathname !== "/") {
+      navigate("/#notify-launch");
+      return;
+    }
+    
+    // If on home page, scroll to section
     const notifySection = document.getElementById("notify-launch");
     if (notifySection) {
       notifySection.scrollIntoView({ behavior: "smooth", block: "center" });
     }
+  };
+
+  // Open notify modal
+  const handleOpenModal = () => {
     setMobileOpen(false);
+    setNotifyModalOpen(true);
   };
 
   return (
@@ -57,7 +75,7 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button onClick={handleGetNotified} variant="wallet" size="sm">
+          <Button onClick={handleOpenModal} variant="wallet" size="sm">
             Get Notified
           </Button>
         </div>
@@ -100,7 +118,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="mt-4">
-                <Button onClick={handleGetNotified} variant="wallet" className="w-full">
+                <Button onClick={handleOpenModal} variant="wallet" className="w-full">
                   Get Notified
                 </Button>
               </div>
@@ -108,6 +126,9 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Notify Modal */}
+      <NotifyModal open={notifyModalOpen} onOpenChange={setNotifyModalOpen} />
     </nav>
   );
 };

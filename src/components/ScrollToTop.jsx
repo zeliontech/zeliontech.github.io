@@ -7,11 +7,13 @@ const ScrollToTop = () => {
   useEffect(() => {
     // Don't scroll if there's a hash in the URL (for anchor links)
     if (location.hash) {
-      // Optional: Scroll to the hash element if it exists
-      const element = document.getElementById(location.hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      // Add a small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 100);
       return;
     }
 
