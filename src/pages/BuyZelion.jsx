@@ -30,14 +30,6 @@ const BuyZelion = () => {
             <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl">
               <span className="metal-gradient">ZLN Token</span> Not Yet Released
             </h1>
-            
-            <p className="mb-4 text-lg text-muted-foreground">
-              The ZLN token is currently in pre-launch phase.
-            </p>
-            
-            <p className="text-base text-muted-foreground">
-              Join the notification list to be alerted when purchasing becomes available.
-            </p>
           </div>
 
           {/* Notify Signup */}

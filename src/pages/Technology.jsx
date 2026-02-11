@@ -65,9 +65,7 @@ const Technology = () => {
                 Technology Architecture
               </span>
               <h1 className="mb-4 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
-                Infrastructure-First
-                <br />
-                <span className="metal-gradient">Validation Architecture</span>
+                Infrastructure for Verifiable Energy Data
               </h1>
               <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
                 Zelion is an infrastructure-first system enabling deterministic energy data validation through hardware verification and blockchain coordination.

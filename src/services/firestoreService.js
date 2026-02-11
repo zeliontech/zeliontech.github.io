@@ -27,7 +27,9 @@ export const addWaitlistSubscriber = async (email, name = "", source = "prelaunc
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-      console.log("[Firebase] Email already exists in waitlist:", normalizedEmail);
+      if (import.meta.env.DEV) {
+        console.log("[Firebase] Email already exists in waitlist:", normalizedEmail);
+      }
       return {
         success: false,
         status: "already_exists",
@@ -46,7 +48,10 @@ export const addWaitlistSubscriber = async (email, name = "", source = "prelaunc
     };
 
     const docRef = await addDoc(waitlistRef, docData);
-    console.log("[Firebase] Waitlist subscriber added:", docRef.id);
+    
+    if (import.meta.env.DEV) {
+      console.log("[Firebase] Waitlist subscriber added:", docRef.id);
+    }
 
     return {
       success: true,
@@ -93,7 +98,10 @@ export const addContactMessage = async (name, email, phone = "", message) => {
     };
 
     const docRef = await addDoc(contactRef, docData);
-    console.log("[Firebase] Contact message added:", docRef.id);
+    
+    if (import.meta.env.DEV) {
+      console.log("[Firebase] Contact message added:", docRef.id);
+    }
 
     return {
       success: true,

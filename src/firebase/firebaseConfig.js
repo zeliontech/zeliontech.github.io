@@ -30,7 +30,9 @@ export const initAnalytics = async () => {
     // Check if analytics is supported
     const supported = await isSupported();
     if (!supported) {
-      console.log("[Analytics] Not supported in this environment");
+      if (import.meta.env.DEV) {
+        console.log("[Analytics] Not supported in this environment");
+      }
       return null;
     }
 

@@ -42,9 +42,7 @@ const Hero = () => {
 
           {/* Heading */}
           <h1 className="mb-6 font-heading text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="metal-gradient">Infrastructure-First</span>
-            <br />
-            <span className="text-foreground">Energy Validation Network</span>
+            <span className="metal-gradient">Infrastructure for Verifiable Energy Data</span>
           </h1>
 
           {/* Subtitle */}
