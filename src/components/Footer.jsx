@@ -28,11 +28,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-muted">
-                <span className="font-heading text-sm font-bold text-silver-light">Z</span>
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white p-1">
+                <img src="/logo.svg" alt="ZelionTech Logo" className="h-full w-full text-silver-light" />
               </div>
               <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
-                ZELION
+                ZelionTech
               </span>
             </div>
             <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
