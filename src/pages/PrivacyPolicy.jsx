@@ -53,7 +53,8 @@ const PrivacyPolicy = () => {
                     2. Data We Collect
                   </h2>
                   <p>
-                    We currently collect personal data only when you voluntarily provide it through:
+                    We collect data in two ways: information you voluntarily provide, and information 
+                    automatically collected through analytics.
                   </p>
                   
                   <div className="mt-4">
@@ -78,6 +79,22 @@ const PrivacyPolicy = () => {
                       <li>Email Address</li>
                       <li>Name (if provided)</li>
                     </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Automatically Collected Data (Analytics)
+                    </h3>
+                    <p>We automatically collect non-personally identifiable information through Firebase Analytics:</p>
+                    <ul className="mt-2 space-y-1 pl-5 list-disc">
+                      <li>Page views and navigation behavior</li>
+                      <li>Device and browser information</li>
+                      <li>Approximate geographic location (country/city)</li>
+                      <li>User interactions (clicks, scrolling, time spent)</li>
+                    </ul>
+                    <p className="mt-2 text-sm">
+                      See Section 8 for detailed information about analytics tracking.
+                    </p>
                   </div>
                 </section>
 
@@ -184,14 +201,109 @@ const PrivacyPolicy = () => {
 
                 <section>
                   <h2 className="mb-3 font-heading text-lg font-semibold text-foreground">
-                    8. Cookies and Tracking
+                    8. Analytics and Tracking
                   </h2>
-                  <p>
-                    Currently, we do not use tracking cookies for marketing or profiling.
-                  </p>
-                  <p className="mt-4">
-                    If this changes, this policy will be updated accordingly.
-                  </p>
+                  
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Firebase Analytics (Google Analytics for Firebase)
+                    </h3>
+                    <p>
+                      We use Firebase Analytics, a web analytics service provided by Google LLC ("Google"), 
+                      to understand how users interact with our website and improve user experience.
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Data Collected
+                    </h3>
+                    <p>Firebase Analytics automatically collects:</p>
+                    <ul className="mt-2 space-y-1 pl-5 list-disc">
+                      <li>Page views and navigation patterns</li>
+                      <li>User interactions (clicks, form submissions, scroll depth)</li>
+                      <li>Device information (browser type, operating system, screen size)</li>
+                      <li>Approximate geographic location (country/city level)</li>
+                      <li>Session duration and engagement metrics</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Purpose
+                    </h3>
+                    <p>We use this data to:</p>
+                    <ul className="mt-2 space-y-1 pl-5 list-disc">
+                      <li>Understand user behavior and improve website functionality</li>
+                      <li>Analyze content engagement and navigation patterns</li>
+                      <li>Identify technical issues and optimize performance</li>
+                      <li>Make data-driven decisions about feature development</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Legal Basis (GDPR)
+                    </h3>
+                    <p>
+                      We process analytics data based on our <strong>legitimate interest</strong> in understanding 
+                      and improving our website's performance and user experience (Article 6(1)(f) GDPR).
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Third-Party Processing
+                    </h3>
+                    <p>
+                      Firebase Analytics is operated by Google. Data collected through Firebase is processed 
+                      by Google in accordance with Google's Privacy Policy. Google may use this data in 
+                      accordance with their terms of service.
+                    </p>
+                    <p className="mt-2">
+                      Learn more:{" "}
+                      <a 
+                        href="https://policies.google.com/privacy" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-foreground hover:underline"
+                      >
+                        Google Privacy Policy
+                      </a>
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Data Retention
+                    </h3>
+                    <p>
+                      Analytics data is retained for up to 14 months by default, after which it is automatically 
+                      deleted. Aggregated reporting data may be retained longer for trend analysis.
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Your Rights
+                    </h3>
+                    <p>You can opt out of analytics tracking by:</p>
+                    <ul className="mt-2 space-y-1 pl-5 list-disc">
+                      <li>Using browser privacy settings or "Do Not Track" features</li>
+                      <li>Installing browser extensions that block analytics (e.g., Privacy Badger, uBlock Origin)</li>
+                      <li>Disabling JavaScript in your browser (may affect site functionality)</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="mb-2 font-heading text-base font-semibold text-foreground">
+                      Cookies
+                    </h3>
+                    <p>
+                      Firebase Analytics may use cookies and similar technologies to collect and store information. 
+                      We do not use tracking cookies for marketing or advertising purposes.
+                    </p>
+                  </div>
                 </section>
 
                 <section>
@@ -199,10 +311,21 @@ const PrivacyPolicy = () => {
                     9. Third-Party Services
                   </h2>
                   <p>
-                    We may use trusted third-party services for hosting and data storage.
+                    We use trusted third-party services to operate our website and provide our services:
                   </p>
+                  
+                  <ul className="mt-3 space-y-2 pl-5 list-disc">
+                    <li>
+                      <strong>Google Firebase:</strong> For analytics, data storage, and hosting services
+                    </li>
+                    <li>
+                      <strong>Cloud Infrastructure Providers:</strong> For website hosting and data storage
+                    </li>
+                  </ul>
+
                   <p className="mt-4">
-                    These providers process data only on our behalf and under appropriate data protection agreements.
+                    These providers process data only on our behalf and under appropriate data protection agreements. 
+                    They are contractually obligated to protect your data and may only use it to provide services to us.
                   </p>
                 </section>
 
