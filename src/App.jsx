@@ -9,6 +9,7 @@ import TokenomicsPage from "./pages/TokenomicsPage";
 import Technology from "./pages/Technology";
 import Whitepaper from "./pages/Whitepaper";
 import Legal from "./pages/Legal";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import BuyZelion from "./pages/BuyZelion";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/technology" element={<Technology />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/buy" element={<BuyZelion />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="*" element={<NotFound />} />
