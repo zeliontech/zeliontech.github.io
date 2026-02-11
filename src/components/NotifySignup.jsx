@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle2, Mail, User } from "lucide-react";
 import { addWaitlistSubscriber } from "@/services/firestoreService";
+import { trackWaitlistSignup } from "@/services/analyticsService";
 
 const NotifySignup = ({ className = "" }) => {
   const [formData, setFormData] = useState({
@@ -57,6 +58,9 @@ const NotifySignup = ({ className = "" }) => {
       if (result.success) {
         setSubmitSuccess(true);
         setFormData({ email: "", name: "" });
+        
+        // Track successful waitlist signup
+        trackWaitlistSignup("website_prelaunch");
         
         // Hide success message after 8 seconds
         setTimeout(() => {

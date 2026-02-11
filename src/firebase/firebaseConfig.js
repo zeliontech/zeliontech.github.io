@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
 // Firebase configuration from environment variables
 const firebaseConfig = {
@@ -18,4 +19,33 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firestore
 const db = getFirestore(app);
 
-export { app, db };
+// Initialize Analytics (conditionally)
+let analytics = null;
+
+export const initAnalytics = async () => {
+  // Only run in browser
+  if (typeof window === "undefined") return null;
+
+  try {
+    // Check if analytics is supported
+    const supported = await isSupported();
+    if (!supported) {
+      console.log("[Analytics] Not supported in this environment");
+      return null;
+    }
+
+    // Initialize analytics
+    analytics = getAnalytics(app);
+    
+    if (import.meta.env.DEV) {
+      console.log("[Analytics] Initialized successfully");
+    }
+    
+    return analytics;
+  } catch (error) {
+    console.error("[Analytics] Initialization failed:", error);
+    return null;
+  }
+};
+
+export { app, db, analytics };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { addContactMessage } from "@/services/firestoreService";
+import { trackContactSubmit } from "@/services/analyticsService";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -95,6 +96,9 @@ const ContactForm = () => {
           phone: "",
           message: "",
         });
+
+        // Track successful contact form submission
+        trackContactSubmit("contact_page");
 
         // Hide success message after 5 seconds
         setTimeout(() => {

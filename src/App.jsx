@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import usePageTracking from "./hooks/usePageTracking";
+import { initAnalytics } from "./firebase/firebaseConfig";
 import Index from "./pages/Index";
 import HowToBuy from "./pages/HowToBuy";
 import TokenomicsPage from "./pages/TokenomicsPage";
@@ -17,28 +20,46 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/how-to-buy" element={<HowToBuy />} />
-          <Route path="/tokenomics" element={<TokenomicsPage />} />
-          <Route path="/technology" element={<Technology />} />
-          <Route path="/whitepaper" element={<Whitepaper />} />
-          <Route path="/legal" element={<Legal />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/buy" element={<BuyZelion />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+// App content with hooks (must be inside Router)
+const AppContent = () => {
+  usePageTracking();
+  
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/how-to-buy" element={<HowToBuy />} />
+        <Route path="/tokenomics" element={<TokenomicsPage />} />
+        <Route path="/technology" element={<Technology />} />
+        <Route path="/whitepaper" element={<Whitepaper />} />
+        <Route path="/legal" element={<Legal />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/buy" element={<BuyZelion />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
+
+const App = () => {
+  // Initialize Firebase Analytics on app mount
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
