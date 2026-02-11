@@ -43,10 +43,17 @@ const Whitepaper = () => {
                   A comprehensive technical overview of the Zelion protocol, architecture,
                   and token economics.
                 </p>
-                <Button variant="hero" size="lg">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download PDF
-                </Button>
+                <a 
+                  href="https://github.com/zeliontech/zelion-whitepaper/releases/download/v1.0/Zelion_Whitepaper_v1.0.pdf"
+                  download="Zelion_Whitepaper_v1.0.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="hero" size="lg">
+                    <Download className="mr-2 h-5 w-5" />
+                    Download PDF
+                  </Button>
+                </a>
               </motion.div>
 
               {/* Section Navigation */}
