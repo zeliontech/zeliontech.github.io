@@ -77,7 +77,7 @@ const Footer = () => {
         <div className="section-divider mt-12 mb-6" />
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Zelion. All rights reserved.
+            © {new Date().getFullYear()} ZelionTech. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground">
             $ZLN is a utility token. Not a financial product.
