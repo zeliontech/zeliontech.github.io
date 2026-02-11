@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Download, FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { trackWhitepaperDownload } from "@/services/analyticsService";
 
 const sections = [
   "Abstract",
@@ -48,6 +49,7 @@ const Whitepaper = () => {
                   download="Zelion_Whitepaper_v1.0.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhitepaperDownload()}
                 >
                   <Button variant="hero" size="lg">
                     <Download className="mr-2 h-5 w-5" />
