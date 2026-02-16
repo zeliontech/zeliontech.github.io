@@ -39,7 +39,7 @@ const Index = () => {
       <TeamPhilosophy />
       <FAQSection />
       <LegalNotice />
-      <NotifyLaunchSection />
+      {/* <NotifyLaunchSection /> */}
       <ContactSection />
       <Footer />
     </div>

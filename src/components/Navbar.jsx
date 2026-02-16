@@ -8,9 +8,9 @@ import NotifyModal from "@/components/NotifyModal";
 const navLinks = [
   { label: "Technology", href: "/technology" },
   { label: "Tokenomics", href: "/tokenomics" },
-  { label: "How to Buy", href: "/how-to-buy" },
+  // { label: "How to Buy", href: "/how-to-buy" },
   { label: "Whitepaper", href: "/whitepaper" },
-  { label: "Get Notified", href: "/notify" },
+  // { label: "Get Notified", href: "/notify" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -45,19 +45,21 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white p-1">
-            <img src="/logo.svg" alt="Zelion Logo" className="h-full w-full text-silver-light" />
-          </div>
-          <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
-            ZelionTech
-          </span>
-        </Link>
+      <div className="container mx-auto flex h-16 items-center px-4 lg:px-8">
+        <div className="flex flex-1 items-center">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white p-1">
+              <img src="/logo.svg" alt="Zelion Logo" className="h-full w-full text-silver-light" />
+            </div>
+            <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
+              ZelionTech
+            </span>
+          </Link>
+        </div>
 
         {/* Desktop Links */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden flex-1 items-center justify-center gap-1 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -73,24 +75,26 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop Actions */}
-        <div className="hidden items-center gap-3 md:flex">
-          <Button onClick={handleOpenModal} variant="wallet" size="sm">
-            Get Notified
-          </Button>
-        </div>
+        <div className="flex flex-1 items-center justify-end">
+          {/* Desktop Actions */}
+          <div className="hidden items-center gap-3 md:flex">
+            {/* <Button onClick={handleOpenModal} variant="wallet" size="sm">
+              Get Notified
+            </Button> */}
+          </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="flex items-center justify-center md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? (
-            <X className="h-6 w-6 text-foreground" />
-          ) : (
-            <Menu className="h-6 w-6 text-foreground" />
-          )}
-        </button>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="flex items-center justify-center md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -118,9 +122,9 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="mt-4">
-                <Button onClick={handleOpenModal} variant="wallet" className="w-full">
+                {/* <Button onClick={handleOpenModal} variant="wallet" className="w-full">
                   Get Notified
-                </Button>
+                </Button> */}
               </div>
             </div>
           </motion.div>

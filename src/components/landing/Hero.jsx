@@ -62,12 +62,12 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <Button asChild variant="hero" size="xl">
+            {/* <Button asChild variant="hero" size="xl">
               <Link to="/buy">
                 Buy $ZLN Token
                 <ArrowRight className="ml-1 h-5 w-5" />
               </Link>
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* Stats */}

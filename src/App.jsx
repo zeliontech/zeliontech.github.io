@@ -32,15 +32,15 @@ const AppContent = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/how-to-buy" element={<HowToBuy />} />
+        {/* <Route path="/how-to-buy" element={<HowToBuy />} /> */}
         <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/technology" element={<Technology />} />
         <Route path="/whitepaper" element={<Whitepaper />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/buy" element={<BuyZelion />} />
+        {/* <Route path="/buy" element={<BuyZelion />} /> */}
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/notify" element={<Notify />} />
+        {/* <Route path="/notify" element={<Notify />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
