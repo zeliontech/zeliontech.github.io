@@ -19,6 +19,7 @@ import BuyZelion from "./pages/BuyZelion";
 import ContactUs from "./pages/ContactUs";
 import Notify from "./pages/Notify";
 import NotFound from "./pages/NotFound";
+import Zevoracle from "./pages/Zevoracle";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const AppContent = () => {
         {/* <Route path="/how-to-buy" element={<HowToBuy />} /> */}
         <Route path="/tokenomics" element={<TokenomicsPage />} />
         <Route path="/technology" element={<Technology />} />
+        <Route path="/oracle" element={<Zevoracle />} />
         <Route path="/whitepaper" element={<Whitepaper />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
