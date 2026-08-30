@@ -6,6 +6,7 @@ import Roadmap from "@/components/landing/Roadmap";
 import TeamSection from "@/components/landing/TeamSection";
 import ContactSection from "@/components/landing/ContactSection";
 import CommunitySection from "@/components/landing/CommunitySection";
+import LegalNotice from "@/components/landing/LegalNotice";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <TeamSection />
       <ContactSection />
       <CommunitySection />
+      <LegalNotice />
       <Footer />
     </div>
   );

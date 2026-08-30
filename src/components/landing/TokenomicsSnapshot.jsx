@@ -72,9 +72,12 @@ const TokenomicsSnapshot = () => {
             >
               500,000,000
             </div>
-            <div className="font-heading text-2xl font-bold text-slate-900 mb-8">
+            <div className="font-heading text-2xl font-bold text-slate-900 mb-3">
               $ZLN Fixed
             </div>
+            <p className="text-xs text-slate-900/50 mb-8">
+              Team and core contributor allocations follow long-term vesting
+            </p>
             <Link
               to="/tokenomics"
               className="bg-primary/10 border border-primary/25 text-primary rounded-xl px-6 py-3 text-sm font-heading font-semibold inline-flex items-center gap-2 hover:bg-primary/15 transition-colors"

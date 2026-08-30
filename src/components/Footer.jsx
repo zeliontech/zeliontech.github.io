@@ -22,6 +22,8 @@ const companyLinks = [
   { label: "Contact", to: "/contact" },
   { label: "Privacy Policy", to: "/privacy" },
   { label: "Legal", to: "/legal" },
+  { label: "Website", href: "https://www.zeliontech.com" },
+  { label: "info@zeliontech.com", href: "mailto:info@zeliontech.com" },
 ];
 
 const Footer = () => {
@@ -92,12 +94,23 @@ const Footer = () => {
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className="font-kanit font-light text-sm text-slate-900/55 hover:text-primary transition"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.href ? (
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                      rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                      className="font-kanit font-light text-sm text-slate-900/55 hover:text-primary transition"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      className="font-kanit font-light text-sm text-slate-900/55 hover:text-primary transition"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -108,11 +121,12 @@ const Footer = () => {
         <div className="border-t border-slate-900/10 pt-8 flex flex-col md:flex-row justify-between gap-4 items-center">
           <div className="text-center md:text-left">
             <p className="text-xs text-slate-900/45">
-              © 2026 ZelionTech. All rights reserved.
+              © {new Date().getFullYear()} ZelionTech. All rights reserved.
             </p>
             <p className="text-[11px] text-slate-900/35 mt-1">
               Nothing on this website constitutes financial advice. $ZLN is a
-              utility token. Always conduct your own research.
+              utility token. Not a financial product. Always conduct your own
+              research.
             </p>
           </div>
           <div className="font-mono text-xs tracking-[0.3em] text-primary/50">

@@ -153,17 +153,6 @@ const Roadmap = () => {
                   ))}
                 </ul>
 
-                {phase.status === "active" && (
-                  <div className="mt-5 h-px bg-primary/10 overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "40%" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-primary to-emerald-500"
-                    />
-                  </div>
-                )}
               </div>
             </div>
           </motion.div>

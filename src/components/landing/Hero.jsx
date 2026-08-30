@@ -6,16 +6,11 @@ import { ArrowRight } from "lucide-react";
 const CYAN = [0, 153, 214];
 const EMERALD = [16, 185, 129];
 
-const energyFeeds = [
-  { label: "GRID-01", width: 72, pulseTo: 60 },
-  { label: "GRID-02", width: 48, pulseTo: 85 },
-  { label: "ORACLE", width: 64, pulseTo: 42 },
-];
-
 const stats = [
   { value: "500M", label: "TOTAL $ZLN SUPPLY" },
   { value: "3-Layer", label: "ARCHITECTURE" },
-  { value: "100%", label: "HARDWARE VALIDATED" },
+  { value: "Hardware", label: "VALIDATION" },
+  { value: "Long-Term", label: "INFRASTRUCTURE" },
 ];
 
 const HeroCanvas = () => {
@@ -212,71 +207,6 @@ const Hero = () => {
             "radial-gradient(transparent 35%, rgba(255,255,255,0.7) 85%, rgba(255,255,255,0.95) 100%)",
         }}
       />
-
-      {/* Floating card — bottom-left: network status */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.6 }}
-        className="hidden sm:block absolute bottom-28 left-3 lg:left-12 z-20"
-      >
-        <div className="w-56 rounded-xl bg-white/85 backdrop-blur-xl border border-primary/10 p-5 shadow-[0_10px_40px_rgba(15,40,70,0.08)]">
-          <div className="font-mono text-xs uppercase tracking-widest text-primary/60 mb-4">
-            NETWORK STATUS
-          </div>
-          <div className="flex justify-between py-1.5">
-            <span className="text-xs text-slate-900/50">Validators</span>
-            <span className="text-xs font-mono font-bold text-green-600">Active</span>
-          </div>
-          <div className="flex justify-between py-1.5">
-            <span className="text-xs text-slate-900/50">Data Integrity</span>
-            <span className="text-xs font-mono font-bold text-green-600">Verified</span>
-          </div>
-          <div className="flex justify-between py-1.5">
-            <span className="text-xs text-slate-900/50">Hash Rate</span>
-            <span className="text-xs font-mono font-bold text-primary">847 TH/s</span>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Floating card — top-right: energy feed */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.8 }}
-        className="hidden lg:block absolute top-24 right-3 lg:right-10 z-20"
-      >
-        <div className="relative w-72 rounded-2xl bg-white/85 backdrop-blur-xl border border-primary/10 p-5 shadow-[0_10px_40px_rgba(15,40,70,0.08)] overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
-          <div className="font-mono text-xs uppercase tracking-widest text-primary/60 mb-4">
-            ENERGY FEED
-          </div>
-          <div className="space-y-4">
-            {energyFeeds.map((feed, i) => (
-              <div key={feed.label}>
-                <div className="font-mono text-[10px] uppercase tracking-widest text-slate-900/50 mb-1.5">
-                  {feed.label}
-                </div>
-                <div className="h-1 rounded-full bg-slate-900/[0.06] overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-primary to-emerald-500"
-                    initial={{ width: `${feed.width}%` }}
-                    animate={{
-                      width: [`${feed.width}%`, `${feed.pulseTo}%`, `${feed.width}%`],
-                      opacity: [1, 0.7, 1],
-                    }}
-                    transition={{
-                      duration: 3.5 + i,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
 
       {/* Center content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-28 pb-16">

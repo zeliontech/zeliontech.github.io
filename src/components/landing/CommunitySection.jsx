@@ -62,7 +62,6 @@ const channels = [
   { label: "X (Twitter)", href: "#", color: "#0B1B2E", icon: "x" },
   { label: "LinkedIn", href: "#", color: "#0A66C2", icon: "linkedin" },
   { label: "Instagram", href: "#", color: "#E4405F", icon: "instagram" },
-  { label: "TG Official", href: "#", color: "#26A5E4", icon: "telegram" },
   { label: "Discord", href: "#", color: "#5865F2", icon: "discord" },
   { label: "YouTube", href: "#", color: "#FF0000", icon: "youtube" },
   { label: "GitHub", href: "https://github.com/zeliontech", color: "#0B1B2E", icon: "github" },

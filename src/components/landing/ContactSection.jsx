@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, FileText } from "lucide-react";
 
 const stats = [
-  { value: "Phase 2", label: "ACTIVE STAGE" },
+  { value: "Phase 1", label: "ACTIVE STAGE" },
   { value: "3-Layer", label: "ARCHITECTURE" },
   { value: "100%", label: "INFRASTRUCTURE FIRST" },
 ];
