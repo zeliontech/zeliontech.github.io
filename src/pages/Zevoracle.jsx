@@ -761,8 +761,8 @@ const ZevOracle = () => {
                 <div style={{ display:"flex", flexDirection:"column", gap:".5rem" }}>
                   {[
                     { icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>, label:"Email", val:"info@zeliontech.com", href:"mailto:info@zeliontech.com" },
-                    { icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="m22 2-7 20-4-9-9-4 20-7z"/><path d="M22 2 11 13"/></svg>, label:"Telegram", val:"@zelionglobal", href:"https://t.me/zelionglobal" },
-                    { icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M4 4l16 16M4 20L20 4"/></svg>, label:"X / Twitter", val:"@zelion_tech", href:"https://x.com/zelion_tech" },
+                    { icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="m22 2-7 20-4-9-9-4 20-7z"/><path d="M22 2 11 13"/></svg>, label:"Telegram", val:"@zelionglobal", href:"#" },
+                    { icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M4 4l16 16M4 20L20 4"/></svg>, label:"X / Twitter", val:"@zelion_tech", href:"#" },
                     { icon:<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="16" height="16"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>, label:"GitHub", val:"github.com/zeliontech", href:"https://github.com/zeliontech" },
                   ].map(c=>(
                     <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
