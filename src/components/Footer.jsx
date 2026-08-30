@@ -10,8 +10,8 @@ const footerLinks = {
     { label: "Contact Us", href: "/contact" },
   ],
   Community: [
-    { label: "Telegram", href: "https://t.me/zelionglobal", external: true },
-    { label: "Twitter (X)", href: "https://x.com/zelion_tech", external: true },
+    { label: "Telegram", href: "#", external: true },
+    { label: "Twitter (X)", href: "#", external: true },
     { label: "Website", href: "https://www.zeliontech.com", external: true },
     { label: "Email", href: "mailto:info@zeliontech.com", external: false },
   ],
