@@ -10,7 +10,7 @@ const contactLinks = [
     icon: Send,
     label: "Telegram",
     value: "@zelionglobal",
-    href: "https://t.me/zelionglobal",
+    href: "#",
     ariaLabel: "Join us on Telegram",
   },
   {
@@ -31,7 +31,7 @@ const contactLinks = [
     icon: Globe,
     label: "Twitter (X)",
     value: "@zelion_tech",
-    href: "https://x.com/zelion_tech",
+    href: "#",
     ariaLabel: "Follow us on X (Twitter)",
   },
 ];
