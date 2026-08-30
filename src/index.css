@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Kanit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
     --popover-foreground: 217 33% 17%;
 
     /* PRIMARY = Cyan/Teal (Brand Color) */
-    --primary: 192 85% 36%;
+    --primary: 195 100% 42%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary */
@@ -42,7 +42,7 @@
     --input: 210 28% 88%;
 
     /* Focus Ring */
-    --ring: 192 85% 36%;
+    --ring: 195 100% 42%;
 
     --radius: 0.5rem;
 
@@ -225,7 +225,45 @@
   }
 }
 
+@layer components {
+  /* Base44-style brand gradient text (cyan → sky → emerald) */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(195 100% 42%) 0%, hsl(195 100% 50%) 40%, hsl(160 84% 39%) 70%, hsl(195 100% 42%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Navy heading gradient (dark slate → steel blue) */
+  .navy-gradient-text {
+    background: linear-gradient(180deg, hsl(215 61% 11%) 0%, hsl(211 42% 30%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Section label: thin gradient rules flanking a mono uppercase tag */
+  .label-rule-r {
+    background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.6));
+  }
+  .label-rule-l {
+    background: linear-gradient(to left, transparent, hsl(var(--primary) / 0.6));
+  }
+
+  /* Brand CTA gradient (cyan → bright cyan → emerald) */
+  .cta-gradient {
+    background: linear-gradient(135deg, hsl(195 100% 42%) 0%, hsl(195 100% 50%) 50%, hsl(160 84% 39%) 100%);
+  }
+}
+
 @layer utilities {
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee-scroll 40s linear infinite;
+  }
   .text-silver-light {
     color: hsl(var(--silver-light));
   }

@@ -49,3 +49,6 @@ src/components/UserWalletMenu.jsx
 src/components/WalletStatusBadge.jsx
 src/components/ContractAddressDisplay.jsx
 src/hooks/useZlnConversion.js
+# Internal working documents - never commit (public repo)
+CONTENT_AUDIT.md
+REPLICATION_BRIEF.md
