@@ -1,23 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/landing/Hero";
-import WhatIsZelion from "@/components/landing/WhatIsZelion";
-import InfrastructurePhilosophy from "@/components/landing/InfrastructurePhilosophy";
-import ProblemSection from "@/components/landing/ProblemSection";
-import VisionSection from "@/components/landing/VisionSection";
-import ArchitectureSection from "@/components/landing/ArchitectureSection";
-import HardwareSection from "@/components/landing/HardwareSection";
-import BlockchainRole from "@/components/landing/BlockchainRole";
-import TokenUtility from "@/components/landing/TokenUtility";
+import KeywordMarquee from "@/components/landing/KeywordMarquee";
 import TokenomicsSnapshot from "@/components/landing/TokenomicsSnapshot";
-import EconomicSustainability from "@/components/landing/EconomicSustainability";
 import Roadmap from "@/components/landing/Roadmap";
-import TrustGovernance from "@/components/landing/TrustGovernance";
-import TeamPhilosophy from "@/components/landing/TeamPhilosophy";
-import FAQSection from "@/components/landing/FAQSection";
-import LegalNotice from "@/components/landing/LegalNotice";
-import NotifyLaunchSection from "@/components/landing/NotifyLaunchSection";
-import ContactSection from "@/components/landing/ContactSection";
 import TeamSection from "@/components/landing/TeamSection";
+import ContactSection from "@/components/landing/ContactSection";
 import CommunitySection from "@/components/landing/CommunitySection";
 import Footer from "@/components/Footer";
 
@@ -26,23 +13,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <WhatIsZelion />
-      <InfrastructurePhilosophy />
-      <ProblemSection />
-      <VisionSection />
-      <ArchitectureSection />
-      <HardwareSection />
-      <BlockchainRole />
-      <TokenUtility />
+      <KeywordMarquee />
       <TokenomicsSnapshot />
-      <EconomicSustainability />
       <Roadmap />
-      <TrustGovernance />
-      <TeamPhilosophy />
       <TeamSection />
-      <FAQSection />
-      <LegalNotice />
-      {/* <NotifyLaunchSection /> */}
       <ContactSection />
       <CommunitySection />
       <Footer />
