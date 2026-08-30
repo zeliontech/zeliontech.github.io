@@ -13,7 +13,7 @@ const BnbLogo = ({ size = 24, className = "" }) => (
     height={size}
     alt="BNB Chain"
     className={className}
-    style={{ display: "block", objectFit: "contain", mixBlendMode: "screen" }}
+    style={{ display: "block", objectFit: "contain" }}
   />
 );
 
@@ -38,9 +38,9 @@ const Reveal = ({ children, delay = 0, className = "" }) => {
 // ─── Inline styles for this page (IBM Plex fonts + dashboard design tokens) ──
 const pageStyles = `
   @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=swap");
-  .zp{--zb:#0d1219;--zb1:#111820;--zb2:#161f2e;--zb3:#1a2332;--zb4:#1e2a3c;
-    --zw:rgba(255,255,255,.05);--zw2:rgba(255,255,255,.09);--zw3:rgba(255,255,255,.16);
-    --zc:#dde8f0;--zc2:#6e8098;--zc3:#344559;
+  .zp{--zb:#f4f8fb;--zb1:#ffffff;--zb2:#eef4f8;--zb3:#e7eff5;--zb4:#dfe9f1;
+    --zw:rgba(15,40,70,.06);--zw2:rgba(15,40,70,.10);--zw3:rgba(15,40,70,.18);
+    --zc:#0b1b2e;--zc2:#4a5b70;--zc3:#8296ab;
     --za:#f5a623;--zt:#00d4aa;--zg:#22c55e;
     --zm:"IBM Plex Mono","Courier New",monospace;
     --zs:"IBM Plex Serif",Georgia,serif;
@@ -49,24 +49,24 @@ const pageStyles = `
   .zp{background:var(--zb);color:var(--zc);}
   .zp p{color:var(--zc2);line-height:1.78;}
   .zo-grid{position:absolute;inset:0;
-    background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+    background-image:linear-gradient(rgba(15,40,70,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(15,40,70,.03) 1px,transparent 1px);
     background-size:64px 64px;
     mask-image:radial-gradient(ellipse 110% 80% at 50% 45%,black 25%,transparent 92%);
     animation:zo-gs 20s linear infinite;}
   @keyframes zo-gs{0%{background-position:0 0,0 0}100%{background-position:64px 64px,64px 64px}}
   .zo-ga{position:absolute;width:760px;height:480px;border-radius:50%;background:radial-gradient(ellipse,rgba(245,166,35,.042) 0%,transparent 62%);top:8%;left:50%;transform:translateX(-50%);}
   .zo-gb{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,212,170,.026) 0%,transparent 60%);bottom:8%;right:4%;}
-  .zo-sep{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.09) 20%,rgba(245,166,35,.055) 50%,rgba(255,255,255,.09) 80%,transparent);}
+  .zo-sep{height:1px;background:linear-gradient(90deg,transparent,rgba(15,40,70,.1) 20%,rgba(245,166,35,.055) 50%,rgba(15,40,70,.1) 80%,transparent);}
   .zo-dlabel{font-family:var(--zm);font-size:.62rem;font-weight:500;letter-spacing:.22em;color:var(--zc3);text-transform:uppercase;display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;}
   .zo-dlabel::before{content:"";display:inline-block;width:14px;height:1px;background:var(--zc3);}
   .zo-sh{font-family:var(--zs);font-size:clamp(2rem,3.5vw,3rem);color:var(--zc);letter-spacing:-.025em;line-height:1.1;margin-bottom:1rem;}
-  .zo-sh em{font-style:italic;color:rgba(221,232,240,.45);}
+  .zo-sh em{font-style:italic;color:rgba(11,27,46,.45);}
   .zo-pill{display:inline-flex;align-items:center;gap:.42rem;padding:.28rem .75rem;border-radius:4px;font-family:var(--zm);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
   .zo-pt{background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.2);color:var(--zt);}
   .zo-pa{background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.25);color:var(--za);}
   .zo-pg{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--zg);}
   .zo-pdot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;}
-  .zo-dbar{height:2px;background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden;margin:.7rem 0;}
+  .zo-dbar{height:2px;background:rgba(15,40,70,.08);border-radius:1px;overflow:hidden;margin:.7rem 0;}
   .zo-dbar-f{height:100%;border-radius:1px;}
   .zo-live{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--zm);font-size:.6rem;font-weight:700;letter-spacing:.12em;color:var(--zt);text-transform:uppercase;}
   .zo-live-d{width:6px;height:6px;border-radius:50%;background:var(--zt);animation:zo-ld 1.4s ease-in-out infinite;}
@@ -97,9 +97,9 @@ const pageStyles = `
   .zo-pdtl h3{font-family:var(--zm);font-size:.92rem;font-weight:700;color:var(--zc);margin-bottom:.625rem;letter-spacing:.04em;text-transform:uppercase;}
   .zo-pdtl p{font-size:.9rem;line-height:1.8;max-width:580px;color:var(--zc2);}
   .zo-pcard{border-radius:18px;overflow:hidden;transition:transform .3s,box-shadow .3s;}
-  .zo-pcard:hover{transform:translateY(-3px);box-shadow:0 24px 56px rgba(0,0,0,.55);}
+  .zo-pcard:hover{transform:translateY(-3px);box-shadow:0 24px 56px rgba(15,40,70,.18);}
   .zo-pcard-lite{background:var(--zb3);border:1px solid var(--zw2);}
-  .zo-pcard-pro{background:linear-gradient(170deg,#14200d 0%,#0f1809 40%,#0d1219 100%);border:1px solid rgba(245,166,35,.16);}
+  .zo-pcard-pro{background:linear-gradient(170deg,#f4faee 0%,#fafdf5 40%,#ffffff 100%);border:1px solid rgba(245,166,35,.35);}
   .zo-pcard-head{padding:1.875rem;border-bottom:1px solid var(--zw);}
   .zo-pbadge{display:inline-flex;align-items:center;gap:.4rem;padding:.28rem .7rem;border-radius:4px;font-family:var(--zm);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.875rem;}
   .zo-bl{border:1px solid var(--zw2);color:var(--zc3);}
@@ -120,17 +120,17 @@ const pageStyles = `
   .zo-bscan:hover{border-color:var(--zw2);color:var(--zc);background:var(--zb3);}
   .zo-ti{flex:1;display:flex;align-items:center;gap:.875rem;padding:1.5rem;border-right:1px solid var(--zw);transition:background .2s;}
   .zo-ti:last-child{border-right:none;}
-  .zo-ti:hover{background:rgba(255,255,255,.014);}
-  .zo-tiic{width:32px;height:32px;border-radius:6px;border:1px solid var(--zw2);background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .zo-ti:hover{background:rgba(15,40,70,.03);}
+  .zo-tiic{width:32px;height:32px;border-radius:6px;border:1px solid var(--zw2);background:rgba(15,40,70,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .zo-ucc{border-radius:12px;padding:1.75rem;border:1px solid var(--zw);background:var(--zb3);transition:all .3s;cursor:default;position:relative;overflow:hidden;}
   .zo-ucc::after{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;background:linear-gradient(140deg,rgba(245,166,35,.025),transparent 55%);}
   .zo-ucc:hover{border-color:var(--zw2);background:var(--zb4);transform:translateY(-2px);}
   .zo-ucc:hover::after{opacity:1;}
-  .zo-ucic{width:36px;height:36px;border-radius:7px;border:1px solid var(--zw2);background:rgba(255,255,255,.02);display:flex;align-items:center;justify-content:center;}
+  .zo-ucic{width:36px;height:36px;border-radius:7px;border:1px solid var(--zw2);background:rgba(15,40,70,.03);display:flex;align-items:center;justify-content:center;}
   .zo-dev{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:210px;height:310px;border-radius:5px;
     background:linear-gradient(170deg,#1e2c40 0%,#141e2e 35%,#101620 100%);
     border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 0 0 1px rgba(255,255,255,.04),5px 5px 0 rgba(0,0,0,.55),0 28px 72px rgba(0,0,0,.75);
+    box-shadow:0 0 0 1px rgba(255,255,255,.04),5px 5px 0 rgba(15,40,70,.25),0 28px 72px rgba(15,40,70,.30);
     animation:zo-df 9s ease-in-out infinite;}
   @keyframes zo-df{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-9px)}}
   .zo-rail{position:absolute;left:-10px;right:-10px;height:13px;background:linear-gradient(90deg,#0c111a,#1a2535,#0c111a);border:1px solid rgba(255,255,255,.07);border-radius:2px;}
@@ -267,7 +267,7 @@ const ZevOracle = () => {
 
               <h1 style={{ fontFamily:"var(--zs)", fontSize:"clamp(2.8rem,5.2vw,4.8rem)", color:"var(--zc)", marginBottom:"1.5rem", letterSpacing:"-.03em", lineHeight:1.06 }}>
                 <span style={{ display:"block" }}>Proof of</span>
-                <span style={{ display:"block", fontStyle:"italic", color:"rgba(221,232,240,.48)" }}>Renewable</span>
+                <span style={{ display:"block", fontStyle:"italic", color:"rgba(11,27,46,.45)" }}>Renewable</span>
                 <span style={{ display:"block" }}>Energy.</span>
               </h1>
 

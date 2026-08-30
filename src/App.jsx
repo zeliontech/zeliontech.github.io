@@ -20,6 +20,7 @@ import ContactUs from "./pages/ContactUs";
 import Notify from "./pages/Notify";
 import NotFound from "./pages/NotFound";
 import Zevoracle from "./pages/Zevoracle";
+import Partners from "./pages/Partners";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const AppContent = () => {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         {/* <Route path="/buy" element={<BuyZelion />} /> */}
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/partners" element={<Partners />} />
         {/* <Route path="/notify" element={<Notify />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
