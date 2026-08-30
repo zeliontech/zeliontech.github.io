@@ -64,7 +64,6 @@ const Whitepaper = () => {
                 </p>
                 <a
                   href="https://github.com/zeliontech/zelion-whitepaper/releases/download/v1.0/Zelion_Whitepaper_v1.0.pdf"
-                  download="Zelion_Whitepaper_v1.0.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhitepaperDownload()}

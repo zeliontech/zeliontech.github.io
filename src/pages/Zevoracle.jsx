@@ -23,10 +23,10 @@ const useReveal = () => {
   return [ref, inView];
 };
 
-const Reveal = ({ children, delay = 0, className = "" }) => {
+const Reveal = ({ children, delay = 0, className = "", style }) => {
   const [ref, inView] = useReveal();
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 18 }}
+    <motion.div ref={ref} style={style} initial={{ opacity: 0, y: 18 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.65, delay, ease: "easeOut" }}
       className={className}>
@@ -112,7 +112,7 @@ const pageStyles = `
   .zo-ft{font-size:.875rem;color:var(--zc2);line-height:1.55;}
   .zo-ft strong{color:var(--zc);font-weight:700;}
   .zo-bnbpanel{border-radius:18px;padding:2.25rem;background:var(--zb3);border:1px solid var(--zw2);border-top:2px solid rgba(243,186,47,.2);}
-  .zo-contract{font-family:var(--zm);font-size:.74rem;background:var(--zb);border:1px solid var(--zw2);border-radius:8px;padding:.875rem 1rem;color:var(--zc2);word-break:break-all;line-height:1.7;position:relative;margin-bottom:1.25rem;}
+  .zo-contract{font-family:var(--zm);font-size:.74rem;background:var(--zb);border:1px solid var(--zw2);border-radius:8px;padding:.875rem 4.75rem .875rem 1rem;color:var(--zc2);word-break:break-all;line-height:1.7;position:relative;margin-bottom:1.25rem;}
   .zo-bst{padding:.875rem 1rem;border-radius:8px;background:var(--zb);border:1px solid var(--zw);text-align:center;}
   .zo-bst .v{font-family:var(--zm);font-size:.95rem;font-weight:700;color:var(--zc);display:block;}
   .zo-bst .l{font-family:var(--zm);font-size:.57rem;color:var(--zc3);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem;}
@@ -245,8 +245,8 @@ const ZevOracle = () => {
           <div className="zo-ga"/>
           <div className="zo-gb"/>
 
-          <div style={{ position:"relative", zIndex:2, maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem", width:"100%", display:"grid", gridTemplateColumns:"1fr 1fr", gap:"3.5rem", alignItems:"center" }}
-            className="max-lg:grid-cols-1">
+          <div style={{ position:"relative", zIndex:2, maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem", width:"100%", display:"grid", gap:"3.5rem", alignItems:"center" }}
+            className="grid-cols-1 lg:grid-cols-[1fr_1fr]">
 
             {/* Left copy */}
             <motion.div initial={{ opacity:0, y:24 }} animate={{ opacity:1, y:0 }} transition={{ duration:.8 }} style={{ padding:"2.5rem 0" }}>
@@ -290,7 +290,7 @@ const ZevOracle = () => {
               </div>
 
               {/* Metric strip */}
-              <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", border:"1px solid var(--zw2)", borderRadius:"12px", overflow:"hidden", background:"var(--zb3)" }}>
+              <div className="grid-cols-2 lg:grid-cols-[repeat(4,1fr)]" style={{ display:"grid", border:"1px solid var(--zw2)", borderRadius:"12px", overflow:"hidden", background:"var(--zb3)" }}>
                 {[["IP67","Hardware Grade"],["CE","IEC 61557"],["BNB","Settlement"],["5G","Connectivity"]].map(([v,l])=>(
                   <div key={l} style={{ padding:"1.1rem .875rem", textAlign:"center", borderRight:"1px solid var(--zw)", transition:"background .2s" }}
                     onMouseOver={e=>e.currentTarget.style.background="var(--zb4)"}
@@ -430,7 +430,7 @@ const ZevOracle = () => {
         {/* ═══ TECHNOLOGY ═══ */}
         <section id="technology" style={{ padding:"7rem 0", background:"var(--zb1)" }}>
           <div style={{ maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"5fr 6fr", gap:"5rem", alignItems:"center" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:"5rem", alignItems:"center" }} className="grid-cols-1 lg:grid-cols-[5fr_6fr]">
               {/* Device schematic */}
               <Reveal>
                 <div style={{ border:"1px solid var(--zw2)", borderRadius:"18px", overflow:"hidden", background:"var(--zb)", aspectRatio:".88", display:"flex", alignItems:"center", justifyContent:"center", position:"relative" }}>
@@ -544,7 +544,7 @@ const ZevOracle = () => {
             </div>
 
             <motion.div className="zo-pdtl" key={activeStep} initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} transition={{ duration:.35 }}>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr auto", gap:"2rem", alignItems:"center" }} className="max-lg:grid-cols-1">
+              <div style={{ display:"grid", gap:"2rem", alignItems:"center" }} className="grid-cols-1 lg:grid-cols-[1fr_auto]">
                 <div>
                   <h3>{PIPE_DATA[activeStep].title}</h3>
                   <p>{PIPE_DATA[activeStep].body}</p>
@@ -562,11 +562,11 @@ const ZevOracle = () => {
         {/* ═══ PRODUCT ═══ */}
         <section id="product" style={{ padding:"7rem 0", background:"var(--zb1)" }}>
           <div style={{ maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"end", marginBottom:"3.5rem" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:"4rem", alignItems:"end", marginBottom:"3.5rem" }} className="grid-cols-1 lg:grid-cols-[1fr_1fr]">
               <Reveal><div className="zo-dlabel">Product</div><h2 className="zo-sh">The <em>ZEV</em> Device Family</h2></Reveal>
               <Reveal delay={.1}><p style={{ maxWidth:"380px" }}>Purpose-built hardware validation for renewable energy deployments of any scale — from pilot installations to industrial-grade infrastructure.</p></Reveal>
             </div>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"1.25rem" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:"1.25rem" }} className="grid-cols-1 lg:grid-cols-[1fr_1fr]">
               {/* ZEV Lite */}
               <Reveal delay={.05}>
                 <div className="zo-pcard zo-pcard-lite">
@@ -623,7 +623,7 @@ const ZevOracle = () => {
         {/* ═══ BNB CHAIN ═══ */}
         <section id="bnb" style={{ padding:"7rem 0", background:"var(--zb)" }}>
           <div style={{ maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"5rem", alignItems:"center" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:"5rem", alignItems:"center" }} className="grid-cols-1 lg:grid-cols-[1fr_1fr]">
               <Reveal>
                 <div className="zo-dlabel">Settlement Layer</div>
                 <h2 className="zo-sh">Built for the<br/><em>BNB Chain</em> Ecosystem</h2>
@@ -668,7 +668,7 @@ const ZevOracle = () => {
                     </button>
                     {CONTRACT}
                   </div>
-                  <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:".625rem", marginBottom:"1.25rem" }}>
+                  <div className="grid-cols-1 lg:grid-cols-[1fr_1fr]" style={{ display:"grid", gap:".625rem", marginBottom:"1.25rem" }}>
                     <div className="zo-bst"><span className="v">500,000,000</span><span className="l">Fixed Supply</span></div>
                     <div className="zo-bst"><span className="v">BEP-20</span><span className="l">Standard</span></div>
                   </div>
@@ -687,11 +687,11 @@ const ZevOracle = () => {
         {/* ═══ USE CASES ═══ */}
         <section id="usecases" style={{ padding:"7rem 0", background:"var(--zb1)" }}>
           <div style={{ maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"4rem", alignItems:"end", marginBottom:"3.5rem" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:"4rem", alignItems:"end", marginBottom:"3.5rem" }} className="grid-cols-1 lg:grid-cols-[1fr_1fr]">
               <Reveal><div className="zo-dlabel">Applications</div><h2 className="zo-sh">Enterprise<br/><em>Use Cases</em></h2></Reveal>
               <Reveal delay={.1}><p style={{ maxWidth:"400px" }}>Zelion's validation infrastructure serves enterprise, compliance, and DePIN applications where trusted energy data is foundational.</p></Reveal>
             </div>
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:".875rem" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:".875rem" }} className="grid-cols-1 lg:grid-cols-[repeat(3,1fr)]">
               {UC_DATA.map((u,i)=>(
                 <Reveal key={i} delay={(i%3)*.08}>
                   <div className="zo-ucc">
@@ -729,7 +729,7 @@ const ZevOracle = () => {
         <section id="patent" style={{ padding:"5rem 0", background:"var(--zb)" }}>
           <div style={{ maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem" }}>
             <Reveal>
-              <div className="zo-patwrap" style={{ display:"grid", gridTemplateColumns:"1fr auto", gap:"4rem", alignItems:"center" }}>
+              <div className="zo-patwrap grid-cols-1 lg:grid-cols-[1fr_auto]" style={{ display:"grid", gap:"4rem", alignItems:"center" }}>
                 <div>
                   <div style={{ display:"inline-flex", alignItems:"center", gap:".55rem", marginBottom:"1.75rem", padding:".4rem .9rem", borderRadius:"4px", border:"1px solid rgba(200,210,225,.1)", background:"rgba(200,210,225,.02)" }}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="var(--zc2)" strokeWidth="1.5" width="12" height="12"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -753,7 +753,7 @@ const ZevOracle = () => {
         {/* ═══ CONTACT ═══ */}
         <section id="contact" style={{ padding:"7rem 0", background:"var(--zb1)" }}>
           <div style={{ maxWidth:"var(--max,1200px)", margin:"0 auto", padding:"0 2.5rem" }}>
-            <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"5rem", alignItems:"start" }} className="max-lg:grid-cols-1">
+            <div style={{ display:"grid", gap:"5rem", alignItems:"start" }} className="grid-cols-1 lg:grid-cols-[1fr_1fr]">
               <Reveal>
                 <div className="zo-dlabel">Contact</div>
                 <h2 className="zo-sh">Partner With<br/><em>ZelionTech</em></h2>
@@ -782,7 +782,7 @@ const ZevOracle = () => {
                 <div className="zo-cform">
                   <div style={{ fontFamily:"var(--zm)", fontSize:".75rem", fontWeight:700, color:"var(--zc)", letterSpacing:".1em", textTransform:"uppercase", marginBottom:"1.5rem" }}>Request a Demo</div>
                   <form onSubmit={sendForm}>
-                    <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:".75rem", marginBottom:".85rem" }}>
+                    <div className="grid-cols-1 lg:grid-cols-[1fr_1fr]" style={{ display:"grid", gap:".75rem", marginBottom:".85rem" }}>
                       <div><label style={{ display:"block", fontFamily:"var(--zm)", fontSize:".58rem", fontWeight:700, letterSpacing:".12em", color:"var(--zc3)", textTransform:"uppercase", marginBottom:".45rem" }}>First Name</label><input type="text" className="zo-fi" placeholder="Jane"/></div>
                       <div><label style={{ display:"block", fontFamily:"var(--zm)", fontSize:".58rem", fontWeight:700, letterSpacing:".12em", color:"var(--zc3)", textTransform:"uppercase", marginBottom:".45rem" }}>Last Name</label><input type="text" className="zo-fi" placeholder="Smith"/></div>
                     </div>
