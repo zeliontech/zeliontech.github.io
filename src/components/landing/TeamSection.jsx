@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
 const leadership = [
-  { name: "İhsan Serdar Eldek", role: "Co-Founder & CEO", photo: "/team/Serdar_Photo.jpeg" },
-  { name: "Roula Jamil", role: "Co-Founder & President", photo: "/team/Roula_photo.jpeg" },
+  { name: "İhsan Serdar Eldek", role: "Co-Founder & CEO", photo: "/team/Serdar Photo.jpeg" },
+  { name: "Roula Jamil", role: "Co-Founder & President", photo: "/team/Roula photo.jpeg" },
   { name: "Ralph Saab", role: "Chief Strategy & Innovation Officer", initials: "RS" },
   { name: "Eng. Dino Vincoletto", role: "Chief Renewable Technology & Energy Validation Officer", initials: "DV" },
   { name: "Eng. Alessio Munerato", role: "Chief Infrastructure & Cybersecurity Officer", initials: "AM" },
   { name: "Eng. Federico Davoli", role: "Chief Hardware & Industrial Systems Officer", initials: "FD" },
   { name: "Luigi Benacchio", role: "Chief Information Officer", initials: "LB" },
-  { name: "Allam Jamil", role: "Chief Financial, Investment & Data Officer (CFIDO)", photo: "/team/allam_photo.jpeg" },
+  { name: "Allam Jamil", role: "Chief Financial, Investment & Data Officer (CFIDO)", photo: "/team/allam photo.jpeg" },
   { name: "Eleonora Passarella", role: "Chief Marketing & Communications Officer", initials: "EP" },
 ];
 
