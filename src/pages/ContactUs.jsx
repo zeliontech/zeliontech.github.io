@@ -2,16 +2,44 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { Mail, Globe, Send } from "lucide-react";
+import { Mail, Globe, Send, Twitter, Linkedin, Instagram, Github } from "lucide-react";
 import { trackExternalLink } from "@/services/analyticsService";
 
 const contactLinks = [
   {
     icon: Send,
     label: "Telegram",
-    value: "Channel link coming soon",
-    href: "#",
+    value: "Join our official channel",
+    href: "https://t.me/zelionglobal",
     ariaLabel: "Join us on Telegram",
+  },
+  {
+    icon: Twitter,
+    label: "X (Twitter)",
+    value: "Follow us on X",
+    href: "https://x.com/zelion_tech",
+    ariaLabel: "Follow us on X (Twitter)",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "ZelionTech company page",
+    href: "https://www.linkedin.com/company/zeliontech/",
+    ariaLabel: "Connect with us on LinkedIn",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "@zeliontech_zev",
+    href: "https://www.instagram.com/zeliontech_zev/",
+    ariaLabel: "Follow us on Instagram",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/zeliontech",
+    href: "https://github.com/zeliontech",
+    ariaLabel: "View our GitHub",
   },
   {
     icon: Globe,
@@ -26,13 +54,6 @@ const contactLinks = [
     value: "info@zeliontech.com",
     href: "mailto:info@zeliontech.com",
     ariaLabel: "Send us an email",
-  },
-  {
-    icon: Globe,
-    label: "Twitter (X)",
-    value: "Channel link coming soon",
-    href: "#",
-    ariaLabel: "Follow us on X (Twitter)",
   },
 ];
 
