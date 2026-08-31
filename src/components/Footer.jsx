@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 
 const socials = [
-  { label: "X (Twitter)", href: "#" },
-  { label: "Telegram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Discord", href: "#" },
-  { label: "YouTube", href: "#" },
+  { label: "X (Twitter)", href: "https://x.com/zelion_tech", external: true },
+  { label: "Telegram", href: "https://t.me/zelionglobal", external: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/zeliontech/", external: true },
+  { label: "Instagram", href: "https://www.instagram.com/zeliontech_zev/", external: true },
   { label: "GitHub", href: "https://github.com/zeliontech", external: true },
-  { label: "Instagram", href: "#" },
-  { label: "WhatsApp", href: "#" },
 ];
 
 const platformLinks = [
