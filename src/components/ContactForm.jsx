@@ -40,9 +40,7 @@ const ContactForm = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!validatePhone(formData.phone)) {
+    if (formData.phone.trim() && !validatePhone(formData.phone)) {
       newErrors.phone = "Please enter a valid phone number";
     }
 
@@ -205,7 +203,7 @@ const ContactForm = () => {
               htmlFor="phone"
               className="mb-2 block text-sm font-medium text-foreground"
             >
-              Phone Number <span className="text-destructive">*</span>
+              Phone Number <span className="text-muted-foreground">(optional)</span>
             </label>
             <input
               type="tel"
