@@ -9,8 +9,8 @@
  * unchanged.
  */
 
-const METAL_BODY = "#262A31";
-const METAL_PANEL = "#1B1E24";
+const METAL_BODY = "#2E333C";
+const METAL_PANEL = "#212530";
 const METAL_DARKER = "#101318";
 const METAL_LIGHT = "#33373F";
 const SEAM_CYAN = "#2FC5F2";

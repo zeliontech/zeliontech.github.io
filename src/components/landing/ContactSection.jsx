@@ -1,5 +1,9 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import ContactForm from "@/components/ContactForm";
+
+// Lazy: keeps the form (and the Firebase chunk rollup ties to it) out of the
+// homepage's initial static graph — this section sits far below the fold.
+const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 const ContactSection = () => {
   return (
@@ -29,7 +33,9 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="mx-auto max-w-6xl">
-          <ContactForm />
+          <Suspense fallback={<div className="min-h-[420px]" />}>
+            <ContactForm />
+          </Suspense>
         </div>
       </div>
     </section>

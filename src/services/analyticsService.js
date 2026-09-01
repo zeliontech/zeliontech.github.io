@@ -8,7 +8,14 @@ const loadFirebase = () => {
     firebasePromise = Promise.all([
       import("firebase/analytics"),
       import("../firebase/firebaseConfig"),
-    ]).then(([{ logEvent }, { initAnalytics }]) => ({ logEvent, initAnalytics }));
+    ])
+      .then(([{ logEvent }, { initAnalytics }]) => ({ logEvent, initAnalytics }))
+      .catch((error) => {
+        // Drop the cached rejection so a transient chunk-load failure does
+        // not disable analytics for the rest of the session.
+        firebasePromise = null;
+        throw error;
+      });
   }
   return firebasePromise;
 };

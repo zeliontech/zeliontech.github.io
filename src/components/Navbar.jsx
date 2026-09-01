@@ -2,7 +2,6 @@ import { lazy, Suspense, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 // Lazy: the modal pulls in the Firebase SDK via NotifySignup, which must not
 // ride along in the shared Navbar chunk on every page. It is only fetched
@@ -102,16 +101,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-b border-border bg-background/95 backdrop-blur-xl md:hidden"
-          >
-            <div className="flex flex-col gap-1 p-4">
+      {/* Mobile Menu — CSS grid-rows transition instead of framer-motion so
+          the animation library stays out of the critical navbar chunk. */}
+      <div
+        className={`grid overflow-hidden border-border bg-background/95 backdrop-blur-xl transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none md:hidden ${
+          mobileOpen ? "grid-rows-[1fr] border-b opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="flex flex-col gap-1 p-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -126,15 +124,14 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="mt-4">
-                {/* <Button onClick={handleOpenModal} variant="wallet" className="w-full">
+            <div className="mt-4">
+              {/* <Button onClick={handleOpenModal} variant="wallet" className="w-full">
                   Get Notified
                 </Button> */}
-              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
 
       {/* Notify Modal (mounted on first open so its chunk loads on demand) */}
       {notifyModalOpen && (

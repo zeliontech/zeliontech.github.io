@@ -1,11 +1,10 @@
-// Shared v2 utilities (spec: SHARED UTILITIES).
+// Shared ZEV utilities.
 // NOTE: this file is .js and the build uses @vitejs/plugin-react-swc, which only
 // transforms JSX in .jsx files — so components here use createElement (plain JS).
 // Palette: only existing tokens (hsl(var(--primary))). Micro-interactions: easeOut,
 // <=6px translations, 150ms transitions. Everything is inert under reduced motion.
 
 import { Component, createElement, useCallback, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 /** Subscribe to a media query. SSR-safe (returns false without window). */
 function useMediaQuery(query) {
@@ -49,33 +48,6 @@ function useFinePointer() {
   return useMediaQuery("(hover: hover) and (pointer: fine)");
 }
 
-/**
- * Reveal — tiny whileInView fade+rise wrapper (y:16, 0.5s, easeOut, once).
- * Under reduced motion it renders children plainly (static end-state).
- * Props: className, delay (s), plus any div props.
- */
-export function Reveal({ children, className, delay = 0, lcpSafe = false, ...rest }) {
-  const reduced = useReducedMotion();
-
-  if (reduced) {
-    return createElement("div", { className, ...rest }, children);
-  }
-
-  // lcpSafe: transform-only entrance (opacity stays 1) so above-the-fold
-  // text/images count toward LCP at first paint instead of after the fade.
-  return createElement(
-    motion.div,
-    {
-      className,
-      initial: lcpSafe ? { y: 16 } : { opacity: 0, y: 16 },
-      whileInView: lcpSafe ? { y: 0 } : { opacity: 1, y: 0 },
-      viewport: { once: true, margin: "0px 0px -60px 0px" },
-      transition: { duration: 0.5, ease: "easeOut", delay },
-      ...rest,
-    },
-    children
-  );
-}
 
 const GLOW_REST = "-25%"; // parks the glow off the card until the cursor enters
 
@@ -208,5 +180,5 @@ export class LazyBoundary extends Component {
   }
 }
 
-const hooks = { useReducedMotion, useIsDesktop, Reveal, useCardGlow, Magnetic, LazyBoundary };
+const hooks = { useReducedMotion, useIsDesktop, useCardGlow, Magnetic, LazyBoundary };
 export default hooks;

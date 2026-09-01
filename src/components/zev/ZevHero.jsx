@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import DarkSection from "./DarkSection";
@@ -50,7 +49,10 @@ const DevicePoster = ({ className }) => (
     src="/zev/device-poster.svg"
     alt="ZEV device — industrial DIN-rail enclosure with cyan status lighting"
     className={className}
+    width="260"
+    height="340"
     loading="eager"
+    fetchPriority="high"
     decoding="async"
     draggable={false}
   />
@@ -117,13 +119,10 @@ const ZevHero = () => {
   const reduced = useReducedMotion();
   const show3D = useIsDesktop() && !reduced;
 
-  const fadeIn = reduced
-    ? {}
-    : {
-        initial: { opacity: 0, y: 16 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.6, ease: "easeOut", delay: 0.15 },
-      };
+  // Entrance uses the CSS `.zev-rise` utility rather than framer-motion: this
+  // section is above the fold, and keeping the motion library out of its
+  // chunk is worth more than the extra control here. The utility is inert
+  // under prefers-reduced-motion.
 
   return (
     <DarkSection id="zev-hero" className="pt-16">
@@ -163,7 +162,10 @@ const ZevHero = () => {
               activity into trusted digital intelligence.
             </p>
 
-            <motion.div {...fadeIn} className="mb-10 flex flex-col gap-3 sm:flex-row">
+            <div
+              className="zev-rise mb-10 flex flex-col gap-3 sm:flex-row"
+              style={{ animationDelay: "0.15s" }}
+            >
               <Button asChild size="lg" className="font-heading uppercase tracking-wider">
                 <a href="#zev-story">
                   Explore ZEV
@@ -178,9 +180,9 @@ const ZevHero = () => {
               >
                 <a href="#ecosystem">Discover the Ecosystem</a>
               </Button>
-            </motion.div>
+            </div>
 
-            <motion.div {...fadeIn} className="flex flex-col gap-2.5">
+            <div className="zev-rise flex flex-col gap-2.5" style={{ animationDelay: "0.25s" }}>
               <div className="flex flex-wrap items-center gap-2.5 text-xs text-muted-foreground">
                 <MaturityBadge level="demonstrated" />
                 <span>ZEV 1 proof of concept — energy data validated on BNB Smart Chain</span>
@@ -189,7 +191,7 @@ const ZevHero = () => {
                 <MaturityBadge level="in-development" />
                 <span>ZEV 2 industrial platform</span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Visual column: device center stage, seven domains orbiting */}

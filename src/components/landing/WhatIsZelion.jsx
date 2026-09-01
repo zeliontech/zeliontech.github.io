@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const WhatIsZelion = () => {
   return (
-    <section className="relative py-24 lg:py-32 section-bg-subtle">
+    <section id="zev-story" className="relative scroll-mt-16 py-24 lg:py-32 section-bg-subtle">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

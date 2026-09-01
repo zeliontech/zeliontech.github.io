@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, AlertCircle } from "lucide-react";
-import { addContactMessage } from "@/services/firestoreService";
 import { trackContactSubmit } from "@/services/analyticsService";
 
 const ContactForm = () => {
@@ -81,6 +80,9 @@ const ContactForm = () => {
     setErrors({});
 
     try {
+      // Loaded on submit so the Firebase SDK stays out of the page bundle —
+      // this form renders on the homepage and must not slow first paint.
+      const { addContactMessage } = await import("@/services/firestoreService");
       const result = await addContactMessage(
         formData.name,
         formData.email,
