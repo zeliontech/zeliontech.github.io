@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Technology", href: "/technology" },
   { label: "Tokenomics", href: "/tokenomics" },
   // { label: "How to Buy", href: "/how-to-buy" },
-  { label: "ZEV Oracle", href: "/oracle" },
+  // { label: "ZEV Oracle", href: "/oracle" },  // unrouted pending §24 claims rewrite
   { label: "Whitepaper", href: "/whitepaper" },
   // { label: "Get Notified", href: "/notify" },
   { label: "Contact", href: "/contact" },

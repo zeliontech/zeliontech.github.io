@@ -34,7 +34,12 @@ const AppContent = () => {
           {/* <Route path="/how-to-buy" element={<HowToBuy />} /> */}
           <Route path="/tokenomics" element={<TokenomicsPage />} />
           <Route path="/technology" element={<Technology />} />
-          <Route path="/oracle" element={<Zevoracle />} />
+          {/* Unrouted pending a §24 claims rewrite: the page carries unqualified
+              present-tense commercial claims — a purchasable "ZEV Pro" tier with an
+              enterprise SLA, CE / IP67 / IEC 61557 certification claims, and "provide
+              the data layer for carbon credit issuance", which ZEV_BRIEF.md §24 and §9
+              forbid while ZEV 1 is a proof of concept. */}
+          {/* <Route path="/oracle" element={<Zevoracle />} /> */}
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
