@@ -1,5 +1,17 @@
-import { logEvent } from "firebase/analytics";
-import { analytics } from "../firebase/firebaseConfig";
+// Firebase is loaded on demand so the SDK stays out of the initial bundle
+// and off the critical rendering path. The modules resolve the first time an
+// event fires; events are dropped (not queued) when analytics is disabled.
+let firebasePromise = null;
+
+const loadFirebase = () => {
+  if (!firebasePromise) {
+    firebasePromise = Promise.all([
+      import("firebase/analytics"),
+      import("../firebase/firebaseConfig"),
+    ]).then(([{ logEvent }, { initAnalytics }]) => ({ logEvent, initAnalytics }));
+  }
+  return firebasePromise;
+};
 
 /**
  * Safely track analytics events
@@ -7,22 +19,25 @@ import { analytics } from "../firebase/firebaseConfig";
  * @param {object} params - Event parameters
  */
 export const trackEvent = (eventName, params = {}) => {
-  if (!analytics) {
+  if (!import.meta.env.VITE_FIREBASE_MEASUREMENT_ID) {
     if (import.meta.env.DEV) {
-      console.log(`[Analytics] Event skipped (not initialized): ${eventName}`, params);
+      console.log(`[Analytics] Event skipped (analytics disabled): ${eventName}`, params);
     }
     return;
   }
 
-  try {
-    logEvent(analytics, eventName, params);
-    
-    if (import.meta.env.DEV) {
-      console.log(`[Analytics] Event sent: ${eventName}`, params);
-    }
-  } catch (error) {
-    console.error(`[Analytics] Event failed: ${eventName}`, error);
-  }
+  loadFirebase()
+    .then(async ({ logEvent, initAnalytics }) => {
+      const analytics = await initAnalytics();
+      if (!analytics) return;
+      logEvent(analytics, eventName, params);
+      if (import.meta.env.DEV) {
+        console.log(`[Analytics] Event sent: ${eventName}`, params);
+      }
+    })
+    .catch((error) => {
+      console.error(`[Analytics] Event failed: ${eventName}`, error);
+    });
 };
 
 // Pre-defined event tracking functions for consistency

@@ -1,4 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* Self-hosted fonts (Space Grotesk + Inter, latin + latin-ext). Replaces the
+   render-blocking Google Fonts @import; files live in public/fonts. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/inter-300-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/inter-300-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/inter-400-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/inter-400-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/inter-500-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/inter-500-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/inter-600-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/inter-600-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/sg-300-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/sg-300-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/sg-400-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/sg-400-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/sg-500-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/sg-500-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/sg-600-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/sg-600-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/sg-700-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/sg-700-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 @tailwind base;
 @tailwind components;
@@ -234,5 +379,137 @@
   }
   .text-silver-dark {
     color: hsl(var(--silver-dark));
+  }
+}
+
+/* ===================================================================== */
+/* ZEV DARK INSTRUMENT ZONES                                             */
+/* A second, self-contained token set scoped to .dark-zone (graphite     */
+/* surfaces, dark borders, light-on-dark text). The base light-sky theme */
+/* above is untouched; dark treatment is applied ONLY by wrapping a      */
+/* section in <DarkSection> (components/zev/DarkSection.jsx) — never by  */
+/* ad-hoc color overrides. Because every utility and gradient reads      */
+/* hsl(var(--token)), the brand gradients and cyan re-tune automatically */
+/* inside a dark zone: --primary is a lighter cyan (the light-theme cyan */
+/* muddies on graphite) and the heading-gradient ramp is brightened.     */
+/* All values WCAG-AA checked against the graphite background.           */
+
+@layer base {
+  .dark-zone {
+    /* Graphite surfaces */
+    --background: 220 15% 7%;
+    --background-elevated: 220 14% 10%;
+    --foreground: 204 33% 96%;
+
+    --card: 220 14% 10%;
+    --card-foreground: 204 33% 96%;
+
+    --popover: 220 14% 10%;
+    --popover-foreground: 204 33% 96%;
+
+    /* Dark-tuned cyan: lighter than the light-theme primary so it stays
+       luminous on graphite instead of muddy */
+    --primary: 194 92% 55%;
+    --primary-foreground: 220 15% 7%;
+
+    --secondary: 219 13% 16%;
+    --secondary-foreground: 204 30% 92%;
+
+    --muted: 219 13% 14%;
+    --muted-foreground: 214 16% 74%;
+
+    --accent: 194 60% 18%;
+    --accent-foreground: 194 90% 80%;
+
+    /* Dark borders */
+    --border: 218 12% 22%;
+    --input: 218 12% 22%;
+    --ring: 194 92% 55%;
+
+    /* Cyan accent ramp re-tuned for dark */
+    --silver-light: 194 92% 60%;
+    --silver-mid: 199 88% 58%;
+    --silver-dark: 211 60% 72%;
+
+    /* Heading gradients, brightened for graphite (light versions read
+       muddy here) */
+    --silver-gradient-1-start: 191 95% 64%;
+    --silver-gradient-1-mid: 199 92% 60%;
+    --silver-gradient-1-end: 214 95% 74%;
+
+    --silver-gradient-2-start: 191 85% 66%;
+    --silver-gradient-2-mid: 202 80% 62%;
+    --silver-gradient-2-end: 214 80% 74%;
+
+    --surface: 220 14% 10%;
+    --surface-elevated: 220 13% 13%;
+
+    --accent-blue-subtle: 199 85% 60%;
+
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* THE single light/dark boundary treatment: a crisp machined edge — a
+     hairline cyan seam with a soft glow bleeding into the dark side only.
+     Rendered by <DarkSection> at every boundary; do not invent variants. */
+  .zev-seam {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    z-index: 20;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.55) 18%,
+      hsl(var(--primary) / 0.55) 82%,
+      transparent 100%
+    );
+  }
+  .zev-seam-top {
+    top: 0;
+    box-shadow: 0 6px 24px 0 hsl(var(--primary) / 0.18);
+  }
+  .zev-seam-bottom {
+    bottom: 0;
+    box-shadow: 0 -6px 24px 0 hsl(var(--primary) / 0.18);
+  }
+
+  /* Animated energy/data lines (hero orbit, flow diagrams). Applied to
+     SVG paths; a dashed overlay drifts along the path. Static under
+     prefers-reduced-motion. */
+  .zev-energy-path {
+    stroke-dasharray: 6 14;
+    animation: zev-flow 2.8s linear infinite;
+  }
+  @keyframes zev-flow {
+    to {
+      stroke-dashoffset: -200;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .zev-energy-path {
+      animation: none;
+    }
+  }
+}
+
+/* NEW tokens (additive — no existing token is altered): maturity-badge
+   colors, defined for the light base and re-tuned inside dark zones so
+   MaturityBadge stays WCAG-AA in both. */
+@layer base {
+  :root {
+    --maturity-demonstrated: 160 84% 27%;
+    --maturity-progress: 194 90% 30%;
+    --maturity-planned: 215 16% 42%;
+  }
+  .dark-zone {
+    --maturity-demonstrated: 158 64% 52%;
+    --maturity-progress: 194 92% 60%;
+    --maturity-planned: 214 16% 74%;
   }
 }

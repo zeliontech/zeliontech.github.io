@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/landing/Hero";
+import ZevHero from "@/components/zev/ZevHero";
+import TrustStrip from "@/components/zev/TrustStrip";
+import { MaturityLegend } from "@/components/zev/MaturityBadge";
 import WhatIsZelion from "@/components/landing/WhatIsZelion";
 import InfrastructurePhilosophy from "@/components/landing/InfrastructurePhilosophy";
 import ProblemSection from "@/components/landing/ProblemSection";
@@ -25,7 +27,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
+      <ZevHero />
+      <TrustStrip />
+      <div className="container mx-auto px-4 pb-4 lg:px-8">
+        <MaturityLegend />
+      </div>
       <WhatIsZelion />
       <InfrastructurePhilosophy />
       <ProblemSection />

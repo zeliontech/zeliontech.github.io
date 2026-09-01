@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import NotifyModal from "@/components/NotifyModal";
+
+// Lazy: the modal pulls in the Firebase SDK via NotifySignup, which must not
+// ride along in the shared Navbar chunk on every page. It is only fetched
+// the first time the modal opens.
+const NotifyModal = lazy(() => import("@/components/NotifyModal"));
 
 const navLinks = [
   { label: "Technology", href: "/technology" },
@@ -132,8 +136,12 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Notify Modal */}
-      <NotifyModal open={notifyModalOpen} onOpenChange={setNotifyModalOpen} />
+      {/* Notify Modal (mounted on first open so its chunk loads on demand) */}
+      {notifyModalOpen && (
+        <Suspense fallback={null}>
+          <NotifyModal open={notifyModalOpen} onOpenChange={setNotifyModalOpen} />
+        </Suspense>
+      )}
     </nav>
   );
 };
