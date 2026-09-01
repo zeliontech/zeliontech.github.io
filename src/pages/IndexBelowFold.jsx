@@ -1,3 +1,4 @@
+import ZevKeyAnimation from "@/components/zev/ZevKeyAnimation";
 import WhatIsZelion from "@/components/landing/WhatIsZelion";
 import ZevStack from "@/components/zev/ZevStack";
 import InfrastructurePhilosophy from "@/components/landing/InfrastructurePhilosophy";
@@ -31,6 +32,7 @@ import Footer from "@/components/Footer";
 const IndexBelowFold = () => {
   return (
     <>
+      <ZevKeyAnimation />
       <WhatIsZelion />
       <ZevStack />
       <InfrastructurePhilosophy />

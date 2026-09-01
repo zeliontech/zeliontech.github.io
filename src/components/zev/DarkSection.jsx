@@ -10,12 +10,17 @@ import { cn } from "@/lib/utils";
  * zones read as intentional instrument panels.
  *
  * Dark treatment is capped at four zones site-wide: the ZEV hero, the
- * flagship scroll animation, the digital twin, and the dashboard mockup.
+ * flagship scroll animation (ZevKeyAnimation), the digital twin, and the
+ * dashboard mockup.
  * Do not wrap anything else, and never invert colors ad hoc.
+ *
+ * overflow-clip, not overflow-hidden: hidden would make the section a scroll
+ * container and the pinned (position: sticky) stage inside ZevKeyAnimation
+ * would stop sticking. clip only clips paint, which is all we need.
  */
 const DarkSection = ({ id, className, children }) => {
   return (
-    <section id={id} className={cn("dark-zone relative w-full overflow-hidden", className)}>
+    <section id={id} className={cn("dark-zone relative w-full overflow-clip", className)}>
       <div aria-hidden="true" className="zev-seam zev-seam-top" />
       {children}
       <div aria-hidden="true" className="zev-seam zev-seam-bottom" />

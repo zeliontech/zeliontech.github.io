@@ -52,7 +52,7 @@ const DevicePoster = ({ className }) => (
     width="260"
     height="340"
     loading="eager"
-    fetchPriority="high"
+    fetchpriority="high"
     decoding="async"
     draggable={false}
   />
@@ -167,7 +167,7 @@ const ZevHero = () => {
               style={{ animationDelay: "0.15s" }}
             >
               <Button asChild size="lg" className="font-heading uppercase tracking-wider">
-                <a href="#zev-story">
+                <a href="#how-zev-works">
                   Explore ZEV
                   <ArrowRight className="ml-1 h-4 w-4 motion-reduce:transition-none" />
                 </a>
