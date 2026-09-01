@@ -51,6 +51,66 @@ const TokenomicsSnapshot = () => {
             </div>
           </motion.div>
 
+          {/* Contract ownership disclosure. Every statement below is verified against
+              the deployed runtime bytecode of the ZLN contract on BNB Smart Chain
+              (chain 56): the dispatch table was enumerated in full — eleven PUSH4
+              selectors, all resolved, none unknown — and scanned for proxy/destruct
+              opcodes. Do not add a claim here the bytecode does not support. */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="glass-card mb-8 p-6 lg:p-8"
+          >
+            <div className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
+              Contract Ownership
+            </div>
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+              <li>
+                <span className="text-foreground">Ownership is retained.</span>{" "}
+                <span className="font-mono text-xs">owner()</span> returns an externally owned
+                account, not the zero address.
+              </li>
+              <li>
+                <span className="text-foreground">Ownership cannot be renounced.</span>{" "}
+                <span className="font-mono text-xs">renounceOwnership()</span> is absent from the
+                deployed bytecode, so ownership can be transferred but not given up.
+              </li>
+              <li>
+                <span className="text-foreground">
+                  The only owner-restricted function is{" "}
+                  <span className="font-mono text-xs">transferOwnership(address)</span>.
+                </span>{" "}
+                The contract&apos;s complete external interface is eleven functions: the nine
+                standard ERC-20 token methods plus <span className="font-mono text-xs">owner()</span>{" "}
+                and <span className="font-mono text-xs">transferOwnership(address)</span>.
+              </li>
+              <li>
+                <span className="text-foreground">
+                  No mint, burn, pause, blacklist, fee or supply-cap function exists in the
+                  bytecode.
+                </span>{" "}
+                The owner cannot issue or destroy tokens, halt transfers, block an address, or
+                impose a transfer fee. Total supply is fixed at deployment.
+              </li>
+              <li>
+                <span className="text-foreground">The contract is not upgradeable.</span> The
+                bytecode contains no <span className="font-mono text-xs">DELEGATECALL</span> or{" "}
+                <span className="font-mono text-xs">SELFDESTRUCT</span>, so its logic cannot be
+                replaced or removed.
+              </li>
+            </ul>
+            <a
+              href="https://bscscan.com/address/0x9D9c5C7B7BfC398Ed446b7e53a8Ad8d62DCD0181#code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block font-mono text-xs text-silver-light underline underline-offset-4 transition-colors hover:text-foreground"
+            >
+              Verify the contract bytecode on BscScan
+            </a>
+          </motion.div>
+
           {/* Allocation Bar */}
           <motion.div
             initial={{ opacity: 0 }}
