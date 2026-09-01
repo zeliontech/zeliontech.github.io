@@ -2,9 +2,14 @@ import { ShieldCheck, FileText, Github, ExternalLink } from "lucide-react";
 
 // Verify-it-yourself strip (light zone, directly under the hero): the three
 // primary proof links. URLs are the canonical ones — do not substitute.
+//
+// The first link is deliberately labelled "Token Contract", not "Verified
+// Contract": BscScan sits behind Cloudflare and its source-verification status
+// could not be read, so asserting it here would be an unverified claim (§24).
+// The source IS verified on Sourcify (exact match) — see TokenomicsSnapshot.
 const TRUST_LINKS = [
   {
-    label: "Verified Contract",
+    label: "Token Contract",
     detail: "0x9D9c…0181 on BscScan",
     href: "https://bscscan.com/address/0x9D9c5C7B7BfC398Ed446b7e53a8Ad8d62DCD0181",
     Icon: ShieldCheck,

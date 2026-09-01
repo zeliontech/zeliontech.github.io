@@ -404,7 +404,7 @@ const ZevOracle = () => {
           <div style={{ display:"flex", flexWrap:"wrap" }}>
             {[
               { icon:<svg viewBox="0 0 24 24" fill="none" stroke="var(--zt)" strokeWidth="1.5" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>, label:"Hardware Root of Trust", sub:"ATECC608B secure element" },
-              { icon:<BnbLogo size={16}/>, label:"Built on BNB Chain", sub:"BEP-20 · DappBay listed",
+              { icon:<BnbLogo size={16}/>, label:"Built on BNB Chain", sub:"ERC-20 · DappBay listed",
                 liveDot: <div className="zo-live" style={{gap:".4rem"}}><div className="zo-live-d"/><span style={{fontSize:".55rem"}}>LIVE</span></div> },
               { icon:<svg viewBox="0 0 24 24" fill="none" stroke="var(--zc2)" strokeWidth="1.5" width="14" height="14"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>, label:"Enterprise Infrastructure", sub:"ESG · RWA · DePIN ready" },
               { icon:<svg viewBox="0 0 24 24" fill="none" stroke="var(--zc2)" strokeWidth="1.5" width="14" height="14"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>, label:"Filed Patent Applications", sub:"Proprietary IP protected" },
@@ -661,7 +661,7 @@ const ZevOracle = () => {
                       <div style={{ fontFamily:"var(--zm)", fontSize:".6rem", color:"var(--zc3)", letterSpacing:".06em", marginTop:".15rem" }}>Settlement &amp; coordination layer</div>
                     </div>
                   </div>
-                  <div style={{ fontFamily:"var(--zm)", fontSize:".58rem", fontWeight:600, letterSpacing:".14em", color:"var(--zc3)", textTransform:"uppercase", marginBottom:".5rem" }}>$ZLN Contract Address — BEP-20</div>
+                  <div style={{ fontFamily:"var(--zm)", fontSize:".58rem", fontWeight:600, letterSpacing:".14em", color:"var(--zc3)", textTransform:"uppercase", marginBottom:".5rem" }}>$ZLN Contract Address — ERC-20</div>
                   <div className="zo-contract">
                     <button onClick={copyContract} style={{ position:"absolute", top:".6rem", right:".6rem", background:"var(--zb3)", border:"1px solid var(--zw2)", borderRadius:"4px", padding:".22rem .55rem", fontFamily:"var(--zm)", fontSize:".58rem", fontWeight:700, color:copied?"var(--zt)":"var(--zc3)", cursor:"pointer", display:"flex", alignItems:"center", gap:".3rem", transition:"all .2s" }}>
                       {copied ? "✓ Done" : "Copy"}
@@ -670,7 +670,7 @@ const ZevOracle = () => {
                   </div>
                   <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:".625rem", marginBottom:"1.25rem" }}>
                     <div className="zo-bst"><span className="v">500,000,000</span><span className="l">Fixed Supply</span></div>
-                    <div className="zo-bst"><span className="v">BEP-20</span><span className="l">Standard</span></div>
+                    <div className="zo-bst"><span className="v">ERC-20</span><span className="l">Interface</span></div>
                   </div>
                   <a href={`https://bscscan.com/token/${CONTRACT}`} target="_blank" rel="noopener noreferrer" className="zo-bscan">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="12" height="12"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>

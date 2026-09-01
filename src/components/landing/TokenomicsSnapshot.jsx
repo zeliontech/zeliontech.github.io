@@ -68,6 +68,21 @@ const TokenomicsSnapshot = () => {
             </div>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
               <li>
+                <span className="text-foreground">The source is verified.</span> Sourcify
+                reports an exact match against both the deployed creation and runtime
+                bytecode — contract <span className="font-mono text-xs">ZELION</span>,
+                solc 0.8.20 — verified 26 May 2026.
+              </li>
+              <li>
+                <span className="text-foreground">
+                  It implements the ERC-20 interface on BNB Smart Chain.
+                </span>{" "}
+                It is not fully BEP-20 conformant: BEP-20 additionally requires{" "}
+                <span className="font-mono text-xs">getOwner()</span>, which this contract
+                does not implement — it exposes{" "}
+                <span className="font-mono text-xs">owner()</span> instead.
+              </li>
+              <li>
                 <span className="text-foreground">Ownership is retained.</span>{" "}
                 <span className="font-mono text-xs">owner()</span> returns an externally owned
                 account, not the zero address.
@@ -107,7 +122,7 @@ const TokenomicsSnapshot = () => {
               rel="noopener noreferrer"
               className="mt-5 inline-block font-mono text-xs text-silver-light underline underline-offset-4 transition-colors hover:text-foreground"
             >
-              Verify the contract bytecode on BscScan
+              View the contract on BscScan
             </a>
           </motion.div>
 
