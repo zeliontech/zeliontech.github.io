@@ -18,7 +18,6 @@ const BuyZelion = lazy(() => import("./pages/BuyZelion"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const Notify = lazy(() => import("./pages/Notify"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Zevoracle = lazy(() => import("./pages/Zevoracle"));
 
 // App content with hooks (must be inside Router)
 const AppContent = () => {

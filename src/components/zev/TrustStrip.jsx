@@ -6,7 +6,7 @@ const TRUST_LINKS = [
   {
     label: "Verified Contract",
     detail: "0x9D9c…0181 on BscScan",
-    href: "https://bscscan.com/address/0x9D9c5C7B7bFC398Ed446b7e53a8Ad8d62DCD0181",
+    href: "https://bscscan.com/address/0x9D9c5C7B7BfC398Ed446b7e53a8Ad8d62DCD0181",
     Icon: ShieldCheck,
   },
   {

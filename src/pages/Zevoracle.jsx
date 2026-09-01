@@ -211,7 +211,7 @@ const UC_DATA = [
     desc:"Continuous cryptographically signed telemetry from physical energy assets provides tamper-proof operational records for compliance audit." },
 ];
 
-const CONTRACT = "0x9D9c5C7B7bFC398Ed446b7e53a8Ad8d62DCD0181";
+const CONTRACT = "0x9D9c5C7B7BfC398Ed446b7e53a8Ad8d62DCD0181";
 
 // ─── Main Component ────────────────────────────────────────────────────────
 const ZevOracle = () => {
