@@ -21,8 +21,8 @@ const TRUST_LINKS = [
     Icon: FileText,
   },
   {
-    label: "Open Source",
-    detail: "github.com/zeliontech",
+    label: "GitHub",
+    detail: "Website and whitepaper repos",
     href: "https://github.com/zeliontech",
     Icon: Github,
   },
