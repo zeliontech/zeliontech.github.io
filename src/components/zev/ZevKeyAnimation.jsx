@@ -3,7 +3,7 @@ import { useScroll, useMotionValueEvent } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import DarkSection from "./DarkSection";
 import MaturityBadge from "./MaturityBadge";
-import { useIsDesktop, useReducedMotion } from "./hooks";
+import { useReducedMotion } from "./hooks";
 
 // Dark zone 2 of 4 — the flagship scroll animation (ZEV brief §18). The
 // visitor scrolls and the story plays: sun → solar panels → ZEV → the
@@ -17,9 +17,10 @@ import { useIsDesktop, useReducedMotion } from "./hooks";
 // Demonstrated; everything else defaults to Planned. Carbon wording follows
 // brief §9 — trusted energy data that can *support* MRV, never credits.
 //
-// On desktop (≥768px, motion allowed) the section pins for PIN_HEIGHT of
-// scroll and drives the scene from scroll progress. Elsewhere it renders the
-// finished scene with all stages listed — same content, no pinning.
+// At every viewport the section pins for PIN_HEIGHT of scroll and drives the
+// scene from scroll progress — phones stack the scene above the copy, desktop
+// puts them side by side. Under prefers-reduced-motion it renders the
+// finished scene with all stages listed instead — same content, no pinning.
 
 const PIN_HEIGHT = "500vh";
 
@@ -413,32 +414,48 @@ const Scene = ({ className }) => (
 
 // ---------------------------------------------------------------------------
 
-const Labels = ({ labels }) => (
-  <ul className="mt-5 space-y-2.5">
+// dense: the pinned layout on phones — two columns, no detail text — so the
+// five-step beat fits under the scene on a small screen. Desktop (lg) and the
+// static layout show the full list.
+const Labels = ({ labels, dense }) => (
+  <ul
+    className={
+      dense
+        ? "mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5 lg:mt-5 lg:block lg:space-y-2.5"
+        : "mt-5 space-y-2.5"
+    }
+  >
     {labels.map((item) => (
-      <li key={item.label} className="flex items-start gap-2.5 text-sm leading-snug">
+      <li key={item.label} className="flex items-start gap-2 text-[13px] leading-snug sm:gap-2.5 sm:text-sm">
         <MaturityBadge level={item.level} className="mt-px shrink-0" />
         <span>
           <span className="font-medium text-foreground">{item.label}</span>
-          {item.detail && <span className="text-muted-foreground"> — {item.detail}</span>}
+          {item.detail && (
+            <span className={dense ? "hidden text-muted-foreground lg:inline" : "text-muted-foreground"}>
+              {" "}
+              — {item.detail}
+            </span>
+          )}
         </span>
       </li>
     ))}
   </ul>
 );
 
-const StageCopy = ({ stage, className }) => (
+const StageCopy = ({ stage, className, dense }) => (
   <div className={className}>
     <p className="font-mono text-[11px] uppercase tracking-widest text-primary">{stage.eyebrow}</p>
     <h3
-      className={`mt-2 font-heading font-bold leading-tight text-foreground ${
-        stage.finale ? "text-3xl uppercase tracking-tight sm:text-4xl xl:text-5xl" : "text-2xl sm:text-3xl"
+      className={`mt-1.5 font-heading font-bold leading-tight text-foreground sm:mt-2 ${
+        stage.finale
+          ? "text-2xl uppercase tracking-tight sm:text-3xl lg:text-4xl xl:text-5xl"
+          : "text-xl sm:text-2xl lg:text-3xl"
       }`}
     >
       {stage.title}
     </h3>
-    <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">{stage.body}</p>
-    {stage.labels && <Labels labels={stage.labels} />}
+    <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground sm:mt-3 lg:text-base">{stage.body}</p>
+    {stage.labels && <Labels labels={stage.labels} dense={dense} />}
     {stage.finale && (
       <a
         href="#ecosystem"
@@ -451,12 +468,18 @@ const StageCopy = ({ stage, className }) => (
   </div>
 );
 
-const Heading = ({ align = "left" }) => (
+// compact: pinned layout — on phones only the eyebrow is visible (the h2 stays
+// for assistive tech) so the copy fits under the scene.
+const Heading = ({ align = "left", compact }) => (
   <div className={align === "center" ? "mx-auto max-w-2xl text-center" : ""}>
-    <span className="mb-3 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+    <span className="mb-1 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light lg:mb-3">
       How ZEV works
     </span>
-    <h2 className="font-heading text-xl font-semibold text-foreground sm:text-2xl">
+    <h2
+      className={`font-heading text-xl font-semibold text-foreground sm:text-2xl ${
+        compact ? "sr-only lg:not-sr-only" : ""
+      }`}
+    >
       From sunlight to a verifiable record
     </h2>
   </div>
@@ -482,33 +505,48 @@ const PinnedFlow = () => {
 
   const current = STAGES[stage];
 
+  const tick = (i) =>
+    `h-1 rounded-full transition-all duration-300 motion-reduce:transition-none ${
+      i <= stage ? "w-6 bg-primary" : "w-3 bg-border"
+    }`;
+
+  // Phones: scene on top (capped at ~38% of the viewport), copy underneath.
+  // Desktop (lg): copy left, scene right. dvh keeps the pinned box inside the
+  // visible area while a mobile browser's address bar is showing.
   return (
     <div ref={wrapperRef} style={{ height: PIN_HEIGHT }}>
-      <div className="sticky top-16 flex h-[calc(100vh-4rem)] items-center">
-        <div className="container mx-auto grid items-center gap-10 px-4 lg:grid-cols-12 lg:px-8">
-          <div className="flex h-full flex-col justify-between gap-8 lg:col-span-5">
-            <Heading />
-            {/* Re-mount per stage so the entrance utility (.zev-rise) replays. */}
-            <StageCopy key={current.id} stage={current} className="zev-rise" />
-            <div>
-              <ol className="flex items-center gap-1.5" aria-hidden="true">
-                {STAGES.map((s, i) => (
-                  <li
-                    key={s.id}
-                    className={`h-1 rounded-full transition-all duration-300 motion-reduce:transition-none ${
-                      i <= stage ? "w-6 bg-primary" : "w-3 bg-border"
-                    }`}
-                  />
-                ))}
-              </ol>
-              <p className={`mt-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-opacity ${stage === 0 ? "opacity-100" : "opacity-0"}`}>
-                Scroll to follow the energy
-              </p>
+      <div className="sticky top-16 flex h-[calc(100vh-4rem)] items-center supports-[height:100dvh]:h-[calc(100dvh-4rem)]">
+        <div className="container mx-auto flex h-full flex-col justify-center gap-4 px-4 py-4 lg:grid lg:h-auto lg:grid-cols-12 lg:items-center lg:gap-10 lg:px-8 lg:py-0">
+          <div className="order-1 shrink-0 lg:order-2 lg:col-span-7">
+            <div ref={sceneRef} className="mx-auto w-full max-w-[560px]" style={{ "--p": 0 }}>
+              <Scene className="mx-auto h-auto max-h-[38vh] w-full supports-[height:100dvh]:max-h-[38dvh] lg:max-h-[calc(100vh-8rem)]" />
             </div>
           </div>
-          <div className="lg:col-span-7">
-            <div ref={sceneRef} className="mx-auto w-full max-w-[560px]" style={{ "--p": 0 }}>
-              <Scene className="h-auto w-full max-h-[calc(100vh-8rem)]" />
+          <div className="order-2 flex min-h-0 flex-col gap-3 overflow-hidden lg:order-1 lg:col-span-5 lg:h-full lg:justify-between lg:gap-8 lg:overflow-visible">
+            <div className="flex items-center justify-between gap-4">
+              <Heading compact />
+              {/* Progress ticks sit beside the eyebrow on phones, under the copy on desktop */}
+              <ol className="flex items-center gap-1.5 lg:hidden" aria-hidden="true">
+                {STAGES.map((s, i) => (
+                  <li key={s.id} className={tick(i)} />
+                ))}
+              </ol>
+            </div>
+            {/* Re-mount per stage so the entrance utility (.zev-rise) replays. */}
+            <StageCopy key={current.id} stage={current} className="zev-rise" dense />
+            <div className="hidden lg:block">
+              <ol className="flex items-center gap-1.5" aria-hidden="true">
+                {STAGES.map((s, i) => (
+                  <li key={s.id} className={tick(i)} />
+                ))}
+              </ol>
+              <p
+                className={`mt-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-opacity ${
+                  stage === 0 ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                Scroll to follow the energy
+              </p>
             </div>
           </div>
         </div>
@@ -536,10 +574,12 @@ const StaticFlow = () => (
 
 const ZevKeyAnimation = () => {
   const reduced = useReducedMotion();
-  const pinned = useIsDesktop() && !reduced;
+  const pinned = !reduced;
 
+  // top="none": the hero's dark zone (which draws the seam) sits directly
+  // above. bottom="fade": the light content that follows blends in.
   return (
-    <DarkSection id="how-zev-works" className="scroll-mt-16">
+    <DarkSection id="how-zev-works" className="scroll-mt-16" top="none" bottom="fade">
       <div className="absolute inset-0 grid-pattern opacity-20" aria-hidden="true" />
       <div className="relative">{pinned ? <PinnedFlow /> : <StaticFlow />}</div>
     </DarkSection>

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import ZevKeyAnimation, { STAGES, STEPS, UTILITIES, stageAt } from "@/components/zev/ZevKeyAnimation";
 import { MATURITY_LEVELS } from "@/components/zev/MaturityBadge";
@@ -10,6 +10,21 @@ const POC_DEMONSTRATED = new Set(["Measure", "Validate", "Hash", "Blockchain", "
 
 // Wording the brief forbids or that would overstate the proof of concept.
 const FORBIDDEN = /carbon credit|guarantee|certif|\bprice|\breturns?\b|IP67|IEC 61557|\bSLA\b|tamper-proof|cannot be cloned|mining/i;
+
+/** Point window.matchMedia at a predicate so the layout hooks pick a mode. */
+const mockMedia = (matches) => {
+  window.matchMedia = (query) => ({
+    matches: matches(query),
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => false,
+  });
+};
+const reducedMotion = (q) => q.includes("prefers-reduced-motion");
 
 describe("stageAt", () => {
   it("maps scroll progress onto the six beats in order", () => {
@@ -52,7 +67,9 @@ describe("claims discipline (brief §24)", () => {
   });
 });
 
-describe("<ZevKeyAnimation /> (static layout: jsdom reports no desktop viewport)", () => {
+describe("<ZevKeyAnimation /> static layout (prefers-reduced-motion)", () => {
+  beforeEach(() => mockMedia(reducedMotion));
+
   it("renders every beat, the chain, the five utilities and the closing line", () => {
     const { container } = render(<ZevKeyAnimation />);
 
@@ -69,6 +86,9 @@ describe("<ZevKeyAnimation /> (static layout: jsdom reports no desktop viewport)
     const scene = screen.getByRole("img", { name: /sunlight reaches solar panels/i });
     expect(scene).toBeInTheDocument();
     expect(scene.parentElement.style.getPropertyValue("--p")).toBe("1");
+
+    // No pinning under reduced motion.
+    expect(container.querySelector(".sticky")).toBeNull();
 
     // Section id is the hero CTA's target and lands inside a dark zone.
     const section = container.querySelector("#how-zev-works");
@@ -89,5 +109,31 @@ describe("<ZevKeyAnimation /> (static layout: jsdom reports no desktop viewport)
     expect(badgeCount("Demonstrated")).toBe(rendered.filter((c) => c.level === "demonstrated").length);
     expect(badgeCount("Planned")).toBe(rendered.filter((c) => c.level === "planned").length);
     expect(badgeCount("Demonstrated")).toBeGreaterThanOrEqual(POC_DEMONSTRATED.size);
+  });
+});
+
+describe("<ZevKeyAnimation /> pinned layout (motion allowed, any viewport)", () => {
+  beforeEach(() => {
+    mockMedia(() => false);
+    // framer-motion's useScroll measures the target with ResizeObserver.
+    if (typeof globalThis.ResizeObserver === "undefined") {
+      globalThis.ResizeObserver = class {
+        observe() {}
+        unobserve() {}
+        disconnect() {}
+      };
+    }
+  });
+
+  it("pins the stage, starts on the first beat with the scene at --p 0", () => {
+    const { container } = render(<ZevKeyAnimation />);
+
+    expect(container.querySelector(".sticky")).not.toBeNull();
+    expect(screen.getByRole("heading", { level: 3, name: STAGES[0].title })).toBeInTheDocument();
+    // Only the current beat is mounted in pinned mode.
+    expect(screen.queryByRole("heading", { level: 3, name: STAGES[5].title })).toBeNull();
+
+    const scene = screen.getByRole("img", { name: /sunlight reaches solar panels/i });
+    expect(scene.parentElement.style.getPropertyValue("--p")).toBe("0");
   });
 });

@@ -506,6 +506,11 @@
     --maturity-demonstrated: 160 84% 27%;
     --maturity-progress: 194 90% 30%;
     --maturity-planned: 215 16% 42%;
+
+    /* The light page background, kept OUT of the .dark-zone override on
+       purpose: DarkSection edge fades read it from inside a dark zone to
+       blend graphite into the real page colour. */
+    --page-bg: 204 45% 97%;
   }
   .dark-zone {
     --maturity-demonstrated: 158 64% 52%;
@@ -534,5 +539,39 @@
     .zev-rise {
       animation: none;
     }
+  }
+}
+
+/* Soft dark/light boundary (DarkSection top="fade" / bottom="fade"). The
+   blend lives in the zone's own 11rem edge padding and eases from clear to
+   the page background, so graphite never meets sky as a hard line. */
+@layer components {
+  .zev-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 11rem;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .zev-fade-bottom {
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--page-bg) / 0) 0%,
+      hsl(var(--page-bg) / 0.12) 30%,
+      hsl(var(--page-bg) / 0.55) 65%,
+      hsl(var(--page-bg)) 100%
+    );
+  }
+  .zev-fade-top {
+    top: 0;
+    background: linear-gradient(
+      to top,
+      hsl(var(--page-bg) / 0) 0%,
+      hsl(var(--page-bg) / 0.12) 30%,
+      hsl(var(--page-bg) / 0.55) 65%,
+      hsl(var(--page-bg)) 100%
+    );
   }
 }

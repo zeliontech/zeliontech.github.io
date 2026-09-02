@@ -43,6 +43,11 @@ export function useIsDesktop() {
   return useMediaQuery("(min-width: 768px)");
 }
 
+/** True below the `sm` breakpoint (<640px): phones. SSR-safe default false. */
+export function useIsSmallScreen() {
+  return useMediaQuery("(max-width: 639px)");
+}
+
 /** True only for mouse-like pointers (used to keep hover effects off touch). */
 function useFinePointer() {
   return useMediaQuery("(hover: hover) and (pointer: fine)");
@@ -180,5 +185,5 @@ export class LazyBoundary extends Component {
   }
 }
 
-const hooks = { useReducedMotion, useIsDesktop, useCardGlow, Magnetic, LazyBoundary };
+const hooks = { useReducedMotion, useIsDesktop, useIsSmallScreen, useCardGlow, Magnetic, LazyBoundary };
 export default hooks;

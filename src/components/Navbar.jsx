@@ -48,13 +48,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-white backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center px-4 lg:px-8">
         <div className="flex flex-1 items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white p-1">
-              <img src="/logo.svg" alt="Zelion Logo" className="h-full w-full text-silver-light" />
+              <img src="/logo.svg" alt="ZelionTech Logo" className="h-full w-full text-silver-light" />
             </div>
             <span className="font-heading text-lg font-semibold tracking-wider text-foreground">
               ZelionTech
@@ -104,7 +104,7 @@ const Navbar = () => {
       {/* Mobile Menu — CSS grid-rows transition instead of framer-motion so
           the animation library stays out of the critical navbar chunk. */}
       <div
-        className={`grid overflow-hidden border-border bg-background/95 backdrop-blur-xl transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none md:hidden ${
+        className={`grid overflow-hidden border-border bg-white backdrop-blur-xl transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none md:hidden ${
           mobileOpen ? "grid-rows-[1fr] border-b opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >

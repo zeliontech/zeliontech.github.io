@@ -3,12 +3,18 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import DarkSection from "./DarkSection";
 import MaturityBadge from "./MaturityBadge";
-import { LazyBoundary, useIsDesktop, useReducedMotion } from "./hooks";
+import { LazyBoundary, useIsSmallScreen, useReducedMotion } from "./hooks";
 
 // Dark zone 1 of 4 (ZEV brief §17): the homepage opens on the ZEV machine —
 // not a coin. 3D device center stage with the seven ecosystem domains
 // orbiting it, energy flowing in from the physical side and data flowing out
 // to the digital side.
+//
+// The same composition renders at every viewport. Phones are most of the
+// audience, so they get the 3D device and the full orbit too — the orbit is
+// just pulled in a little so the outermost chips clear the screen edge. The
+// static poster is only the loading / no-WebGL / reduced-motion / save-data
+// fallback.
 
 const ZevDevice3D = lazy(() => import("./ZevDevice3D"));
 
@@ -26,6 +32,11 @@ const ORBIT_NODES = [
   { label: "BLOCKCHAIN", kind: "data", x: 560, y: 300 },
   { label: "AI", kind: "data", x: 502, y: 122 },
 ];
+
+// Phones (<640px): every node moves toward the centre by this factor so the
+// widest chips ("BLOCKCHAIN", "BATTERY") stay inside a ~340px orbit box.
+const COMPACT_SCALE = 0.86;
+const scaleNode = (node, k) => ({ ...node, x: CX + (node.x - CX) * k, y: CY + (node.y - CY) * k });
 
 // Gentle quadratic arc between a node and the center. Energy paths run
 // node→center and data paths center→node so the shared dash animation drifts
@@ -58,19 +69,13 @@ const DevicePoster = ({ className }) => (
   />
 );
 
-const NodeChip = ({ node, positioned = true }) => (
+const NodeChip = ({ node }) => (
   <span
-    className="inline-flex items-center gap-1.5 rounded-full border bg-card/90 px-2.5 py-1 font-mono text-[10px] font-medium tracking-widest text-foreground/90 backdrop-blur-sm sm:text-[11px]"
+    className="absolute inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border bg-card/90 px-2 py-0.5 font-mono text-[9px] font-medium tracking-widest text-foreground/90 backdrop-blur-sm sm:gap-1.5 sm:px-2.5 sm:py-1 sm:text-[11px]"
     style={{
+      left: `${(node.x / 600) * 100}%`,
+      top: `${(node.y / 600) * 100}%`,
       borderColor: node.kind === "energy" ? `${EMERALD}59` : "hsl(var(--primary) / 0.35)",
-      ...(positioned
-        ? {
-            position: "absolute",
-            left: `${(node.x / 600) * 100}%`,
-            top: `${(node.y / 600) * 100}%`,
-            transform: "translate(-50%, -50%)",
-          }
-        : {}),
     }}
   >
     <span
@@ -82,9 +87,9 @@ const NodeChip = ({ node, positioned = true }) => (
   </span>
 );
 
-const OrbitLines = () => (
+const OrbitLines = ({ nodes }) => (
   <svg viewBox="0 0 600 600" className="absolute inset-0 h-full w-full" aria-hidden="true">
-    {ORBIT_NODES.map((node) => {
+    {nodes.map((node) => {
       const stroke = node.kind === "energy" ? EMERALD : "hsl(var(--primary))";
       return (
         <path
@@ -97,7 +102,7 @@ const OrbitLines = () => (
         />
       );
     })}
-    {ORBIT_NODES.map((node, i) => {
+    {nodes.map((node, i) => {
       const stroke = node.kind === "energy" ? EMERALD : "hsl(var(--primary))";
       return (
         <path
@@ -115,9 +120,13 @@ const OrbitLines = () => (
   </svg>
 );
 
-const ZevHero = () => {
+const ZevHero = ({ children }) => {
   const reduced = useReducedMotion();
-  const show3D = useIsDesktop() && !reduced;
+  const compact = useIsSmallScreen();
+  // Respect an explicit data-saver setting: the 3D chunk is ~235 KB gzipped.
+  const saveData = typeof navigator !== "undefined" && navigator.connection?.saveData === true;
+  const show3D = !reduced && !saveData;
+  const nodes = compact ? ORBIT_NODES.map((n) => scaleNode(n, COMPACT_SCALE)) : ORBIT_NODES;
 
   // Entrance uses the CSS `.zev-rise` utility rather than framer-motion: this
   // section is above the fold, and keeping the motion library out of its
@@ -138,7 +147,7 @@ const ZevHero = () => {
       />
 
       <div className="container relative z-10 mx-auto px-4 lg:px-8">
-        <div className="grid min-h-[calc(100vh-4rem)] items-center gap-12 py-16 lg:grid-cols-12 lg:gap-6 lg:py-10">
+        <div className="grid min-h-[calc(100vh-4rem)] items-center gap-10 py-12 sm:gap-12 sm:py-16 lg:grid-cols-12 lg:gap-6 lg:py-10">
           {/* Copy column — static (no entrance animation) so the headline is
               painted at first render and counts toward LCP. */}
           <div className="max-w-2xl lg:col-span-5">
@@ -194,11 +203,10 @@ const ZevHero = () => {
             </div>
           </div>
 
-          {/* Visual column: device center stage, seven domains orbiting */}
+          {/* Visual column: device center stage, seven domains orbiting — at every size */}
           <div className="lg:col-span-7">
-            {/* Desktop / tablet: full orbit */}
-            <div className="relative mx-auto hidden aspect-square w-full max-w-[640px] sm:block">
-              <OrbitLines />
+            <div className="relative mx-auto aspect-square w-full max-w-[640px]">
+              <OrbitLines nodes={nodes} />
               <div className="absolute inset-[17%]">
                 {show3D ? (
                   <LazyBoundary fallback={<DevicePoster className="mx-auto h-full w-auto" />}>
@@ -210,23 +218,14 @@ const ZevHero = () => {
                   <DevicePoster className="mx-auto h-full w-auto" />
                 )}
               </div>
-              {ORBIT_NODES.map((node) => (
+              {nodes.map((node) => (
                 <NodeChip key={node.label} node={node} />
               ))}
-            </div>
-
-            {/* Small screens: poster plus a compact domain list */}
-            <div className="sm:hidden">
-              <DevicePoster className="mx-auto h-64 w-auto" />
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
-                {ORBIT_NODES.map((node) => (
-                  <NodeChip key={node.label} node={node} positioned={false} />
-                ))}
-              </div>
             </div>
           </div>
         </div>
       </div>
+      {children}
     </DarkSection>
   );
 };
