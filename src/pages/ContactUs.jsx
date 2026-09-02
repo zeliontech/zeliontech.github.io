@@ -59,7 +59,7 @@ const ContactUs = () => {
                 </h1>
                 <div className="mx-auto max-w-2xl space-y-4">
                   <p className="text-base leading-relaxed text-muted-foreground">
-                    Zelion Energy Network enables trustless verification of renewable energy at the source.
+                    ZelionTech develops ZEV, the Zelion Energy Validator: hardware that turns renewable-energy activity into verifiable digital records.
                   </p>
                   <p className="text-base leading-relaxed text-foreground font-medium">
                     The future of energy finance depends on proof — not promises.
