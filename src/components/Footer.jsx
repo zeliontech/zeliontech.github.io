@@ -9,7 +9,6 @@ const socials = [
 ];
 
 const platformLinks = [
-  { label: "ZEV Oracle", to: "/oracle" },
   { label: "Technology", to: "/technology" },
   { label: "Tokenomics", to: "/tokenomics" },
   { label: "Whitepaper", to: "/whitepaper" },

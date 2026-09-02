@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "ZEV Oracle", href: "/oracle" },
   { label: "Technology", href: "/technology" },
   { label: "Tokenomics", href: "/tokenomics" },
   { label: "Whitepaper", href: "/whitepaper" },
