@@ -8,12 +8,12 @@ import {
 
 const faqs = [
   {
-    q: "What is Zelion?",
-    a: "Zelion is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment. The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.",
+    q: "What is ZelionTech?",
+    a: "ZelionTech is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment. The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.",
   },
   {
     q: "Why infrastructure before token?",
-    a: "Most blockchain projects begin with tokens and attempt to later attach utility. Zelion reverses this approach by beginning with infrastructure, hardware validation, and real-world system integration. The token exists only as a coordination and alignment layer within the ecosystem.",
+    a: "Most blockchain projects begin with tokens and attempt to later attach utility. ZelionTech reverses this approach by beginning with infrastructure, hardware validation, and real-world system integration. The token exists only as a coordination and alignment layer within the ecosystem.",
   },
   {
     q: "What does the $ZLN token do?",
@@ -21,15 +21,15 @@ const faqs = [
   },
   {
     q: "How does hardware validation work?",
-    a: "Zelion integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems. By validating data at the physical source, Zelion reduces attack surfaces and improves data reliability.",
+    a: "ZelionTech integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems. By validating data at the physical source, ZelionTech reduces attack surfaces and improves data reliability.",
   },
   {
-    q: "What is the role of blockchain in Zelion?",
-    a: "In the Zelion ecosystem, blockchain is used for validator coordination, infrastructure alignment, and ecosystem transparency. Blockchain does not control physical infrastructure—it records validated outcomes produced by infrastructure-level processes, improving resilience and scalability.",
+    q: "What is the role of blockchain in ZelionTech?",
+    a: "In the ZelionTech ecosystem, blockchain is used for validator coordination, infrastructure alignment, and ecosystem transparency. Blockchain does not control physical infrastructure—it records validated outcomes produced by infrastructure-level processes, improving resilience and scalability.",
   },
   {
-    q: "Is Zelion an investment?",
-    a: "No. Zelion is infrastructure technology designed for long-term deployment, real-world infrastructure integration, and institutional compatibility. Participation in decentralized infrastructure systems involves risk, and no guarantees are made regarding performance, adoption, or outcomes. Users should conduct independent research before participating.",
+    q: "Is ZelionTech an investment?",
+    a: "No. ZelionTech is infrastructure technology designed for long-term deployment, real-world infrastructure integration, and institutional compatibility. Participation in decentralized infrastructure systems involves risk, and no guarantees are made regarding performance, adoption, or outcomes. Users should conduct independent research before participating.",
   },
 ];
 

@@ -115,7 +115,7 @@ const NotifySignup = ({ className = "" }) => {
               Get Notified When <span className="metal-gradient">ZLN Launches</span>
             </h2>
             <p className="text-base text-muted-foreground">
-              Zelion Energy Network is preparing for token launch.
+              ZelionTech is preparing for token launch.
             </p>
             <p className="text-sm text-muted-foreground">
               Join the early notification list to be informed the moment ZLN becomes available.

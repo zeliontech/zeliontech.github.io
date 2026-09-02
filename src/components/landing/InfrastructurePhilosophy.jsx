@@ -30,7 +30,7 @@ const InfrastructurePhilosophy = () => {
           <div className="mb-10">
             <div className="glass-card mx-auto max-w-2xl p-6 lg:p-8 border-silver-light/20">
               <p className="text-base font-medium leading-relaxed text-foreground lg:text-lg">
-                Zelion does not replace energy systems.
+                ZelionTech does not replace energy systems.
                 It validates, coordinates, and secures them.
               </p>
             </div>

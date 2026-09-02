@@ -35,7 +35,7 @@ const EconomicSustainability = () => {
             </div>
             
             <p className="mb-8 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              Zelion's economic model avoids short-term incentive cycles and unsustainable emissions.
+              ZelionTech's economic model avoids short-term incentive cycles and unsustainable emissions.
             </p>
             
             <div className="mb-8">

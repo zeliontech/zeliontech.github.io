@@ -54,7 +54,7 @@ const TIERS = [
     eyebrow: "Layer 04 — Ecosystem Layer",
     title: "ZLN",
     Icon: Coins,
-    body: "ZLN is the ecosystem's blockchain-based digital utility layer. It can support participation and economic interactions within the Zelion ecosystem as those utilities are deployed.",
+    body: "ZLN is the ecosystem's blockchain-based digital utility layer. It can support participation and economic interactions within the ZelionTech ecosystem as those utilities are deployed.",
     items: [
       { label: "Digital utility", level: "planned" },
       { label: "Ecosystem participation", level: "planned" },
@@ -209,7 +209,7 @@ const ZevStack = () => {
         <div className="mx-auto mt-10 max-w-3xl rounded-lg border border-border bg-muted/40 px-5 py-4">
           <p className="text-sm leading-relaxed text-muted-foreground">
             <span className="font-semibold text-foreground">ZLN is not a carbon credit.</span> ZLN is
-            the Zelion ecosystem&apos;s utility token. A carbon credit is a separately verified
+            the ZelionTech ecosystem&apos;s utility token. A carbon credit is a separately verified
             environmental asset, issued by an independent body under an applicable standard. Holding
             ZLN does not represent holding a carbon credit, and $ZLN is not a financial product.
           </p>

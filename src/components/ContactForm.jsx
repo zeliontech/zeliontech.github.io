@@ -295,7 +295,7 @@ const ContactForm = () => {
               className="flex items-center gap-2 rounded-lg border border-green-500/50 bg-green-500/10 p-4 text-sm text-green-600 dark:text-green-400"
             >
               <CheckCircle2 className="h-4 w-4" />
-              Thank you. The Zelion team will contact you shortly.
+              Thank you. The ZelionTech team will contact you shortly.
             </motion.div>
           )}
 
@@ -324,7 +324,7 @@ const ContactForm = () => {
           </h3>
           <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
             Whether you're interested in validator infrastructure, ecosystem
-            partnerships, or learning more about Zelion's approach to energy
+            partnerships, or learning more about ZelionTech's approach to energy
             verification, we're here to help.
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">

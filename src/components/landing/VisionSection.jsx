@@ -27,7 +27,7 @@ const VisionSection = () => {
             <span className="metal-gradient">Validation</span>
           </h2>
           <p className="mb-8 text-base leading-relaxed text-muted-foreground lg:text-lg">
-            Zelion enables a system where:
+            ZelionTech enables a system where:
           </p>
           <div className="glass-card mx-auto max-w-2xl p-6 lg:p-8">
             <div className="space-y-5 text-left">

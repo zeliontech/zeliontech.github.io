@@ -30,7 +30,7 @@ const TeamPhilosophy = () => {
             </div>
             
             <p className="mb-8 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              Zelion is developed by a multidisciplinary team experienced in energy infrastructure, hardware systems, and decentralized coordination.
+              ZelionTech is developed by a multidisciplinary team experienced in energy infrastructure, hardware systems, and decentralized coordination.
             </p>
             
             <div className="border-t border-border pt-6">

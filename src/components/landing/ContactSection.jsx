@@ -20,11 +20,11 @@ const ContactSection = () => {
             Get in Touch
           </span>
           <h2 className="mb-6 font-heading text-4xl font-bold text-foreground sm:text-5xl">
-            Contact <span className="metal-gradient">Zelion</span>
+            Contact <span className="metal-gradient">ZelionTech</span>
           </h2>
           <div className="mx-auto max-w-2xl space-y-4">
             <p className="text-base leading-relaxed text-muted-foreground">
-              Zelion Energy Network enables trustless verification of renewable energy at the source.
+              ZelionTech enables trustless verification of renewable energy at the source.
             </p>
             <p className="text-base leading-relaxed text-foreground font-medium">
               The future of energy finance depends on proof — not promises.

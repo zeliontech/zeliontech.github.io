@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 const leadership = [
   { name: "İhsan Serdar Eldek", role: "Co-Founder & CEO", photo: "/team/Serdar Photo.jpeg" },
   { name: "Roula Jamil", role: "Co-Founder & President", photo: "/team/Roula photo.jpeg" },
-  { name: "Ralph Saab", role: "Chief Strategy & Innovation Officer", initials: "RS" },
-  { name: "Eng. Dino Vincoletto", role: "Chief Renewable Technology & Energy Validation Officer", initials: "DV" },
-  { name: "Eng. Alessio Munerato", role: "Chief Infrastructure & Cybersecurity Officer", initials: "AM" },
-  { name: "Eng. Federico Davoli", role: "Chief Hardware & Industrial Systems Officer", initials: "FD" },
-  { name: "Luigi Benacchio", role: "Chief Information Officer", initials: "LB" },
+  { name: "Ralph Saab", role: "Chief Strategy & Innovation Officer", photo: "/team/ralph-saab.jpeg" },
+  { name: "Eng. Dino Vincoletto", role: "Chief Renewable Technology & Energy Validation Officer", photo: "/team/dino-vincoletto.jpeg" },
+  { name: "Eng. Alessio Munerato", role: "Chief Infrastructure & Cybersecurity Officer", photo: "/team/alessio-munerato.png" },
+  { name: "Eng. Federico Davoli", role: "Chief Hardware & Industrial Systems Officer", photo: "/team/federico-davoli.png" },
+  { name: "Luigi Benacchio", role: "Chief Information Officer", photo: "/team/luigi-benacchio.jpeg" },
   { name: "Allam Jamil", role: "Chief Financial, Investment & Data Officer (CFIDO)", photo: "/team/allam photo.jpeg" },
-  { name: "Eleonora Passarella", role: "Chief Marketing & Communications Officer", initials: "EP" },
+  { name: "Eleonora Passarella", role: "Chief Marketing & Communications Officer", photo: "/team/eleonora-passarella.png" },
 ];
 
 const advisory = [
   { name: "Francesco Di Bernardo", role: "Director of Legal Affairs & Corporate Governance", initials: "FB" },
-  { name: "Antonio Guadagnino", role: "Director of Compliance & Regulatory Affairs", initials: "AG" },
-  { name: "Prof. Michele De Carli", role: "Department of Industrial Engineering – University of Padua", initials: "MD" },
+  { name: "Antonio Guadagnino", role: "Director of Compliance & Regulatory Affairs", photo: "/team/antonio-guadagnino.png" },
+  { name: "Prof. Michele De Carli", role: "Department of Industrial Engineering – University of Padua", photo: "/team/michele-de-carli.png" },
 ];
 
 const Avatar = ({ member, size }) => (

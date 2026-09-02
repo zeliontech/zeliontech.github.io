@@ -12,7 +12,7 @@ const WhatIsZelion = () => {
           className="mx-auto max-w-3xl text-center"
         >
           <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
-            What is Zelion
+            What is ZelionTech
           </span>
           <h2 className="mb-10 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
             <span className="metal-gradient">Infrastructure Before Token</span>
@@ -21,12 +21,12 @@ const WhatIsZelion = () => {
             <div className="glass-card p-6 lg:p-8">
               <p className="text-base leading-relaxed text-muted-foreground lg:text-lg">
                 Most blockchain systems start with tokens and attempt to add utility later.
-                Zelion reverses this model.
+                ZelionTech reverses this model.
               </p>
             </div>
             <div className="glass-card p-6 lg:p-8 border-silver-light/20">
               <p className="text-base font-medium leading-relaxed text-foreground lg:text-lg">
-                Zelion starts with infrastructure, hardware validation, and real-world deployment.
+                ZelionTech starts with infrastructure, hardware validation, and real-world deployment.
                 The token exists only to coordinate and align ecosystem participation.
               </p>
             </div>

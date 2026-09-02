@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
 import { trackExternalLink } from "@/services/analyticsService";
 
+// The five official ZelionTech channels. Labels only — account handles are
+// never displayed on the page.
 const channels = [
-  { label: "X (Twitter)", href: "#" },
-  { label: "Telegram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Discord", href: "#" },
-  { label: "YouTube", href: "#" },
+  { label: "Telegram", href: "https://t.me/zelionglobal" },
+  { label: "X (Twitter)", href: "https://x.com/zelion_tech" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/zeliontech/" },
+  { label: "Instagram", href: "https://www.instagram.com/zeliontech_zev/" },
   { label: "GitHub", href: "https://github.com/zeliontech" },
-  { label: "Instagram", href: "#" },
-  { label: "WhatsApp", href: "#" },
 ];
 
 const CommunitySection = () => {
@@ -21,7 +20,7 @@ const CommunitySection = () => {
             Join the Community
           </span>
           <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Connect With <span className="metal-gradient">Zelion</span>
+            Connect With <span className="metal-gradient">ZelionTech</span>
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
             Follow our channels for real-time updates, announcements, and
@@ -34,9 +33,9 @@ const CommunitySection = () => {
             <motion.a
               key={ch.label}
               href={ch.href}
-              target={ch.href === "#" ? undefined : "_blank"}
-              rel={ch.href === "#" ? undefined : "noopener noreferrer"}
-              onClick={() => ch.href !== "#" && trackExternalLink(ch.href, ch.label)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackExternalLink(ch.href, ch.label)}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -47,10 +46,6 @@ const CommunitySection = () => {
             </motion.a>
           ))}
         </div>
-
-        <p className="mt-8 text-center text-xs text-muted-foreground">
-          Official channel links are being refreshed.
-        </p>
       </div>
     </section>
   );

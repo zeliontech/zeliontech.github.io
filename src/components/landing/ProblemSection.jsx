@@ -46,7 +46,7 @@ const ProblemSection = () => {
               Global energy systems face three core validation challenges.
             </p>
             <p className="text-sm text-muted-foreground/80">
-              Zelion addresses these gaps by validating data at the infrastructure edge.
+              ZelionTech addresses these gaps by validating data at the infrastructure edge.
             </p>
           </div>
         </motion.div>

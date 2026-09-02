@@ -105,7 +105,7 @@ export const addContactMessage = async (name, email, phone = "", message) => {
 
     return {
       success: true,
-      message: "Thank you. The Zelion team will contact you shortly.",
+      message: "Thank you. The ZelionTech team will contact you shortly.",
     };
   } catch (error) {
     console.error("[Firebase] Error adding contact message:", error);

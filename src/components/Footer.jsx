@@ -10,8 +10,11 @@ const footerLinks = {
     { label: "Contact Us", href: "/contact" },
   ],
   Community: [
-    { label: "Telegram", href: "#", external: true },
-    { label: "Twitter (X)", href: "#", external: true },
+    { label: "Telegram", href: "https://t.me/zelionglobal", external: true },
+    { label: "X (Twitter)", href: "https://x.com/zelion_tech", external: true },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/zeliontech/", external: true },
+    { label: "Instagram", href: "https://www.instagram.com/zeliontech_zev/", external: true },
+    { label: "GitHub", href: "https://github.com/zeliontech", external: true },
     { label: "Website", href: "https://www.zeliontech.com", external: true },
     { label: "Email", href: "mailto:info@zeliontech.com", external: false },
   ],
@@ -38,7 +41,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-              Zelion Energy Network enables trustless verification of renewable energy at the source.
+              ZelionTech enables trustless verification of renewable energy at the source.
             </p>
           </div>
 
