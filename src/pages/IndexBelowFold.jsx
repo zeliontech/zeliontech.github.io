@@ -1,9 +1,7 @@
 import ZevKeyAnimation from "@/components/zev/ZevKeyAnimation";
 import WhyValidate from "@/components/zev/WhyValidate";
 import ZevStack from "@/components/zev/ZevStack";
-import TokenUtility from "@/components/landing/TokenUtility";
-import TokenomicsSnapshot from "@/components/landing/TokenomicsSnapshot";
-import EconomicSustainability from "@/components/landing/EconomicSustainability";
+import ZlnLayer from "@/components/zev/ZlnLayer";
 import ZevRoadmap from "@/components/zev/ZevRoadmap";
 import TeamSection from "@/components/landing/TeamSection";
 import FAQSection from "@/components/landing/FAQSection";
@@ -29,9 +27,7 @@ const IndexBelowFold = () => {
       <ZevKeyAnimation />
       <WhyValidate />
       <ZevStack />
-      <TokenUtility />
-      <TokenomicsSnapshot />
-      <EconomicSustainability />
+      <ZlnLayer />
       <ZevRoadmap />
       <TeamSection />
       <FAQSection />
