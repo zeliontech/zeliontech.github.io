@@ -24,7 +24,7 @@ const CY = 300;
 // kind "energy" = physical inputs (emerald, flowing INTO ZEV);
 // kind "data" = digital utilities (cyan, flowing OUT of ZEV).
 const ORBIT_NODES = [
-  { label: "SOLAR", kind: "energy", x: 300, y: 40 },
+  { label: "RENEWABLES", kind: "energy", x: 300, y: 40 },
   { label: "BATTERY", kind: "energy", x: 40, y: 300 },
   { label: "GRID", kind: "energy", x: 98, y: 478 },
   { label: "COMPUTE", kind: "data", x: 300, y: 560 },
