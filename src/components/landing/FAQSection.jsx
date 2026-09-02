@@ -6,37 +6,44 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+// ZEV-framed FAQ. Every answer stays inside the ZEV 1 proof-of-concept
+// facts (brief §15) and the §24 wording rules: what ZEV does, what has
+// actually been demonstrated, what ZLN is and is not, and no investment
+// language.
+export const faqs = [
   {
     q: "What is ZelionTech?",
-    a: "ZelionTech is an infrastructure-first technology initiative focused on real-world energy validation, deterministic processing, and long-term system deployment. The network bridges physical energy systems, decentralized infrastructure, and blockchain-based coordination through verifiable data integrity and hardware-level validation mechanisms.",
+    a: "ZelionTech is an energy-technology company developing ZEV, the Zelion Energy Validator: hardware and software that measure renewable-energy activity at the equipment, validate it on the device and anchor a verifiable record on a public blockchain. ZLN, the ecosystem token, is the digital utility layer around that infrastructure — not the other way round.",
   },
   {
-    q: "Why infrastructure before token?",
-    a: "Most blockchain projects begin with tokens and attempt to later attach utility. ZelionTech reverses this approach by beginning with infrastructure, hardware validation, and real-world system integration. The token exists only as a coordination and alignment layer within the ecosystem.",
+    q: "What is ZEV?",
+    a: "An intelligent hardware-and-software platform that connects to real energy infrastructure — solar, wind, hydro and other renewable generation, batteries, inverters, meters and the grid — to collect, process, validate and digitally record energy information. ZEV 1 is a working proof of concept; ZEV 2 is the industrial platform in development.",
   },
   {
-    q: "What does the $ZLN token do?",
-    a: "$ZLN is a utility and coordination instrument. Primary utilities include participation in validator coordination mechanisms, access to ecosystem-level infrastructure services, alignment of long-term contributors, and governance signaling for protocol-level decisions. The token does not represent equity, ownership, or profit-sharing.",
+    q: "What has actually been demonstrated?",
+    a: "The ZEV 1 proof of concept: physical energy measurement with an ESP32-based controller and energy-meter integration, energy-data processing, SHA-256 hashing, timestamping, anchoring on BNB Smart Chain and a dashboard. Everything labelled Planned or In Development on this site is not built yet, and we say so on every capability.",
   },
   {
-    q: "How does hardware validation work?",
-    a: "ZelionTech integrates hardware-based validators designed to capture real-world energy-related data, perform local integrity verification, and prevent manipulation before data enters digital systems. By validating data at the physical source, ZelionTech reduces attack surfaces and improves data reliability.",
+    q: "What goes on the blockchain?",
+    a: "A hash of each validated record, a timestamp and the transaction reference. The raw measurements and equipment telemetry stay off-chain. The chain is used as an integrity and verification layer, not as a database — anyone holding the original record can recompute its hash and compare it with the on-chain value.",
   },
   {
-    q: "What is the role of blockchain in ZelionTech?",
-    a: "In the ZelionTech ecosystem, blockchain is used for validator coordination, infrastructure alignment, and ecosystem transparency. Blockchain does not control physical infrastructure—it records validated outcomes produced by infrastructure-level processes, improving resilience and scalability.",
+    q: "What is ZLN and what does it do?",
+    a: "ZLN is the blockchain-based digital asset of the ZelionTech ecosystem on BNB Smart Chain: 500,000,000 maximum supply, 18 decimals, 0% transaction tax, no additional minting. It is designed to support participation and economic interactions within the ecosystem as those utilities are deployed. It is a utility token — not equity, not ownership, not a share of revenue.",
+  },
+  {
+    q: "Does ZEV generate carbon credits? Is ZLN a carbon credit?",
+    a: "No, and no. ZEV is designed to provide trusted, traceable and auditable energy data that can support carbon accounting and MRV processes. Carbon-credit issuance requires an accepted methodology, project registration and independent validation under the applicable carbon standard. ZLN is the ecosystem token; a carbon credit is a separately verified environmental asset — they are not the same thing.",
   },
   {
     q: "Is ZelionTech an investment?",
-    a: "No. ZelionTech is infrastructure technology designed for long-term deployment, real-world infrastructure integration, and institutional compatibility. Participation in decentralized infrastructure systems involves risk, and no guarantees are made regarding performance, adoption, or outcomes. Users should conduct independent research before participating.",
+    a: "No. ZelionTech is infrastructure technology under development. Nothing on this site is investment advice, and no promises are made about performance, adoption or token value. Participation in decentralized systems involves risk — please do your own research.",
   },
 ];
 
 const FAQSection = () => {
   return (
-    <section className="relative py-24 lg:py-32 section-bg-alternate">
-      <div className="section-divider mb-24" />
+    <section id="faq" className="relative scroll-mt-16 py-24 lg:py-32 section-bg-subtle">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

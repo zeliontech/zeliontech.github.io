@@ -24,10 +24,10 @@ const ContactSection = () => {
           </h2>
           <div className="mx-auto max-w-2xl space-y-4">
             <p className="text-base leading-relaxed text-muted-foreground">
-              ZelionTech enables trustless verification of renewable energy at the source.
+              Partnerships, pilot sites, integrations or press — tell us what you are working on.
             </p>
             <p className="text-base leading-relaxed text-foreground font-medium">
-              The future of energy finance depends on proof — not promises.
+              Trusted energy data starts with proof, not promises.
             </p>
           </div>
         </motion.div>

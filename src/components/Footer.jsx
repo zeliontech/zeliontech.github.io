@@ -41,7 +41,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-              ZelionTech enables trustless verification of renewable energy at the source.
+              ZelionTech develops ZEV, the Zelion Energy Validator: hardware that turns renewable-energy activity into verifiable digital records.
             </p>
           </div>
 

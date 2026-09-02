@@ -68,8 +68,9 @@ const TeamSection = () => {
             The People Behind <span className="metal-gradient">ZelionTech</span>
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
-            A team of infrastructure experts, engineers, and ecosystem builders
-            working to reshape energy validation.
+            A multidisciplinary team across energy infrastructure, hardware and industrial systems,
+            cybersecurity, finance and decentralized coordination — building ZEV and the ecosystem
+            around it.
           </p>
         </div>
 

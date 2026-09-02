@@ -4,6 +4,7 @@ import ZevStack from "@/components/zev/ZevStack";
 import DigitalUtilities from "@/components/zev/DigitalUtilities";
 import UseCases from "@/components/zev/UseCases";
 import ZlnLayer from "@/components/zev/ZlnLayer";
+import WhatToRemember from "@/components/zev/WhatToRemember";
 import ZevRoadmap from "@/components/zev/ZevRoadmap";
 import TeamSection from "@/components/landing/TeamSection";
 import FAQSection from "@/components/landing/FAQSection";
@@ -33,6 +34,7 @@ const IndexBelowFold = () => {
       <UseCases />
       <ZevRoadmap />
       <ZlnLayer />
+      <WhatToRemember />
       <TeamSection />
       <FAQSection />
       <LegalNotice />
