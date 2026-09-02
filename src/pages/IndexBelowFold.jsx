@@ -1,6 +1,7 @@
 import ZevKeyAnimation from "@/components/zev/ZevKeyAnimation";
 import WhyValidate from "@/components/zev/WhyValidate";
 import ZevStack from "@/components/zev/ZevStack";
+import DigitalUtilities from "@/components/zev/DigitalUtilities";
 import ZlnLayer from "@/components/zev/ZlnLayer";
 import ZevRoadmap from "@/components/zev/ZevRoadmap";
 import TeamSection from "@/components/landing/TeamSection";
@@ -27,6 +28,7 @@ const IndexBelowFold = () => {
       <ZevKeyAnimation />
       <WhyValidate />
       <ZevStack />
+      <DigitalUtilities />
       <ZlnLayer />
       <ZevRoadmap />
       <TeamSection />
