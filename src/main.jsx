@@ -9,7 +9,6 @@ const routeWarmup = {
   "/": () => import("./pages/Index.jsx"),
   "/tokenomics": () => import("./pages/TokenomicsPage.jsx"),
   "/technology": () => import("./pages/Technology.jsx"),
-  // "/oracle": () => import("./pages/Zevoracle.jsx"),  // unrouted pending §24 claims rewrite
   "/whitepaper": () => import("./pages/Whitepaper.jsx"),
   "/legal": () => import("./pages/Legal.jsx"),
   "/privacy": () => import("./pages/PrivacyPolicy.jsx"),
