@@ -4,7 +4,7 @@ import ZevStack from "@/components/zev/ZevStack";
 import TokenUtility from "@/components/landing/TokenUtility";
 import TokenomicsSnapshot from "@/components/landing/TokenomicsSnapshot";
 import EconomicSustainability from "@/components/landing/EconomicSustainability";
-import Roadmap from "@/components/landing/Roadmap";
+import ZevRoadmap from "@/components/zev/ZevRoadmap";
 import TeamSection from "@/components/landing/TeamSection";
 import FAQSection from "@/components/landing/FAQSection";
 import LegalNotice from "@/components/landing/LegalNotice";
@@ -32,7 +32,7 @@ const IndexBelowFold = () => {
       <TokenUtility />
       <TokenomicsSnapshot />
       <EconomicSustainability />
-      <Roadmap />
+      <ZevRoadmap />
       <TeamSection />
       <FAQSection />
       <LegalNotice />
