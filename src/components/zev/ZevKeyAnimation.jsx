@@ -95,14 +95,14 @@ export const STAGES = [
     at: 0,
     eyebrow: "01 — Sunlight",
     title: "Energy is physical.",
-    body: "Solar panels, batteries and grids produce and move real electricity. Before any of it can be trusted digitally, it has to be measured where it happens.",
+    body: "Solar panels, wind turbines, hydro plants, batteries and grids produce and move real electricity. Before any of it can be trusted digitally, it has to be measured where it happens.",
   },
   {
     id: "panels",
     at: 0.13,
     eyebrow: "02 — Solar panels",
     title: "Electricity begins flowing.",
-    body: "Sunlight becomes electrical output — current, voltage and power that exist only in the physical world until something reads them.",
+    body: "Sunlight becomes electrical output — current, voltage and power that exist only in the physical world until something reads them. The same is true of wind, hydro or any other renewable source.",
   },
   {
     id: "zev",
