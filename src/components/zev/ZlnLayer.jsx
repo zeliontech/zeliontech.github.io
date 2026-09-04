@@ -11,21 +11,24 @@ import MaturityBadge from "./MaturityBadge";
 
 export const PARAMETERS = [
   { label: "Blockchain", value: "BNB Smart Chain" },
-  { label: "Token standard", value: "ERC-20 interface" },
+  { label: "Token standard", value: "BEP-20" },
   { label: "Maximum supply", value: "500,000,000 ZLN" },
   { label: "Decimals", value: "18" },
   { label: "Transaction tax", value: "0%" },
   { label: "Additional minting", value: "Disabled" },
 ];
 
-// Current allocation structure as published on the Tokenomics page.
+// Owner-approved final allocation. Kept in sync with TokenAllocation.jsx and
+// the tokenomics page; percentages must sum to 100.
 export const ALLOCATIONS = [
-  { label: "Ecosystem & Infrastructure", pct: 30, color: "bg-silver-light" },
-  { label: "Development & Operations", pct: 15, color: "bg-silver-mid" },
-  { label: "Liquidity & Market Stability", pct: 15, color: "bg-silver-dark" },
-  { label: "Community Programs", pct: 10, color: "bg-foreground/80" },
-  { label: "Strategic Partnerships", pct: 10, color: "bg-muted-foreground/80" },
-  { label: "Core Contributors (Team)", pct: 20, color: "bg-border" },
+  { label: "Compute Rewards & ZEV Network", pct: 20 },
+  { label: "Ecosystem & Infrastructure", pct: 15 },
+  { label: "Liquidity & Market Stability", pct: 15 },
+  { label: "Core Contributors (Team)", pct: 10 },
+  { label: "Private & Strategic Sale", pct: 10 },
+  { label: "Public Sale", pct: 10 },
+  { label: "Strategic Partnerships", pct: 10 },
+  { label: "Community & Marketing", pct: 10 },
 ];
 
 export const UTILITIES = [
@@ -95,22 +98,32 @@ const ZlnLayer = () => {
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
-            <div className="mt-5 flex h-3 overflow-hidden rounded-full shadow-inner">
+            {/* Single-hue supply bar with a 2px gap between segments, so the
+                four allocations that share 10% stay individually readable.
+                Identity comes from the labelled list below, never colour. */}
+            <div className="mt-5 flex h-3 w-full gap-[2px] overflow-hidden rounded-full" role="presentation">
               {ALLOCATIONS.map((a, i) => (
                 <div
                   key={a.label}
-                  className={`${a.color} ${i > 0 ? "border-l border-background" : ""}`}
-                  style={{ width: `${a.pct}%` }}
-                  role="presentation"
+                  className="h-full rounded-full"
+                  style={{
+                    width: `${a.pct}%`,
+                    backgroundColor: "hsl(var(--primary))",
+                    opacity: i % 2 === 0 ? 1 : 0.62,
+                  }}
                 />
               ))}
             </div>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              {ALLOCATIONS.map((a) => (
+              {ALLOCATIONS.map((a, i) => (
                 <li key={a.label} className="flex items-center gap-3 rounded-lg border border-border/50 bg-muted/30 px-3.5 py-2.5">
-                  <span className={`h-3 w-3 shrink-0 rounded-sm ${a.color}`} aria-hidden="true" />
+                  <span
+                    className="h-3 w-3 shrink-0 rounded-sm"
+                    style={{ backgroundColor: "hsl(var(--primary))", opacity: i % 2 === 0 ? 1 : 0.62 }}
+                    aria-hidden="true"
+                  />
                   <span className="flex-1 text-sm text-foreground">{a.label}</span>
-                  <span className="font-heading text-sm font-semibold text-foreground">{a.pct}%</span>
+                  <span className="text-sm font-semibold tabular-nums text-foreground">{a.pct}%</span>
                 </li>
               ))}
             </ul>
