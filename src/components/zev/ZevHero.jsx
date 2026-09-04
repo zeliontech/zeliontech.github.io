@@ -67,11 +67,11 @@ const ZevHero = ({ children }) => {
             <div className="zev-rise mt-10 flex flex-col gap-2.5" style={{ animationDelay: "0.2s" }}>
               <div className="flex flex-wrap items-center gap-2.5 text-[13px] text-muted-foreground">
                 <MaturityBadge level="demonstrated" />
-                <span>ZEV 1 proof of concept — energy data validated on BNB Smart Chain</span>
+                <span>ZEV Lite proof of concept — energy data validated on BNB Smart Chain</span>
               </div>
               <div className="flex flex-wrap items-center gap-2.5 text-[13px] text-muted-foreground">
                 <MaturityBadge level="in-development" />
-                <span>ZEV 2 industrial platform</span>
+                <span>ZEV Pro industrial platform</span>
               </div>
             </div>
           </div>

@@ -4,9 +4,9 @@ import MaturityBadge from "./MaturityBadge";
 
 // Use cases (brief §14). The seven deployment scenarios from the brief, with
 // the owner's note that renewable generation is not only solar. These are
-// designed deployment scenarios, not commercial deployments: the ZEV 1
+// designed deployment scenarios, not commercial deployments: the ZEV Lite
 // proof of concept validated the core chain, and each scenario depends on
-// ZEV 2 capabilities labelled on the roadmap, so every card is Planned.
+// ZEV Pro capabilities labelled on the roadmap, so every card is Planned.
 
 export const CASES = [
   {
@@ -91,7 +91,7 @@ const UseCases = () => {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
             One machine, wherever renewable energy is produced, stored, moved or consumed. The proof of
-            concept validated the core chain; each scenario below builds on ZEV 2 capabilities shown on
+            concept validated the core chain; each scenario below builds on ZEV Pro capabilities shown on
             the roadmap.
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-sm text-muted-foreground">

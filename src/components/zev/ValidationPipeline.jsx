@@ -6,10 +6,10 @@ import MaturityBadge from "./MaturityBadge";
 //   REAL-WORLD ENERGY DATA → ZEV → PROCESSING → HASH / DIGITAL SIGNATURE →
 //   TIMESTAMP → BLOCKCHAIN → VERIFIABLE RECORD
 // One step is open at a time; click or arrow through them. Every capability
-// in a step carries its maturity label (brief §24): the ZEV 1 proof of
+// in a step carries its maturity label (brief §24): the ZEV Lite proof of
 // concept demonstrated meter reading, processing, SHA-256 hashing,
 // timestamping and BNB Smart Chain anchoring; Secure Element signing and AI
-// analysis are ZEV 2 and stay Planned.
+// analysis are ZEV Pro and stay Planned.
 
 export const PIPELINE_STEPS = [
   {
@@ -33,7 +33,7 @@ export const PIPELINE_STEPS = [
     id: "processing",
     label: "Processing",
     where: "On the device",
-    body: "The reading is structured into a record and checked for integrity and consistency before anything is recorded. ZEV 2 is designed to add AI edge analysis here — pattern analysis and anomaly detection on the device itself.",
+    body: "The reading is structured into a record and checked for integrity and consistency before anything is recorded. ZEV Pro is designed to add AI edge analysis here — pattern analysis and anomaly detection on the device itself.",
     labels: [
       { label: "Energy-data processing", level: "demonstrated" },
       { label: "AI edge analysis", level: "planned" },
@@ -43,7 +43,7 @@ export const PIPELINE_STEPS = [
     id: "hash",
     label: "Hash / digital signature",
     where: "On the device",
-    body: "A SHA-256 hash of the record is computed: a fixed-length fingerprint that changes completely if a single value in the record changes. ZEV 2 is designed to also sign the record inside a hardware Secure Element, binding it to one specific device identity.",
+    body: "A SHA-256 hash of the record is computed: a fixed-length fingerprint that changes completely if a single value in the record changes. ZEV Pro is designed to also sign the record inside a hardware Secure Element, binding it to one specific device identity.",
     labels: [
       { label: "SHA-256 hashing", level: "demonstrated" },
       { label: "Secure Element signature", level: "planned" },

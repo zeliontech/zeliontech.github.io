@@ -22,7 +22,7 @@ describe("<ZevRoadmap /> (brief §15 / §16)", () => {
   it("follows the brief's phase order with honest statuses", () => {
     expect(PHASES.map((p) => p.id)).toEqual(["zev1", "zev2", "pilot", "network"]);
     expect(PHASES.map((p) => p.level)).toEqual(["demonstrated", "in-development", "planned", "planned"]);
-    // Every ZEV 2 / pilot / network item is a planned item; only ZEV 1 items are plain facts.
+    // Every ZEV Pro / pilot / network item is a planned item; only ZEV Lite items are plain facts.
     for (const p of PHASES.slice(1)) expect(p.itemLevel).toBe("planned");
     expect(PHASES[0].itemLevel).toBeUndefined();
   });

@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import ZevKeyAnimation, { STAGES, STEPS, UTILITIES, stageAt } from "@/components/zev/ZevKeyAnimation";
 import { MATURITY_LEVELS } from "@/components/zev/MaturityBadge";
 
-// Brief §15: the ZEV 1 proof of concept demonstrated measurement, energy-data
+// Brief §15: the ZEV Lite proof of concept demonstrated measurement, energy-data
 // processing, SHA-256 hashing + timestamping, BNB Smart Chain anchoring and a
 // dashboard. Nothing else may carry the Demonstrated label (brief §24).
 const POC_DEMONSTRATED = new Set(["Measure", "Validate", "Hash", "Blockchain", "Energy dashboard"]);

@@ -1,13 +1,13 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Technology, { ZEV1, ZEV2, TRUST_CHAIN, AI_FUNCTIONS, SOURCES } from "@/pages/Technology";
+import Technology, { ZEV_LITE, ZEV_PRO, TRUST_CHAIN, AI_FUNCTIONS, SOURCES } from "@/pages/Technology";
 import ValidationPipeline, { PIPELINE_STEPS } from "@/components/zev/ValidationPipeline";
 import { MATURITY_LEVELS } from "@/components/zev/MaturityBadge";
 
-// Brief §15: what the ZEV 1 proof of concept demonstrated. Any label marked
+// Brief §15: what the ZEV Lite proof of concept demonstrated. Any label marked
 // Demonstrated on the Technology page must trace back to this list.
-const POC = new Set(ZEV1);
+const POC = new Set(ZEV_LITE);
 const DEMONSTRATED_ALLOWED = [
   "Meter readings from the connected equipment",
   "Energy meter integration",
@@ -60,15 +60,15 @@ describe("Technology page content (brief §3–§6, §15)", () => {
     expect(SOURCES.map((s) => s.label)).toContain("Solar PV");
   });
 
-  it("lists the brief's ZEV 1 and ZEV 2 capabilities with the right labels", () => {
+  it("lists the brief's ZEV Lite and ZEV Pro capabilities with the right labels", () => {
     const { container } = renderPage();
-    expect(ZEV1).toHaveLength(9);
-    expect(ZEV2).toHaveLength(13);
+    expect(ZEV_LITE).toHaveLength(9);
+    expect(ZEV_PRO).toHaveLength(13);
     const hardware = within(container.querySelector("#hardware"));
-    for (const item of ZEV1) expect(hardware.getByText(item)).toBeInTheDocument();
-    for (const item of ZEV2) expect(hardware.getByText(item)).toBeInTheDocument();
-    // Every ZEV 2 item carries its own Planned badge; the platform is In Development.
-    expect(hardware.getAllByText("Planned")).toHaveLength(ZEV2.length);
+    for (const item of ZEV_LITE) expect(hardware.getByText(item)).toBeInTheDocument();
+    for (const item of ZEV_PRO) expect(hardware.getByText(item)).toBeInTheDocument();
+    // Every ZEV Pro item carries its own Planned badge; the platform is In Development.
+    expect(hardware.getAllByText("Planned")).toHaveLength(ZEV_PRO.length);
     expect(hardware.getAllByText("In Development")).toHaveLength(1);
     expect(hardware.getAllByText("Demonstrated")).toHaveLength(1);
   });
@@ -84,7 +84,7 @@ describe("Technology page content (brief §3–§6, §15)", () => {
         if (l.level === "demonstrated") expect(DEMONSTRATED_ALLOWED).toContain(l.label);
       }
     }
-    // Secure Element items can never be demonstrated: they are ZEV 2.
+    // Secure Element items can never be demonstrated: they are ZEV Pro.
     for (const c of TRUST_CHAIN.filter((t) => /identity|signing|tamper/i.test(t.title))) {
       expect(c.level).toBe("planned");
     }

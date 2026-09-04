@@ -77,7 +77,7 @@ const WhyValidate = () => {
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-2.5 text-xs text-muted-foreground">
                 <MaturityBadge level="demonstrated" />
-                <span>ZEV 1 proof of concept — measured, hashed and anchored on BNB Smart Chain end to end</span>
+                <span>ZEV Lite proof of concept — measured, hashed and anchored on BNB Smart Chain end to end</span>
               </div>
             </div>
             <div className="border-t border-border pt-6 lg:col-span-2 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">

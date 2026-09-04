@@ -7,7 +7,7 @@ import { useReducedMotion } from "./hooks";
 // ZEV + ZLN relationship (brief §12) — one of the central graphics of the
 // site. Light zone: physical world → ZEV → digital world → ZLN ecosystem,
 // with energy flowing down the spine. Every capability carries a maturity
-// label; anything not demonstrated in the ZEV 1 proof of concept (brief §15)
+// label; anything not demonstrated in the ZEV Lite proof of concept (brief §15)
 // is labeled Planned.
 
 const TIERS = [

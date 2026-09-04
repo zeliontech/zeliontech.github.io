@@ -5,7 +5,7 @@ import MaturityBadge from "./MaturityBadge";
 
 // Digital utilities (brief §6 AI, §8 renewable-powered computing, §9 carbon
 // data & MRV): what a validated, anchored record is for beyond a dashboard.
-// All three are ahead of the ZEV 1 proof of concept, so every card is
+// All three are ahead of the ZEV Lite proof of concept, so every card is
 // Planned. Carbon wording follows §9 exactly — ZEV supports MRV; it does not
 // create credits. Compute is framed as renewable compute infrastructure,
 // never as a mining pitch (§8).
@@ -40,7 +40,7 @@ export const UTILITIES = [
     id: "ai",
     Icon: Brain,
     title: "AI edge intelligence",
-    body: "ZEV 2 is designed to analyse energy information on the device itself: pattern analysis, anomaly and abnormal-equipment detection, data-integrity monitoring, optimisation and operational alerts.",
+    body: "ZEV Pro is designed to analyse energy information on the device itself: pattern analysis, anomaly and abnormal-equipment detection, data-integrity monitoring, optimisation and operational alerts.",
     flow: ["Validated readings", "On-device analysis", "Anomaly & tamper detection", "Predictive insights", "Operational alerts"],
     more: { label: "AI functions on the Technology page", to: "/technology#ai" },
   },

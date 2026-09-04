@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
 
-// ZEV evolution (brief §15, §16 "PoC → ZEV 1 → ZEV 2 → Pilot Deployment →
+// ZEV evolution (brief §15, §16 "PoC → ZEV Lite → ZEV Pro → Pilot Deployment →
 // Network Expansion"). Replaces the generic Phase 1/2/3 roadmap. Only the
-// ZEV 1 proof of concept is Demonstrated; ZEV 2 is In Development; the
+// ZEV Lite proof of concept is Demonstrated; ZEV Pro is In Development; the
 // pilot and the network are Planned. No dates: the brief gives none and
 // §24 forbids promising them.
 
@@ -13,7 +13,7 @@ export const PHASES = [
   {
     id: "zev1",
     step: "01",
-    title: "ZEV 1 — Proof of concept",
+    title: "ZEV Lite — Proof of concept",
     level: "demonstrated",
     body: "The initial architecture showed the idea works end to end: physical energy information captured by hardware, turned into cryptographically verifiable information and connected with blockchain infrastructure.",
     items: [
@@ -32,9 +32,9 @@ export const PHASES = [
   {
     id: "zev2",
     step: "02",
-    title: "ZEV 2 — Industrial evolution",
+    title: "ZEV Pro — Industrial evolution",
     level: "in-development",
-    body: "The industrial platform being engineered around the proof of concept. Every capability listed is a planned part of ZEV 2, not something deployed commercially today.",
+    body: "The industrial platform being engineered around the proof of concept. Every capability listed is a planned part of ZEV Pro, not something deployed commercially today.",
     items: [
       "Industrial hardware",
       "Secure Element",
@@ -48,14 +48,14 @@ export const PHASES = [
       "Scalable deployment",
     ],
     itemLevel: "planned",
-    more: { label: "Full ZEV 2 capability list", to: "/technology#hardware" },
+    more: { label: "Full ZEV Pro capability list", to: "/technology#hardware" },
   },
   {
     id: "pilot",
     step: "03",
     title: "Pilot deployment",
     level: "planned",
-    body: "First ZEV 2 units operating at real renewable installations — solar, wind, storage — with validated data used by the operators and the first carbon and ESG data integrations tested.",
+    body: "First ZEV Pro units operating at real renewable installations — solar, wind, storage — with validated data used by the operators and the first carbon and ESG data integrations tested.",
     items: ["Units in the field", "Operator dashboards on validated data", "Carbon / ESG data integration trials"],
     itemLevel: "planned",
   },

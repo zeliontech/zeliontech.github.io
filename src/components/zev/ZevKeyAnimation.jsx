@@ -11,7 +11,7 @@ import { useReducedMotion } from "./hooks";
 // digital utilities → "One machine. Multiple digital energy utilities."
 //
 // Claims discipline (brief §24): every step of the chain and every output
-// utility carries a maturity label. Only what the ZEV 1 proof of concept
+// utility carries a maturity label. Only what the ZEV Lite proof of concept
 // demonstrated (brief §15: measurement, energy-data processing, SHA-256
 // hashing + timestamping, BNB Smart Chain anchoring, dashboard) is labelled
 // Demonstrated; everything else defaults to Planned. Carbon wording follows
@@ -120,7 +120,7 @@ export const STAGES = [
     at: 0.4,
     eyebrow: "04 — Inside ZEV",
     title: "Measure → Analyze → Validate → Sign → Hash",
-    body: "Every reading passes through the same chain. Each step carries its maturity label: what the ZEV 1 proof of concept demonstrated, and what ZEV 2 is designed to add.",
+    body: "Every reading passes through the same chain. Each step carries its maturity label: what the ZEV Lite proof of concept demonstrated, and what ZEV Pro is designed to add.",
     labels: STEPS,
   },
   {

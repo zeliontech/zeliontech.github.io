@@ -4,9 +4,9 @@ import MaturityBadge from "./MaturityBadge";
 
 // "How ZEV works" — the six-step strip from the approved design reference.
 //
-// Claims discipline (brief §15/§24): the ZEV 1 proof of concept demonstrated
+// Claims discipline (brief §15/§24): the ZEV Lite proof of concept demonstrated
 // measurement, validation, SHA-256 hashing, timestamping and on-chain
-// anchoring. AI anomaly detection and secure-element signing are ZEV 2 and
+// anchoring. AI anomaly detection and secure-element signing are ZEV Pro and
 // are labelled Planned. Step six deliberately says the data *supports*
 // carbon accounting rather than that ZEV issues credits (brief §9).
 

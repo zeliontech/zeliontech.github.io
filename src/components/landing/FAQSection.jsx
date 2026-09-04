@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// ZEV-framed FAQ. Every answer stays inside the ZEV 1 proof-of-concept
+// ZEV-framed FAQ. Every answer stays inside the ZEV Lite proof-of-concept
 // facts (brief §15) and the §24 wording rules: what ZEV does, what has
 // actually been demonstrated, what ZLN is and is not, and no investment
 // language.
@@ -17,11 +17,11 @@ export const faqs = [
   },
   {
     q: "What is ZEV?",
-    a: "An intelligent hardware-and-software platform that connects to real energy infrastructure — solar, wind, hydro and other renewable generation, batteries, inverters, meters and the grid — to collect, process, validate and digitally record energy information. ZEV 1 is a working proof of concept; ZEV 2 is the industrial platform in development.",
+    a: "An intelligent hardware-and-software platform that connects to real energy infrastructure — solar, wind, hydro and other renewable generation, batteries, inverters, meters and the grid — to collect, process, validate and digitally record energy information. ZEV Lite is a working proof of concept; ZEV Pro is the industrial platform in development.",
   },
   {
     q: "What has actually been demonstrated?",
-    a: "The ZEV 1 proof of concept: physical energy measurement with an ESP32-based controller and energy-meter integration, energy-data processing, SHA-256 hashing, timestamping, anchoring on BNB Smart Chain and a dashboard. Everything labelled Planned or In Development on this site is not built yet, and we say so on every capability.",
+    a: "The ZEV Lite proof of concept: physical energy measurement with an ESP32-based controller and energy-meter integration, energy-data processing, SHA-256 hashing, timestamping, anchoring on BNB Smart Chain and a dashboard. Everything labelled Planned or In Development on this site is not built yet, and we say so on every capability.",
   },
   {
     q: "What goes on the blockchain?",

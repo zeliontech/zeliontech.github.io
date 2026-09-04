@@ -40,9 +40,9 @@ import ValidationPipeline from "@/components/zev/ValidationPipeline";
 
 // Technology page (ZEV brief §16: hardware, Secure Element, AI, blockchain,
 // energy data, validation, APIs, security). Content follows brief §3–§6 and
-// §15. Claims discipline (§24): the ZEV 1 proof of concept list is the only
-// thing labelled Demonstrated; every ZEV 2 capability is Planned and the
-// ZEV 2 platform as a whole is In Development, matching the homepage hero.
+// §15. Claims discipline (§24): the ZEV Lite proof of concept list is the only
+// thing labelled Demonstrated; every ZEV Pro capability is Planned and the
+// ZEV Pro platform as a whole is In Development, matching the homepage hero.
 
 const PILLS = [
   { label: "Energy data", href: "#energy-data" },
@@ -82,14 +82,14 @@ const SIGNALS = [
 ];
 
 const INTEGRATIONS = [
-  { label: "Energy meter integration", level: "demonstrated", note: "ZEV 1 proof of concept" },
-  { label: "Inverter integration", level: "planned", note: "ZEV 2" },
-  { label: "Battery integration", level: "planned", note: "ZEV 2" },
-  { label: "Grid integration", level: "planned", note: "ZEV 2" },
+  { label: "Energy meter integration", level: "demonstrated", note: "ZEV Lite proof of concept" },
+  { label: "Inverter integration", level: "planned", note: "ZEV Pro" },
+  { label: "Battery integration", level: "planned", note: "ZEV Pro" },
+  { label: "Grid integration", level: "planned", note: "ZEV Pro" },
 ];
 
 // Brief §15, verbatim capability lists.
-export const ZEV1 = [
+export const ZEV_LITE = [
   "ESP32-based controller",
   "Energy meter integration",
   "Wi-Fi / network communication",
@@ -101,7 +101,7 @@ export const ZEV1 = [
   "Dashboard visualization",
 ];
 
-export const ZEV2 = [
+export const ZEV_PRO = [
   "Industrial hardware",
   "Secure Element",
   "Inverter integration",
@@ -134,7 +134,7 @@ export const TRUST_CHAIN = [
   {
     Icon: KeyRound,
     title: "Cryptographic signing",
-    body: "ZEV 2 is designed to sign each record with a key that never leaves the Secure Element.",
+    body: "ZEV Pro is designed to sign each record with a key that never leaves the Secure Element.",
     level: "planned",
   },
   {
@@ -236,7 +236,7 @@ const Technology = () => {
               Hardware, cryptography, blockchain.
             </>
           }
-          lede="What the Zelion Energy Validator is made of: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a record anyone can verify, and the security and intelligence layers ZEV 2 is designed to add."
+          lede="What the Zelion Energy Validator is made of: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a record anyone can verify, and the security and intelligence layers ZEV Pro is designed to add."
           legend
         >
           <SectionPills items={PILLS} />
@@ -321,13 +321,13 @@ const Technology = () => {
             <SectionHead
               eyebrow="Hardware"
               title="Two generations of one machine"
-              lede="ZEV 1 is the proof of concept that showed the idea works end to end. ZEV 2 is the industrial platform being engineered around it. Every capability below is labelled with where it actually stands."
+              lede="ZEV Lite is the proof of concept that showed the idea works end to end. ZEV Pro is the industrial platform being engineered around it. Every capability below is labelled with where it actually stands."
             />
             <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
               <Reveal className="glass-card p-6 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">ZEV 1</p>
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">ZEV Lite</p>
                     <h3 className="mt-1 font-heading text-2xl font-bold text-foreground">Proof of concept</h3>
                   </div>
                   <MaturityBadge level="demonstrated" />
@@ -337,7 +337,7 @@ const Technology = () => {
                   information and connected with blockchain infrastructure.
                 </p>
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {ZEV1.map((item) => (
+                  {ZEV_LITE.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-foreground">
                       <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: EMERALD }} />
                       {item}
@@ -348,17 +348,17 @@ const Technology = () => {
               <Reveal delay={0.08} className="glass-card p-6 ring-1 ring-primary/20 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">ZEV 2</p>
+                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">ZEV Pro</p>
                     <h3 className="mt-1 font-heading text-2xl font-bold text-foreground">Industrial evolution</h3>
                   </div>
                   <MaturityBadge level="in-development" />
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  The next architecture, under development. Each item is a planned capability of the ZEV 2
+                  The next architecture, under development. Each item is a planned capability of the ZEV Pro
                   platform — not something deployed commercially today.
                 </p>
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {ZEV2.map((item) => (
+                  {ZEV_PRO.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-foreground">
                       <MaturityBadge level="planned" className="shrink-0" />
                       {item}
@@ -405,7 +405,7 @@ const Technology = () => {
             <div className="mx-auto max-w-5xl">
               <div className="mb-6 flex flex-wrap items-center justify-center gap-2.5 text-sm text-muted-foreground">
                 <MaturityBadge level="planned" />
-                <span>Potential functions of the ZEV 2 edge architecture</span>
+                <span>Potential functions of the ZEV Pro edge architecture</span>
               </div>
               <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {AI_FUNCTIONS.map(({ Icon, label }, i) => (
