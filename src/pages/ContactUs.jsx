@@ -10,7 +10,7 @@ const contactLinks = [
     icon: Send,
     label: "Telegram",
     value: "@zelionglobal",
-    href: "#",
+    href: "https://t.me/zelionglobal",
     ariaLabel: "Join us on Telegram",
   },
   {
@@ -31,7 +31,7 @@ const contactLinks = [
     icon: Globe,
     label: "Twitter (X)",
     value: "@zelion_tech",
-    href: "#",
+    href: "https://x.com/zelion_tech",
     ariaLabel: "Follow us on X (Twitter)",
   },
 ];
@@ -55,7 +55,7 @@ const ContactUs = () => {
                   Get in Touch
                 </span>
                 <h1 className="mb-6 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
-                  Contact <span className="metal-gradient">Zelion</span>
+                  Contact <span className="metal-gradient">ZelionTech</span>
                 </h1>
                 <div className="mx-auto max-w-2xl space-y-4">
                   <p className="text-base leading-relaxed text-muted-foreground">
