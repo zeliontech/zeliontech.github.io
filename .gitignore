@@ -53,3 +53,7 @@ src/hooks/useZlnConversion.js
 CONTENT_AUDIT.md
 REPLICATION_BRIEF.md
 ZEV_BRIEF.md
+
+# Parallel-session draft copies: never commit these.
+*-Allam55.jsx
+*-Allam55.md
