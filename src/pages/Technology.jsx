@@ -228,12 +228,12 @@ const Technology = () => {
       <Navbar />
       <main>
         <PageHeader
-          eyebrow="Technology"
+          eyebrow="The ZEV device"
           title={
             <>
-              <span className="metal-gradient">Inside ZEV</span>
+              Inside <span className="metal-gradient">ZEV.</span>
               <br />
-              <span className="text-foreground">Hardware, cryptography, blockchain, AI</span>
+              Hardware, cryptography, blockchain.
             </>
           }
           lede="What the Zelion Energy Validator is made of: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a record anyone can verify, and the security and intelligence layers ZEV 2 is designed to add."

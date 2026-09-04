@@ -145,82 +145,116 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/inter-700-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/inter-700-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/inter-800-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/inter-800-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Light Sky Backgrounds - base44 style */
-    --background: 204 45% 97%;
-    --background-elevated: 0 0% 100%;
-    --foreground: 217 33% 17%;
+    /* ── ZelionTech visual identity ────────────────────────────────────
+       Premium light system: pure white ground, near-black type, a single
+       azure accent for the emphasised word in a headline, and an eco green
+       reserved for renewable/environmental marks. Nothing else.          */
 
-    /* Surface/Card Layers - Clean White */
+    --background: 0 0% 100%;
+    --background-elevated: 0 0% 100%;
+    --foreground: 220 15% 8%;
+
     --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
+    --card-foreground: 220 15% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
+    --popover-foreground: 220 15% 8%;
 
-    /* PRIMARY = Cyan/Teal (Brand Color) */
-    --primary: 192 85% 36%;
+    /* PRIMARY = azure accent (headline word, icons, active nav) */
+    --primary: 212 92% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary */
-    --secondary: 204 30% 92%;
-    --secondary-foreground: 217 33% 20%;
+    /* ECO = renewable / environmental mark only */
+    --eco: 145 63% 43%;
+    --eco-foreground: 0 0% 100%;
 
-    /* Muted Surfaces */
-    --muted: 204 30% 94%;
-    --muted-foreground: 215 16% 45%;
+    /* INK = the one dark surface (feature card, device stage) */
+    --ink: 220 18% 7%;
+    --ink-foreground: 0 0% 100%;
 
-    /* Accent */
-    --accent: 192 60% 90%;
-    --accent-foreground: 217 33% 20%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 12%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Borders */
-    --border: 210 28% 88%;
-    --input: 210 28% 88%;
+    --accent: 212 92% 96%;
+    --accent-foreground: 212 92% 32%;
 
-    /* Focus Ring */
-    --ring: 192 85% 36%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 212 92% 55%;
 
-    /* Sidebar */
+    --radius: 1rem;
+
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 217 33% 17%;
-    --sidebar-primary: 192 85% 36%;
+    --sidebar-foreground: 220 15% 8%;
+    --sidebar-primary: 212 92% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 204 30% 94%;
-    --sidebar-accent-foreground: 217 33% 17%;
-    --sidebar-border: 210 28% 88%;
-    --sidebar-ring: 192 85% 36%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 220 15% 8%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 212 92% 55%;
 
-    /* Brand Accent Tokens (formerly silver, now cyan ramp) */
-    --silver-light: 192 85% 32%;
-    --silver-mid: 199 70% 42%;
-    --silver-dark: 210 40% 40%;
+    /* Legacy --silver-* tokens remain so existing components keep working;
+       they now resolve to the azure accent rather than a metal ramp. */
+    --silver-light: 212 92% 55%;
+    --silver-mid: 212 92% 50%;
+    --silver-dark: 216 45% 35%;
 
-    /* Heading gradients - cyan to blue */
-    --silver-gradient-1-start: 192 90% 38%;
-    --silver-gradient-1-mid: 199 85% 44%;
-    --silver-gradient-1-end: 217 70% 48%;
+    --silver-gradient-1-start: 212 92% 55%;
+    --silver-gradient-1-mid: 212 92% 55%;
+    --silver-gradient-1-end: 212 92% 55%;
+    --silver-gradient-2-start: 212 92% 55%;
+    --silver-gradient-2-mid: 212 92% 55%;
+    --silver-gradient-2-end: 212 92% 55%;
 
-    --silver-gradient-2-start: 192 80% 42%;
-    --silver-gradient-2-mid: 202 70% 48%;
-    --silver-gradient-2-end: 217 55% 50%;
-
-    /* Surface Layers */
     --surface: 0 0% 100%;
-    --surface-elevated: 204 30% 96%;
-
-    /* Blue accent */
-    --accent-blue-subtle: 199 80% 45%;
+    --surface-elevated: 220 14% 98%;
+    --accent-blue-subtle: 212 92% 55%;
+    --page-bg: 0 0% 100%;
   }
 }
 
@@ -231,11 +265,16 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background-image:
-      radial-gradient(60% 40% at 15% 0%, hsl(199 85% 88% / 0.55) 0%, transparent 60%),
-      radial-gradient(50% 35% at 85% 8%, hsl(180 70% 90% / 0.45) 0%, transparent 60%),
-      radial-gradient(45% 30% at 50% 100%, hsl(210 80% 92% / 0.4) 0%, transparent 65%);
-    background-attachment: fixed;
+  }
+
+  /* Headlines use Inter at heavy weights with tight tracking, matching the
+     approved design reference. Space Grotesk is retained only for the small
+     uppercase mono-ish labels. */
+  h1, h2, h3 {
+    @apply font-body font-bold tracking-[-0.02em];
+  }
+  h4, h5, h6 {
+    @apply font-body font-semibold tracking-[-0.01em];
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -245,13 +284,10 @@
 
 @layer components {
   /* Industrial Metal Card Surfaces */
+  /* Surface card: white, hairline border, soft lift on hover. */
   .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-border/40 rounded-lg;
-    box-shadow: 
-      0 0 0 1px hsl(var(--border) / 0.08),
-      0 4px 24px -4px hsl(210 45% 30% / 0.10),
-      inset 0 1px 0 0 hsl(var(--silver-light) / 0.03),
-      inset 0 -1px 0 0 hsl(210 45% 30% / 0.05);
+    @apply bg-card border border-border rounded-2xl;
+    box-shadow: 0 1px 2px hsl(220 15% 8% / 0.04), 0 8px 24px -12px hsl(220 15% 8% / 0.10);
   }
 
   .glass-card-hover {
@@ -259,27 +295,15 @@
   }
 
   .glass-card-hover:hover {
-    @apply border-border/70;
-    box-shadow: 
-      0 0 0 1px hsl(var(--silver-mid) / 0.15),
-      0 8px 32px -4px hsl(210 45% 30% / 0.16),
-      0 0 24px -8px hsl(var(--silver-light) / 0.08),
-      inset 0 1px 0 0 hsl(var(--silver-light) / 0.06),
-      inset 0 -1px 0 0 hsl(210 45% 30% / 0.07);
-    transform: translateY(-2px);
+    border-color: hsl(220 13% 84%);
+    box-shadow: 0 2px 4px hsl(220 15% 8% / 0.05), 0 18px 40px -18px hsl(220 15% 8% / 0.16);
+    transform: translateY(-3px);
   }
 
   /* Primary Metallic Silver Gradient - Main Brand Identity */
+  /* The one accent treatment: a single word of a headline in azure. */
   .metal-gradient {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--silver-gradient-1-start)) 0%,
-      hsl(var(--silver-gradient-1-mid)) 50%,
-      hsl(var(--silver-gradient-1-end)) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(var(--primary));
   }
 
   /* Subtle background gradient for surfaces */
@@ -299,44 +323,14 @@
   }
 
   /* Section Background Material Depth - Subtle separation < 8% opacity */
+  /* Section grounds. The page is white; an alternate band is barely-there
+     grey used to separate adjacent sections, never a colour wash. */
   .section-bg-subtle {
-    position: relative;
-    background: radial-gradient(
-      ellipse 120% 80% at 50% 20%,
-      hsl(var(--silver-light) / 0.02) 0%,
-      transparent 50%
-    );
-  }
-
-  .section-bg-subtle::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-      repeating-linear-gradient(
-        0deg,
-        hsl(var(--silver-light) / 0.005) 0px,
-        transparent 1px,
-        transparent 2px,
-        hsl(var(--silver-light) / 0.005) 3px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        hsl(var(--silver-light) / 0.005) 0px,
-        transparent 1px,
-        transparent 2px,
-        hsl(var(--silver-light) / 0.005) 3px
-      );
-    opacity: 0.4;
-    pointer-events: none;
+    background: hsl(var(--background));
   }
 
   .section-bg-alternate {
-    background: radial-gradient(
-      ellipse 100% 60% at 50% 50%,
-      hsl(var(--silver-mid) / 0.015) 0%,
-      transparent 60%
-    );
+    background: hsl(220 20% 98.5%);
   }
 
   .silver-glow-text {
@@ -510,7 +504,7 @@
     /* The light page background, kept OUT of the .dark-zone override on
        purpose: DarkSection edge fades read it from inside a dark zone to
        blend graphite into the real page colour. */
-    --page-bg: 204 45% 97%;
+    --page-bg: 0 0% 100%;
   }
   .dark-zone {
     --maturity-demonstrated: 158 64% 52%;
@@ -573,5 +567,91 @@
       hsl(var(--page-bg) / 0.55) 65%,
       hsl(var(--page-bg)) 100%
     );
+  }
+}
+
+/* ===================================================================== */
+/* DESIGN REFERENCE PRIMITIVES                                           */
+/* The approved concept uses a small, strict set of type treatments.     */
+/* Use these rather than ad-hoc font sizes so every page stays on system. */
+
+@layer components {
+  /* Small uppercase label above a headline. */
+  .eyebrow {
+    @apply font-body text-[11px] font-medium uppercase text-muted-foreground sm:text-xs;
+    letter-spacing: 0.2em;
+  }
+
+  /* Hero headline. One word may carry .metal-gradient for the azure accent. */
+  .display {
+    @apply font-body font-bold text-foreground;
+    font-size: clamp(2.5rem, 5.6vw, 4.25rem);
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+  }
+
+  /* Section headline. */
+  .headline {
+    @apply font-body font-bold text-foreground;
+    font-size: clamp(1.875rem, 3.4vw, 2.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  /* Card headline. */
+  .subhead {
+    @apply font-body font-bold text-foreground;
+    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* Standfirst / supporting paragraph next to a headline. */
+  .lede {
+    @apply font-body text-muted-foreground;
+    font-size: clamp(0.975rem, 1.1vw, 1.075rem);
+    line-height: 1.65;
+  }
+
+  /* Vertical rhythm for a full-width section. */
+  .section {
+    @apply py-20 lg:py-28;
+  }
+
+  /* The single dark surface treatment (feature card, device stage). */
+  .ink-surface {
+    background: hsl(var(--ink));
+    color: hsl(var(--ink-foreground));
+  }
+  .ink-surface .text-muted-foreground {
+    color: hsl(220 9% 65%);
+  }
+
+  /* Numbered step marker in the process strip. */
+  .step-dot {
+    @apply inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-[12px] font-semibold text-background;
+  }
+}
+
+/* Hero energy ribbons: a slow drift along the path, inert under reduced motion. */
+@layer components {
+  .hero-ribbon {
+    stroke-dasharray: 210 620;
+    animation: hero-ribbon-flow 14s linear infinite;
+  }
+  @keyframes hero-ribbon-flow {
+    from { stroke-dashoffset: 830; }
+    to { stroke-dashoffset: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-ribbon { animation: none; stroke-dasharray: none; }
+  }
+}
+
+/* Nothing may cause sideways scroll. `clip` rather than `hidden` so that
+   position: sticky inside a section keeps working. */
+@layer base {
+  html {
+    overflow-x: clip;
   }
 }

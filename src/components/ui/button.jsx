@@ -4,28 +4,41 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
+// Buttons follow the approved design reference: a solid near-black pill for
+// primary actions and a white pill with a hairline border for secondary ones.
+// The legacy variant names (hero, metal, wallet) are kept so existing pages
+// keep working; they now resolve to the same two treatments.
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium font-heading tracking-wide ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold font-body tracking-[-0.01em] ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-br from-silver-light via-silver-mid to-silver-dark text-background font-semibold shadow-lg hover:shadow-xl hover:from-silver-light/95 hover:via-silver-mid/95 hover:to-silver-dark/95 transition-all duration-300",
+        default:
+          "bg-foreground text-background shadow-sm hover:bg-foreground/90 hover:shadow-md",
+        hero:
+          "bg-foreground text-background shadow-sm hover:bg-foreground/90 hover:shadow-md",
+        wallet:
+          "bg-foreground text-background shadow-sm hover:bg-foreground/90 hover:shadow-md",
+        accent:
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md",
+        outline:
+          "border border-border bg-card text-foreground hover:bg-muted hover:border-foreground/20",
+        "hero-outline":
+          "border border-border bg-card text-foreground hover:bg-muted hover:border-foreground/20",
+        metal:
+          "border border-border bg-card text-foreground hover:bg-muted hover:border-foreground/20",
+        secondary:
+          "bg-muted text-foreground hover:bg-muted/70",
+        ghost: "hover:bg-muted text-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-border bg-transparent text-foreground hover:bg-muted hover:border-silver-mid/40",
-        secondary: "bg-muted border border-border text-foreground hover:bg-muted/80 hover:border-silver-mid/30",
-        ghost: "hover:bg-muted/50 hover:text-foreground",
-        link: "text-silver-mid underline-offset-4 hover:underline hover:text-silver-light",
-        hero: "bg-gradient-to-br from-silver-light via-silver-mid to-silver-dark text-background font-semibold shadow-[0_0_30px_-5px_rgba(226,232,240,0.3)] hover:shadow-[0_0_40px_-5px_rgba(226,232,240,0.4)] hover:from-silver-light/95 hover:via-silver-mid/95 hover:to-silver-dark/95",
-        "hero-outline": "border-2 border-silver-mid/40 bg-transparent text-silver-light font-semibold hover:border-silver-light/60 hover:bg-silver-light/5 hover:shadow-[0_0_20px_-8px_rgba(226,232,240,0.2)]",
-        metal: "bg-gradient-to-r from-silver-light/8 via-silver-mid/12 to-silver-light/8 border-2 border-silver-mid/25 text-foreground font-semibold hover:border-silver-mid/50 hover:from-silver-light/12 hover:via-silver-mid/18 hover:to-silver-light/12 hover:shadow-[0_0_16px_-6px_rgba(226,232,240,0.15)]",
-        wallet: "bg-gradient-to-br from-silver-light via-silver-mid to-silver-dark text-background font-semibold rounded-full shadow-lg hover:shadow-xl hover:from-silver-light/95 hover:via-silver-mid/95 hover:to-silver-dark/95",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-12 rounded-md px-8 text-base",
-        xl: "h-14 rounded-md px-10 text-lg",
-        icon: "h-10 w-10",
+        default: "h-11 px-6",
+        sm: "h-9 px-4 text-[13px]",
+        lg: "h-13 px-7 text-[15px]",
+        xl: "h-14 px-9 text-base",
+        icon: "h-10 w-10 p-0",
       },
     },
     defaultVariants: {

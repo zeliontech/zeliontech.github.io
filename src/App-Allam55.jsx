@@ -11,8 +11,6 @@ const Index = lazy(() => import("./pages/Index"));
 const HowToBuy = lazy(() => import("./pages/HowToBuy"));
 const TokenomicsPage = lazy(() => import("./pages/TokenomicsPage"));
 const Technology = lazy(() => import("./pages/Technology"));
-const CarbonCredits = lazy(() => import("./pages/CarbonCredits"));
-const About = lazy(() => import("./pages/About"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
 const Legal = lazy(() => import("./pages/Legal"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -34,12 +32,13 @@ const AppContent = () => {
           <Route path="/" element={<Index />} />
           {/* <Route path="/how-to-buy" element={<HowToBuy />} /> */}
           <Route path="/tokenomics" element={<TokenomicsPage />} />
-          {/* /zev is the canonical product page; /technology is kept as an
-              alias so older links and the previous navigation still resolve. */}
-          <Route path="/zev" element={<Technology />} />
           <Route path="/technology" element={<Technology />} />
-          <Route path="/carbon" element={<CarbonCredits />} />
-          <Route path="/about" element={<About />} />
+          {/* Unrouted pending a §24 claims rewrite: the page carries unqualified
+              present-tense commercial claims — a purchasable "ZEV Pro" tier with an
+              enterprise SLA, CE / IP67 / IEC 61557 certification claims, and "provide
+              the data layer for carbon credit issuance", which ZEV_BRIEF.md §24 and §9
+              forbid while ZEV 1 is a proof of concept. */}
+          {/* <Route path="/oracle" element={<Zevoracle />} /> */}
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

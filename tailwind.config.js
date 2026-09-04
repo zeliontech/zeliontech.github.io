@@ -49,6 +49,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        eco: {
+          DEFAULT: "hsl(var(--eco))",
+          foreground: "hsl(var(--eco-foreground))",
+        },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          foreground: "hsl(var(--ink-foreground))",
+        },
         silver: {
           light: "hsl(var(--silver-light))",
           mid: "hsl(var(--silver-mid))",
@@ -68,6 +76,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      spacing: {
+        13: "3.25rem",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,14 +1,17 @@
-// Lazy-loaded 3D stage for the ZEV device (hero, brief §17). This file is the
-// only place three/fiber is imported for the hero — it is code-split via
-// React.lazy in ZevHero.jsx and never requested on mobile or under
-// prefers-reduced-motion (static poster instead).
+// Lazy-loaded 3D stage for the ZEV device. This file is the only place
+// three/fiber is imported for the hero; it is code-split via React.lazy in
+// ZevHero.jsx and never requested under prefers-reduced-motion or data-saver.
+//
+// Lighting is a bright studio rig, because the device now sits on a white
+// page rather than in a dark instrument panel: a broad key, a cool fill to
+// keep the aluminium from going flat, and a soft ground bounce.
 
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import ZevDeviceModel from "./ZevDeviceModel";
 
-// Idle rig: slow three-quarter sway plus a gentle float. Deterministic
-// (time-based) so there is no drift.
+// Idle rig: a slow three-quarter sway and a gentle float. Time-based, so
+// there is no drift and no dependence on frame rate.
 const DeviceRig = () => {
   const group = useRef();
 
@@ -16,11 +19,10 @@ const DeviceRig = () => {
     const g = group.current;
     if (!g) return;
     const t = state.clock.elapsedTime;
-    // Sway centred so the front panel stays presented to the camera through
-    // the whole cycle — a three-quarter view, never edge-on.
-    g.rotation.y = -0.26 + Math.sin(t * 0.22) * 0.24;
-    g.rotation.x = 0.06 + Math.sin(t * 0.35) * 0.02;
-    g.position.y = Math.sin(t * 0.7) * 0.045;
+    // Centred so the front panel stays presented to the camera throughout.
+    g.rotation.y = -0.34 + Math.sin(t * 0.2) * 0.2;
+    g.rotation.x = 0.04 + Math.sin(t * 0.32) * 0.015;
+    g.position.y = Math.sin(t * 0.65) * 0.04;
   });
 
   return (
@@ -34,20 +36,18 @@ const ZevDevice3D = () => {
   return (
     <Canvas
       role="img"
-      aria-label="ZEV device — industrial DIN-rail enclosure with cyan status lighting"
-      dpr={[1, 1.5]}
-      camera={{ position: [1.6, 0.9, 3.1], fov: 40 }}
+      aria-label="The ZEV device: a brushed aluminium tower with a black glass front panel and a vertical blue status light"
+      dpr={[1, 1.75]}
+      camera={{ position: [1.9, 0.75, 3.6], fov: 38 }}
       gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
       style={{ width: "100%", height: "100%" }}
     >
-      {/* Three-point rig: neutral key, soft fill so the enclosure reads as
-          machined metal rather than a black slab, and a cyan rim that picks
-          out the top and side edges against the graphite background. */}
-      <ambientLight intensity={0.75} />
-      <directionalLight position={[4, 6, 6]} intensity={2.1} />
-      <directionalLight position={[-2, 1.5, 4]} intensity={0.7} color="#CFE8F5" />
-      <directionalLight position={[-4, 3, -3]} intensity={1.5} color="#2FC5F2" />
-      <pointLight position={[-3, -0.5, 2.5]} color="#2FC5F2" intensity={14} distance={9} decay={2} />
+      {/* Studio rig for a product shot on white */}
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[4, 7, 6]} intensity={2.6} />
+      <directionalLight position={[-5, 3, 4]} intensity={1.15} color="#DCE9F5" />
+      <directionalLight position={[0, -3, 4]} intensity={0.5} color="#FFFFFF" />
+      <pointLight position={[-2.5, 1.2, 2.6]} color="#2E90FA" intensity={9} distance={11} decay={2} />
       <DeviceRig />
     </Canvas>
   );

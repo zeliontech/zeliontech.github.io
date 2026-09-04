@@ -1,16 +1,17 @@
-import ZevKeyAnimation from "@/components/zev/ZevKeyAnimation";
+import ZevProcess from "@/components/zev/ZevProcess";
+import PillarCards from "@/components/zev/PillarCards";
+import ValueStrip from "@/components/zev/ValueStrip";
 import WhyValidate from "@/components/zev/WhyValidate";
 import ZevStack from "@/components/zev/ZevStack";
 import DigitalUtilities from "@/components/zev/DigitalUtilities";
 import UseCases from "@/components/zev/UseCases";
+import ZevRoadmap from "@/components/zev/ZevRoadmap";
 import ZlnLayer from "@/components/zev/ZlnLayer";
 import WhatToRemember from "@/components/zev/WhatToRemember";
-import ZevRoadmap from "@/components/zev/ZevRoadmap";
 import TeamSection from "@/components/landing/TeamSection";
 import FAQSection from "@/components/landing/FAQSection";
 import LegalNotice from "@/components/landing/LegalNotice";
 import ContactSection from "@/components/landing/ContactSection";
-import CommunitySection from "@/components/landing/CommunitySection";
 import Footer from "@/components/Footer";
 
 /**
@@ -19,15 +20,19 @@ import Footer from "@/components/Footer";
  * build the hero. The chunk request starts during the first render, so the
  * content mounts a tick later, not on scroll.
  *
- * Order follows the ZEV brief: the flagship animation, why validation at the
- * source matters, the ZEV + ZLN stack, then the token, roadmap, team and the
- * closing sections. The waitlist section (NotifyLaunchSection) stays out of
- * this graph on purpose: importing it alone pulls the Firebase SDK in.
+ * Order follows the approved design reference for the opening sequence —
+ * process strip, three pillar cards, value strip — and then continues into
+ * the fuller ZEV story required by the brief.
+ *
+ * The waitlist section (NotifyLaunchSection) stays out of this graph on
+ * purpose: importing it alone pulls in the Firebase SDK.
  */
 const IndexBelowFold = () => {
   return (
     <>
-      <ZevKeyAnimation />
+      <ZevProcess />
+      <PillarCards />
+      <ValueStrip />
       <WhyValidate />
       <ZevStack />
       <DigitalUtilities />
@@ -39,7 +44,6 @@ const IndexBelowFold = () => {
       <FAQSection />
       <LegalNotice />
       <ContactSection />
-      <CommunitySection />
       <Footer />
     </>
   );
