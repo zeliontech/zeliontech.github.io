@@ -89,12 +89,12 @@ const PhaseCard = ({ phase, index }) => {
       />
       <div className={`glass-card flex h-full flex-col p-6 lg:p-7 ${current ? "ring-1 ring-primary/30" : ""}`}>
         <div className="flex items-start justify-between gap-3">
-          <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+          <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
             Phase {phase.step}
           </span>
           <MaturityBadge level={phase.level} />
         </div>
-        <h3 className="mt-2 font-heading text-xl font-bold text-foreground">{phase.title}</h3>
+        <h3 className="mt-2 subhead">{phase.title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{phase.body}</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {phase.items.map((item) => (
@@ -132,16 +132,16 @@ const PhaseCard = ({ phase, index }) => {
 
 const ZevRoadmap = () => {
   return (
-    <section id="roadmap" className="section-bg-alternate relative scroll-mt-16 py-24 lg:py-32">
+    <section id="roadmap" className="section-bg-alternate relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+          <p className="eyebrow">
             Roadmap
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             An evolving <span className="metal-gradient">platform</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <p className="lede mt-5">
             ZEV is a technology platform, not a finished box. Each phase is labelled with where it
             genuinely stands. Timelines depend on real-world deployment conditions — no dates are promised.
           </p>

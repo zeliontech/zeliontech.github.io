@@ -7,7 +7,7 @@ const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 lg:py-32">
+    <section id="contact" className="section">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,14 +16,14 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
+          <p className="eyebrow">
             Get in Touch
-          </span>
-          <h2 className="mb-6 font-heading text-4xl font-bold text-foreground sm:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             Contact <span className="metal-gradient">ZelionTech</span>
           </h2>
           <div className="mx-auto max-w-2xl space-y-4">
-            <p className="text-base leading-relaxed text-muted-foreground">
+            <p className="lede">
               Partnerships, pilot sites, integrations or press — tell us what you are working on.
             </p>
             <p className="text-base leading-relaxed text-foreground font-medium">

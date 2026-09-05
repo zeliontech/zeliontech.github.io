@@ -63,16 +63,16 @@ const FlowList = ({ steps }) => (
 
 const DigitalUtilities = () => {
   return (
-    <section id="utilities" className="section-bg-alternate relative scroll-mt-16 py-24 lg:py-32">
+    <section id="utilities" className="section-bg-alternate relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+          <p className="eyebrow">
             Digital utilities
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             What <span className="metal-gradient">trusted energy data</span> is for
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <p className="lede mt-5">
             Once a record is validated and anchored it can serve far more than a dashboard. Three of the
             utilities ZEV is designed to feed — each one still ahead of the proof of concept.
           </p>
@@ -82,12 +82,12 @@ const DigitalUtilities = () => {
           {UTILITIES.map(({ Icon, title, body, flow, caveat, more }, i) => (
             <Reveal key={title} delay={i * 0.08} className="glass-card flex h-full flex-col p-6 lg:p-8">
               <div className="flex items-start justify-between gap-3">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <MaturityBadge level="planned" />
               </div>
-              <h3 className="mt-4 font-heading text-xl font-bold text-foreground">{title}</h3>
+              <h3 className="mt-4 subhead">{title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
               <FlowList steps={flow} />
               {caveat && (

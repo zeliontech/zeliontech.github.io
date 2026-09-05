@@ -144,11 +144,11 @@ const Tier = ({ tier, index }) => {
           </span>
 
           <div className="min-w-0 flex-1">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
               {tier.eyebrow}
             </p>
             <h3
-              className={`mt-1 font-heading font-bold text-foreground ${
+              className={`mt-1 font-body font-bold tracking-[-0.02em] text-foreground ${
                 tier.emphasis ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
               }`}
             >
@@ -173,7 +173,7 @@ const ZevStack = () => {
   const reduced = useReducedMotion();
 
   return (
-    <section id="ecosystem" className="relative scroll-mt-16 py-24 lg:py-32">
+    <section id="ecosystem" className="relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
@@ -182,13 +182,13 @@ const ZevStack = () => {
           transition={{ duration: 0.6 }}
           className="mb-14 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+          <p className="eyebrow">
             ZEV + ZLN
-          </span>
-          <h2 className="mb-6 font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             <span className="metal-gradient">One Stack, Two Layers</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
+          <p className="lede mx-auto max-w-2xl">
             ZEV is the physical and technological infrastructure. ZLN is the digital utility layer
             of the ecosystem. Energy activity enters at the bottom of the physical world and leaves
             as information other systems can verify.

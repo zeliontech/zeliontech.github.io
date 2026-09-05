@@ -42,16 +42,16 @@ const CONTRACT_URL = "https://bscscan.com/address/0x9D9c5C7B7BfC398Ed446b7e53a8A
 
 const ZlnLayer = () => {
   return (
-    <section id="zln" className="section-bg-subtle relative scroll-mt-16 py-24 lg:py-32">
+    <section id="zln" className="section-bg-subtle relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+          <p className="eyebrow">
             ZLN
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             The <span className="metal-gradient">digital utility layer</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <p className="lede mt-5">
             ZLN is the blockchain-based digital asset of the ZelionTech ecosystem — the digital layer
             around the physical ZEV infrastructure. Its tokenomics are part of the infrastructure story,
             not the purpose of the company.
@@ -61,14 +61,14 @@ const ZlnLayer = () => {
         <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-5">
           {/* Technical parameters (§11) */}
           <Reveal className="glass-card p-6 lg:col-span-2 lg:p-8">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
               Technical parameters
             </p>
             <dl className="mt-5 divide-y divide-border/60">
               {PARAMETERS.map((p) => (
                 <div key={p.label} className="flex items-baseline justify-between gap-4 py-2.5">
                   <dt className="text-sm text-muted-foreground">{p.label}</dt>
-                  <dd className="text-right font-heading text-sm font-semibold text-foreground">{p.value}</dd>
+                  <dd className="text-right font-body text-sm font-semibold text-foreground">{p.value}</dd>
                 </div>
               ))}
             </dl>
@@ -76,7 +76,7 @@ const ZlnLayer = () => {
               href={CONTRACT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs text-primary hover:underline"
+              className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:underline"
             >
               Token contract on BscScan
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
@@ -90,7 +90,7 @@ const ZlnLayer = () => {
           {/* Allocation snapshot (§13) */}
           <Reveal delay={0.08} className="glass-card p-6 lg:col-span-3 lg:p-8">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                 Allocation of the 500,000,000 ZLN maximum supply
               </p>
               <Link to="/tokenomics" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
@@ -143,10 +143,10 @@ const ZlnLayer = () => {
             {UTILITIES.map(({ Icon, title, body }, i) => (
               <Reveal key={title} delay={i * 0.05}>
                 <li className="glass-card h-full p-5">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-primary">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-4 font-heading text-base font-semibold text-foreground">{title}</h3>
+                  <h3 className="mt-4 font-body text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
                 </li>
               </Reveal>

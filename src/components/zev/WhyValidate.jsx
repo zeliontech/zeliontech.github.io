@@ -33,16 +33,16 @@ export const PRINCIPLES = [
 
 const WhyValidate = () => {
   return (
-    <section id="why-validate" className="section-bg-subtle relative scroll-mt-16 py-24 lg:py-32">
+    <section id="why-validate" className="section-bg-subtle relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+          <p className="eyebrow">
             Why ZEV
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             <span className="metal-gradient">Why validate energy data at the source</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <p className="lede mt-5">
             Renewable energy is physical — solar, wind, hydro, batteries, grids. The information about it
             is not. Between the two sits a gap that most of today&apos;s energy data falls through.
           </p>
@@ -51,10 +51,10 @@ const WhyValidate = () => {
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {CHALLENGES.map(({ Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 0.08} className="glass-card-hover p-6 lg:p-8">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-muted">
-                <Icon className="h-6 w-6 text-silver-light" aria-hidden="true" />
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent">
+                <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
               </div>
-              <h3 className="mb-3 font-heading text-lg font-semibold text-foreground">{title}</h3>
+              <h3 className="mb-3 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
             </Reveal>
           ))}
@@ -63,10 +63,10 @@ const WhyValidate = () => {
         <Reveal delay={0.1} className="mx-auto mt-8 max-w-5xl">
           <div className="glass-card grid gap-8 p-6 ring-1 ring-primary/20 lg:grid-cols-5 lg:p-10">
             <div className="lg:col-span-3">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                 ZelionTech&apos;s answer
               </p>
-              <h3 className="mt-2 font-heading text-2xl font-bold text-foreground sm:text-3xl">
+              <h3 className="mt-2 subhead">
                 Measure at the equipment. Validate on the device. Anchor the proof where anyone can check it.
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground lg:text-base">
@@ -81,13 +81,13 @@ const WhyValidate = () => {
               </div>
             </div>
             <div className="border-t border-border pt-6 lg:col-span-2 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                 How ZelionTech builds
               </p>
               <ul className="mt-4 space-y-3">
                 {PRINCIPLES.map((principle) => (
                   <li key={principle} className="flex items-start gap-3 text-sm text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-silver-light" aria-hidden="true" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                     {principle}
                   </li>
                 ))}

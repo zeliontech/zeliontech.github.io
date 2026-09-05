@@ -3,7 +3,7 @@ import { AlertTriangle } from "lucide-react";
 
 const LegalNotice = () => {
   return (
-    <section className="relative bg-muted/10 py-24 lg:py-32">
+    <section className="relative bg-muted/10 section">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -12,12 +12,12 @@ const LegalNotice = () => {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl"
         >
-          <div className="glass-card border-2 border-yellow-500/20 bg-yellow-500/5 p-8 lg:p-10">
+          <div className="rounded-3xl border border-border bg-muted/50 p-8 lg:p-10">
             <div className="mb-6 flex items-center gap-4">
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-yellow-500/30 bg-yellow-500/10">
-                <AlertTriangle className="h-6 w-6 text-yellow-500" />
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent">
+                <AlertTriangle className="h-6 w-6 text-primary" />
               </div>
-              <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
+              <h2 className="subhead">
                 Important Notice
               </h2>
             </div>

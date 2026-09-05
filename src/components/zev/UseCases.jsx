@@ -66,7 +66,7 @@ export const CASES = [
 ];
 
 const Flow = ({ steps }) => (
-  <ol className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+  <ol className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
     {steps.map((step, i) => (
       <li key={step} className="flex items-center gap-1.5">
         {i > 0 && <ArrowRight className="h-3 w-3 text-primary/70" aria-hidden="true" />}
@@ -80,16 +80,16 @@ const Flow = ({ steps }) => (
 
 const UseCases = () => {
   return (
-    <section id="use-cases" className="section-bg-subtle relative scroll-mt-16 py-24 lg:py-32">
+    <section id="use-cases" className="section-bg-subtle relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-          <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+          <p className="eyebrow">
             Use cases
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             Where <span className="metal-gradient">ZEV</span> is designed to work
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
+          <p className="lede mt-5">
             One machine, wherever renewable energy is produced, stored, moved or consumed. The proof of
             concept validated the core chain; each scenario below builds on ZEV Pro capabilities shown on
             the roadmap.
@@ -105,11 +105,11 @@ const UseCases = () => {
             <Reveal key={title} delay={i * 0.05} className={wide ? "md:col-span-2 lg:col-span-3" : ""}>
               <li className={`glass-card-hover flex h-full flex-col p-6 ${wide ? "lg:flex-row lg:items-center lg:gap-8 lg:p-8" : ""}`}>
                 <div className={wide ? "lg:w-1/3" : ""}>
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">{title}</h3>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{sectors}</p>
+                  <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">{sectors}</p>
                 </div>
                 <div className={wide ? "mt-4 lg:mt-0 lg:flex-1" : ""}>
                   <p className={`text-sm leading-relaxed text-muted-foreground ${wide ? "" : "mt-3"}`}>{body}</p>

@@ -43,7 +43,7 @@ export const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="relative scroll-mt-16 py-24 lg:py-32 section-bg-subtle">
+    <section id="faq" className="relative scroll-mt-16 section section-bg-subtle">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,10 +52,10 @@ const FAQSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-xs font-medium tracking-[0.2em] text-silver-light uppercase">
+          <p className="eyebrow">
             FAQ
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          </p>
+          <h2 className="headline mt-4">
             Frequently Asked{" "}
             <span className="metal-gradient">Questions</span>
           </h2>
@@ -75,7 +75,7 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="glass-card overflow-hidden border-border/50 px-8"
               >
-                <AccordionTrigger className="py-5 text-left font-heading text-sm font-medium text-foreground hover:no-underline hover:text-silver-light sm:text-base">
+                <AccordionTrigger className="py-5 text-left font-body text-[15px] font-semibold text-foreground hover:no-underline hover:text-primary sm:text-base">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">
