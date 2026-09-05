@@ -6,8 +6,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <ZevHero />
-      <IndexBelowFold />
+      <main id="main">
+        <ZevHero />
+        <IndexBelowFold />
+      </main>
     </div>
   );
 };

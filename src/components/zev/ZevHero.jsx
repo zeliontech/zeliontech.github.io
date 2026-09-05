@@ -94,7 +94,10 @@ const ZevHero = ({ children }) => {
               blurred placeholder is painted behind the picture so nothing
               flashes white while the image arrives. */}
           <div className="lg:col-span-6 xl:col-span-7">
-            <div className="hero-photo-mask relative mx-auto aspect-[4/3] w-full max-w-[720px] overflow-hidden lg:aspect-[3/2]">
+            {/* The chip sits beside the masked frame, not inside it, so the
+                mask never fades its text. */}
+            <div className="relative mx-auto w-full max-w-[720px]">
+            <div className="hero-photo-mask relative aspect-[4/3] w-full overflow-hidden lg:aspect-[3/2]">
               {/* Blurred placeholder, inset so it never reaches the frame edge
                   (at the edge the fades are only just white, and a hard
                   placeholder edge would print through as a hairline). */}
@@ -124,9 +127,10 @@ const ZevHero = ({ children }) => {
                   draggable={false}
                 />
               </picture>
-              <p className="eyebrow hero-parallax-chip absolute right-2 top-5 hidden max-w-[7.5rem] leading-relaxed sm:block">
-                Clean energy, brighter tomorrows
-              </p>
+            </div>
+            <p className="eyebrow hero-parallax-chip absolute right-2 top-5 hidden max-w-[7.5rem] leading-relaxed sm:block">
+              Clean energy, brighter tomorrows
+            </p>
             </div>
           </div>
         </div>

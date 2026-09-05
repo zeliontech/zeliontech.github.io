@@ -29,6 +29,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Escape closes the phone menu, as any disclosure should.
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   const isActive = (href) =>
     href === "/" ? location.pathname === "/" : location.pathname.startsWith(href);
 
@@ -38,6 +48,13 @@ const Navbar = () => {
         scrolled ? "border-b border-border" : "border-b border-transparent"
       }`}
     >
+      {/* Keyboard users can jump past the navigation; visible only on focus. */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-[14px] focus:font-semibold focus:text-background"
+      >
+        Skip to content
+      </a>
       <div className="container mx-auto flex h-20 items-center px-4 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="ZelionTech home">
           <img src="/logo.svg" alt="" className="h-8 w-8" width="32" height="32" />
@@ -84,6 +101,7 @@ const Navbar = () => {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -93,6 +111,7 @@ const Navbar = () => {
       {/* Mobile menu — CSS grid-rows transition keeps framer-motion out of the
           critical navbar chunk. */}
       <div
+        id="mobile-menu"
         className={`grid overflow-hidden bg-background transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none lg:hidden ${
           mobileOpen ? "grid-rows-[1fr] border-b border-border opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}

@@ -712,25 +712,15 @@
   }
 }
 
-/* Hero depth: the backdrop, the device and the chip move at three rates
-   against the pointer (--px/--py in -1..1, set on the hero section). The
-   variables are never written on touch or under reduced motion, so the
-   transforms rest at zero there. */
+/* Hero depth: the scene (.hero-parallax-photo, further down) and the chip
+   move at two rates against the pointer (--px/--py in -1..1, set on the hero
+   section). The variables are never written on touch or under reduced
+   motion, so the transforms rest at zero there. */
 @layer components {
-  .hero-parallax-far,
-  .hero-parallax-near,
-  .hero-parallax-chip {
-    transition: transform 1100ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform;
-  }
-  .hero-parallax-far {
-    transform: translate3d(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px), 0);
-  }
-  .hero-parallax-near {
-    transform: translate3d(calc(var(--px, 0) * 7px), calc(var(--py, 0) * 4px), 0);
-  }
   .hero-parallax-chip {
     transform: translate3d(calc(var(--px, 0) * 14px), calc(var(--py, 0) * 8px), 0);
+    transition: transform 1100ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
   }
 
   /* Scroll cue: a short light travels down a hairline, and the whole cue
@@ -765,11 +755,30 @@
     transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
     transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 300ms ease, box-shadow 300ms ease;
   }
-  .tilt-card:hover {
-    --lift: -4px;
+  /* The photograph and the arrow inside a pillar card answer the same hover
+     as the tilt. Hover effects are gated to mouse-like pointers so a tap on a
+     touch screen never sticks them on. */
+  .card-photo {
+    transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card-arrow {
+    transition: transform 200ms ease-out;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .tilt-card:hover {
+      --lift: -4px;
+    }
+    .tilt-card:hover .card-photo {
+      transform: scale(1.04);
+    }
+    .tilt-card:hover .card-arrow {
+      transform: translateX(4px);
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .tilt-card { transform: none; transition: border-color 300ms ease; }
+    .card-photo,
+    .card-arrow { transform: none; transition: none; }
   }
 }
 
@@ -814,5 +823,51 @@
     .hero-parallax-photo {
       transition: none;
     }
+  }
+}
+
+/* Long-form legal text (disclaimer, privacy policy): the shared page header
+   above, then one article whose headings, lists and links all fall back to
+   these styles so the pages need no per-element classes. */
+@layer components {
+  .legal-prose {
+    color: hsl(var(--muted-foreground));
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .legal-prose section + section {
+    margin-top: 2.5rem;
+  }
+  .legal-prose h2 {
+    @apply font-body text-[20px] font-bold tracking-[-0.01em] text-foreground;
+    margin-bottom: 0.75rem;
+  }
+  .legal-prose h3 {
+    @apply font-body text-[16px] font-bold tracking-[-0.01em] text-foreground;
+    margin: 1.25rem 0 0.5rem;
+  }
+  .legal-prose p + p,
+  .legal-prose p + ul,
+  .legal-prose ul + p {
+    margin-top: 0.9rem;
+  }
+  .legal-prose ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .legal-prose li + li {
+    margin-top: 0.4rem;
+  }
+  .legal-prose a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal-prose a:hover {
+    color: hsl(var(--foreground));
+  }
+  .legal-prose strong {
+    color: hsl(var(--foreground));
+    font-weight: 600;
   }
 }

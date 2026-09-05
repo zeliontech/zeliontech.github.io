@@ -39,7 +39,7 @@ const DeviceArt = () => (
         aria-hidden="true"
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-[50%_45%] transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+        className="card-photo absolute inset-0 h-full w-full object-cover object-[50%_45%]"
         draggable={false}
       />
     </picture>
@@ -242,10 +242,7 @@ const PillarCard = ({ card }) => {
           }`}
         >
           Learn more
-          <ArrowRight
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
-            aria-hidden="true"
-          />
+          <ArrowRight className="card-arrow h-4 w-4" aria-hidden="true" />
         </Link>
       </div>
 

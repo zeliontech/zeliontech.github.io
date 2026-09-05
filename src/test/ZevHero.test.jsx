@@ -53,6 +53,7 @@ describe("<ZevHero /> (brief §17)", () => {
     expect(img).toHaveAttribute("loading", "eager");
     expect(img.getAttribute("alt")).toMatch(/solar/i);
     expect(img.getAttribute("alt")).toMatch(/wind turbine/i);
+    expect(img.getAttribute("alt")).not.toMatch(FORBIDDEN);
 
     const sources = [...container.querySelectorAll("picture source")].map((s) => s.getAttribute("type"));
     expect(sources).toEqual(["image/avif", "image/webp"]);

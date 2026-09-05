@@ -52,7 +52,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-20">
+      <main id="main" className="pt-20">
         <section className="section">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="max-w-3xl">

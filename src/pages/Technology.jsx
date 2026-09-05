@@ -226,7 +226,7 @@ const Technology = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main>
+      <main id="main">
         <PageHeader
           eyebrow="The ZEV device"
           title={
