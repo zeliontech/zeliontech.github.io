@@ -146,10 +146,10 @@ const ContactForm = () => {
               aria-required="true"
               aria-invalid={errors.name ? "true" : "false"}
               aria-describedby={errors.name ? "name-error" : undefined}
-              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
+              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                 errors.name
                   ? "border-destructive"
-                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
+                  : "border-border hover:border-foreground/25 focus-visible:border-ring"
               }`}
               placeholder="Your full name"
             />
@@ -183,10 +183,10 @@ const ContactForm = () => {
               aria-required="true"
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
-              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
+              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                 errors.email
                   ? "border-destructive"
-                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
+                  : "border-border hover:border-foreground/25 focus-visible:border-ring"
               }`}
               placeholder="your.email@example.com"
             />
@@ -220,10 +220,10 @@ const ContactForm = () => {
               aria-required="true"
               aria-invalid={errors.phone ? "true" : "false"}
               aria-describedby={errors.phone ? "phone-error" : undefined}
-              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
+              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                 errors.phone
                   ? "border-destructive"
-                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
+                  : "border-border hover:border-foreground/25 focus-visible:border-ring"
               }`}
               placeholder="+1 (555) 123-4567"
             />
@@ -257,10 +257,10 @@ const ContactForm = () => {
               aria-invalid={errors.message ? "true" : "false"}
               aria-describedby={errors.message ? "message-error" : undefined}
               rows={5}
-              className={`w-full resize-none rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
+              className={`w-full resize-none rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                 errors.message
                   ? "border-destructive"
-                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
+                  : "border-border hover:border-foreground/25 focus-visible:border-ring"
               }`}
               placeholder="Tell us about your inquiry..."
             />

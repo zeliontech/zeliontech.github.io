@@ -78,7 +78,7 @@ const Footer = () => {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-[15px] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
                     >
                       {link.label}
                     </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-[15px] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
                     >
                       {link.label}
                     </Link>
@@ -102,7 +102,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="mailto:info@zeliontech.com"
-                    className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-[15px] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
                   >
                     info@zeliontech.com
                   </a>

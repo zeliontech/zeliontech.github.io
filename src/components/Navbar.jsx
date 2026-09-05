@@ -29,14 +29,20 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Escape closes the phone menu, as any disclosure should.
+  // Escape closes the phone menu, as any disclosure should, and the page
+  // behind it stops scrolling while it is open.
   useEffect(() => {
     if (!mobileOpen) return undefined;
     const onKey = (event) => {
       if (event.key === "Escape") setMobileOpen(false);
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousOverflow;
+    };
   }, [mobileOpen]);
 
   const isActive = (href) =>
@@ -110,9 +116,18 @@ const Navbar = () => {
 
       {/* Mobile menu — CSS grid-rows transition keeps framer-motion out of the
           critical navbar chunk. */}
+      {/* Backdrop: dims the page behind the open menu and closes it on tap. */}
+      {mobileOpen && (
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 top-20 z-40 cursor-default bg-foreground/25 backdrop-blur-[2px] lg:hidden"
+        />
+      )}
       <div
         id="mobile-menu"
-        className={`grid overflow-hidden bg-background transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none lg:hidden ${
+        className={`relative z-50 grid overflow-hidden bg-background transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none lg:hidden ${
           mobileOpen ? "grid-rows-[1fr] border-b border-border opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >

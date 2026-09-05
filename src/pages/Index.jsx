@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import usePageMeta from "@/hooks/usePageMeta";
 import ZevHero from "@/components/zev/ZevHero";
+import SectionRail from "@/components/zev/SectionRail";
 import IndexBelowFold from "./IndexBelowFold";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
         <ZevHero />
         <IndexBelowFold />
       </main>
+      <SectionRail />
     </div>
   );
 };
