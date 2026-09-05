@@ -38,6 +38,7 @@ import PageHeader, { SectionPills } from "@/components/zev/PageHeader";
 import Reveal from "@/components/zev/Reveal";
 import MaturityBadge from "@/components/zev/MaturityBadge";
 import ValidationPipeline from "@/components/zev/ValidationPipeline";
+import ZevScenePicture from "@/components/zev/ZevScenePicture";
 
 // Technology page (ZEV brief §16: hardware, Secure Element, AI, blockchain,
 // energy data, validation, APIs, security). Content follows brief §3–§6 and
@@ -246,6 +247,15 @@ const Technology = () => {
           }
           lede="What the Zelion Energy Validator is made of: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a record anyone can verify, and the security and intelligence layers ZEV Pro is designed to add."
           legend
+          media={
+            <ZevScenePicture
+              aspect="aspect-[4/3]"
+              position="object-[38%_50%]"
+              placeholderPosition="38% 50%"
+              sizes="(min-width: 1024px) 520px, 100vw"
+              priority
+            />
+          }
         >
           <SectionPills items={PILLS} />
         </PageHeader>

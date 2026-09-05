@@ -7,18 +7,22 @@ import { MaturityLegend } from "./MaturityBadge";
  *
  * `title` may be a node so a single word can be wrapped in .metal-gradient.
  * `children` render under the lede (typically anchor pills); `legend` appends
- * the capability-label key.
+ * the capability-label key. `media` (optional) places a picture beside the
+ * copy on large screens and under it on small ones.
  */
-const PageHeader = ({ eyebrow, title, lede, children, legend = false }) => {
+const PageHeader = ({ eyebrow, title, lede, children, legend = false, media = null }) => {
   return (
     <section className="bg-background pt-14 sm:pt-20">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="eyebrow">{eyebrow}</p>
-          <h1 className="display mt-5">{title}</h1>
-          <p className="lede mt-6 max-w-2xl">{lede}</p>
+        <div className={media ? "grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-10" : undefined}>
+          <div className={media ? "max-w-3xl lg:col-span-7" : "max-w-3xl"}>
+            <p className="eyebrow">{eyebrow}</p>
+            <h1 className="display mt-5">{title}</h1>
+            <p className="lede mt-6 max-w-2xl">{lede}</p>
+            {children && <div className="mt-8">{children}</div>}
+          </div>
+          {media && <div className="lg:col-span-5">{media}</div>}
         </div>
-        {children && <div className="mt-8">{children}</div>}
         {legend && (
           <div className="mt-10">
             <MaturityLegend />

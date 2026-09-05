@@ -268,17 +268,13 @@
   }
 
   /* Headlines use Inter at heavy weights with tight tracking, matching the
-     approved design reference. Space Grotesk is retained only for the small
-     uppercase mono-ish labels. */
+     approved design reference. Space Grotesk is no longer part of the design
+     system; the font-heading utility remains only for legacy files. */
   h1, h2, h3 {
     @apply font-body font-bold tracking-[-0.02em];
   }
   h4, h5, h6 {
     @apply font-body font-semibold tracking-[-0.01em];
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
   }
 }
 

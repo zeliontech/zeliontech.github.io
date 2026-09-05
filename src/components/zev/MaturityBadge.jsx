@@ -47,7 +47,7 @@ const MaturityBadge = ({ level, className }) => {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-[11px] font-medium uppercase tracking-wider whitespace-nowrap",
+        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-body text-[10.5px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap",
         className
       )}
       style={{
@@ -73,7 +73,7 @@ const MaturityBadge = ({ level, className }) => {
 export const MaturityLegend = ({ className }) => {
   return (
     <div className={cn("glass-card px-5 py-4 sm:px-6", className)}>
-      <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+      <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
         How to read capability labels
       </p>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

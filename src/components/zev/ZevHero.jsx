@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MaturityBadge from "./MaturityBadge";
-import { HERO_IMAGE } from "./hero-image";
+import ZevScenePicture from "./ZevScenePicture";
 import { useFinePointer, useReducedMotion } from "./hooks";
 
 // Homepage hero, built to the approved design reference: white ground, a
@@ -12,12 +12,9 @@ import { useFinePointer, useReducedMotion } from "./hooks";
 // the scene dissolving into the page.
 //
 // The scene is the owner-supplied render, delivered as AVIF / WebP / JPEG at
-// three widths from public/zev (built by scratchpad/build-hero-image.js). It
-// replaced the three.js device and the vector backdrop that stood in until
-// imagery existed; the 3D model still drives the close-up in the pillar cards.
-
-const ALT =
-  "The ZEV device, a graphite tower with a silver edge and a cyan status light, standing on a concrete pad in front of a solar array, with wind turbines on the wooded hills behind";
+// three widths from public/zev (built by scripts/images/build-hero-image.mjs)
+// through ZevScenePicture. It replaced the three.js device and the vector
+// backdrop that stood in until imagery existed.
 
 const ZevHero = ({ children }) => {
   const reduced = useReducedMotion();
@@ -97,37 +94,7 @@ const ZevHero = ({ children }) => {
             {/* The chip sits beside the masked frame, not inside it, so the
                 mask never fades its text. */}
             <div className="relative mx-auto w-full max-w-[720px]">
-            <div className="hero-photo-mask relative aspect-[4/3] w-full overflow-hidden lg:aspect-[3/2]">
-              {/* Blurred placeholder, inset so it never reaches the frame edge
-                  (at the edge the fades are only just white, and a hard
-                  placeholder edge would print through as a hairline). */}
-              <div
-                aria-hidden="true"
-                className="absolute inset-[8%] scale-110 blur-2xl"
-                style={{
-                  backgroundImage: `url("${HERO_IMAGE.placeholder}")`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "20% 50%",
-                }}
-              />
-              <picture>
-                <source type="image/avif" srcSet={HERO_IMAGE.avif} sizes={HERO_IMAGE.sizes} />
-                <source type="image/webp" srcSet={HERO_IMAGE.webp} sizes={HERO_IMAGE.sizes} />
-                <img
-                  src={HERO_IMAGE.fallback}
-                  srcSet={HERO_IMAGE.jpg}
-                  sizes={HERO_IMAGE.sizes}
-                  width={HERO_IMAGE.width}
-                  height={HERO_IMAGE.height}
-                  alt={ALT}
-                  className="hero-parallax-photo absolute inset-0 h-full w-full object-cover object-[22%_50%] lg:object-[12%_50%]"
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="async"
-                  draggable={false}
-                />
-              </picture>
-            </div>
+            <ZevScenePicture priority parallax />
             <p className="eyebrow hero-parallax-chip absolute right-2 top-5 hidden max-w-[7.5rem] leading-relaxed sm:block">
               Clean energy, brighter tomorrows
             </p>

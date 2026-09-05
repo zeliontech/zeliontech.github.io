@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { trackContactSubmit } from "@/services/analyticsService";
 
 const ContactForm = () => {
@@ -145,10 +146,10 @@ const ContactForm = () => {
               aria-required="true"
               aria-invalid={errors.name ? "true" : "false"}
               aria-describedby={errors.name ? "name-error" : undefined}
-              className={`w-full rounded-lg border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-silver-light/50 ${
+              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
                 errors.name
                   ? "border-destructive"
-                  : "border-border hover:border-silver-light/50"
+                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
               }`}
               placeholder="Your full name"
             />
@@ -182,10 +183,10 @@ const ContactForm = () => {
               aria-required="true"
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
-              className={`w-full rounded-lg border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-silver-light/50 ${
+              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
                 errors.email
                   ? "border-destructive"
-                  : "border-border hover:border-silver-light/50"
+                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
               }`}
               placeholder="your.email@example.com"
             />
@@ -219,10 +220,10 @@ const ContactForm = () => {
               aria-required="true"
               aria-invalid={errors.phone ? "true" : "false"}
               aria-describedby={errors.phone ? "phone-error" : undefined}
-              className={`w-full rounded-lg border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-silver-light/50 ${
+              className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
                 errors.phone
                   ? "border-destructive"
-                  : "border-border hover:border-silver-light/50"
+                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
               }`}
               placeholder="+1 (555) 123-4567"
             />
@@ -256,10 +257,10 @@ const ContactForm = () => {
               aria-invalid={errors.message ? "true" : "false"}
               aria-describedby={errors.message ? "message-error" : undefined}
               rows={5}
-              className={`w-full resize-none rounded-lg border bg-background px-4 py-3 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-silver-light/50 ${
+              className={`w-full resize-none rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/25 ${
                 errors.message
                   ? "border-destructive"
-                  : "border-border hover:border-silver-light/50"
+                  : "border-border hover:border-foreground/25 focus:border-foreground/30"
               }`}
               placeholder="Tell us about your inquiry..."
             />
@@ -279,7 +280,7 @@ const ContactForm = () => {
           {errors.submit && (
             <div
               role="alert"
-              className="flex items-center gap-2 rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive"
+              className="flex items-center gap-2 rounded-xl border border-destructive/40 bg-destructive/10 p-4 text-sm font-medium text-destructive"
             >
               <AlertCircle className="h-4 w-4" />
               {errors.submit}
@@ -292,7 +293,7 @@ const ContactForm = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               role="alert"
-              className="flex items-center gap-2 rounded-lg border border-green-500/50 bg-green-500/10 p-4 text-sm text-green-600 dark:text-green-400"
+              className="flex items-center gap-2 rounded-xl border border-eco/30 bg-eco/10 p-4 text-sm font-medium text-eco"
             >
               <CheckCircle2 className="h-4 w-4" />
               Thank you. The ZelionTech team will contact you shortly.
@@ -300,13 +301,9 @@ const ContactForm = () => {
           )}
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full rounded-lg bg-silver-light px-6 py-3 font-medium text-background transition-colors hover:bg-silver-mid focus:outline-none focus:ring-2 focus:ring-silver-light/50 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {isSubmitting ? "Sending..." : "Send Message"}
-          </button>
+          <Button type="submit" size="lg" disabled={isSubmitting} className="w-full">
+            {isSubmitting ? "Sending…" : "Send message"}
+          </Button>
         </form>
       </motion.div>
 
@@ -330,7 +327,7 @@ const ContactForm = () => {
           <p className="text-sm leading-relaxed text-muted-foreground">
             Fill out the form and our team will respond within 24-48 hours.
           </p>
-          <div className="mt-6 rounded-lg border border-border/50 bg-muted/30 p-4">
+          <div className="mt-6 rounded-xl bg-muted/60 p-4">
             <p className="text-xs text-muted-foreground">
               <span className="font-medium text-foreground">Note:</span> For
               general inquiries, you can also reach us via our social channels
