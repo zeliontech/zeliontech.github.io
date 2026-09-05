@@ -31,7 +31,7 @@ const Legal = () => {
                     The information provided on this website and related materials is for informational
                     purposes only. Nothing contained herein constitutes financial advice, investment
                     advice, trading advice, or any other sort of professional advice. $ZLN is a
-                    utility token designed to function within the Zelion protocol infrastructure.
+                    utility token designed to function within the ZelionTech ecosystem infrastructure.
                     It is not a security, commodity, or financial instrument.
                   </p>
                 </section>
@@ -89,7 +89,7 @@ const Legal = () => {
                     Limitation of Liability
                   </h2>
                   <p>
-                    To the maximum extent permitted by applicable law, Zelion and its contributors
+                    To the maximum extent permitted by applicable law, ZelionTech and its contributors
                     shall not be liable for any indirect, incidental, special, consequential, or
                     punitive damages, or any loss of profits or revenues, whether incurred directly
                     or indirectly, arising from your use of the protocol or tokens.

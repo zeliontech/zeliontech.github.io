@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // The legacy variant names (hero, metal, wallet) are kept so existing pages
 // keep working; they now resolve to the same two treatments.
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold font-body tracking-[-0.01em] ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold font-body tracking-[-0.01em] ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&>svg]:transition-transform [&>svg]:duration-200 motion-reduce:[&>svg]:transition-none",
   {
     variants: {
       variant: {
@@ -34,10 +34,10 @@ const buttonVariants = cva(
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
       },
       size: {
-        default: "h-11 px-6",
-        sm: "h-9 px-4 text-[13px]",
-        lg: "h-13 px-7 text-[15px]",
-        xl: "h-14 px-9 text-base",
+        default: "h-11 px-6 btn-nudge",
+        sm: "h-9 px-4 text-[13px] btn-nudge",
+        lg: "h-13 px-7 text-[15px] btn-nudge",
+        xl: "h-14 px-9 text-base btn-nudge",
         icon: "h-10 w-10 p-0",
       },
     },

@@ -49,7 +49,7 @@ export function useIsSmallScreen() {
 }
 
 /** True only for mouse-like pointers (used to keep hover effects off touch). */
-function useFinePointer() {
+export function useFinePointer() {
   return useMediaQuery("(hover: hover) and (pointer: fine)");
 }
 
@@ -106,6 +106,38 @@ export function useCardGlow() {
     : {};
 
   return { ref, onMouseMove, style };
+}
+
+/**
+ * usePointerTilt — a few degrees of tilt toward the pointer for a card that
+ * carries the .tilt-card class (index.css reads --rx/--ry). Returns pointer
+ * handlers to spread on the element, or nothing on touch / reduced motion.
+ */
+export function usePointerTilt(max = 4) {
+  const reduced = useReducedMotion();
+  const finePointer = useFinePointer();
+  const active = finePointer && !reduced;
+
+  const onPointerMove = useCallback(
+    (event) => {
+      const el = event.currentTarget;
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+      const nx = (event.clientX - rect.left) / rect.width - 0.5;
+      const ny = (event.clientY - rect.top) / rect.height - 0.5;
+      el.style.setProperty("--ry", (nx * max * 2).toFixed(2) + "deg");
+      el.style.setProperty("--rx", (-ny * max * 2).toFixed(2) + "deg");
+    },
+    [max]
+  );
+
+  const onPointerLeave = useCallback((event) => {
+    const el = event.currentTarget;
+    el.style.setProperty("--rx", "0deg");
+    el.style.setProperty("--ry", "0deg");
+  }, []);
+
+  return active ? { onPointerMove, onPointerLeave } : {};
 }
 
 /**
@@ -185,5 +217,5 @@ export class LazyBoundary extends Component {
   }
 }
 
-const hooks = { useReducedMotion, useIsDesktop, useIsSmallScreen, useCardGlow, Magnetic, LazyBoundary };
+const hooks = { useReducedMotion, useIsDesktop, useIsSmallScreen, useFinePointer, usePointerTilt, useCardGlow, Magnetic, LazyBoundary };
 export default hooks;

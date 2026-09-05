@@ -54,15 +54,15 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`relative py-1 text-[15px] font-medium transition-colors ${
+                className={`group relative py-1 text-[15px] font-medium transition-colors ${
                   active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
                 <span
                   aria-hidden="true"
-                  className={`absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full bg-primary transition-opacity ${
-                    active ? "opacity-100" : "opacity-0"
+                  className={`absolute -bottom-0.5 left-0 right-0 h-0.5 origin-left rounded-full transition-transform duration-300 ease-out motion-reduce:transition-none ${
+                    active ? "scale-x-100 bg-primary" : "scale-x-0 bg-foreground/30 group-hover:scale-x-100"
                   }`}
                 />
               </Link>

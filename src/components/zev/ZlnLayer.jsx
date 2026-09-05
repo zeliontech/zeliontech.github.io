@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Users, Server, Handshake, Vote } from "lucide-react";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
+import CountUp from "./CountUp";
+import { useReducedMotion } from "./hooks";
 
 // ZLN — the digital utility layer (brief §11, §12, §13). One section in
 // place of the pre-ZEV Token Utility, Tokenomics Snapshot and Economic Model
@@ -40,7 +43,24 @@ export const UTILITIES = [
 
 const CONTRACT_URL = "https://bscscan.com/address/0x9D9c5C7B7BfC398Ed446b7e53a8Ad8d62DCD0181";
 
+
+// In-view stagger for a container: attached only when motion is allowed, so
+// reduced-motion users (and test environments without IntersectionObserver)
+// get the finished layout with no observer at all.
+const staggerInView = (children, viewport) => ({
+  initial: "hidden",
+  whileInView: "show",
+  viewport,
+  variants: { show: { transition: { staggerChildren: children } } },
+});
+
+const grow = {
+  hidden: { scaleX: 0 },
+  show: { scaleX: 1, transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] } },
+};
+
 const ZlnLayer = () => {
+  const reduced = useReducedMotion();
   return (
     <section id="zln" className="section-bg-subtle relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
@@ -101,11 +121,16 @@ const ZlnLayer = () => {
             {/* Single-hue supply bar with a 2px gap between segments, so the
                 four allocations that share 10% stay individually readable.
                 Identity comes from the labelled list below, never colour. */}
-            <div className="mt-5 flex h-3 w-full gap-[2px] overflow-hidden rounded-full" role="presentation">
+            <motion.div
+              className="mt-5 flex h-3 w-full gap-[2px] overflow-hidden rounded-full"
+              role="presentation"
+              {...(reduced ? {} : staggerInView(0.05, { once: true, amount: 0.6 }))}
+            >
               {ALLOCATIONS.map((a, i) => (
-                <div
+                <motion.div
                   key={a.label}
-                  className="h-full rounded-full"
+                  variants={grow}
+                  className="h-full origin-left rounded-full"
                   style={{
                     width: `${a.pct}%`,
                     backgroundColor: "hsl(var(--primary))",
@@ -113,7 +138,7 @@ const ZlnLayer = () => {
                   }}
                 />
               ))}
-            </div>
+            </motion.div>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {ALLOCATIONS.map((a, i) => (
                 <li key={a.label} className="flex items-center gap-3 rounded-lg border border-border/50 bg-muted/30 px-3.5 py-2.5">
@@ -123,7 +148,9 @@ const ZlnLayer = () => {
                     aria-hidden="true"
                   />
                   <span className="flex-1 text-sm text-foreground">{a.label}</span>
-                  <span className="text-sm font-semibold tabular-nums text-foreground">{a.pct}%</span>
+                  <span className="text-sm font-semibold tabular-nums text-foreground">
+                    <CountUp value={a.pct} suffix="%" />
+                  </span>
                 </li>
               ))}
             </ul>

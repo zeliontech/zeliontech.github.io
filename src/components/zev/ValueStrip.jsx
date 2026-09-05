@@ -39,9 +39,9 @@ const ValueStrip = () => {
         <ul className="grid divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
           {VALUES.map(({ Icon, tone, title, body }, i) => (
             <Reveal key={title} delay={i * 0.05}>
-              <li className="flex items-center gap-4 px-2 py-7 sm:justify-center lg:px-6">
+              <li className="group flex items-center gap-4 px-2 py-7 sm:justify-center lg:px-6">
                 <Icon
-                  className={`h-8 w-8 shrink-0 ${tone === "eco" ? "text-eco" : "text-primary"}`}
+                  className={`h-8 w-8 shrink-0 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110 motion-reduce:transition-none ${tone === "eco" ? "text-eco" : "text-primary"}`}
                   strokeWidth={1.6}
                   aria-hidden="true"
                 />

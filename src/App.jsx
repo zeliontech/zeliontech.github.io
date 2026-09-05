@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import CursorSpotlight from "./components/CursorSpotlight";
 import usePageTracking from "./hooks/usePageTracking";
 import useScrollTracking from "./hooks/useScrollTracking";
 
@@ -29,6 +30,7 @@ const AppContent = () => {
   return (
     <>
       <ScrollToTop />
+      <CursorSpotlight />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />

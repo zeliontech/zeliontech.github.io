@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Leaf } from "lucide-react";
 import Reveal from "./Reveal";
-import { LazyBoundary, useReducedMotion } from "./hooks";
+import { LazyBoundary, usePointerTilt, useReducedMotion } from "./hooks";
 
 // The three pillar cards from the approved design reference: the device, the
 // token, and the environmental layer. One dark card, one light, one green.
@@ -214,65 +214,69 @@ const CARDS = [
   },
 ];
 
+const PillarCard = ({ card }) => {
+  const { Art } = card;
+  const tilt = usePointerTilt(4);
+  return (
+    <article
+      {...tilt}
+      className={`tilt-card group relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-3xl border ${
+        card.dark ? "ink-surface border-transparent" : "border-border bg-card hover:border-foreground/15"
+      }`}
+      style={
+        card.dark
+          ? undefined
+          : { boxShadow: "0 1px 2px hsl(220 15% 8% / 0.04), 0 8px 24px -14px hsl(220 15% 8% / 0.12)" }
+      }
+    >
+      <div className="relative z-10 flex flex-col p-7 lg:p-8">
+        <p className={`eyebrow ${card.dark ? "text-white/55" : ""}`}>{card.eyebrow}</p>
+        <h3 className={`subhead mt-4 ${card.dark ? "text-white" : ""}`}>{card.title}</h3>
+        <p
+          className={`mt-4 max-w-[26ch] text-[14.5px] leading-relaxed ${
+            card.dark ? "text-white/70" : "text-muted-foreground"
+          }`}
+        >
+          {card.body}
+        </p>
+        <Link
+          to={card.to}
+          className={`mt-6 inline-flex items-center gap-2 self-start text-[14.5px] font-semibold transition-colors ${
+            card.dark ? "text-white hover:text-primary" : "text-foreground hover:text-primary"
+          }`}
+        >
+          Learn more
+          <ArrowRight
+            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+            aria-hidden="true"
+          />
+        </Link>
+      </div>
+
+      {/* Art fills the lower half and bleeds to the card edges */}
+      <div className="relative mt-auto h-52 w-full">
+        <Art />
+        {card.badge && (
+          <span className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-eco backdrop-blur-sm">
+            <Leaf className="h-3 w-3" aria-hidden="true" />
+            {card.badge}
+          </span>
+        )}
+      </div>
+    </article>
+  );
+};
+
 const PillarCards = () => {
   return (
     <section className="section bg-background pt-0">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-3">
-          {CARDS.map((card, i) => {
-            const { Art } = card;
-            return (
-              <Reveal key={card.id} delay={i * 0.07} className="h-full">
-                <article
-                  className={`group relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-3xl border transition-all duration-300 hover:-translate-y-1 ${
-                    card.dark
-                      ? "ink-surface border-transparent"
-                      : "border-border bg-card hover:border-foreground/15"
-                  }`}
-                  style={
-                    card.dark
-                      ? undefined
-                      : { boxShadow: "0 1px 2px hsl(220 15% 8% / 0.04), 0 8px 24px -14px hsl(220 15% 8% / 0.12)" }
-                  }
-                >
-                  <div className="relative z-10 flex flex-col p-7 lg:p-8">
-                    <p className={`eyebrow ${card.dark ? "text-white/55" : ""}`}>{card.eyebrow}</p>
-                    <h3 className={`subhead mt-4 ${card.dark ? "text-white" : ""}`}>{card.title}</h3>
-                    <p
-                      className={`mt-4 max-w-[26ch] text-[14.5px] leading-relaxed ${
-                        card.dark ? "text-white/70" : "text-muted-foreground"
-                      }`}
-                    >
-                      {card.body}
-                    </p>
-                    <Link
-                      to={card.to}
-                      className={`mt-6 inline-flex items-center gap-2 self-start text-[14.5px] font-semibold transition-colors ${
-                        card.dark ? "text-white hover:text-primary" : "text-foreground hover:text-primary"
-                      }`}
-                    >
-                      Learn more
-                      <ArrowRight
-                        className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </div>
-
-                  {/* Art fills the lower half and bleeds to the card edges */}
-                  <div className="relative mt-auto h-52 w-full">
-                    <Art />
-                    {card.badge && (
-                      <span className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-eco backdrop-blur-sm">
-                        <Leaf className="h-3 w-3" aria-hidden="true" />
-                        {card.badge}
-                      </span>
-                    )}
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
+          {CARDS.map((card, i) => (
+            <Reveal key={card.id} delay={i * 0.07} className="h-full">
+              <PillarCard card={card} />
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
