@@ -8,3 +8,11 @@ export const CARD_IMAGE = {
   webp: "/zev/zev-device-card.webp",
   jpg: "/zev/zev-device-card.jpg",
 };
+
+export const ARRAY_IMAGE = {
+  width: 900,
+  height: 450,
+  avif: "/zev/zev-array-card.avif",
+  webp: "/zev/zev-array-card.webp",
+  jpg: "/zev/zev-array-card.jpg",
+};

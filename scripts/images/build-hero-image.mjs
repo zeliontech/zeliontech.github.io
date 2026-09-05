@@ -52,10 +52,11 @@ export const HERO_IMAGE = {
   webp: "${srcset("webp")}",
   jpg: "${srcset("jpg")}",
   fallback: "/zev/zev-scene-1200.jpg",
-  // Desktop: the stage is the right 7/12 of a container capped at 1280px, so
-  // 720px is the largest rendered width; below lg the stage is full width.
-  // Keep in step with the <link rel="preload"> in index.html.
-  sizes: "(min-width: 1024px) 720px, 100vw",
+  // Desktop: the stage is capped at 720px and the picture inside it is scaled
+  // by 1.04 for the parallax, so 760px is the largest rendered width; below
+  // lg the stage is full width. Keep in step with the <link rel="preload">
+  // in index.html.
+  sizes: "(min-width: 1024px) 760px, 100vw",
   placeholder: "${placeholder}",
 };
 `;

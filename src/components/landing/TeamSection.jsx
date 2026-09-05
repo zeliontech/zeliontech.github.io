@@ -9,30 +9,46 @@ import Reveal from "@/components/zev/Reveal";
 // Roster note: Ralph Saab is no longer listed. His strategy, innovation and
 // tokenomics mandate moved to Allam Jamil, as recorded in the whitepaper.
 
+// Portraits: public/team/<slug>.{avif,webp,jpg}, 280px squares built by
+// scripts/images/build-team.mjs from the originals in assets-source/team.
 const leadership = [
-  { name: "İhsan Serdar Eldek", role: "Co-Founder & CEO", photo: "/team/Serdar Photo.jpeg" },
-  { name: "Roula Jamil", role: "Co-Founder & President", photo: "/team/Roula photo.jpeg" },
-  { name: "Allam Jamil", role: "Chief Financial, Investment & Data Officer (CFIDO)", photo: "/team/allam photo.jpeg" },
-  { name: "Eng. Dino Vincoletto", role: "Chief Renewable Technology & Energy Validation Officer", photo: "/team/dino-vincoletto.jpeg" },
-  { name: "Eng. Alessio Munerato", role: "Chief Infrastructure & Cybersecurity Officer", photo: "/team/alessio-munerato.png" },
-  { name: "Eng. Federico Davoli", role: "Chief Hardware & Industrial Systems Officer", photo: "/team/federico-davoli.png" },
-  { name: "Luigi Benacchio", role: "Chief Information Officer", photo: "/team/luigi-benacchio.jpeg" },
-  { name: "Eleonora Passarella", role: "Chief Marketing & Communications Officer", photo: "/team/eleonora-passarella.png" },
+  { name: "İhsan Serdar Eldek", role: "Co-Founder & CEO", slug: "ihsan-serdar-eldek" },
+  { name: "Roula Jamil", role: "Co-Founder & President", slug: "roula-jamil" },
+  { name: "Allam Jamil", role: "Chief Financial, Investment & Data Officer (CFIDO)", slug: "allam-jamil" },
+  { name: "Eng. Dino Vincoletto", role: "Chief Renewable Technology & Energy Validation Officer", slug: "dino-vincoletto" },
+  { name: "Eng. Alessio Munerato", role: "Chief Infrastructure & Cybersecurity Officer", slug: "alessio-munerato" },
+  { name: "Eng. Federico Davoli", role: "Chief Hardware & Industrial Systems Officer", slug: "federico-davoli" },
+  { name: "Luigi Benacchio", role: "Chief Information Officer", slug: "luigi-benacchio" },
+  { name: "Eleonora Passarella", role: "Chief Marketing & Communications Officer", slug: "eleonora-passarella" },
 ];
 
 const advisory = [
   { name: "Francesco Di Bernardo", role: "Director of Legal Affairs & Corporate Governance", initials: "FB" },
-  { name: "Antonio Guadagnino", role: "Director of Compliance & Regulatory Affairs", photo: "/team/antonio-guadagnino.png" },
-  { name: "Prof. Michele De Carli", role: "Department of Industrial Engineering – University of Padua", photo: "/team/michele-de-carli.png" },
+  { name: "Antonio Guadagnino", role: "Director of Compliance & Regulatory Affairs", slug: "antonio-guadagnino" },
+  { name: "Prof. Michele De Carli", role: "Department of Industrial Engineering – University of Padua", slug: "michele-de-carli" },
 ];
 
+// One treatment for every portrait: greyscale at rest so mixed lighting and
+// backgrounds read as one set, colour on hover (.portrait in index.css).
 const Avatar = ({ member, size }) => (
   <div
-    className="relative mx-auto mb-5 overflow-hidden rounded-full bg-muted ring-1 ring-border transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+    className="relative mx-auto mb-5 overflow-hidden rounded-full bg-muted ring-1 ring-border"
     style={{ width: size, height: size }}
   >
-    {member.photo ? (
-      <img src={member.photo} alt={member.name} className="h-full w-full object-cover" loading="lazy" />
+    {member.slug ? (
+      <picture>
+        <source type="image/avif" srcSet={`/team/${member.slug}.avif`} />
+        <source type="image/webp" srcSet={`/team/${member.slug}.webp`} />
+        <img
+          src={`/team/${member.slug}.jpg`}
+          alt={member.name}
+          width={280}
+          height={280}
+          loading="lazy"
+          decoding="async"
+          className="portrait h-full w-full object-cover"
+        />
+      </picture>
     ) : (
       <div className="flex h-full w-full items-center justify-center subhead font-bold tracking-[-0.02em] text-primary">
         {member.initials}

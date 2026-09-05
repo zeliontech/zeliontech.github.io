@@ -922,3 +922,27 @@
     }
   }
 }
+
+/* Team portraits: one treatment for every face so mixed lighting and
+   backgrounds read as a single set. Greyscale at rest, colour on hover for
+   mouse pointers; no transition under reduced motion. */
+@layer components {
+  .portrait {
+    filter: grayscale(1) contrast(1.04);
+    transition: filter 500ms ease, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .portrait {
+      filter: none;
+      transform: scale(1.04);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .portrait {
+      transition: none;
+    }
+    .group:hover .portrait {
+      transform: none;
+    }
+  }
+}

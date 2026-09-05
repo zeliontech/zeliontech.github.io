@@ -8,9 +8,10 @@ export const HERO_IMAGE = {
   webp: "/zev/zev-scene-800.webp 800w, /zev/zev-scene-1200.webp 1200w, /zev/zev-scene-1600.webp 1600w",
   jpg: "/zev/zev-scene-800.jpg 800w, /zev/zev-scene-1200.jpg 1200w, /zev/zev-scene-1600.jpg 1600w",
   fallback: "/zev/zev-scene-1200.jpg",
-  // Desktop: the stage is the right 7/12 of a container capped at 1280px, so
-  // 720px is the largest rendered width; below lg the stage is full width.
-  // Keep in step with the <link rel="preload"> in index.html.
-  sizes: "(min-width: 1024px) 720px, 100vw",
+  // Desktop: the stage is capped at 720px and the picture inside it is scaled
+  // by 1.04 for the parallax, so 760px is the largest rendered width; below
+  // lg the stage is full width. Keep in step with the <link rel="preload">
+  // in index.html.
+  sizes: "(min-width: 1024px) 760px, 100vw",
   placeholder: "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JaACdLwAkP0huwRqepf9uMwAA/ln/5PnKYi3n1QoaUbs99czKwdFHOp0TYV3rFu+3QoolJNMx/aNtQIaaYxVR+gRB6IhsRzE1ZfsHchpjFLsgotU1aH3Dwf8KJGBIujs4pBZuuYsnIE5k1P1Ty5TGU2CP0RvOOzPcPwFt8MLmgAAA",
 };
