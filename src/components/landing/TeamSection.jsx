@@ -1,6 +1,8 @@
 import { useId, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import Reveal from "@/components/zev/Reveal";
+import { Button } from "@/components/ui/button";
 
 // Team, on the approved white system. Leadership is shown; the directors and
 // advisory group sit behind a reveal so the page leads with the people who
@@ -69,9 +71,13 @@ const MemberCard = ({ member, size = 96, style }) => (
   </div>
 );
 
-const TeamSection = () => {
+// `compact` (the homepage) shows the four leaders and sends visitors to the
+// About page for the full roster; the About page owns the whole team and the
+// directors and advisory reveal.
+const TeamSection = ({ compact = false }) => {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const shown = compact ? leadership.slice(0, 4) : leadership;
 
   return (
     <section id="team" className="section-compact bg-background">
@@ -90,13 +96,24 @@ const TeamSection = () => {
         </Reveal>
 
         <div className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
-          {leadership.map((member, i) => (
+          {shown.map((member, i) => (
             <Reveal key={member.name} delay={i * 0.05}>
               <MemberCard member={member} />
             </Reveal>
           ))}
         </div>
 
+        {compact ? (
+          <div className="mt-12 flex">
+            <Button asChild variant="outline" size="lg">
+              <Link to="/about#team">
+                Meet the whole team
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        ) : (
+          <>
         {/* Directors and advisory, behind a reveal */}
         <div className="mt-12 flex">
           <button
@@ -148,6 +165,8 @@ const TeamSection = () => {
             </div>
           </div>
         </div>
+          </>
+        )}
       </div>
     </section>
   );

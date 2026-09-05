@@ -264,7 +264,7 @@ const Technology = () => {
         </PageHeader>
 
         {/* ── Energy data (§3A) ─────────────────────────────────────────── */}
-        <section id="energy-data" className="section-bg-subtle scroll-mt-16 py-20 lg:py-28">
+        <section id="energy-data" className="section-bg-subtle scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Energy data"
@@ -323,7 +323,7 @@ const Technology = () => {
         </section>
 
         {/* ── Validation (§3B / §5) ─────────────────────────────────────── */}
-        <section id="validation" className="section-bg-alternate scroll-mt-16 py-20 lg:py-28">
+        <section id="validation" className="section-bg-alternate scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Validation"
@@ -337,7 +337,7 @@ const Technology = () => {
         </section>
 
         {/* ── Hardware (§15) ────────────────────────────────────────────── */}
-        <section id="hardware" className="section-bg-subtle scroll-mt-16 py-20 lg:py-28">
+        <section id="hardware" className="section-bg-subtle scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Hardware"
@@ -392,7 +392,7 @@ const Technology = () => {
         </section>
 
         {/* ── Security / Secure Element (§4) ────────────────────────────── */}
-        <section id="security" className="section-bg-alternate scroll-mt-16 py-20 lg:py-28">
+        <section id="security" className="section-bg-alternate scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Security"
@@ -416,7 +416,7 @@ const Technology = () => {
         </section>
 
         {/* ── AI & edge intelligence (§6) ───────────────────────────────── */}
-        <section id="ai" className="section-bg-subtle scroll-mt-16 py-20 lg:py-28">
+        <section id="ai" className="section-bg-subtle scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="AI & edge intelligence"
@@ -443,7 +443,7 @@ const Technology = () => {
         </section>
 
         {/* ── Blockchain (§5) ───────────────────────────────────────────── */}
-        <section id="blockchain" className="section-bg-alternate scroll-mt-16 py-20 lg:py-28">
+        <section id="blockchain" className="section-bg-alternate scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Blockchain"
@@ -489,7 +489,7 @@ const Technology = () => {
         </section>
 
         {/* ── APIs & integration ───────────────────────────────────────── */}
-        <section id="apis" className="section-bg-subtle scroll-mt-16 py-20 lg:py-28">
+        <section id="apis" className="section-bg-subtle scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="APIs & integration"
@@ -510,7 +510,7 @@ const Technology = () => {
         </section>
 
         {/* ── Closing ──────────────────────────────────────────────────── */}
-        <section className="py-20 lg:py-24">
+        <section className="section">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="glass-card mx-auto flex max-w-4xl flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
               <div>

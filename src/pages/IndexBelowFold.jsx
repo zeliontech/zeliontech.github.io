@@ -33,7 +33,7 @@ const IndexBelowFold = () => {
       <ZevRoadmap />
       <SceneBand />
       <WhatToRemember />
-      <TeamSection />
+      <TeamSection compact />
       <FAQSection />
       <ContactSection />
       <Footer />
