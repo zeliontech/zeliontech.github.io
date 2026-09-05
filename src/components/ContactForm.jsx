@@ -40,9 +40,7 @@ const ContactForm = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!validatePhone(formData.phone)) {
+    if (formData.phone.trim() && !validatePhone(formData.phone)) {
       newErrors.phone = "Please enter a valid phone number";
     }
 
@@ -208,7 +206,7 @@ const ContactForm = () => {
               htmlFor="phone"
               className="mb-2 block text-[15px] font-medium text-foreground"
             >
-              Phone Number <span className="text-destructive">*</span>
+              Phone Number <span className="text-muted-foreground">(optional)</span>
             </label>
             <input
               type="tel"
@@ -216,8 +214,6 @@ const ContactForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              required
-              aria-required="true"
               aria-invalid={errors.phone ? "true" : "false"}
               aria-describedby={errors.phone ? "phone-error" : undefined}
               className={`w-full rounded-xl border bg-card px-4 py-3 text-[15px] text-foreground transition-colors placeholder:text-muted-foreground/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${

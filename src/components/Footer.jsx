@@ -139,8 +139,10 @@ const Footer = () => {
           </p>
         </div>
         <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-muted-foreground">
-          $ZLN is a utility token, not a financial product. This site is published for information
-          only; participation in decentralised infrastructure involves risk. Read the{" "}
+          ZelionTech is not an investment; it is infrastructure technology built for long-term
+          deployment. $ZLN is a utility token, not a financial product, and does not represent
+          equity, ownership or profit-sharing. This site is published for information only;
+          participation in decentralised infrastructure involves risk. Read the{" "}
           <Link to="/legal" className="underline underline-offset-2 hover:text-foreground">
             legal disclaimer
           </Link>
