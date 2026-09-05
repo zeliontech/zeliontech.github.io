@@ -871,3 +871,17 @@
     font-weight: 600;
   }
 }
+
+/* One focus ring for every keyboard-reachable element that does not draw its
+   own (buttons and inputs use Tailwind ring utilities and opt out with
+   focus-visible:outline-none). Pointer clicks never show it. */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+  }
+}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import usePageMeta from "@/hooks/usePageMeta";
 import { ArrowRight, Building2, Cpu, Factory, Handshake, Target, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -49,6 +50,13 @@ const PRINCIPLES = [
 ];
 
 const About = () => {
+  usePageMeta({
+    title: "About ZelionTech | Team and joint venture",
+    description:
+      "The people behind ZelionTech and the joint venture with EXPOFIN E.S.Co. through which the ZEV energy validator is being advanced.",
+    path: "/about",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

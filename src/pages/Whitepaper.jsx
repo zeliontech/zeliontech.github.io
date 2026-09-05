@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import usePageMeta from "@/hooks/usePageMeta";
 import { Download, ArrowRight, FileText, Cpu, Coins, Leaf, ScrollText, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -32,6 +33,13 @@ export const CHAPTERS = [
 ];
 
 const Whitepaper = () => {
+  usePageMeta({
+    title: "Whitepaper | ZelionTech",
+    description:
+      "The ZelionTech whitepaper: ZEV, the ZLN token, the ecosystem architecture and the roadmap, with every capability labelled by its maturity.",
+    path: "/whitepaper",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

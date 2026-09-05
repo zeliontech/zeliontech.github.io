@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import usePageMeta from "@/hooks/usePageMeta";
 import { ArrowRight, ExternalLink, Users, Server, Handshake, Vote, Cpu, Lock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -32,6 +33,13 @@ const UTILITIES = [
 ];
 
 const TokenomicsPage = () => {
+  usePageMeta({
+    title: "ZLN token and tokenomics | ZelionTech",
+    description:
+      "ZLN is the digital utility layer of the ZelionTech ecosystem: technical parameters, the allocation of the fixed 500,000,000 supply and what the token is designed to do.",
+    path: "/tokenomics",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

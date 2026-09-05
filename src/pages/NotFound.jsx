@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import usePageMeta from "@/hooks/usePageMeta";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +9,11 @@ import { Button } from "@/components/ui/button";
 // who mistypes a link keeps the navigation and the footer.
 
 const NotFound = () => {
+  usePageMeta({
+    title: "Page not found | ZelionTech",
+    path: "/",
+  });
+
   const { pathname } = useLocation();
 
   return (

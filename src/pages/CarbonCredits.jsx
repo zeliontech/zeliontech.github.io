@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import usePageMeta from "@/hooks/usePageMeta";
 import {
   Leaf, Gauge, FileCheck2, Link2, ClipboardCheck, BadgeCheck, ArrowRight, ArrowDown, Building2, Factory, Sun,
 } from "lucide-react";
@@ -29,6 +30,13 @@ const USES = [
 ];
 
 const CarbonCredits = () => {
+  usePageMeta({
+    title: "Carbon data and MRV | ZelionTech",
+    description:
+      "How validated energy data from ZEV is designed to support carbon accounting, ESG reporting and digital measurement, reporting and verification processes.",
+    path: "/carbon",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

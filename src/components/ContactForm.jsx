@@ -319,7 +319,7 @@ const ContactForm = () => {
         className="flex flex-col justify-center"
       >
         <div className="glass-card p-8">
-          <h3 className="mb-4 font-heading text-xl font-semibold text-foreground">
+          <h3 className="mb-4 font-body text-[19px] font-bold tracking-[-0.01em] text-foreground">
             Get in Touch
           </h3>
           <p className="mb-4 text-sm leading-relaxed text-muted-foreground">

@@ -1,4 +1,5 @@
 import { Mail, Globe, Send, Linkedin, Handshake, Building2, FileText } from "lucide-react";
+import usePageMeta from "@/hooks/usePageMeta";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -23,6 +24,13 @@ const enquiries = [
 ];
 
 const ContactUs = () => {
+  usePageMeta({
+    title: "Contact ZelionTech",
+    description:
+      "Partnerships, pilot sites, integrations or press: tell ZelionTech what you are working on.",
+    path: "/contact",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

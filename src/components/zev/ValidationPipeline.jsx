@@ -135,7 +135,7 @@ const ValidationPipeline = () => {
                   }`}
                 >
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-semibold transition-colors md:h-10 md:w-10 md:text-sm ${
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border tabular-nums text-xs font-semibold transition-colors md:h-10 md:w-10 md:text-sm ${
                       state === "active"
                         ? "border-primary bg-primary text-primary-foreground"
                         : state === "done"
@@ -165,13 +165,13 @@ const ValidationPipeline = () => {
         aria-labelledby={`pipeline-tab-${step.id}`}
         className="glass-card mt-8 p-6 sm:p-8"
       >
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
           <span>
             Step {active + 1} of {count}
           </span>
           <span className="rounded-full border border-border px-2.5 py-0.5 text-foreground/80">{step.where}</span>
         </div>
-        <h3 className="mt-3 font-heading text-2xl font-bold text-foreground sm:text-3xl">{step.label}</h3>
+        <h3 className="mt-3 subhead">{step.label}</h3>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">{step.body}</p>
         {step.onChain && (
           <p className="mt-3 max-w-3xl rounded-md border border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
@@ -189,7 +189,7 @@ const ValidationPipeline = () => {
         <button
           type="button"
           onClick={() => go(active + 1)}
-          className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-semibold uppercase tracking-wider text-primary hover:underline"
+          className="mt-6 inline-flex items-center gap-2 font-body text-sm font-semibold uppercase tracking-wider text-primary hover:underline"
         >
           {active === count - 1 ? "Start again" : "Next step"}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />

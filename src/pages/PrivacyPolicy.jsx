@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import usePageMeta from "@/hooks/usePageMeta";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/zev/PageHeader";
 
@@ -6,6 +7,13 @@ import PageHeader from "@/components/zev/PageHeader";
 // the policy as one prose article (.legal-prose in index.css sets the type).
 
 const PrivacyPolicy = () => {
+  usePageMeta({
+    title: "Privacy policy | ZelionTech",
+    description:
+      "How ZelionTech collects, uses and protects personal data when you use this website.",
+    path: "/privacy",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import usePageMeta from "@/hooks/usePageMeta";
 import {
   Sun,
   Wind,
@@ -201,10 +202,10 @@ const EMERALD = "#10B981";
 
 const SectionHead = ({ eyebrow, title, lede, align = "center" }) => (
   <div className={`mb-12 ${align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}`}>
-    <span className="mb-4 inline-block text-xs font-medium uppercase tracking-[0.2em] text-silver-light">
+    <p className="eyebrow">
       {eyebrow}
-    </span>
-    <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">{title}</h2>
+    </p>
+    <h2 className="headline mt-4">{title}</h2>
     {lede && <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">{lede}</p>}
   </div>
 );
@@ -223,6 +224,13 @@ const IconTile = ({ Icon, tone = "primary" }) => (
 );
 
 const Technology = () => {
+  usePageMeta({
+    title: "ZEV, the Zelion Energy Validator | ZelionTech",
+    description:
+      "Inside ZEV: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a verifiable record, and the layers ZEV Pro is designed to add.",
+    path: "/zev",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -252,7 +260,7 @@ const Technology = () => {
             />
             <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-5">
               <Reveal className="glass-card p-6 sm:p-8 lg:col-span-3">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                   Connected infrastructure
                 </p>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -269,7 +277,7 @@ const Technology = () => {
                 </p>
               </Reveal>
               <Reveal delay={0.08} className="glass-card p-6 sm:p-8 lg:col-span-2">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                   Information ZEV can process
                 </p>
                 <ul className="mt-5 flex flex-wrap gap-2">
@@ -282,7 +290,7 @@ const Technology = () => {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
                   Integration status
                 </p>
                 <ul className="mt-3 space-y-2.5">
@@ -327,8 +335,8 @@ const Technology = () => {
               <Reveal className="glass-card p-6 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">ZEV Lite</p>
-                    <h3 className="mt-1 font-heading text-2xl font-bold text-foreground">Proof of concept</h3>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">ZEV Lite</p>
+                    <h3 className="mt-1 subhead">Proof of concept</h3>
                   </div>
                   <MaturityBadge level="demonstrated" />
                 </div>
@@ -348,8 +356,8 @@ const Technology = () => {
               <Reveal delay={0.08} className="glass-card p-6 ring-1 ring-primary/20 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">ZEV Pro</p>
-                    <h3 className="mt-1 font-heading text-2xl font-bold text-foreground">Industrial evolution</h3>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">ZEV Pro</p>
+                    <h3 className="mt-1 subhead">Industrial evolution</h3>
                   </div>
                   <MaturityBadge level="in-development" />
                 </div>
@@ -381,11 +389,11 @@ const Technology = () => {
             <ol className="mx-auto grid max-w-6xl gap-4 md:grid-cols-5">
               {TRUST_CHAIN.map(({ Icon, title, body, level }, i) => (
                 <Reveal key={title} delay={i * 0.05} className="glass-card relative flex flex-col p-5">
-                  <span className="absolute right-4 top-4 font-mono text-[11px] text-muted-foreground">
+                  <span className="absolute right-4 top-4 text-[12px] font-semibold tabular-nums text-muted-foreground">
                     0{i + 1}
                   </span>
                   <IconTile Icon={Icon} />
-                  <h3 className="mt-4 font-heading text-base font-semibold text-foreground">{title}</h3>
+                  <h3 className="mt-4 font-body text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
                   <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">{body}</p>
                   <MaturityBadge level={level} className="mt-4 self-start" />
                 </Reveal>
@@ -432,7 +440,7 @@ const Technology = () => {
             <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
               <Reveal className="glass-card p-6 sm:p-8">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Goes on-chain</p>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">Goes on-chain</p>
                   <MaturityBadge level="demonstrated" />
                 </div>
                 <ul className="mt-5 space-y-3">
@@ -445,7 +453,7 @@ const Technology = () => {
                 </ul>
               </Reveal>
               <Reveal delay={0.08} className="glass-card p-6 sm:p-8">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Stays off-chain</p>
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">Stays off-chain</p>
                 <ul className="mt-5 space-y-3">
                   {OFF_CHAIN.map(({ Icon, label }) => (
                     <li key={label} className="flex items-center gap-3 text-sm text-foreground">
@@ -479,7 +487,7 @@ const Technology = () => {
               {INTERFACES.map(({ Icon, title, body, level }, i) => (
                 <Reveal key={title} delay={i * 0.05} className="glass-card flex flex-col p-6">
                   <IconTile Icon={Icon} />
-                  <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">{title}</h3>
+                  <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
                   <MaturityBadge level={level} className="mt-4 self-start" />
                 </Reveal>
@@ -493,7 +501,7 @@ const Technology = () => {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="glass-card mx-auto flex max-w-4xl flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
               <div>
-                <h2 className="font-heading text-2xl font-bold text-foreground">See the whole chain in motion</h2>
+                <h2 className="subhead">See the whole chain in motion</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
                   The homepage animation walks from a renewable source to a verifiable record in six beats.
                 </p>
@@ -501,14 +509,14 @@ const Technology = () => {
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/#how-zev-works"
-                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-heading text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-body text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   Watch how ZEV works
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 font-heading text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:bg-muted"
+                  className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 font-body text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:bg-muted"
                 >
                   Talk to ZelionTech
                 </Link>

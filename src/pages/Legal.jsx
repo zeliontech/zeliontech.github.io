@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import usePageMeta from "@/hooks/usePageMeta";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/zev/PageHeader";
 
@@ -7,6 +8,13 @@ import PageHeader from "@/components/zev/PageHeader";
 // type). The company is always ZelionTech; bare "Zelion" is the token only.
 
 const Legal = () => {
+  usePageMeta({
+    title: "Legal disclaimer | ZelionTech",
+    description:
+      "How to read the ZelionTech website: information only, no advice, no offer, no recommendation.",
+    path: "/legal",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

@@ -15,10 +15,10 @@ import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/Footer";
 
 /**
- * Everything on the homepage below the first viewport. Split into its own
- * chunk and mounted by Index.jsx through Suspense so first paint only has to
- * build the hero. The chunk request starts during the first render, so the
- * content mounts a tick later, not on scroll.
+ * Everything on the homepage below the first viewport, imported statically by
+ * Index.jsx. It is kept in one module so the sections mount together with the
+ * hero: hash links such as /#how-zev-works rely on their targets existing when
+ * ScrollToTop looks for them, which a lazily loaded chunk could not promise.
  *
  * Order follows the approved design reference for the opening sequence —
  * process strip, three pillar cards, value strip — and then continues into
