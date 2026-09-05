@@ -13,6 +13,11 @@ import { HERO_IMAGE } from "./hero-image";
 export const SCENE_ALT =
   "The ZEV device, a graphite tower with a silver edge and a cyan status light, standing on a concrete pad in front of a solar array, with wind turbines on the wooded hills behind";
 
+const MASKS = {
+  frame: "hero-photo-mask", // all four edges dissolve: a picture on the page
+  band: "scene-band-mask", // top and bottom only: a full-width strip
+};
+
 const ZevScenePicture = ({
   className = "",
   aspect = "aspect-[4/3] lg:aspect-[3/2]",
@@ -21,9 +26,10 @@ const ZevScenePicture = ({
   sizes = HERO_IMAGE.sizes,
   priority = false,
   parallax = false,
+  mask = "frame",
   alt = SCENE_ALT,
 }) => (
-  <div className={`hero-photo-mask relative w-full overflow-hidden ${aspect} ${className}`}>
+  <div className={`${MASKS[mask] || MASKS.frame} relative w-full overflow-hidden ${aspect} ${className}`}>
     <div
       aria-hidden="true"
       className="absolute inset-[8%] scale-110 blur-2xl"

@@ -43,7 +43,7 @@ const WhatToRemember = () => {
   const litBeats = active === null ? null : new Set(SPINE[active].beats);
 
   return (
-    <section id="remember" className="section section-bg-alternate relative scroll-mt-24">
+    <section id="remember" className="section-lead section-bg-alternate relative scroll-mt-24">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header: the takeaway sentence is the heading, as the brief asks. */}
         <Reveal className="grid gap-8 lg:grid-cols-12 lg:gap-12">

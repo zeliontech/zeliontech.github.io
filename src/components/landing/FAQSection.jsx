@@ -31,19 +31,19 @@ export const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="relative scroll-mt-16 section section-bg-subtle">
+    <section id="faq" className="relative scroll-mt-16 section-compact bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <p className="eyebrow">
             FAQ
           </p>
-          <h2 className="headline mt-4">
+          <h2 className="headline-standard mt-4">
             Frequently Asked{" "}
             <span className="metal-gradient">Questions</span>
           </h2>

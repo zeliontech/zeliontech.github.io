@@ -42,22 +42,22 @@ export const PRINCIPLES = [
 
 const WhyValidate = () => {
   return (
-    <section id="why-validate" className="section-bg-subtle relative scroll-mt-16 section">
+    <section id="why-validate" className="relative scroll-mt-16 section-lead bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="eyebrow">
-            Why ZEV
-          </p>
-          <h2 className="headline mt-4">
-            <span className="metal-gradient">Why validate energy data at the source</span>
-          </h2>
-          <p className="lede mt-5">
-            Renewable energy is physical — solar, wind, hydro, batteries, grids. The information about it
-            is not. Between the two sits a gap that most of today&apos;s energy data falls through.
-          </p>
+        <Reveal className="mb-14">
+          <p className="eyebrow">Why ZEV</p>
+          <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:gap-16">
+            <h2 className="headline">
+              Why validate energy data <span className="metal-gradient">at the source</span>
+            </h2>
+            <p className="lede max-w-xl lg:pt-3">
+              Renewable energy is physical — solar, wind, hydro, batteries, grids. The information about it
+              is not. Between the two sits a gap that most of today&apos;s energy data falls through.
+            </p>
+          </div>
         </Reveal>
 
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {CHALLENGES.map(({ Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 0.08} className="glass-card-hover p-6 lg:p-8">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent">
@@ -69,7 +69,7 @@ const WhyValidate = () => {
           ))}
         </div>
 
-        <Reveal delay={0.1} className="mx-auto mt-8 max-w-5xl">
+        <Reveal delay={0.1} className="mt-8">
           <div className="glass-card grid gap-8 p-6 ring-1 ring-primary/20 lg:grid-cols-5 lg:p-10">
             <div className="lg:col-span-3">
               <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
@@ -110,7 +110,7 @@ const WhyValidate = () => {
         </Reveal>
 
         {/* Proof points: the four things the argument above rests on. */}
-        <Reveal delay={0.12} className="mx-auto mt-10 max-w-5xl">
+        <Reveal delay={0.12} className="mt-10">
           <ul className="grid divide-y divide-border border-y border-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
             {PROOF_POINTS.map(({ Icon, tone, title, body }) => (
               <li key={title} className="group flex items-start gap-4 px-2 py-6 lg:px-6">

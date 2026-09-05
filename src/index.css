@@ -595,6 +595,15 @@
   }
 
   /* Card headline. */
+  /* Section headline for standard and compact sections: a step below
+     .headline so lead sections are visibly the loudest. */
+  .headline-standard {
+    @apply font-body font-bold text-foreground;
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
   .subhead {
     @apply font-body font-bold text-foreground;
     font-size: clamp(1.25rem, 1.8vw, 1.6rem);
@@ -610,8 +619,17 @@
   }
 
   /* Vertical rhythm for a full-width section. */
+  /* Three section weights, so the page has a rhythm instead of one beat:
+     lead sections carry the argument, standard sections carry detail,
+     compact sections close. */
   .section {
     @apply py-20 lg:py-28;
+  }
+  .section-lead {
+    @apply py-24 lg:py-36;
+  }
+  .section-compact {
+    @apply py-14 lg:py-20;
   }
 
   /* The single dark surface treatment (feature card, device stage). */
@@ -879,5 +897,32 @@
     outline: 2px solid hsl(var(--ring));
     outline-offset: 3px;
     border-radius: 0.25rem;
+  }
+}
+
+/* Full-width scene band: the photograph as a breath between two sections,
+   masked top and bottom only. Where scroll-driven animations exist the image
+   drifts a few percent as the band passes through the viewport; elsewhere
+   and under reduced motion it simply sits enlarged inside the mask. */
+@layer components {
+  .scene-band-mask {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  }
+  @supports (animation-timeline: view()) {
+    .scene-band img {
+      animation: scene-band-drift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    @keyframes scene-band-drift {
+      from { transform: translateY(-7%) scale(1.14); }
+      to { transform: translateY(7%) scale(1.14); }
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scene-band img {
+      animation: none;
+    }
   }
 }

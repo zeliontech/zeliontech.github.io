@@ -56,11 +56,11 @@ const TeamSection = () => {
   const panelId = useId();
 
   return (
-    <section id="team" className="section bg-background">
+    <section id="team" className="section-compact bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Team</p>
-          <h2 className="headline mt-4">
+          <h2 className="headline-standard mt-4">
             The people behind <span className="metal-gradient">ZelionTech.</span>
           </h2>
           <p className="lede mx-auto mt-5 max-w-2xl">

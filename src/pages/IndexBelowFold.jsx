@@ -3,6 +3,7 @@ import PillarCards from "@/components/zev/PillarCards";
 import WhyValidate from "@/components/zev/WhyValidate";
 import ZevStack from "@/components/zev/ZevStack";
 import ZevRoadmap from "@/components/zev/ZevRoadmap";
+import SceneBand from "@/components/zev/SceneBand";
 import WhatToRemember from "@/components/zev/WhatToRemember";
 import TeamSection from "@/components/landing/TeamSection";
 import FAQSection from "@/components/landing/FAQSection";
@@ -30,6 +31,7 @@ const IndexBelowFold = () => {
       <WhyValidate />
       <ZevStack />
       <ZevRoadmap />
+      <SceneBand />
       <WhatToRemember />
       <TeamSection />
       <FAQSection />

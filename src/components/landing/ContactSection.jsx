@@ -7,19 +7,19 @@ const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section-compact border-t border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-12 text-center"
         >
           <p className="eyebrow">
             Get in Touch
           </p>
-          <h2 className="headline mt-4">
+          <h2 className="headline-standard mt-4">
             Contact <span className="metal-gradient">ZelionTech</span>
           </h2>
           <div className="mx-auto max-w-2xl space-y-4">

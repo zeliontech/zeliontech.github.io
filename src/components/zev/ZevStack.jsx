@@ -209,8 +209,8 @@ const ZevStack = () => {
           <p className="eyebrow">
             ZEV + ZLN
           </p>
-          <h2 className="headline mt-4">
-            <span className="metal-gradient">One Stack, Two Layers</span>
+          <h2 className="headline-standard mt-4">
+            One Stack, <span className="metal-gradient">Two Layers</span>
           </h2>
           <p className="lede mx-auto max-w-2xl">
             ZEV is the physical and technological infrastructure. ZLN is the digital utility layer

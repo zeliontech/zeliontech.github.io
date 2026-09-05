@@ -126,7 +126,7 @@ const Step = ({ step, last }) => {
 const ZevProcess = () => {
   const reduced = useReducedMotion();
   return (
-    <section id="how-zev-works" className="section scroll-mt-24 bg-background">
+    <section id="how-zev-works" className="section-lead scroll-mt-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal>
           <p className="eyebrow">How ZEV works</p>

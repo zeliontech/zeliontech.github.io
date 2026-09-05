@@ -138,7 +138,7 @@ const ZevRoadmap = () => {
           <p className="eyebrow">
             Roadmap
           </p>
-          <h2 className="headline mt-4">
+          <h2 className="headline-standard mt-4">
             An evolving <span className="metal-gradient">platform</span>
           </h2>
           <p className="lede mt-5">
