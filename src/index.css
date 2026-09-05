@@ -488,24 +488,20 @@
   }
 }
 
-/* NEW tokens (additive — no existing token is altered): maturity-badge
-   colors, defined for the light base and re-tuned inside dark zones so
-   MaturityBadge stays WCAG-AA in both. */
+/* Maturity-badge colours, derived from the two brand hues so the badges never
+   introduce a third green or a second blue. */
 @layer base {
   :root {
-    --maturity-demonstrated: 160 84% 27%;
-    --maturity-progress: 194 90% 30%;
+    /* Demonstrated is the eco hue, darkened for AA text on white; progress
+       is the primary hue, darkened the same way. One green, one blue. */
+    --maturity-demonstrated: 145 63% 32%;
+    --maturity-progress: 212 92% 40%;
     --maturity-planned: 215 16% 42%;
 
     /* The light page background, kept OUT of the .dark-zone override on
        purpose: DarkSection edge fades read it from inside a dark zone to
        blend graphite into the real page colour. */
     --page-bg: 0 0% 100%;
-  }
-  .dark-zone {
-    --maturity-demonstrated: 158 64% 52%;
-    --maturity-progress: 194 92% 60%;
-    --maturity-planned: 214 16% 74%;
   }
 }
 

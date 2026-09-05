@@ -203,7 +203,6 @@ const INTERFACES = [
   },
 ];
 
-const EMERALD = "#10B981";
 
 const SectionHead = ({ eyebrow, title, lede, align = "center" }) => (
   <div className={`mb-12 ${align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}`}>
@@ -219,9 +218,9 @@ const IconTile = ({ Icon, tone = "primary" }) => (
   <span
     className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border"
     style={{
-      borderColor: tone === "emerald" ? `${EMERALD}40` : "hsl(var(--primary) / 0.3)",
-      backgroundColor: tone === "emerald" ? `${EMERALD}12` : "hsl(var(--primary) / 0.08)",
-      color: tone === "emerald" ? EMERALD : "hsl(var(--primary))",
+      borderColor: tone === "emerald" ? "hsl(var(--eco) / 0.3)" : "hsl(var(--primary) / 0.3)",
+      backgroundColor: tone === "emerald" ? "hsl(var(--eco) / 0.07)" : "hsl(var(--primary) / 0.08)",
+      color: tone === "emerald" ? "hsl(var(--eco))" : "hsl(var(--primary))",
     }}
   >
     <Icon className="h-5 w-5" aria-hidden="true" />
@@ -361,7 +360,7 @@ const Technology = () => {
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                   {ZEV_LITE.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
-                      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: EMERALD }} />
+                      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-eco" />
                       {item}
                     </li>
                   ))}

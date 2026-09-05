@@ -64,9 +64,12 @@ const TIERS = [
   },
 ];
 
-const EMERALD = "#10B981";
-
-const accentColor = (accent) => (accent === "emerald" ? EMERALD : "hsl(var(--primary))");
+// Two accents only, both design tokens: eco green for the physical layer,
+// azure for everything digital.
+const ECO = "hsl(var(--eco))";
+const accentColor = (accent) => (accent === "emerald" ? ECO : "hsl(var(--primary))");
+const accentBorder = (accent) => (accent === "emerald" ? "hsl(var(--eco) / 0.3)" : "hsl(var(--primary) / 0.3)");
+const accentFill = (accent) => (accent === "emerald" ? "hsl(var(--eco) / 0.07)" : "hsl(var(--primary) / 0.08)");
 
 // Vertical connector with drifting dashes — the energy/data flowing down the
 // stack. Static under prefers-reduced-motion (the .zev-energy-path rule
@@ -103,9 +106,9 @@ const Chip = ({ item, accent }) => {
     return (
       <span
         className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[13px] font-medium text-foreground"
-        style={{ borderColor: `${EMERALD}4D`, backgroundColor: `${EMERALD}0F` }}
+        style={{ borderColor: accentBorder(accent), backgroundColor: accentFill(accent) }}
       >
-        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: EMERALD }} />
+        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accentColor(accent) }} />
         {item}
       </span>
     );
@@ -158,10 +161,7 @@ const Tier = ({ tier, index }) => {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:gap-6">
           <span
             className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border"
-            style={{
-              borderColor: `${tier.accent === "emerald" ? EMERALD + "40" : "hsl(var(--primary) / 0.3)"}`,
-              backgroundColor: `${tier.accent === "emerald" ? EMERALD + "12" : "hsl(var(--primary) / 0.08)"}`,
-            }}
+            style={{ borderColor: accentBorder(tier.accent), backgroundColor: accentFill(tier.accent) }}
           >
             <Icon className="h-5 w-5" style={{ color: accentColor(tier.accent) }} aria-hidden="true" />
           </span>

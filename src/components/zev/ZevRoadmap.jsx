@@ -70,8 +70,6 @@ export const PHASES = [
   },
 ];
 
-const EMERALD = "#10B981";
-
 const PhaseCard = ({ phase, index }) => {
   const current = phase.level === "in-development";
   return (
@@ -81,7 +79,7 @@ const PhaseCard = ({ phase, index }) => {
         aria-hidden="true"
         className={`absolute -top-[2.2rem] left-6 hidden h-4 w-4 rounded-full border-2 lg:block ${
           phase.level === "demonstrated"
-            ? "border-[#10B981] bg-[#10B981]"
+            ? "border-eco bg-eco"
             : current
               ? "border-primary bg-primary shadow-[0_0_14px_hsl(var(--primary)/0.6)]"
               : "border-border bg-background"
@@ -148,7 +146,7 @@ const ZevRoadmap = () => {
             <div className="h-full w-full bg-border" />
             <div
               className="absolute inset-y-0 left-0 w-[37%]"
-              style={{ background: `linear-gradient(90deg, ${EMERALD}, hsl(var(--primary)))` }}
+              style={{ background: "linear-gradient(90deg, hsl(var(--eco)), hsl(var(--primary)))" }}
             />
           </div>
           <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-5">
