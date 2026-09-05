@@ -1,68 +1,90 @@
-<svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ZEV device">
+<svg viewBox="0 0 300 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The ZEV device: a brushed aluminium tower with a black glass front panel and a vertical blue status light">
   <defs>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="2.2" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2B2F37"/>
-      <stop offset="1" stop-color="#1E2127"/>
+    <linearGradient id="alu" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F6F8FA"/>
+      <stop offset="0.35" stop-color="#E4E9EE"/>
+      <stop offset="0.7" stop-color="#D3DAE1"/>
+      <stop offset="1" stop-color="#BCC5CE"/>
     </linearGradient>
+    <linearGradient id="aluSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#AEB8C2"/>
+      <stop offset="1" stop-color="#8E99A5"/>
+    </linearGradient>
+    <linearGradient id="aluTop" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D5DCE3"/>
+    </linearGradient>
+    <linearGradient id="brush" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101419"/>
+      <stop offset="0.5" stop-color="#07090C"/>
+      <stop offset="1" stop-color="#04060A"/>
+    </linearGradient>
+    <linearGradient id="glassSheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9FE4FF"/>
+      <stop offset="0.5" stop-color="#4FC3FF"/>
+      <stop offset="1" stop-color="#2E90FA"/>
+    </linearGradient>
+    <radialGradient id="bloom" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4FC3FF" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#4FC3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ground" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0A0E14" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#0A0E14" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-30%" width="220%" height="160%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
   </defs>
 
-  <!-- DIN rail behind -->
-  <rect x="0" y="150" width="260" height="44" rx="4" fill="#171A1F"/>
-  <rect x="0" y="154" width="260" height="3" fill="#2A2E36"/>
-  <rect x="0" y="187" width="260" height="3" fill="#2A2E36"/>
+  <!-- Contact shadow -->
+  <ellipse cx="160" cy="374" rx="140" ry="16" fill="url(#ground)"/>
 
-  <!-- Enclosure -->
-  <rect x="22" y="12" width="216" height="316" rx="10" fill="url(#body)" stroke="#33373F" stroke-width="1.5"/>
-  <!-- Front panel -->
-  <rect x="34" y="24" width="192" height="292" rx="6" fill="#1B1E24"/>
-  <!-- Cyan seam frame -->
-  <rect x="34" y="24" width="192" height="292" rx="6" fill="none" stroke="#2FC5F2" stroke-width="1.4" opacity="0.85" filter="url(#glow)"/>
+  <!-- Plinth -->
+  <rect x="44" y="352" width="212" height="22" rx="6" fill="url(#aluSide)"/>
+  <rect x="58" y="346" width="180" height="8" fill="#5E6873"/>
 
-  <!-- Antenna -->
-  <rect x="196" y="0" width="5" height="16" rx="2.5" fill="#33373F"/>
-  <circle cx="198.5" cy="2" r="3.4" fill="#2FC5F2" filter="url(#glow)"/>
-
-  <!-- OLED window -->
-  <rect x="56" y="46" width="148" height="64" rx="4" fill="#0A0C10"/>
-  <rect x="62" y="52" width="136" height="52" rx="2" fill="#05161C"/>
-  <rect x="72" y="66" width="92" height="4" rx="2" fill="#2FC5F2" filter="url(#glow)"/>
-  <rect x="72" y="80" width="64" height="3" rx="1.5" fill="#2FC5F2" opacity="0.55"/>
-  <rect x="72" y="90" width="78" height="3" rx="1.5" fill="#2FC5F2" opacity="0.3"/>
-
-  <!-- Status LEDs -->
-  <circle cx="70" cy="136" r="5" fill="#2FC5F2" filter="url(#glow)"/>
-  <circle cx="94" cy="136" r="5" fill="#2FC5F2" opacity="0.65"/>
-  <circle cx="118" cy="136" r="5" fill="#10B981" filter="url(#glow)"/>
-  <circle cx="142" cy="136" r="5" fill="#3A3F48"/>
-
-  <!-- Ventilation slats -->
-  <g fill="#101318">
-    <rect x="56" y="162" width="148" height="7" rx="3.5"/>
-    <rect x="56" y="177" width="148" height="7" rx="3.5"/>
-    <rect x="56" y="192" width="148" height="7" rx="3.5"/>
-    <rect x="56" y="207" width="148" height="7" rx="3.5"/>
-    <rect x="56" y="222" width="148" height="7" rx="3.5"/>
-    <rect x="56" y="237" width="148" height="7" rx="3.5"/>
+  <!-- Right flank with machined grooves -->
+  <path d="M232 26 L266 40 L266 348 L232 356 Z" fill="url(#aluSide)"/>
+  <g stroke="#15181D" stroke-width="2.2" stroke-linecap="round" opacity="0.9">
+    <line x1="238" y1="62" x2="238" y2="322"/>
+    <line x1="244" y1="64" x2="244" y2="323"/>
+    <line x1="250" y1="66" x2="250" y2="324"/>
+    <line x1="256" y1="68" x2="256" y2="325"/>
+    <line x1="262" y1="70" x2="262" y2="326"/>
   </g>
 
-  <!-- Terminal block -->
-  <rect x="52" y="266" width="156" height="34" rx="4" fill="#14171C" stroke="#2A2E36" stroke-width="1"/>
-  <g fill="#4A505B" stroke="#5A6170" stroke-width="1">
-    <circle cx="76" cy="283" r="6"/>
-    <circle cx="103" cy="283" r="6"/>
-    <circle cx="130" cy="283" r="6"/>
-    <circle cx="157" cy="283" r="6"/>
-    <circle cx="184" cy="283" r="6"/>
+  <!-- Top face -->
+  <path d="M52 22 Q52 14 60 14 L224 14 Q232 14 232 22 L266 40 L52 40 Z" fill="url(#aluTop)"/>
+
+  <!-- Front face -->
+  <rect x="52" y="22" width="180" height="334" rx="14" fill="url(#alu)"/>
+  <rect x="52" y="22" width="180" height="334" rx="14" fill="url(#brush)"/>
+
+  <!-- Bezel and glass -->
+  <rect x="66" y="38" width="152" height="302" rx="11" fill="#2A2F36"/>
+  <rect x="70" y="42" width="144" height="294" rx="9" fill="url(#glass)"/>
+  <rect x="70" y="42" width="144" height="294" rx="9" fill="url(#glassSheen)"/>
+
+  <!-- Light bar -->
+  <ellipse cx="142" cy="112" rx="40" ry="78" fill="url(#bloom)"/>
+  <rect x="134" y="56" width="16" height="112" rx="8" fill="url(#bar)" filter="url(#glow)" opacity="0.9"/>
+  <rect x="136" y="58" width="12" height="108" rx="6" fill="url(#bar)"/>
+  <rect x="139" y="62" width="3" height="98" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Mark and wordmark -->
+  <g transform="translate(97.5 146) scale(0.1275)" fill="#FFFFFF">
+    <path d="M214.802 556.668L473.479 556.646C473.896 597.828 472.837 641.203 472.784 682.676L416.626 777.551L407.146 777.594L349.42 777.518C354.271 765.496 364.772 745.541 370.767 733.231L415.897 640.365L273.121 641.141C271.242 638.757 269.34 635.907 267.644 633.375C250.412 607.644 231.746 582.564 214.802 556.668Z"/>
+    <path d="M293.652 698.756C308.596 698.506 325.054 699.014 340.118 699.212C335.946 710.359 324.984 731.163 319.318 742.857L274.393 835.743L416.65 835.174C434.582 860.502 456.574 890.924 473.108 916.937L463.501 917.183L215.882 916.943C215.254 877.429 215.618 835.979 215.724 796.385C235.43 765.336 253.797 731.089 272.626 699.183L293.652 698.756Z"/>
   </g>
-  <g stroke="#2A2E36" stroke-width="1.6" stroke-linecap="round">
-    <line x1="72" y1="279" x2="80" y2="287"/>
-    <line x1="99" y1="279" x2="107" y2="287"/>
-    <line x1="126" y1="279" x2="134" y2="287"/>
-    <line x1="153" y1="279" x2="161" y2="287"/>
-    <line x1="180" y1="279" x2="188" y2="287"/>
-  </g>
+  <text x="142" y="310" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="21" letter-spacing="3" fill="#FFFFFF" opacity="0.96">ZEV</text>
 </svg>

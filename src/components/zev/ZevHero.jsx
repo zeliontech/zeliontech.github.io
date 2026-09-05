@@ -82,7 +82,7 @@ const ZevHero = ({ children }) => {
               <HeroScene className="absolute inset-0 h-full w-full" />
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative h-[78%] w-[62%]">
+                <div className="relative h-[88%] w-[72%]">
                   {show3D ? (
                     <LazyBoundary fallback={<DevicePoster className="mx-auto h-full w-auto" />}>
                       <Suspense fallback={<DevicePoster className="mx-auto h-full w-auto" />}>

@@ -655,3 +655,20 @@
     overflow-x: clip;
   }
 }
+
+/* Hero turbines: a slow rotor turn, inert under reduced motion. The rotor is
+   a child of a translated group so the CSS transform never overrides the
+   SVG positioning attribute. */
+@layer components {
+  .turbine-rotor {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: turbine-spin 16s linear infinite;
+  }
+  @keyframes turbine-spin {
+    to { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .turbine-rotor { animation: none; }
+  }
+}
