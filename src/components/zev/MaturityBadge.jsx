@@ -2,10 +2,9 @@ import { cn } from "@/lib/utils";
 
 /**
  * Maturity labeling (ZEV brief §15/§24): every capability shown on the site
- * carries one of these four labels. Colors come from the --maturity-* tokens
- * so badges stay WCAG-AA readable in both the light base theme and inside
- * .dark-zone sections. Anything not sourced from the brief as demonstrated
- * defaults to "planned".
+ * carries one of these four labels. Colours come from the --maturity-* tokens,
+ * derived from the two brand hues and dark enough for AA text on white.
+ * Anything not sourced from the brief as demonstrated defaults to "planned".
  */
 export const MATURITY_LEVELS = {
   demonstrated: {

@@ -264,7 +264,7 @@ const Technology = () => {
         </PageHeader>
 
         {/* ── Energy data (§3A) ─────────────────────────────────────────── */}
-        <section id="energy-data" className="section-bg-subtle scroll-mt-16 section">
+        <section id="energy-data" className="scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Energy data"
@@ -337,7 +337,7 @@ const Technology = () => {
         </section>
 
         {/* ── Hardware (§15) ────────────────────────────────────────────── */}
-        <section id="hardware" className="section-bg-subtle scroll-mt-16 section">
+        <section id="hardware" className="scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Hardware"
@@ -416,7 +416,7 @@ const Technology = () => {
         </section>
 
         {/* ── AI & edge intelligence (§6) ───────────────────────────────── */}
-        <section id="ai" className="section-bg-subtle scroll-mt-16 section">
+        <section id="ai" className="scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="AI & edge intelligence"
@@ -489,7 +489,7 @@ const Technology = () => {
         </section>
 
         {/* ── APIs & integration ───────────────────────────────────────── */}
-        <section id="apis" className="section-bg-subtle scroll-mt-16 section">
+        <section id="apis" className="scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="APIs & integration"

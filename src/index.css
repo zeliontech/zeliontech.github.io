@@ -254,7 +254,6 @@
     --surface: 0 0% 100%;
     --surface-elevated: 220 14% 98%;
     --accent-blue-subtle: 212 92% 55%;
-    --page-bg: 0 0% 100%;
   }
 }
 
@@ -322,10 +321,6 @@
   /* Section Background Material Depth - Subtle separation < 8% opacity */
   /* Section grounds. The page is white; an alternate band is barely-there
      grey used to separate adjacent sections, never a colour wash. */
-  .section-bg-subtle {
-    background: hsl(var(--background));
-  }
-
   .section-bg-alternate {
     background: hsl(220 20% 98.5%);
   }
@@ -373,103 +368,7 @@
   }
 }
 
-/* ===================================================================== */
-/* ZEV DARK INSTRUMENT ZONES                                             */
-/* A second, self-contained token set scoped to .dark-zone (graphite     */
-/* surfaces, dark borders, light-on-dark text). The base light-sky theme */
-/* above is untouched; dark treatment is applied ONLY by wrapping a      */
-/* section in <DarkSection> (components/zev/DarkSection.jsx) — never by  */
-/* ad-hoc color overrides. Because every utility and gradient reads      */
-/* hsl(var(--token)), the brand gradients and cyan re-tune automatically */
-/* inside a dark zone: --primary is a lighter cyan (the light-theme cyan */
-/* muddies on graphite) and the heading-gradient ramp is brightened.     */
-/* All values WCAG-AA checked against the graphite background.           */
-
-@layer base {
-  .dark-zone {
-    /* Graphite surfaces */
-    --background: 220 15% 7%;
-    --background-elevated: 220 14% 10%;
-    --foreground: 204 33% 96%;
-
-    --card: 220 14% 10%;
-    --card-foreground: 204 33% 96%;
-
-    --popover: 220 14% 10%;
-    --popover-foreground: 204 33% 96%;
-
-    /* Dark-tuned cyan: lighter than the light-theme primary so it stays
-       luminous on graphite instead of muddy */
-    --primary: 194 92% 55%;
-    --primary-foreground: 220 15% 7%;
-
-    --secondary: 219 13% 16%;
-    --secondary-foreground: 204 30% 92%;
-
-    --muted: 219 13% 14%;
-    --muted-foreground: 214 16% 74%;
-
-    --accent: 194 60% 18%;
-    --accent-foreground: 194 90% 80%;
-
-    /* Dark borders */
-    --border: 218 12% 22%;
-    --input: 218 12% 22%;
-    --ring: 194 92% 55%;
-
-    /* Cyan accent ramp re-tuned for dark */
-    --silver-light: 194 92% 60%;
-    --silver-mid: 199 88% 58%;
-    --silver-dark: 211 60% 72%;
-
-    /* Heading gradients, brightened for graphite (light versions read
-       muddy here) */
-    --silver-gradient-1-start: 191 95% 64%;
-    --silver-gradient-1-mid: 199 92% 60%;
-    --silver-gradient-1-end: 214 95% 74%;
-
-    --silver-gradient-2-start: 191 85% 66%;
-    --silver-gradient-2-mid: 202 80% 62%;
-    --silver-gradient-2-end: 214 80% 74%;
-
-    --surface: 220 14% 10%;
-    --surface-elevated: 220 13% 13%;
-
-    --accent-blue-subtle: 199 85% 60%;
-
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
-}
-
 @layer components {
-  /* THE single light/dark boundary treatment: a crisp machined edge — a
-     hairline cyan seam with a soft glow bleeding into the dark side only.
-     Rendered by <DarkSection> at every boundary; do not invent variants. */
-  .zev-seam {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    z-index: 20;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      hsl(var(--primary) / 0.55) 18%,
-      hsl(var(--primary) / 0.55) 82%,
-      transparent 100%
-    );
-  }
-  .zev-seam-top {
-    top: 0;
-    box-shadow: 0 6px 24px 0 hsl(var(--primary) / 0.18);
-  }
-  .zev-seam-bottom {
-    bottom: 0;
-    box-shadow: 0 -6px 24px 0 hsl(var(--primary) / 0.18);
-  }
-
   /* Animated energy/data lines (hero orbit, flow diagrams). Applied to
      SVG paths; a dashed overlay drifts along the path. Static under
      prefers-reduced-motion. */
@@ -499,10 +398,6 @@
     --maturity-progress: 212 92% 40%;
     --maturity-planned: 215 16% 42%;
 
-    /* The light page background, kept OUT of the .dark-zone override on
-       purpose: DarkSection edge fades read it from inside a dark zone to
-       blend graphite into the real page colour. */
-    --page-bg: 0 0% 100%;
   }
 }
 
@@ -526,40 +421,6 @@
     .zev-rise {
       animation: none;
     }
-  }
-}
-
-/* Soft dark/light boundary (DarkSection top="fade" / bottom="fade"). The
-   blend lives in the zone's own 11rem edge padding and eases from clear to
-   the page background, so graphite never meets sky as a hard line. */
-@layer components {
-  .zev-fade {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 11rem;
-    pointer-events: none;
-    z-index: 5;
-  }
-  .zev-fade-bottom {
-    bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      hsl(var(--page-bg) / 0) 0%,
-      hsl(var(--page-bg) / 0.12) 30%,
-      hsl(var(--page-bg) / 0.55) 65%,
-      hsl(var(--page-bg)) 100%
-    );
-  }
-  .zev-fade-top {
-    top: 0;
-    background: linear-gradient(
-      to top,
-      hsl(var(--page-bg) / 0) 0%,
-      hsl(var(--page-bg) / 0.12) 30%,
-      hsl(var(--page-bg) / 0.55) 65%,
-      hsl(var(--page-bg)) 100%
-    );
   }
 }
 

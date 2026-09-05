@@ -80,7 +80,7 @@ const Flow = ({ steps }) => (
 
 const UseCases = () => {
   return (
-    <section id="use-cases" className="section-bg-subtle relative scroll-mt-16 section">
+    <section id="use-cases" className="relative scroll-mt-16 section">
       <div className="container mx-auto px-4 lg:px-8">
         <Reveal className="mx-auto mb-10 max-w-3xl text-center">
           <p className="eyebrow">
