@@ -32,7 +32,7 @@ const advisory = [
 // backgrounds read as one set, colour on hover (.portrait in index.css).
 const Avatar = ({ member, size }) => (
   <div
-    className="relative mx-auto mb-5 overflow-hidden rounded-full bg-muted ring-1 ring-border"
+    className="relative shrink-0 overflow-hidden rounded-full bg-muted ring-1 ring-border"
     style={{ width: size, height: size }}
   >
     {member.slug ? (
@@ -50,20 +50,22 @@ const Avatar = ({ member, size }) => (
         />
       </picture>
     ) : (
-      <div className="flex h-full w-full items-center justify-center subhead font-bold tracking-[-0.02em] text-primary">
+      <div className="flex h-full w-full items-center justify-center text-[22px] font-bold tracking-[-0.02em] text-primary">
         {member.initials}
       </div>
     )}
   </div>
 );
 
-const MemberCard = ({ member, size = 140, style }) => (
-  <div className="group text-center" style={style}>
+// A roster row, not a centred tile: portrait on the left, name and role in
+// sentence case beside it, so the list reads like a masthead.
+const MemberCard = ({ member, size = 96, style }) => (
+  <div className="group flex items-center gap-5" style={style}>
     <Avatar member={member} size={size} />
-    <h3 className="text-[17px] font-bold tracking-[-0.01em] text-foreground">{member.name}</h3>
-    <p className="mx-auto mt-1.5 max-w-[240px] text-[13px] font-medium leading-snug text-muted-foreground">
-      {member.role}
-    </p>
+    <div className="min-w-0">
+      <h3 className="text-[17px] font-bold tracking-[-0.01em] text-foreground">{member.name}</h3>
+      <p className="mt-1 text-[15px] leading-snug text-muted-foreground">{member.role}</p>
+    </div>
   </div>
 );
 
@@ -74,12 +76,12 @@ const TeamSection = () => {
   return (
     <section id="team" className="section-compact bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center">
+        <Reveal className="max-w-3xl">
           <p className="eyebrow">Team</p>
           <h2 className="headline-standard mt-4">
             The people behind <span className="metal-gradient">ZelionTech.</span>
           </h2>
-          <p className="lede mx-auto mt-5 max-w-2xl">
+          <p className="lede mt-5">
             A multidisciplinary team across energy infrastructure, hardware and industrial systems,
             cybersecurity, finance and decentralised coordination. ZEV is being advanced through
             ZelionTech Expofin Smart Energy Ltd, a joint venture with EXPOFIN E.S.Co. that is being
@@ -87,7 +89,7 @@ const TeamSection = () => {
           </p>
         </Reveal>
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-x-12 gap-y-8 sm:grid-cols-2">
           {leadership.map((member, i) => (
             <Reveal key={member.name} delay={i * 0.05}>
               <MemberCard member={member} />
@@ -96,7 +98,7 @@ const TeamSection = () => {
         </div>
 
         {/* Directors and advisory, behind a reveal */}
-        <div className="mt-14 flex justify-center">
+        <div className="mt-12 flex">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -127,19 +129,18 @@ const TeamSection = () => {
           aria-hidden={!open}
         >
           <div className="min-h-0 overflow-hidden">
-            <div className="mx-auto max-w-4xl border-t border-border pt-12">
-              <div className="text-center">
+            <div className="border-t border-border pt-10">
+              <div>
                 <h3 className="subhead">Directors, governance, scientific &amp; strategic advisory</h3>
-                <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                <p className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-muted-foreground">
                   Legal, compliance and academic oversight around the company and the joint venture.
                 </p>
               </div>
-              <div className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-3">
+              <div className="mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-2">
                 {advisory.map((member, i) => (
                   <MemberCard
                     key={member.name}
                     member={member}
-                    size={120}
                     style={open ? { animation: `zev-rise 0.5s ease-out both`, animationDelay: `${0.08 + i * 0.07}s` } : undefined}
                   />
                 ))}
