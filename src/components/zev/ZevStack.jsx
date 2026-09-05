@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Sun, Cpu, Link2, Coins, ArrowRight } from "lucide-react";
-import MaturityBadge from "./MaturityBadge";
 import Reveal from "./Reveal";
 import { TEASER_PARAMETERS } from "./zln";
 import { useReducedMotion } from "./hooks";
@@ -111,13 +110,35 @@ const Chip = ({ item, accent }) => {
       </span>
     );
   }
+  // One glyph per capability instead of a badge per capability: a filled
+  // eco dot for what the ZEV Lite proof of concept demonstrated, a hollow
+  // dot for what ZEV Pro plans. The legend under the stack spells it out
+  // once; assistive tech gets the word inline.
+  const demonstrated = item.level === "demonstrated";
   return (
-    <span className="inline-flex flex-wrap items-center gap-2 rounded-full border border-border bg-card px-3 py-1">
-      <span className="text-[13px] font-medium text-foreground">{item.label}</span>
-      <MaturityBadge level={item.level} />
+    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[13px] font-medium text-foreground">
+      <span
+        aria-hidden="true"
+        className={`h-2 w-2 shrink-0 rounded-full ${demonstrated ? "bg-eco" : "border border-muted-foreground/60"}`}
+      />
+      {item.label}
+      <span className="sr-only">{demonstrated ? " (demonstrated)" : " (planned)"}</span>
     </span>
   );
 };
+
+const StackLegend = () => (
+  <p className="mx-auto mt-6 flex max-w-3xl flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-muted-foreground">
+    <span className="inline-flex items-center gap-2">
+      <span aria-hidden="true" className="h-2 w-2 rounded-full bg-eco" />
+      Demonstrated in the ZEV Lite proof of concept
+    </span>
+    <span className="inline-flex items-center gap-2">
+      <span aria-hidden="true" className="h-2 w-2 rounded-full border border-muted-foreground/60" />
+      Planned for ZEV Pro
+    </span>
+  </p>
+);
 
 const Tier = ({ tier, index }) => {
   const { Icon } = tier;
@@ -225,6 +246,8 @@ const ZevStack = () => {
             </div>
           ))}
         </div>
+
+        <StackLegend />
 
         {/* Brief §10: ZLN and carbon credits are separate assets and must never
             be presented as the same thing. */}

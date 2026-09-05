@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
 
@@ -96,23 +96,18 @@ const PhaseCard = ({ phase, index }) => {
         </div>
         <h3 className="mt-2 subhead">{phase.title}</h3>
         <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{phase.body}</p>
-        <ul className="mt-4 flex flex-wrap gap-2">
+        {/* One badge per phase, in the header above. The capabilities are a
+            plain list: a check for what the proof of concept showed, a
+            hollow dot for what is still planned. */}
+        <ul className="mt-4 space-y-2">
           {phase.items.map((item) => (
-            <li
-              key={item}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[13px] ${
-                phase.itemLevel ? "border-border text-muted-foreground" : "text-foreground"
-              }`}
-              style={
-                phase.itemLevel
-                  ? { borderStyle: "dashed" }
-                  : { borderColor: `${EMERALD}4D`, backgroundColor: `${EMERALD}0F` }
-              }
-            >
-              {!phase.itemLevel && (
-                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: EMERALD }} />
+            <li key={item} className="flex items-start gap-2.5 text-[15px] leading-snug">
+              {phase.itemLevel ? (
+                <span aria-hidden="true" className="mt-[6px] h-2 w-2 shrink-0 rounded-full border border-muted-foreground/60" />
+              ) : (
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-eco" strokeWidth={2.2} aria-hidden="true" />
               )}
-              {item}
+              <span className={phase.itemLevel ? "text-muted-foreground" : "text-foreground"}>{item}</span>
             </li>
           ))}
         </ul>
