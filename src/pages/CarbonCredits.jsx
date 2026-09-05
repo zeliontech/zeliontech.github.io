@@ -67,12 +67,12 @@ const CarbonCredits = () => {
                   <p className="mt-5 text-[15px] font-semibold leading-snug text-foreground">
                     What ZEV does, stated precisely
                   </p>
-                  <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
                     ZEV is designed to provide trusted, traceable and auditable energy data that
                     can support carbon accounting and digital measurement, reporting and
                     verification.
                   </p>
-                  <p className="mt-4 rounded-xl bg-muted px-4 py-3 text-[13.5px] leading-relaxed text-muted-foreground">
+                  <p className="mt-4 rounded-xl bg-muted px-4 py-3 text-[15px] leading-relaxed text-muted-foreground">
                     <span className="font-semibold text-foreground">ZEV does not issue carbon credits.</span>{" "}
                     Issuance requires an accepted methodology, project registration and
                     independent verification under the applicable standard.
@@ -117,13 +117,13 @@ const CarbonCredits = () => {
                     </div>
                     <div className="min-w-0 flex-1 pb-8">
                       <div className="flex flex-wrap items-center gap-2.5">
-                        <h3 className="text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                        <h3 className="text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
                         <span className="rounded-full border border-border px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground">
                           {who}
                         </span>
                         {level && <MaturityBadge level={level} />}
                       </div>
-                      <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground">{body}</p>
+                      <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                     </div>
                   </li>
                 </Reveal>
@@ -147,7 +147,7 @@ const CarbonCredits = () => {
                   <div className="glass-card-hover h-full p-7">
                     <Icon className="h-8 w-8 text-primary" strokeWidth={1.6} aria-hidden="true" />
                     <h3 className="subhead mt-5">{title}</h3>
-                    <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">{body}</p>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -169,7 +169,7 @@ const CarbonCredits = () => {
               </p>
               <Link
                 to="/tokenomics"
-                className="mt-6 inline-flex items-center gap-2 text-[14.5px] font-semibold text-primary hover:underline"
+                className="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-primary hover:underline"
               >
                 What ZLN actually is
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

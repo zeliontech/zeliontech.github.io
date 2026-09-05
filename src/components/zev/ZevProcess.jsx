@@ -107,10 +107,10 @@ const Step = ({ step, last }) => {
           strokeWidth={1.6}
           aria-hidden="true"
         />
-        <h3 className="text-[15px] font-bold leading-snug tracking-[-0.01em] text-foreground">
+        <h3 className="text-[17px] font-bold leading-snug tracking-[-0.01em] text-foreground">
           {step.title}
         </h3>
-        <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">{step.body}</p>
+        <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{step.body}</p>
         {step.level && <MaturityBadge level={step.level} className="mt-3" />}
       </div>
 

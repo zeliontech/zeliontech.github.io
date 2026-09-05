@@ -66,7 +66,7 @@ export const CASES = [
 ];
 
 const Flow = ({ steps }) => (
-  <ol className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+  <ol className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] font-medium text-muted-foreground">
     {steps.map((step, i) => (
       <li key={step} className="flex items-center gap-1.5">
         {i > 0 && <ArrowRight className="h-3 w-3 text-primary/70" aria-hidden="true" />}
@@ -94,7 +94,7 @@ const UseCases = () => {
             concept validated the core chain; each scenario below builds on ZEV Pro capabilities shown on
             the roadmap.
           </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-sm text-muted-foreground">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-[15px] text-muted-foreground">
             <MaturityBadge level="planned" />
             <span>Deployment scenarios, not commercial deployments</span>
           </div>
@@ -109,10 +109,10 @@ const UseCases = () => {
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
-                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">{sectors}</p>
+                  <p className="mt-1 text-[13px] font-medium text-muted-foreground">{sectors}</p>
                 </div>
                 <div className={wide ? "mt-4 lg:mt-0 lg:flex-1" : ""}>
-                  <p className={`text-sm leading-relaxed text-muted-foreground ${wide ? "" : "mt-3"}`}>{body}</p>
+                  <p className={`text-[15px] leading-relaxed text-muted-foreground ${wide ? "" : "mt-3"}`}>{body}</p>
                   {flow && <Flow steps={flow} />}
                 </div>
               </li>

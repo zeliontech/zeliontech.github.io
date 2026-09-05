@@ -60,7 +60,7 @@ const TokenomicsPage = () => {
                   href={`https://bscscan.com/address/${CONTRACT}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 text-[14.5px] font-semibold text-primary hover:underline"
+                  className="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-primary hover:underline"
                 >
                   View the contract on BscScan
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -72,13 +72,13 @@ const TokenomicsPage = () => {
                   <dl className="divide-y divide-border">
                     {PARAMETERS.map((p) => (
                       <div key={p.label} className="flex items-baseline justify-between gap-4 px-6 py-4">
-                        <dt className="text-[14.5px] text-muted-foreground">{p.label}</dt>
+                        <dt className="text-[15px] text-muted-foreground">{p.label}</dt>
                         <dd className="text-right text-[15px] font-semibold text-foreground">{p.value}</dd>
                       </div>
                     ))}
                     <div className="px-6 py-4">
-                      <dt className="text-[14.5px] text-muted-foreground">Contract address</dt>
-                      <dd className="mt-1 break-all font-mono text-[12.5px] text-foreground">{CONTRACT}</dd>
+                      <dt className="text-[15px] text-muted-foreground">Contract address</dt>
+                      <dd className="mt-1 break-all font-mono text-[13px] text-foreground">{CONTRACT}</dd>
                     </div>
                   </dl>
                 </div>
@@ -108,7 +108,7 @@ const TokenomicsPage = () => {
             </Reveal>
 
             <Reveal delay={0.12} className="mx-auto mt-6 max-w-4xl">
-              <p className="text-center text-[13.5px] leading-relaxed text-muted-foreground">
+              <p className="text-center text-[15px] leading-relaxed text-muted-foreground">
                 Team and core contributor allocations are subject to long-term vesting. Any tokens
                 granted to a partner come from the Strategic Partnerships allocation under the same
                 rules, separately from any shareholding in the joint venture.
@@ -125,7 +125,7 @@ const TokenomicsPage = () => {
               <h2 className="headline mt-4">
                 What ZLN is designed to <span className="metal-gradient">do.</span>
               </h2>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-[14px] text-muted-foreground">
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-[15px] text-muted-foreground">
                 <MaturityBadge level="planned" />
                 <span>Deployed progressively as ecosystem services come online</span>
               </div>
@@ -136,8 +136,8 @@ const TokenomicsPage = () => {
                 <Reveal key={title} delay={i * 0.05}>
                   <div className="glass-card-hover h-full p-6">
                     <Icon className="h-8 w-8 text-primary" strokeWidth={1.6} aria-hidden="true" />
-                    <h3 className="mt-5 text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
-                    <p className="mt-2.5 text-[14px] leading-relaxed text-muted-foreground">{body}</p>
+                    <h3 className="mt-5 text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                    <p className="mt-2.5 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -171,14 +171,14 @@ const TokenomicsPage = () => {
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   to="/carbon"
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-6 text-[14.5px] font-semibold text-foreground transition-colors hover:bg-muted"
+                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-6 text-[15px] font-semibold text-foreground transition-colors hover:bg-muted"
                 >
                   How carbon actually works here
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/whitepaper"
-                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-6 text-[14.5px] font-semibold text-foreground transition-colors hover:bg-muted"
+                  className="inline-flex h-11 items-center gap-2 rounded-full border border-border bg-card px-6 text-[15px] font-semibold text-foreground transition-colors hover:bg-muted"
                 >
                   Read the whitepaper
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />

@@ -99,8 +99,8 @@ const About = () => {
                       <Icon className="h-8 w-8 text-primary" strokeWidth={1.6} aria-hidden="true" />
                       <MaturityBadge level={level} />
                     </div>
-                    <h3 className="mt-5 text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
-                    <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">{body}</p>
+                    <h3 className="mt-5 text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -108,7 +108,7 @@ const About = () => {
 
             <Reveal delay={0.1} className="mx-auto mt-8 max-w-4xl">
               <div className="rounded-2xl border border-border bg-card px-6 py-5 text-center">
-                <p className="text-[14px] leading-relaxed text-muted-foreground">
+                <p className="text-[15px] leading-relaxed text-muted-foreground">
                   The 50/50 arrangement concerns ownership, governance and economic participation
                   in the joint-venture project. It is not a division of the ZLN token supply, which
                   remains subject to its published allocation and vesting framework.
@@ -133,7 +133,7 @@ const About = () => {
                   <div className="glass-card-hover h-full p-7">
                     <Icon className="h-8 w-8 text-primary" strokeWidth={1.6} aria-hidden="true" />
                     <h3 className="subhead mt-5">{title}</h3>
-                    <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">{body}</p>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -149,7 +149,7 @@ const About = () => {
             <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 rounded-3xl border border-border bg-muted/50 p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
               <div>
                 <h2 className="subhead">Work with ZelionTech</h2>
-                <p className="mt-2 text-[14.5px] text-muted-foreground">
+                <p className="mt-2 text-[15px] text-muted-foreground">
                   Pilot sites, integrations, and institutional partnerships.
                 </p>
               </div>

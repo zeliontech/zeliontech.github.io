@@ -122,7 +122,7 @@ const TokenAllocation = () => {
                 <p className="font-body text-[15px] font-bold tabular-nums text-foreground">
                   <CountUp value={a.pct} suffix="%" />
                 </p>
-                <p className="text-[12.5px] tabular-nums text-muted-foreground">{a.zln}</p>
+                <p className="text-[13px] tabular-nums text-muted-foreground">{a.zln}</p>
               </div>
             </div>
           </li>

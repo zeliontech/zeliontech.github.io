@@ -61,7 +61,7 @@ const Whitepaper = () => {
               <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 rounded-3xl border border-border bg-card p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
                 <div>
                   <h2 className="subhead">Download the whitepaper</h2>
-                  <p className="mt-2 text-[14.5px] text-muted-foreground">
+                  <p className="mt-2 text-[15px] text-muted-foreground">
                     PDF · published edition
                   </p>
                 </div>
@@ -99,8 +99,8 @@ const Whitepaper = () => {
                 <Reveal key={title} delay={i * 0.05}>
                   <div className="glass-card-hover h-full p-6">
                     <Icon className="h-8 w-8 text-primary" strokeWidth={1.6} aria-hidden="true" />
-                    <h3 className="mt-5 text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
-                    <p className="mt-2.5 text-[14px] leading-relaxed text-muted-foreground">{body}</p>
+                    <h3 className="mt-5 text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                    <p className="mt-2.5 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -114,7 +114,7 @@ const Whitepaper = () => {
             <Reveal className="mx-auto max-w-3xl">
               <p className="eyebrow">Abstract</p>
               <h2 className="headline mt-4">In short</h2>
-              <div className="mt-7 space-y-5 text-[15.5px] leading-relaxed text-muted-foreground">
+              <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-muted-foreground">
                 <p>
                   Renewable-energy data is mostly self-reported. It passes through several parties
                   before anyone relies on it, and by the time it reaches a report there is no
@@ -143,11 +143,11 @@ const Whitepaper = () => {
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
-                <div className="flex items-center gap-2.5 text-[13.5px] text-muted-foreground">
+                <div className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
                   <MaturityBadge level="demonstrated" />
                   <span>ZEV Lite proof of concept</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[13.5px] text-muted-foreground">
+                <div className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
                   <MaturityBadge level="in-development" />
                   <span>ZEV Pro industrial platform</span>
                 </div>
@@ -168,7 +168,7 @@ const Whitepaper = () => {
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="glass-card-hover flex items-center justify-between gap-3 p-5 text-[14.5px] font-semibold text-foreground"
+                  className="glass-card-hover flex items-center justify-between gap-3 p-5 text-[15px] font-semibold text-foreground"
                 >
                   {l.label}
                   <ArrowRight className="h-4 w-4 text-primary" aria-hidden="true" />

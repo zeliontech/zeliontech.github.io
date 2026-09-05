@@ -86,7 +86,7 @@ const ContactUs = () => {
                   <div className="glass-card h-full p-7">
                     <Icon className="h-8 w-8 text-primary" strokeWidth={1.6} aria-hidden="true" />
                     <h3 className="subhead mt-5">{title}</h3>
-                    <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">{body}</p>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -121,7 +121,7 @@ const ContactUs = () => {
               </p>
               <Link
                 to="/about"
-                className="mt-5 inline-flex items-center gap-2 text-[14.5px] font-semibold text-primary hover:underline"
+                className="mt-5 inline-flex items-center gap-2 text-[15px] font-semibold text-primary hover:underline"
               >
                 More about ZelionTech
               </Link>

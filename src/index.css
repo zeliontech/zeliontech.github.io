@@ -574,7 +574,7 @@
 @layer components {
   /* Small uppercase label above a headline. */
   .eyebrow {
-    @apply font-body text-[11px] font-medium uppercase text-muted-foreground sm:text-xs;
+    @apply font-body text-[11px] font-medium uppercase text-muted-foreground;
     letter-spacing: 0.2em;
   }
 
@@ -614,7 +614,8 @@
   /* Standfirst / supporting paragraph next to a headline. */
   .lede {
     @apply font-body text-muted-foreground;
-    font-size: clamp(0.975rem, 1.1vw, 1.075rem);
+    font-size: clamp(1rem, 1.2vw, 1.0625rem);
+    max-width: 62ch;
     line-height: 1.65;
   }
 
@@ -643,7 +644,7 @@
 
   /* Numbered step marker in the process strip. */
   .step-dot {
-    @apply inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-[12px] font-semibold text-background;
+    @apply inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-[13px] font-semibold text-background;
   }
 }
 

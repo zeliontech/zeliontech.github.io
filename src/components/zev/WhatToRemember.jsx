@@ -111,7 +111,7 @@ const WhatToRemember = () => {
                   )}
                 </button>
                 <p
-                  className={`mt-4 max-w-[11rem] text-[14px] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-300 ${
+                  className={`mt-4 max-w-[11rem] text-[15px] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-300 ${
                     active !== null && active !== i ? "text-muted-foreground" : "text-foreground"
                   }`}
                 >
@@ -136,10 +136,10 @@ const WhatToRemember = () => {
                     }`}
                   >
                     <span className="text-[13px] font-semibold tabular-nums text-primary">0{i + 1}</span>
-                    <h3 className="mt-2 text-[15.5px] font-bold leading-snug tracking-[-0.01em] text-foreground">
+                    <h3 className="mt-2 text-[17px] font-bold leading-snug tracking-[-0.01em] text-foreground">
                       {beat.head}
                     </h3>
-                    <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">{beat.body}</p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{beat.body}</p>
                   </li>
                 </Reveal>
               );

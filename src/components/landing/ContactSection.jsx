@@ -26,7 +26,7 @@ const ContactSection = () => {
             <p className="lede">
               Partnerships, pilot sites, integrations or press — tell us what you are working on.
             </p>
-            <p className="text-base leading-relaxed text-foreground font-medium">
+            <p className="text-[17px] leading-relaxed text-foreground font-medium">
               Trusted energy data starts with proof, not promises.
             </p>
           </div>

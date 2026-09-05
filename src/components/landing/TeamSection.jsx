@@ -34,7 +34,7 @@ const Avatar = ({ member, size }) => (
     {member.photo ? (
       <img src={member.photo} alt={member.name} className="h-full w-full object-cover" loading="lazy" />
     ) : (
-      <div className="flex h-full w-full items-center justify-center text-2xl font-bold tracking-[-0.02em] text-primary">
+      <div className="flex h-full w-full items-center justify-center subhead font-bold tracking-[-0.02em] text-primary">
         {member.initials}
       </div>
     )}
@@ -44,8 +44,8 @@ const Avatar = ({ member, size }) => (
 const MemberCard = ({ member, size = 140, style }) => (
   <div className="group text-center" style={style}>
     <Avatar member={member} size={size} />
-    <h3 className="text-[16px] font-bold tracking-[-0.01em] text-foreground">{member.name}</h3>
-    <p className="mx-auto mt-1.5 max-w-[240px] text-[11px] font-medium uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
+    <h3 className="text-[17px] font-bold tracking-[-0.01em] text-foreground">{member.name}</h3>
+    <p className="mx-auto mt-1.5 max-w-[240px] text-[13px] font-medium leading-snug text-muted-foreground">
       {member.role}
     </p>
   </div>
@@ -89,7 +89,7 @@ const TeamSection = () => {
             className="group inline-flex h-12 items-center gap-3 rounded-full border border-border bg-card pl-6 pr-5 text-[15px] font-semibold text-foreground transition-all duration-200 hover:border-foreground/20 hover:bg-muted hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             {open ? "Hide directors & advisors" : "Meet the directors & advisors"}
-            <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[12px] font-semibold tabular-nums text-background">
+            <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[13px] font-semibold tabular-nums text-background">
               {advisory.length}
             </span>
             <ChevronDown
@@ -114,7 +114,7 @@ const TeamSection = () => {
             <div className="mx-auto max-w-4xl border-t border-border pt-12">
               <div className="text-center">
                 <h3 className="subhead">Directors, governance, scientific &amp; strategic advisory</h3>
-                <p className="mx-auto mt-3 max-w-2xl text-[14.5px] leading-relaxed text-muted-foreground">
+                <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                   Legal, compliance and academic oversight around the company and the joint venture.
                 </p>
               </div>

@@ -89,18 +89,18 @@ const PhaseCard = ({ phase, index }) => {
       />
       <div className={`glass-card flex h-full flex-col p-6 lg:p-7 ${current ? "ring-1 ring-primary/30" : ""}`}>
         <div className="flex items-start justify-between gap-3">
-          <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+          <span className="text-[13px] font-medium text-muted-foreground">
             Phase {phase.step}
           </span>
           <MaturityBadge level={phase.level} />
         </div>
         <h3 className="mt-2 subhead">{phase.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{phase.body}</p>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{phase.body}</p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {phase.items.map((item) => (
             <li
               key={item}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs ${
+              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[13px] ${
                 phase.itemLevel ? "border-border text-muted-foreground" : "text-foreground"
               }`}
               style={
@@ -119,7 +119,7 @@ const PhaseCard = ({ phase, index }) => {
         {phase.more && (
           <Link
             to={phase.more.to}
-            className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-primary hover:underline"
+            className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[15px] font-medium text-primary hover:underline"
           >
             {phase.more.label}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

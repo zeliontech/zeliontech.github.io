@@ -49,7 +49,7 @@ export const UTILITIES = [
 const FlowList = ({ steps }) => (
   <ol className="mt-4 space-y-1.5">
     {steps.map((step, i) => (
-      <li key={step} className="flex items-start gap-2 text-sm text-foreground">
+      <li key={step} className="flex items-start gap-2 text-[15px] text-foreground">
         {i === 0 ? (
           <span aria-hidden="true" className="mt-1 h-3.5 w-3.5 shrink-0" />
         ) : (
@@ -88,17 +88,17 @@ const DigitalUtilities = () => {
                 <MaturityBadge level="planned" />
               </div>
               <h3 className="mt-4 subhead">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
               <FlowList steps={flow} />
               {caveat && (
-                <p className="mt-4 rounded-md border border-border bg-muted/40 px-3.5 py-3 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-4 rounded-md border border-border bg-muted/40 px-3.5 py-3 text-[13px] leading-relaxed text-muted-foreground">
                   {caveat}
                 </p>
               )}
               {more && (
                 <Link
                   to={more.to}
-                  className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-primary hover:underline"
+                  className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[15px] font-medium text-primary hover:underline"
                 >
                   {more.label}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />

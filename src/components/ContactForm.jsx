@@ -132,7 +132,7 @@ const ContactForm = () => {
           <div>
             <label
               htmlFor="name"
-              className="mb-2 block text-sm font-medium text-foreground"
+              className="mb-2 block text-[15px] font-medium text-foreground"
             >
               Name <span className="text-destructive">*</span>
             </label>
@@ -157,7 +157,7 @@ const ContactForm = () => {
               <p
                 id="name-error"
                 role="alert"
-                className="mt-1 flex items-center gap-1 text-xs text-destructive"
+                className="mt-1 flex items-center gap-1 text-[13px] text-destructive"
               >
                 <AlertCircle className="h-3 w-3" />
                 {errors.name}
@@ -169,7 +169,7 @@ const ContactForm = () => {
           <div>
             <label
               htmlFor="email"
-              className="mb-2 block text-sm font-medium text-foreground"
+              className="mb-2 block text-[15px] font-medium text-foreground"
             >
               Email <span className="text-destructive">*</span>
             </label>
@@ -194,7 +194,7 @@ const ContactForm = () => {
               <p
                 id="email-error"
                 role="alert"
-                className="mt-1 flex items-center gap-1 text-xs text-destructive"
+                className="mt-1 flex items-center gap-1 text-[13px] text-destructive"
               >
                 <AlertCircle className="h-3 w-3" />
                 {errors.email}
@@ -206,7 +206,7 @@ const ContactForm = () => {
           <div>
             <label
               htmlFor="phone"
-              className="mb-2 block text-sm font-medium text-foreground"
+              className="mb-2 block text-[15px] font-medium text-foreground"
             >
               Phone Number <span className="text-destructive">*</span>
             </label>
@@ -231,7 +231,7 @@ const ContactForm = () => {
               <p
                 id="phone-error"
                 role="alert"
-                className="mt-1 flex items-center gap-1 text-xs text-destructive"
+                className="mt-1 flex items-center gap-1 text-[13px] text-destructive"
               >
                 <AlertCircle className="h-3 w-3" />
                 {errors.phone}
@@ -243,7 +243,7 @@ const ContactForm = () => {
           <div>
             <label
               htmlFor="message"
-              className="mb-2 block text-sm font-medium text-foreground"
+              className="mb-2 block text-[15px] font-medium text-foreground"
             >
               Message Details <span className="text-destructive">*</span>
             </label>
@@ -268,7 +268,7 @@ const ContactForm = () => {
               <p
                 id="message-error"
                 role="alert"
-                className="mt-1 flex items-center gap-1 text-xs text-destructive"
+                className="mt-1 flex items-center gap-1 text-[13px] text-destructive"
               >
                 <AlertCircle className="h-3 w-3" />
                 {errors.message}
@@ -280,7 +280,7 @@ const ContactForm = () => {
           {errors.submit && (
             <div
               role="alert"
-              className="flex items-center gap-2 rounded-xl border border-destructive/40 bg-destructive/10 p-4 text-sm font-medium text-destructive"
+              className="flex items-center gap-2 rounded-xl border border-destructive/40 bg-destructive/10 p-4 text-[15px] font-medium text-destructive"
             >
               <AlertCircle className="h-4 w-4" />
               {errors.submit}
@@ -293,7 +293,7 @@ const ContactForm = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               role="alert"
-              className="flex items-center gap-2 rounded-xl border border-eco/30 bg-eco/10 p-4 text-sm font-medium text-eco"
+              className="flex items-center gap-2 rounded-xl border border-eco/30 bg-eco/10 p-4 text-[15px] font-medium text-eco"
             >
               <CheckCircle2 className="h-4 w-4" />
               Thank you. The ZelionTech team will contact you shortly.
@@ -316,19 +316,19 @@ const ContactForm = () => {
         className="flex flex-col justify-center"
       >
         <div className="glass-card p-8">
-          <h3 className="mb-4 font-body text-[19px] font-bold tracking-[-0.01em] text-foreground">
+          <h3 className="mb-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">
             What happens next
           </h3>
-          <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+          <p className="mb-4 text-[15px] leading-relaxed text-muted-foreground">
             Whether you're interested in validator infrastructure, ecosystem
             partnerships, or learning more about ZelionTech's approach to energy
             verification, we're here to help.
           </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-[15px] leading-relaxed text-muted-foreground">
             Fill out the form and our team will respond within 24-48 hours.
           </p>
           <div className="mt-6 rounded-xl bg-muted/60 p-4">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-[13px] text-muted-foreground">
               <span className="font-medium text-foreground">Note:</span> For
               general inquiries, you can also reach us via our social channels
               or email listed in the footer.

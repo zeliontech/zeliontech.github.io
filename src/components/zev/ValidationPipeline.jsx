@@ -135,7 +135,7 @@ const ValidationPipeline = () => {
                   }`}
                 >
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border tabular-nums text-xs font-semibold transition-colors md:h-10 md:w-10 md:text-sm ${
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border tabular-nums text-[13px] font-semibold transition-colors md:h-10 md:w-10 md:text-[15px] ${
                       state === "active"
                         ? "border-primary bg-primary text-primary-foreground"
                         : state === "done"
@@ -146,7 +146,7 @@ const ValidationPipeline = () => {
                     {i + 1}
                   </span>
                   <span
-                    className={`text-xs font-medium md:text-center md:text-[11px] md:leading-tight ${
+                    className={`text-[13px] font-medium md:text-center md:text-[11px] md:leading-tight ${
                       state === "active" ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                     }`}
                   >
@@ -165,22 +165,22 @@ const ValidationPipeline = () => {
         aria-labelledby={`pipeline-tab-${step.id}`}
         className="glass-card mt-8 p-6 sm:p-8"
       >
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] font-medium text-muted-foreground">
           <span>
             Step {active + 1} of {count}
           </span>
           <span className="rounded-full border border-border px-2.5 py-0.5 text-foreground/80">{step.where}</span>
         </div>
         <h3 className="mt-3 subhead">{step.label}</h3>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">{step.body}</p>
+        <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">{step.body}</p>
         {step.onChain && (
-          <p className="mt-3 max-w-3xl rounded-md border border-border bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
+          <p className="mt-3 max-w-3xl rounded-md border border-border bg-muted/40 px-4 py-3 text-[15px] text-muted-foreground">
             {step.onChain}
           </p>
         )}
         <ul className="mt-5 space-y-2">
           {step.labels.map((item) => (
-            <li key={item.label} className="flex items-start gap-2.5 text-sm">
+            <li key={item.label} className="flex items-start gap-2.5 text-[15px]">
               <MaturityBadge level={item.level} className="mt-px shrink-0" />
               <span className="text-foreground">{item.label}</span>
             </li>
@@ -189,7 +189,7 @@ const ValidationPipeline = () => {
         <button
           type="button"
           onClick={() => go(active + 1)}
-          className="mt-6 inline-flex items-center gap-2 font-body text-sm font-semibold uppercase tracking-wider text-primary hover:underline"
+          className="mt-6 inline-flex items-center gap-2 font-body text-[15px] font-semibold uppercase tracking-wider text-primary hover:underline"
         >
           {active === count - 1 ? "Start again" : "Next step"}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />

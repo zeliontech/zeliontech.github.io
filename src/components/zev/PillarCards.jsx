@@ -228,7 +228,7 @@ const PillarCard = ({ card }) => {
         <p className={`eyebrow ${card.dark ? "text-white/55" : ""}`}>{card.eyebrow}</p>
         <h3 className={`subhead mt-4 ${card.dark ? "text-white" : ""}`}>{card.title}</h3>
         <p
-          className={`mt-4 max-w-[26ch] text-[14.5px] leading-relaxed ${
+          className={`mt-4 max-w-[26ch] text-[15px] leading-relaxed ${
             card.dark ? "text-white/70" : "text-muted-foreground"
           }`}
         >
@@ -236,7 +236,7 @@ const PillarCard = ({ card }) => {
         </p>
         <Link
           to={card.to}
-          className={`mt-6 inline-flex items-center gap-2 self-start text-[14.5px] font-semibold transition-colors ${
+          className={`mt-6 inline-flex items-center gap-2 self-start text-[15px] font-semibold transition-colors ${
             card.dark ? "text-white hover:text-primary" : "text-foreground hover:text-primary"
           }`}
         >

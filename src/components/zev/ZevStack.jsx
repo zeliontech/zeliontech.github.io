@@ -103,7 +103,7 @@ const Chip = ({ item, accent }) => {
   if (typeof item === "string") {
     return (
       <span
-        className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium text-foreground"
+        className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[13px] font-medium text-foreground"
         style={{ borderColor: `${EMERALD}4D`, backgroundColor: `${EMERALD}0F` }}
       >
         <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: EMERALD }} />
@@ -113,7 +113,7 @@ const Chip = ({ item, accent }) => {
   }
   return (
     <span className="inline-flex flex-wrap items-center gap-2 rounded-full border border-border bg-card px-3 py-1">
-      <span className="text-xs font-medium text-foreground">{item.label}</span>
+      <span className="text-[13px] font-medium text-foreground">{item.label}</span>
       <MaturityBadge level={item.level} />
     </span>
   );
@@ -146,17 +146,15 @@ const Tier = ({ tier, index }) => {
           </span>
 
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+            <p className="text-[13px] font-medium text-muted-foreground">
               {tier.eyebrow}
             </p>
             <h3
-              className={`mt-1 font-body font-bold tracking-[-0.02em] text-foreground ${
-                tier.emphasis ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
-              }`}
+              className={`mt-1 ${tier.emphasis ? "headline-standard" : "subhead"}`}
             >
               {tier.title}
             </h3>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
               {tier.body}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -172,14 +170,14 @@ const Tier = ({ tier, index }) => {
                 <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
                   {TEASER_PARAMETERS.map((p) => (
                     <div key={p.label}>
-                      <dt className="text-[12px] text-muted-foreground">{p.label}</dt>
+                      <dt className="text-[13px] text-muted-foreground">{p.label}</dt>
                       <dd className="mt-0.5 text-[15px] font-semibold tabular-nums text-foreground">{p.value}</dd>
                     </div>
                   ))}
                 </dl>
                 <Link
                   to="/tokenomics"
-                  className="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-primary hover:underline"
+                  className="mt-5 inline-flex items-center gap-1.5 text-[15px] font-semibold text-primary hover:underline"
                 >
                   Full tokenomics and allocation
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -230,8 +228,8 @@ const ZevStack = () => {
 
         {/* Brief §10: ZLN and carbon credits are separate assets and must never
             be presented as the same thing. */}
-        <div className="mx-auto mt-10 max-w-3xl rounded-lg border border-border bg-muted/40 px-5 py-4">
-          <p className="text-sm leading-relaxed text-muted-foreground">
+        <div className="mx-auto mt-10 max-w-2xl rounded-xl border border-border bg-muted/40 px-5 py-4">
+          <p className="text-[15px] leading-relaxed text-muted-foreground">
             <span className="font-semibold text-foreground">ZLN is not a carbon credit.</span> ZLN is
             the ZelionTech ecosystem&apos;s utility token. A carbon credit is a separately verified
             environmental asset, issued by an independent body under an applicable standard. Holding

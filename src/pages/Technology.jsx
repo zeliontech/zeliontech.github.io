@@ -211,7 +211,7 @@ const SectionHead = ({ eyebrow, title, lede, align = "center" }) => (
       {eyebrow}
     </p>
     <h2 className="headline mt-4">{title}</h2>
-    {lede && <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">{lede}</p>}
+    {lede && <p className="lede mt-4">{lede}</p>}
   </div>
 );
 
@@ -274,42 +274,42 @@ const Technology = () => {
             />
             <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-5">
               <Reveal className="glass-card p-6 sm:p-8 lg:col-span-3">
-                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                <p className="text-[13px] font-medium text-muted-foreground">
                   Connected infrastructure
                 </p>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {SOURCES.map(({ Icon, label }) => (
-                    <li key={label} className="flex items-center gap-3 text-sm text-foreground">
+                    <li key={label} className="flex items-center gap-3 text-[15px] text-foreground">
                       <IconTile Icon={Icon} tone="emerald" />
                       {label}
                     </li>
                   ))}
                 </ul>
-                <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-5 text-[13px] leading-relaxed text-muted-foreground">
                   Which of these a given ZEV connects to depends on the installation and the equipment it is
                   configured for.
                 </p>
               </Reveal>
               <Reveal delay={0.08} className="glass-card p-6 sm:p-8 lg:col-span-2">
-                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                <p className="text-[13px] font-medium text-muted-foreground">
                   Information ZEV can process
                 </p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {SIGNALS.map((s) => (
                     <li
                       key={s}
-                      className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground"
+                      className="rounded-full border border-border bg-card px-3 py-1 text-[13px] font-medium text-foreground"
                     >
                       {s}
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                <p className="mt-6 text-[13px] font-medium text-muted-foreground">
                   Integration status
                 </p>
                 <ul className="mt-3 space-y-2.5">
                   {INTEGRATIONS.map((item) => (
-                    <li key={item.label} className="flex items-start gap-2.5 text-sm">
+                    <li key={item.label} className="flex items-start gap-2.5 text-[15px]">
                       <MaturityBadge level={item.level} className="mt-px shrink-0" />
                       <span>
                         <span className="text-foreground">{item.label}</span>
@@ -349,18 +349,18 @@ const Technology = () => {
               <Reveal className="glass-card p-6 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">ZEV Lite</p>
+                    <p className="text-[13px] font-medium text-muted-foreground">ZEV Lite</p>
                     <h3 className="mt-1 subhead">Proof of concept</h3>
                   </div>
                   <MaturityBadge level="demonstrated" />
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                   Physical energy information captured by hardware, transformed into cryptographically verifiable
                   information and connected with blockchain infrastructure.
                 </p>
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                   {ZEV_LITE.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-foreground">
+                    <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
                       <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: EMERALD }} />
                       {item}
                     </li>
@@ -370,18 +370,18 @@ const Technology = () => {
               <Reveal delay={0.08} className="glass-card p-6 ring-1 ring-primary/20 sm:p-8">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">ZEV Pro</p>
+                    <p className="text-[13px] font-medium text-muted-foreground">ZEV Pro</p>
                     <h3 className="mt-1 subhead">Industrial evolution</h3>
                   </div>
                   <MaturityBadge level="in-development" />
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                   The next architecture, under development. Each item is a planned capability of the ZEV Pro
                   platform — not something deployed commercially today.
                 </p>
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                   {ZEV_PRO.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-foreground">
+                    <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
                       <MaturityBadge level="planned" className="shrink-0" />
                       {item}
                     </li>
@@ -403,12 +403,12 @@ const Technology = () => {
             <ol className="mx-auto grid max-w-6xl gap-4 md:grid-cols-5">
               {TRUST_CHAIN.map(({ Icon, title, body, level }, i) => (
                 <Reveal key={title} delay={i * 0.05} className="glass-card relative flex flex-col p-5">
-                  <span className="absolute right-4 top-4 text-[12px] font-semibold tabular-nums text-muted-foreground">
+                  <span className="absolute right-4 top-4 text-[13px] font-semibold tabular-nums text-muted-foreground">
                     0{i + 1}
                   </span>
                   <IconTile Icon={Icon} />
-                  <h3 className="mt-4 font-body text-[16px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
-                  <p className="mt-2 flex-1 text-xs leading-relaxed text-muted-foreground">{body}</p>
+                  <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                  <p className="mt-2 flex-1 text-[13px] leading-relaxed text-muted-foreground">{body}</p>
                   <MaturityBadge level={level} className="mt-4 self-start" />
                 </Reveal>
               ))}
@@ -425,14 +425,14 @@ const Technology = () => {
               lede="ZEV does not only measure energy. The future architecture is designed to make it an intelligent layer between physical energy infrastructure and digital infrastructure — analysing on the device, at the edge."
             />
             <div className="mx-auto max-w-5xl">
-              <div className="mb-6 flex flex-wrap items-center justify-center gap-2.5 text-sm text-muted-foreground">
+              <div className="mb-6 flex flex-wrap items-center justify-center gap-2.5 text-[15px] text-muted-foreground">
                 <MaturityBadge level="planned" />
                 <span>Potential functions of the ZEV Pro edge architecture</span>
               </div>
               <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {AI_FUNCTIONS.map(({ Icon, label }, i) => (
                   <Reveal key={label} delay={i * 0.03}>
-                    <li className="glass-card flex items-center gap-3 p-4 text-sm text-foreground">
+                    <li className="glass-card flex items-center gap-3 p-4 text-[15px] text-foreground">
                       <IconTile Icon={Icon} />
                       {label}
                     </li>
@@ -454,12 +454,12 @@ const Technology = () => {
             <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
               <Reveal className="glass-card p-6 sm:p-8">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">Goes on-chain</p>
+                  <p className="text-[13px] font-medium text-muted-foreground">Goes on-chain</p>
                   <MaturityBadge level="demonstrated" />
                 </div>
                 <ul className="mt-5 space-y-3">
                   {ON_CHAIN.map(({ Icon, label }) => (
-                    <li key={label} className="flex items-center gap-3 text-sm text-foreground">
+                    <li key={label} className="flex items-center gap-3 text-[15px] text-foreground">
                       <IconTile Icon={Icon} />
                       {label}
                     </li>
@@ -467,10 +467,10 @@ const Technology = () => {
                 </ul>
               </Reveal>
               <Reveal delay={0.08} className="glass-card p-6 sm:p-8">
-                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">Stays off-chain</p>
+                <p className="text-[13px] font-medium text-muted-foreground">Stays off-chain</p>
                 <ul className="mt-5 space-y-3">
                   {OFF_CHAIN.map(({ Icon, label }) => (
-                    <li key={label} className="flex items-center gap-3 text-sm text-foreground">
+                    <li key={label} className="flex items-center gap-3 text-[15px] text-foreground">
                       <IconTile Icon={Icon} tone="emerald" />
                       {label}
                     </li>
@@ -478,7 +478,7 @@ const Technology = () => {
                 </ul>
               </Reveal>
             </div>
-            <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-8 max-w-3xl text-center text-[15px] leading-relaxed text-muted-foreground">
               ZLN, the ecosystem token, lives on the same chain but is a separate layer: the digital utility
               layer around the physical ZEV infrastructure.{" "}
               <Link to="/#ecosystem" className="font-medium text-primary hover:underline">
@@ -502,7 +502,7 @@ const Technology = () => {
                 <Reveal key={title} delay={i * 0.05} className="glass-card flex flex-col p-6">
                   <IconTile Icon={Icon} />
                   <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                  <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
                   <MaturityBadge level={level} className="mt-4 self-start" />
                 </Reveal>
               ))}
@@ -516,21 +516,21 @@ const Technology = () => {
             <div className="glass-card mx-auto flex max-w-4xl flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between lg:p-10">
               <div>
                 <h2 className="subhead">See the whole chain in motion</h2>
-                <p className="mt-2 text-sm text-muted-foreground">
+                <p className="mt-2 text-[15px] text-muted-foreground">
                   The homepage animation walks from a renewable source to a verifiable record in six beats.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/#how-zev-works"
-                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-body text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-body text-[15px] font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-primary/90"
                 >
                   Watch how ZEV works
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 font-body text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:bg-muted"
+                  className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 font-body text-[15px] font-semibold uppercase tracking-wider text-foreground transition-colors hover:bg-muted"
                 >
                   Talk to ZelionTech
                 </Link>
