@@ -786,3 +786,33 @@
     }
   }
 }
+
+/* Hero scene: the photograph moves against the pointer like the old backdrop
+   did, slightly enlarged so the motion never exposes an edge, and four soft
+   fades dissolve its frame into the page. */
+@layer components {
+  .hero-parallax-photo {
+    transform: translate3d(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px), 0) scale(1.04);
+    transition: transform 1100ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
+  /* The frame is masked, not overpainted: a clipped edge under a white
+     overlay still prints a hairline where the anti-aliased boundary of the
+     composited image lets the layer beneath through. Masking makes the
+     edge pixels genuinely transparent, so only the page shows there. */
+  .hero-photo-mask {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 18%, #000 86%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 16%, #000 72%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 18%, #000 86%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 16%, #000 72%, transparent 100%);
+    mask-composite: intersect;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-parallax-photo {
+      transition: none;
+    }
+  }
+}

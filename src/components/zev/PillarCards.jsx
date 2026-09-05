@@ -1,8 +1,8 @@
-import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Leaf } from "lucide-react";
 import Reveal from "./Reveal";
-import { LazyBoundary, usePointerTilt, useReducedMotion } from "./hooks";
+import { CARD_IMAGE } from "./card-image";
+import { usePointerTilt } from "./hooks";
 
 // The three pillar cards from the approved design reference: the device, the
 // token, and the environmental layer. One dark card, one light, one green.
@@ -12,8 +12,6 @@ import { LazyBoundary, usePointerTilt, useReducedMotion } from "./hooks";
 // issuance needs an accepted methodology, registration and independent
 // verification — so the card says the data supports carbon accounting and MRV.
 
-const ZevDeviceCloseup = lazy(() => import("./ZevDeviceCloseup"));
-
 // Logo path from public/logo.svg (viewBox 200 520 280 390), reused on the coin.
 const LOGO = (
   <g fill="#FFFFFF">
@@ -22,38 +20,36 @@ const LOGO = (
   </g>
 );
 
-/** Device close-up: 3D when motion is allowed, a crop of the poster otherwise. */
-const DeviceArt = () => {
-  const reduced = useReducedMotion();
-  const poster = (
-    <img
-      src="/zev/device-poster.svg"
-      alt=""
-      aria-hidden="true"
-      className="absolute left-[38%] top-[8%] h-[150%] w-auto max-w-none"
-      draggable={false}
-    />
-  );
-  return (
-    <div className="absolute inset-0">
-      {/* Cool spill from the light bar across the card */}
-      <div
+/**
+ * Device close-up: a crop of the same on-site scene the hero uses, so the
+ * card shows the product the visitor has just seen. The top of the crop
+ * dissolves into the ink card behind the copy; the whole frame eases in
+ * a touch on hover alongside the card tilt.
+ */
+const DeviceArt = () => (
+  <div className="absolute inset-0">
+    <picture>
+      <source type="image/avif" srcSet={CARD_IMAGE.avif} />
+      <source type="image/webp" srcSet={CARD_IMAGE.webp} />
+      <img
+        src={CARD_IMAGE.jpg}
+        width={CARD_IMAGE.width}
+        height={CARD_IMAGE.height}
+        alt=""
         aria-hidden="true"
-        className="absolute inset-0"
-        style={{ background: "radial-gradient(60% 70% at 72% 55%, rgba(79,195,255,0.22) 0%, rgba(79,195,255,0) 70%)" }}
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_45%] transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
+        draggable={false}
       />
-      {reduced ? (
-        poster
-      ) : (
-        <LazyBoundary fallback={poster}>
-          <Suspense fallback={poster}>
-            <ZevDeviceCloseup />
-          </Suspense>
-        </LazyBoundary>
-      )}
-    </div>
-  );
-};
+    </picture>
+    <div
+      aria-hidden="true"
+      className="absolute inset-0"
+      style={{ background: "linear-gradient(to bottom, hsl(var(--ink)) 0%, hsl(var(--ink) / 0) 46%)" }}
+    />
+  </div>
+);
 
 const CoinArt = () => (
   <svg viewBox="0 0 320 210" className="absolute inset-0 h-full w-full" aria-hidden="true" preserveAspectRatio="xMidYMax slice">

@@ -12,10 +12,18 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400-latin.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400-latin.woff2" />
 
-    <!-- The hero device poster is rendered by React, so without this the
-         browser cannot discover it until the bundle has executed. It is the
-         hero's largest paint on mobile and the 3D fallback on desktop. -->
-    <link rel="preload" as="image" type="image/svg+xml" href="/zev/device-poster.svg" />
+    <!-- The hero scene is rendered by React, so without this the browser
+         cannot discover it until the bundle has executed. It is the largest
+         paint on every viewport. Browsers without AVIF skip a typed preload
+         and pick the WebP or JPEG from the <picture> as usual. Keep the
+         srcset and sizes identical to src/components/zev/hero-image.js. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset="/zev/zev-scene-800.avif 800w, /zev/zev-scene-1200.avif 1200w, /zev/zev-scene-1600.avif 1600w"
+      imagesizes="(min-width: 1024px) 720px, 100vw"
+    />
 
     <!-- Primary Meta Tags -->
     <title>ZelionTech Energy Network</title>

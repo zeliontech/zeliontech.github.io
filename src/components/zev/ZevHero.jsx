@@ -1,40 +1,30 @@
-import { lazy, Suspense, useCallback } from "react";
+import { useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MaturityBadge from "./MaturityBadge";
-import HeroScene from "./HeroScene";
-import { LazyBoundary, useFinePointer, useReducedMotion } from "./hooks";
+import { HERO_IMAGE } from "./hero-image";
+import { useFinePointer, useReducedMotion } from "./hooks";
 
 // Homepage hero, built to the approved design reference: white ground, a
 // heavy near-black headline with a single azure word, two pill actions, and
-// the ZEV device presented as a product shot over an energy-ribbon backdrop.
+// the ZEV device on site among solar arrays and wind turbines, the edges of
+// the scene dissolving into the page.
+//
+// The scene is the owner-supplied render, delivered as AVIF / WebP / JPEG at
+// three widths from public/zev (built by scratchpad/build-hero-image.js). It
+// replaced the three.js device and the vector backdrop that stood in until
+// imagery existed; the 3D model still drives the close-up in the pillar cards.
 
-const ZevDevice3D = lazy(() => import("./ZevDevice3D"));
-
-const DevicePoster = ({ className }) => (
-  <img
-    src="/zev/device-poster.svg"
-    alt="The ZEV device: a brushed aluminium tower with a black glass front panel and a vertical blue status light"
-    className={className}
-    width="300"
-    height="390"
-    loading="eager"
-    fetchpriority="high"
-    decoding="async"
-    draggable={false}
-  />
-);
+const ALT =
+  "The ZEV device, a graphite tower with a silver edge and a cyan status light, standing on a concrete pad in front of a solar array, with wind turbines on the wooded hills behind";
 
 const ZevHero = ({ children }) => {
   const reduced = useReducedMotion();
-  // The 3D chunk is ~235 KB gzipped; respect an explicit data-saver setting.
-  const saveData = typeof navigator !== "undefined" && navigator.connection?.saveData === true;
-  const show3D = !reduced && !saveData;
 
   // Pointer parallax: the section carries --px/--py in -1..1 and index.css
-  // moves the backdrop, the device and the chip at three different rates.
-  // Only for mouse-like pointers, never under reduced motion.
+  // moves the scene and the chip at two rates. Only for mouse-like pointers,
+  // never under reduced motion.
   const finePointer = useFinePointer();
   const parallax = finePointer && !reduced;
   const onPointerMove = useCallback((event) => {
@@ -98,26 +88,43 @@ const ZevHero = ({ children }) => {
             </div>
           </div>
 
-          {/* Device stage */}
+          {/* The scene. The crop keeps the device just right of the copy with
+              the arrays and turbines opening up behind it, and a mask
+              dissolves the frame into the page on all four sides. The
+              blurred placeholder is painted behind the picture so nothing
+              flashes white while the image arrives. */}
           <div className="lg:col-span-6 xl:col-span-7">
-            <div className="relative mx-auto aspect-[5/4] w-full max-w-[720px]">
-              <HeroScene className="hero-parallax-far absolute inset-0 h-full w-full" />
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="hero-parallax-near relative h-[88%] w-[72%]">
-                  {show3D ? (
-                    <LazyBoundary fallback={<DevicePoster className="mx-auto h-full w-auto" />}>
-                      <Suspense fallback={<DevicePoster className="mx-auto h-full w-auto" />}>
-                        <ZevDevice3D />
-                      </Suspense>
-                    </LazyBoundary>
-                  ) : (
-                    <DevicePoster className="mx-auto h-full w-auto" />
-                  )}
-                </div>
-              </div>
-
-              <p className="eyebrow hero-parallax-chip absolute right-2 top-6 hidden max-w-[7.5rem] leading-relaxed sm:block">
+            <div className="hero-photo-mask relative mx-auto aspect-[4/3] w-full max-w-[720px] overflow-hidden lg:aspect-[3/2]">
+              {/* Blurred placeholder, inset so it never reaches the frame edge
+                  (at the edge the fades are only just white, and a hard
+                  placeholder edge would print through as a hairline). */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-[8%] scale-110 blur-2xl"
+                style={{
+                  backgroundImage: `url("${HERO_IMAGE.placeholder}")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "20% 50%",
+                }}
+              />
+              <picture>
+                <source type="image/avif" srcSet={HERO_IMAGE.avif} sizes={HERO_IMAGE.sizes} />
+                <source type="image/webp" srcSet={HERO_IMAGE.webp} sizes={HERO_IMAGE.sizes} />
+                <img
+                  src={HERO_IMAGE.fallback}
+                  srcSet={HERO_IMAGE.jpg}
+                  sizes={HERO_IMAGE.sizes}
+                  width={HERO_IMAGE.width}
+                  height={HERO_IMAGE.height}
+                  alt={ALT}
+                  className="hero-parallax-photo absolute inset-0 h-full w-full object-cover object-[22%_50%] lg:object-[12%_50%]"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  draggable={false}
+                />
+              </picture>
+              <p className="eyebrow hero-parallax-chip absolute right-2 top-5 hidden max-w-[7.5rem] leading-relaxed sm:block">
                 Clean energy, brighter tomorrows
               </p>
             </div>
