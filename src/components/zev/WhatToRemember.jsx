@@ -123,29 +123,30 @@ const WhatToRemember = () => {
         </Reveal>
 
         {/* The seven beats, indexed under the nodes above */}
-        <div className="mt-16 lg:mt-20">
+        {/* The seven beats arrive together, as one block: motion belongs to the
+            section, not to every line item. */}
+        <Reveal delay={0.1} className="mt-16 lg:mt-20">
           <p className="eyebrow text-center">The story, in seven lines</p>
           <ol className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 xl:gap-x-6">
             {STORY.map((beat, i) => {
               const lit = litBeats === null || litBeats.has(i);
               return (
-                <Reveal key={beat.head} delay={i * 0.04}>
-                  <li
-                    className={`border-t border-border pt-5 transition-all duration-300 ${
-                      lit ? "opacity-100" : "opacity-30"
-                    }`}
-                  >
-                    <span className="text-[13px] font-semibold tabular-nums text-primary">0{i + 1}</span>
-                    <h3 className="mt-2 text-[17px] font-bold leading-snug tracking-[-0.01em] text-foreground">
-                      {beat.head}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{beat.body}</p>
-                  </li>
-                </Reveal>
+                <li
+                  key={beat.head}
+                  className={`border-t border-border pt-5 transition-all duration-300 ${
+                    lit ? "opacity-100" : "opacity-30"
+                  }`}
+                >
+                  <span className="text-[13px] font-semibold tabular-nums text-primary">0{i + 1}</span>
+                  <h3 className="mt-2 text-[17px] font-bold leading-snug tracking-[-0.01em] text-foreground">
+                    {beat.head}
+                  </h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{beat.body}</p>
+                </li>
               );
             })}
           </ol>
-        </div>
+        </Reveal>
 
         <div className="mt-14 flex flex-wrap justify-center gap-3">
           <Link

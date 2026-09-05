@@ -71,9 +71,9 @@ const accentColor = (accent) => (accent === "emerald" ? ECO : "hsl(var(--primary
 const accentBorder = (accent) => (accent === "emerald" ? "hsl(var(--eco) / 0.3)" : "hsl(var(--primary) / 0.3)");
 const accentFill = (accent) => (accent === "emerald" ? "hsl(var(--eco) / 0.07)" : "hsl(var(--primary) / 0.08)");
 
-// Vertical connector with drifting dashes — the energy/data flowing down the
-// stack. Static under prefers-reduced-motion (the .zev-energy-path rule
-// disables its own animation).
+// Vertical connector — the energy/data flowing down the stack. The line is
+// drawn once as it scrolls into view (.stack-draw) and fully drawn where
+// scroll-driven animations or motion are unavailable.
 const Connector = ({ accent }) => (
   <div className="flex justify-center py-3" aria-hidden="true">
     <svg width="24" height="56" viewBox="0 0 24 56" className="overflow-visible">
@@ -83,10 +83,11 @@ const Connector = ({ accent }) => (
         y1="0"
         x2="12"
         y2="56"
+        pathLength="1"
         stroke={accentColor(accent)}
         strokeOpacity="0.75"
         strokeWidth="2"
-        className="zev-energy-path"
+        className="stack-draw"
       />
       <path
         d="M6 44 L12 52 L18 44"

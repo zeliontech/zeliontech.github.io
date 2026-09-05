@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -55,17 +56,23 @@ const FAQSection = () => {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl"
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          {/* Hairline rows, not cards: a plus that turns into a cross. */}
+          <Accordion type="single" collapsible className="border-t border-border">
             {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="glass-card overflow-hidden border-border/50 px-8"
-              >
-                <AccordionTrigger className="py-5 text-left font-body text-[15px] font-semibold text-foreground hover:no-underline hover:text-primary sm:text-[17px]">
+              <AccordionItem key={index} value={`item-${index}`} className="border-b border-border">
+                <AccordionTrigger
+                  className="gap-6 py-6 text-left font-body text-[17px] font-semibold text-foreground hover:no-underline hover:text-primary [&[data-state=open]>svg]:rotate-45"
+                  icon={
+                    <Plus
+                      className="h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300 motion-reduce:transition-none"
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    />
+                  }
+                >
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-[15px] leading-relaxed text-muted-foreground">
+                <AccordionContent className="max-w-[62ch] pb-6 text-[15px] leading-relaxed text-muted-foreground">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

@@ -162,11 +162,6 @@ const PillarCard = ({ card }) => {
       className={`tilt-card group relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-3xl border ${
         card.dark ? "ink-surface border-transparent" : "border-border bg-card hover:border-foreground/15"
       }`}
-      style={
-        card.dark
-          ? undefined
-          : { boxShadow: "0 1px 2px hsl(220 15% 8% / 0.04), 0 8px 24px -14px hsl(220 15% 8% / 0.12)" }
-      }
     >
       <div className="relative z-10 flex flex-col p-7 lg:p-8">
         <p className={`eyebrow ${card.dark ? "text-white/55" : ""}`}>{card.eyebrow}</p>

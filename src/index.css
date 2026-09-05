@@ -281,9 +281,10 @@
 @layer components {
   /* Industrial Metal Card Surfaces */
   /* Surface card: white, hairline border, soft lift on hover. */
+  /* Cards rest on a hairline border alone; depth appears on hover only, so a
+     page of cards reads as one calm surface rather than a field of shadows. */
   .glass-card {
     @apply bg-card border border-border rounded-2xl;
-    box-shadow: 0 1px 2px hsl(220 15% 8% / 0.04), 0 8px 24px -12px hsl(220 15% 8% / 0.10);
   }
 
   .glass-card-hover {
@@ -773,6 +774,7 @@
   @media (hover: hover) and (pointer: fine) {
     .tilt-card:hover {
       --lift: -4px;
+      box-shadow: 0 18px 40px -18px hsl(220 15% 8% / 0.18);
     }
     .tilt-card:hover .card-photo {
       transform: scale(1.04);
@@ -810,6 +812,32 @@
     transform: translate3d(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -6px), 0) scale(1.04);
     transition: transform 1100ms cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform;
+    /* One slow settle on arrival, from 1.08 to the resting 1.04. Fill mode
+       "backwards" hands the transform back to the parallax rule the moment
+       the animation ends, so the two never fight. */
+    animation: hero-settle 1600ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  }
+  @keyframes hero-settle {
+    from { transform: scale(1.08); }
+    to { transform: scale(1.04); }
+  }
+
+  /* Stack connector: drawn once as it enters the viewport where scroll-driven
+     animations exist; fully drawn everywhere else. */
+  .stack-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  @supports (animation-timeline: view()) {
+    .stack-draw {
+      animation: stack-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    @keyframes stack-draw {
+      from { stroke-dashoffset: 1; }
+      to { stroke-dashoffset: 0; }
+    }
   }
   /* The frame is masked, not overpainted: a clipped edge under a white
      overlay still prints a hairline where the anti-aliased boundary of the
@@ -828,6 +856,10 @@
   @media (prefers-reduced-motion: reduce) {
     .hero-parallax-photo {
       transition: none;
+      animation: none;
+    }
+    .stack-draw {
+      animation: none;
     }
   }
 }
