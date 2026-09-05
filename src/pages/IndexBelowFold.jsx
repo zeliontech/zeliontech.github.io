@@ -1,16 +1,11 @@
 import ZevProcess from "@/components/zev/ZevProcess";
 import PillarCards from "@/components/zev/PillarCards";
-import ValueStrip from "@/components/zev/ValueStrip";
 import WhyValidate from "@/components/zev/WhyValidate";
 import ZevStack from "@/components/zev/ZevStack";
-import DigitalUtilities from "@/components/zev/DigitalUtilities";
-import UseCases from "@/components/zev/UseCases";
 import ZevRoadmap from "@/components/zev/ZevRoadmap";
-import ZlnLayer from "@/components/zev/ZlnLayer";
 import WhatToRemember from "@/components/zev/WhatToRemember";
 import TeamSection from "@/components/landing/TeamSection";
 import FAQSection from "@/components/landing/FAQSection";
-import LegalNotice from "@/components/landing/LegalNotice";
 import ContactSection from "@/components/landing/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -20,29 +15,24 @@ import Footer from "@/components/Footer";
  * hero: hash links such as /#how-zev-works rely on their targets existing when
  * ScrollToTop looks for them, which a lazily loaded chunk could not promise.
  *
- * Order follows the approved design reference for the opening sequence —
- * process strip, three pillar cards, value strip — and then continues into
- * the fuller ZEV story required by the brief.
- *
- * The waitlist section (NotifyLaunchSection) stays out of this graph on
- * purpose: importing it alone pulls in the Firebase SDK.
+ * The page is a story, not an index. It runs: how the machine works, the
+ * three pillars, why validation belongs at the source (with the four proof
+ * points), the ZEV and ZLN stack (with the token teaser), the roadmap, the
+ * one-sentence takeaway, the people, four questions, contact. Digital
+ * utilities and use cases live on the ZEV page; the full token detail lives
+ * on Tokenomics; the legal line lives in the footer and on the Legal page.
  */
 const IndexBelowFold = () => {
   return (
     <>
       <ZevProcess />
       <PillarCards />
-      <ValueStrip />
       <WhyValidate />
       <ZevStack />
-      <DigitalUtilities />
-      <UseCases />
       <ZevRoadmap />
-      <ZlnLayer />
       <WhatToRemember />
       <TeamSection />
       <FAQSection />
-      <LegalNotice />
       <ContactSection />
       <Footer />
     </>

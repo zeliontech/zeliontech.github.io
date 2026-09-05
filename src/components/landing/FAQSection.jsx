@@ -12,24 +12,12 @@ import {
 // language.
 export const faqs = [
   {
-    q: "What is ZelionTech?",
-    a: "ZelionTech is an energy-technology company developing ZEV, the Zelion Energy Validator: hardware and software that measure renewable-energy activity at the equipment, validate it on the device and anchor a verifiable record on a public blockchain. ZLN, the ecosystem token, is the digital utility layer around that infrastructure — not the other way round.",
-  },
-  {
     q: "What is ZEV?",
     a: "An intelligent hardware-and-software platform that connects to real energy infrastructure — solar, wind, hydro and other renewable generation, batteries, inverters, meters and the grid — to collect, process, validate and digitally record energy information. ZEV Lite is a working proof of concept; ZEV Pro is the industrial platform in development.",
   },
   {
     q: "What has actually been demonstrated?",
     a: "The ZEV Lite proof of concept: physical energy measurement with an ESP32-based controller and energy-meter integration, energy-data processing, SHA-256 hashing, timestamping, anchoring on BNB Smart Chain and a dashboard. Everything labelled Planned or In Development on this site is not built yet, and we say so on every capability.",
-  },
-  {
-    q: "What goes on the blockchain?",
-    a: "A hash of each validated record, a timestamp and the transaction reference. The raw measurements and equipment telemetry stay off-chain. The chain is used as an integrity and verification layer, not as a database — anyone holding the original record can recompute its hash and compare it with the on-chain value.",
-  },
-  {
-    q: "What is ZLN and what does it do?",
-    a: "ZLN is the blockchain-based digital asset of the ZelionTech ecosystem on BNB Smart Chain: 500,000,000 maximum supply, 18 decimals, 0% transaction tax, no additional minting. It is designed to support participation and economic interactions within the ecosystem as those utilities are deployed. It is a utility token — not equity, not ownership, not a share of revenue.",
   },
   {
     q: "Does ZEV generate carbon credits? Is ZLN a carbon credit?",

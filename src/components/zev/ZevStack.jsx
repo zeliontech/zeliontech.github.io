@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { Sun, Cpu, Link2, Coins } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Sun, Cpu, Link2, Coins, ArrowRight } from "lucide-react";
 import MaturityBadge from "./MaturityBadge";
 import Reveal from "./Reveal";
+import { TEASER_PARAMETERS } from "./zln";
 import { useReducedMotion } from "./hooks";
 
 // ZEV + ZLN relationship (brief §12) — one of the central graphics of the
@@ -162,6 +164,28 @@ const Tier = ({ tier, index }) => {
                 <Chip key={typeof item === "string" ? item : item.label} item={item} accent={tier.accent} />
               ))}
             </div>
+
+            {/* The ZLN layer doubles as the homepage token teaser: four facts
+                and the way to the full tokenomics. The detail lives there. */}
+            {tier.id === "zln" && (
+              <div className="mt-6 border-t border-border pt-5">
+                <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
+                  {TEASER_PARAMETERS.map((p) => (
+                    <div key={p.label}>
+                      <dt className="text-[12px] text-muted-foreground">{p.label}</dt>
+                      <dd className="mt-0.5 text-[15px] font-semibold tabular-nums text-foreground">{p.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <Link
+                  to="/tokenomics"
+                  className="mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-primary hover:underline"
+                >
+                  Full tokenomics and allocation
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

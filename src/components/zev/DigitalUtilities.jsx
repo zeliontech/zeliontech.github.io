@@ -42,7 +42,7 @@ export const UTILITIES = [
     title: "AI edge intelligence",
     body: "ZEV Pro is designed to analyse energy information on the device itself: pattern analysis, anomaly and abnormal-equipment detection, data-integrity monitoring, optimisation and operational alerts.",
     flow: ["Validated readings", "On-device analysis", "Anomaly & tamper detection", "Predictive insights", "Operational alerts"],
-    more: { label: "AI functions on the Technology page", to: "/technology#ai" },
+    more: { label: "AI functions, in detail", to: "/zev#ai" },
   },
 ];
 

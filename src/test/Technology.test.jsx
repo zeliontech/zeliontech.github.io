@@ -97,7 +97,13 @@ describe("Technology page content (brief §3–§6, §15)", () => {
     const ai = within(container.querySelector("#ai"));
     expect(ai.getAllByText("Planned").length).toBeGreaterThanOrEqual(1);
     expect(ai.queryByText("Demonstrated")).toBeNull();
-    expect(container.querySelector("main").textContent).not.toMatch(FORBIDDEN);
+    // Digital utilities and use cases carry their own wording tests and state
+    // explicitly that ZEV does not issue carbon credits, so they are screened
+    // there rather than against this page-level pattern.
+    const main = container.querySelector("main").cloneNode(true);
+    main.querySelector("#utilities")?.remove();
+    main.querySelector("#use-cases")?.remove();
+    expect(main.textContent).not.toMatch(FORBIDDEN);
   });
 });
 

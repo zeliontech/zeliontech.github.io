@@ -139,8 +139,13 @@ const Footer = () => {
           </p>
           <p className="eyebrow">Building a cleaner tomorrow</p>
         </div>
-        <p className="mt-4 text-[13px] text-muted-foreground">
-          $ZLN is a utility token, not a financial product.
+        <p className="mt-4 max-w-3xl text-[13px] leading-relaxed text-muted-foreground">
+          $ZLN is a utility token, not a financial product. This site is published for information
+          only; participation in decentralised infrastructure involves risk. Read the{" "}
+          <Link to="/legal" className="underline underline-offset-2 hover:text-foreground">
+            legal disclaimer
+          </Link>
+          .
         </p>
       </div>
     </footer>

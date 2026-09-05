@@ -12,16 +12,7 @@ import TokenAllocation from "@/components/zev/TokenAllocation";
 // owner-approved final tokenomics. Utility is labelled Planned throughout:
 // the ecosystem services ZLN is designed to settle are not deployed yet.
 
-const CONTRACT = "0x9D9c5C7B7BfC398Ed446b7e53a8Ad8d62DCD0181";
-
-export const PARAMETERS = [
-  { label: "Network", value: "BNB Smart Chain" },
-  { label: "Token standard", value: "BEP-20" },
-  { label: "Maximum supply", value: "500,000,000 ZLN" },
-  { label: "Decimals", value: "18" },
-  { label: "Transaction tax", value: "0%" },
-  { label: "Additional minting", value: "Disabled" },
-];
+import { CONTRACT, PARAMETERS } from "@/components/zev/zln";
 
 const UTILITIES = [
   { Icon: Server, title: "Access to verified data", body: "Metered access to validated energy data streams and API endpoints." },

@@ -1,4 +1,4 @@
-import { AlertTriangle, ShieldOff, Unplug, CheckCircle2 } from "lucide-react";
+import { AlertTriangle, ShieldOff, Unplug, CheckCircle2, Globe, ShieldCheck, Leaf, Users } from "lucide-react";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
 
@@ -6,6 +6,15 @@ import MaturityBadge from "./MaturityBadge";
 // "Structural challenges", "Vision", "What is ZelionTech" and "Philosophy"
 // sections with one: the problem, ZelionTech's answer, and the message that
 // this is an infrastructure company whose token only coordinates around it.
+// The four proof points that used to be a separate value strip close the
+// section, so the argument and its evidence read as one.
+
+export const PROOF_POINTS = [
+  { Icon: Globe, tone: "primary", title: "Real-world data", body: "Measured at the equipment, not self-reported." },
+  { Icon: ShieldCheck, tone: "primary", title: "Blockchain secured", body: "Every proof anchored on BNB Smart Chain." },
+  { Icon: Leaf, tone: "eco", title: "Evidence, not claims", body: "Records that support credible reporting." },
+  { Icon: Users, tone: "primary", title: "Hardware first", body: "The token coordinates; it does not lead." },
+];
 
 export const CHALLENGES = [
   {
@@ -98,6 +107,27 @@ const WhyValidate = () => {
               </p>
             </div>
           </div>
+        </Reveal>
+
+        {/* Proof points: the four things the argument above rests on. */}
+        <Reveal delay={0.12} className="mx-auto mt-10 max-w-5xl">
+          <ul className="grid divide-y divide-border border-y border-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+            {PROOF_POINTS.map(({ Icon, tone, title, body }) => (
+              <li key={title} className="group flex items-start gap-4 px-2 py-6 lg:px-6">
+                <Icon
+                  className={`mt-0.5 h-6 w-6 shrink-0 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 motion-reduce:transition-none ${
+                    tone === "eco" ? "text-eco" : "text-primary"
+                  }`}
+                  strokeWidth={1.6}
+                  aria-hidden="true"
+                />
+                <div className="min-w-0">
+                  <p className="text-[16px] font-bold leading-tight tracking-[-0.02em] text-foreground">{title}</p>
+                  <p className="mt-1 text-[13.5px] leading-snug text-muted-foreground">{body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </section>

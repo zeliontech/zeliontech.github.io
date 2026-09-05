@@ -39,6 +39,8 @@ import Reveal from "@/components/zev/Reveal";
 import MaturityBadge from "@/components/zev/MaturityBadge";
 import ValidationPipeline from "@/components/zev/ValidationPipeline";
 import ZevScenePicture from "@/components/zev/ZevScenePicture";
+import DigitalUtilities from "@/components/zev/DigitalUtilities";
+import UseCases from "@/components/zev/UseCases";
 
 // Technology page (ZEV brief §16: hardware, Secure Element, AI, blockchain,
 // energy data, validation, APIs, security). Content follows brief §3–§6 and
@@ -54,6 +56,8 @@ const PILLS = [
   { label: "AI & edge", href: "#ai" },
   { label: "Blockchain", href: "#blockchain" },
   { label: "APIs", href: "#apis" },
+  { label: "Utilities", href: "#utilities" },
+  { label: "Use cases", href: "#use-cases" },
 ];
 
 // Brief §2 input list, with the owner's note that renewable generation is
@@ -534,6 +538,12 @@ const Technology = () => {
             </div>
           </div>
         </section>
+
+        {/* What the validated data is for, and where the machine is designed
+            to work (brief §6, §8, §9, §14). Moved here from the homepage so
+            the homepage stays a story and the ZEV page holds the detail. */}
+        <DigitalUtilities />
+        <UseCases />
       </main>
       <Footer />
     </div>
