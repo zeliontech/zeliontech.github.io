@@ -44,8 +44,7 @@ const FAQSection = () => {
             FAQ
           </p>
           <h2 className="headline-standard mt-4">
-            Frequently Asked{" "}
-            <span className="metal-gradient">Questions</span>
+            Questions <span className="metal-gradient">people ask</span>
           </h2>
         </motion.div>
 

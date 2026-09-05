@@ -726,16 +726,11 @@
   }
 }
 
-/* Hero depth: the scene (.hero-parallax-photo, further down) and the chip
-   move at two rates against the pointer (--px/--py in -1..1, set on the hero
-   section). The variables are never written on touch or under reduced
-   motion, so the transforms rest at zero there. */
+/* Hero depth: the scene (.hero-parallax-photo, further down) moves against
+   the pointer (--px/--py in -1..1, set on the hero section). The variables
+   are never written on touch or under reduced motion, so the transform rests
+   at zero there. */
 @layer components {
-  .hero-parallax-chip {
-    transform: translate3d(calc(var(--px, 0) * 14px), calc(var(--py, 0) * 8px), 0);
-    transition: transform 1100ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: transform;
-  }
 
   /* Scroll cue: a short light travels down a hairline, and the whole cue
      dissolves over the first 240px of scroll where scroll-driven animations

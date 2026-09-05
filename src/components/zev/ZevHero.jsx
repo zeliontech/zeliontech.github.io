@@ -20,8 +20,8 @@ const ZevHero = ({ children }) => {
   const reduced = useReducedMotion();
 
   // Pointer parallax: the section carries --px/--py in -1..1 and index.css
-  // moves the scene and the chip at two rates. Only for mouse-like pointers,
-  // never under reduced motion.
+  // moves the scene against the pointer. Only for mouse-like pointers, never
+  // under reduced motion.
   const finePointer = useFinePointer();
   const parallax = finePointer && !reduced;
   const onPointerMove = useCallback((event) => {
@@ -47,7 +47,7 @@ const ZevHero = ({ children }) => {
         <div className="grid items-center gap-10 py-12 lg:min-h-[calc(100vh-5rem)] lg:grid-cols-12 lg:gap-8 lg:py-8">
           {/* Copy — painted at first render, so it counts toward LCP. */}
           <div className="lg:col-span-6 xl:col-span-5">
-            <p className="eyebrow">Clean energy. Verified. Valuable.</p>
+            <p className="eyebrow">Energy validation hardware</p>
 
             <h1 className="display mt-5">
               From physical energy to <span className="metal-gradient">proof.</span>
@@ -91,13 +91,8 @@ const ZevHero = ({ children }) => {
               blurred placeholder is painted behind the picture so nothing
               flashes white while the image arrives. */}
           <div className="lg:col-span-6 xl:col-span-7">
-            {/* The chip sits beside the masked frame, not inside it, so the
-                mask never fades its text. */}
-            <div className="relative mx-auto w-full max-w-[720px]">
-            <ZevScenePicture priority parallax />
-            <p className="eyebrow hero-parallax-chip absolute right-2 top-5 hidden max-w-[7.5rem] leading-relaxed sm:block">
-              Clean energy, brighter tomorrows
-            </p>
+            <div className="mx-auto w-full max-w-[720px]">
+              <ZevScenePicture priority parallax />
             </div>
           </div>
         </div>

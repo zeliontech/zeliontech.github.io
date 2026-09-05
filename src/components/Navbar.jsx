@@ -90,7 +90,7 @@ const Navbar = () => {
         <div className="flex flex-1 items-center justify-end gap-3 lg:flex-none">
           <Button asChild size="default" className="hidden sm:inline-flex">
             <Link to="/contact">
-              Join the Future
+              Talk to us
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
@@ -134,7 +134,7 @@ const Navbar = () => {
             ))}
             <Button asChild className="mt-3 w-full">
               <Link to="/contact" onClick={() => setMobileOpen(false)}>
-                Join the Future
+                Talk to us
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>

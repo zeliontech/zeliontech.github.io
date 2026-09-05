@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Leaf } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { CARD_IMAGE } from "./card-image";
 import { usePointerTilt } from "./hooks";
@@ -172,11 +172,11 @@ const CARDS = [
     eyebrow: "ZEV device",
     title: (
       <>
-        More than a monitor.
-        <br />A new <span className="text-primary">standard.</span>
+        The device that turns
+        <br />a reading into <span className="text-primary">proof.</span>
       </>
     ),
-    body: "ZEV is a next-generation device built to bring intelligence, transparency and verifiable value to renewable energy infrastructure.",
+    body: "ZEV reads the equipment, validates the record on the device and anchors the proof on a public chain.",
     to: "/zev",
     dark: true,
     Art: DeviceArt,
@@ -186,11 +186,11 @@ const CARDS = [
     eyebrow: "ZLN token",
     title: (
       <>
-        Real value.
-        <br />Real <span className="metal-gradient">impact.</span>
+        One token, tied to
+        <br />the <span className="metal-gradient">infrastructure.</span>
       </>
     ),
-    body: "ZLN is the digital utility layer of the ecosystem, designed to connect verified energy data, ecosystem services and participation.",
+    body: "ZLN is the digital utility layer of the ecosystem: participation and services around validated energy data, coordinated by the hardware rather than leading it.",
     to: "/tokenomics",
     Art: CoinArt,
   },
@@ -199,14 +199,13 @@ const CARDS = [
     eyebrow: "Carbon credits",
     title: (
       <>
-        Verified today.
-        <br />A cleaner <span className="text-eco">tomorrow.</span>
+        Data a carbon auditor
+        <br />can <span className="text-eco">check.</span>
       </>
     ),
-    body: "Trusted, traceable energy data that supports carbon accounting, ESG reporting and digital MRV processes.",
+    body: "Traceable energy records that carbon accounting, ESG reporting and digital MRV processes can rely on.",
     to: "/carbon",
     Art: ForestArt,
-    badge: "A greener planet awaits",
   },
 ];
 
@@ -249,12 +248,6 @@ const PillarCard = ({ card }) => {
       {/* Art fills the lower half and bleeds to the card edges */}
       <div className="relative mt-auto h-52 w-full">
         <Art />
-        {card.badge && (
-          <span className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-eco backdrop-blur-sm">
-            <Leaf className="h-3 w-3" aria-hidden="true" />
-            {card.badge}
-          </span>
-        )}
       </div>
     </article>
   );

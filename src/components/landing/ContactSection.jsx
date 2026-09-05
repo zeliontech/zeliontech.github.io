@@ -17,7 +17,7 @@ const ContactSection = () => {
           className="mb-12 text-center"
         >
           <p className="eyebrow">
-            Get in Touch
+            Contact
           </p>
           <h2 className="headline-standard mt-4">
             Contact <span className="metal-gradient">ZelionTech</span>

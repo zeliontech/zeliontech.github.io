@@ -132,8 +132,8 @@ const ZevProcess = () => {
           <p className="eyebrow">How ZEV works</p>
           <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:gap-16">
             <h2 className="headline">
-              A simple process.
-              <br />A powerful <span className="metal-gradient">impact.</span>
+              Six steps from equipment
+              <br />to <span className="metal-gradient">proof.</span>
             </h2>
             <p className="lede max-w-xl lg:pt-3">
               ZEV captures, validates and secures energy data, turning real-world energy into
