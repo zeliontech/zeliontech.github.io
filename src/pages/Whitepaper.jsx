@@ -18,10 +18,9 @@ import { trackWhitepaperDownload } from "@/services/analyticsService";
 // demonstrated, so it has been replaced with what the proof of concept
 // actually showed and what the industrial platform is designed to add.
 
-// PUBLISHED PDF: this points at the currently published release. When the
-// next edition is published, update this URL and the version label together.
-const PDF_URL =
-  "https://github.com/zeliontech/zelion-whitepaper/releases/download/v1.0/Zelion_Whitepaper_v1.0.pdf";
+// PUBLISHED PDF: served from public/docs under a stable name so shared links
+// keep working. To publish a new edition, replace the file at that path.
+const PDF_URL = "/docs/ZEV-ZLN-Whitepaper.pdf";
 
 export const CHAPTERS = [
   { Icon: FileText, title: "Origin and structure", body: "How the project began, what ZelionTech built before any joint venture, and how the work is divided now." },
