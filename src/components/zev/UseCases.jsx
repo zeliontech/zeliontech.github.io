@@ -1,6 +1,5 @@
 import { Sun, Building2, Factory, BatteryCharging, Leaf, Cpu, Network, ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
-import MaturityBadge from "./MaturityBadge";
 
 // Use cases (brief §14). The seven deployment scenarios from the brief, with
 // the owner's note that renewable generation is not only solar. These are
@@ -94,10 +93,9 @@ const UseCases = () => {
             concept validated the core chain; each scenario below builds on ZEV Pro capabilities shown on
             the roadmap.
           </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-[15px] text-muted-foreground">
-            <MaturityBadge level="planned" />
-            <span>Deployment scenarios, not commercial deployments</span>
-          </div>
+          <p className="mt-5 text-[15px] text-muted-foreground">
+            Deployment scenarios, not commercial deployments.
+          </p>
         </Reveal>
 
         <ul className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">

@@ -342,16 +342,13 @@ const Technology = () => {
             <SectionHead
               eyebrow="Hardware"
               title="Two generations of one machine"
-              lede="ZEV Lite is the proof of concept that showed the idea works end to end. ZEV Pro is the industrial platform being engineered around it. Every capability below is labelled with where it actually stands."
+              lede="ZEV Lite is the proof of concept that showed the idea works end to end. ZEV Pro is the industrial platform being engineered around it."
             />
             <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
               <Reveal className="glass-card p-6 sm:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <p className="text-[13px] font-medium text-muted-foreground">ZEV Lite</p>
-                    <h3 className="mt-1 subhead">Proof of concept</h3>
-                  </div>
-                  <MaturityBadge level="demonstrated" />
+                <div>
+                  <p className="text-[13px] font-medium text-muted-foreground">ZEV Lite</p>
+                  <h3 className="mt-1 subhead">Proof of concept</h3>
                 </div>
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
                   Physical energy information captured by hardware, transformed into cryptographically verifiable
@@ -367,21 +364,21 @@ const Technology = () => {
                 </ul>
               </Reveal>
               <Reveal delay={0.08} className="glass-card p-6 ring-1 ring-primary/20 sm:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <p className="text-[13px] font-medium text-muted-foreground">ZEV Pro</p>
-                    <h3 className="mt-1 subhead">Industrial evolution</h3>
-                  </div>
-                  <MaturityBadge level="in-development" />
+                <div>
+                  <p className="text-[13px] font-medium text-muted-foreground">ZEV Pro</p>
+                  <h3 className="mt-1 subhead">Industrial evolution</h3>
                 </div>
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                  The next architecture, under development. Each item is a planned capability of the ZEV Pro
+                  The next architecture, under development. Each item is a capability of the ZEV Pro
                   platform — not something deployed commercially today.
                 </p>
+                {/* Same list treatment as ZEV Lite: a hollow azure dot for what is
+                    being engineered, against the solid eco dot of what the proof of
+                    concept showed. */}
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                   {ZEV_PRO.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
-                      <MaturityBadge level="planned" className="shrink-0" />
+                      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full border border-primary" />
                       {item}
                     </li>
                   ))}
@@ -397,10 +394,10 @@ const Technology = () => {
             <SectionHead
               eyebrow="Security"
               title="Infrastructure equipment, not a consumer gadget"
-              lede="Sensitive cryptographic operations and the device's identity are meant to live in hardware. Five things the ZEV architecture is built around — with the honest status of each."
+              lede="Sensitive cryptographic operations and the device's identity are meant to live in hardware. Five things the ZEV architecture is built around."
             />
             <ol className="mx-auto grid max-w-6xl gap-4 md:grid-cols-5">
-              {TRUST_CHAIN.map(({ Icon, title, body, level }, i) => (
+              {TRUST_CHAIN.map(({ Icon, title, body }, i) => (
                 <Reveal key={title} delay={i * 0.05} className="glass-card relative flex flex-col p-5">
                   <span className="absolute right-4 top-4 text-[13px] font-semibold tabular-nums text-muted-foreground">
                     0{i + 1}
@@ -408,7 +405,6 @@ const Technology = () => {
                   <IconTile Icon={Icon} />
                   <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
                   <p className="mt-2 flex-1 text-[13px] leading-relaxed text-muted-foreground">{body}</p>
-                  <MaturityBadge level={level} className="mt-4 self-start" />
                 </Reveal>
               ))}
             </ol>
@@ -497,12 +493,11 @@ const Technology = () => {
               lede="A record that has been through the chain is only useful if operators and other systems can reach it."
             />
             <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-              {INTERFACES.map(({ Icon, title, body, level }, i) => (
+              {INTERFACES.map(({ Icon, title, body }, i) => (
                 <Reveal key={title} delay={i * 0.05} className="glass-card flex flex-col p-6">
                   <IconTile Icon={Icon} />
                   <h3 className="mt-4 font-body text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
                   <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
-                  <MaturityBadge level={level} className="mt-4 self-start" />
                 </Reveal>
               ))}
             </div>

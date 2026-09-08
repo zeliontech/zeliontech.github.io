@@ -67,10 +67,16 @@ describe("Technology page content (brief §3–§6, §15)", () => {
     const hardware = within(container.querySelector("#hardware"));
     for (const item of ZEV_LITE) expect(hardware.getByText(item)).toBeInTheDocument();
     for (const item of ZEV_PRO) expect(hardware.getByText(item)).toBeInTheDocument();
-    // Every ZEV Pro item carries its own Planned badge; the platform is In Development.
-    expect(hardware.getAllByText("Planned")).toHaveLength(ZEV_PRO.length);
-    expect(hardware.getAllByText("In Development")).toHaveLength(1);
-    expect(hardware.getAllByText("Demonstrated")).toHaveLength(1);
+    // The owner removed the maturity badges from this section (2026-09-08):
+    // the two cards carry their status in prose, not in chips.
+    expect(hardware.queryByText("Planned")).toBeNull();
+    expect(hardware.queryByText("In Development")).toBeNull();
+    expect(hardware.queryByText("Demonstrated")).toBeNull();
+    for (const id of ["security", "apis"]) {
+      const section = within(container.querySelector(`#${id}`));
+      expect(section.queryByText("Planned")).toBeNull();
+      expect(section.queryByText("Demonstrated")).toBeNull();
+    }
   });
 
   it("keeps every Demonstrated label inside the proof-of-concept scope", () => {

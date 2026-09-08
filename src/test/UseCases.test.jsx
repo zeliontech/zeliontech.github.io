@@ -25,10 +25,12 @@ describe("<UseCases /> (brief §14)", () => {
     expect(CASES[5].flow).toEqual(["Renewables", "ZEV", "Energy allocation", "GPU / compute"]);
   });
 
-  it("renders every scenario as a planned deployment with no forbidden wording", () => {
+  it("renders every scenario as deployment scenarios, without maturity chips or forbidden wording", () => {
     const { container } = render(<UseCases />);
     for (const c of CASES) expect(screen.getByRole("heading", { level: 3, name: c.title })).toBeInTheDocument();
-    expect(screen.getByText("Planned")).toBeInTheDocument();
+    // The owner removed the maturity chip from this section (2026-09-08);
+    // the caveat sentence below the heading carries the status instead.
+    expect(screen.queryByText("Planned")).toBeNull();
     expect(screen.queryByText("Demonstrated")).toBeNull();
     expect(container.textContent).toMatch(/not commercial deployments/i);
     expect(container.textContent).not.toMatch(FORBIDDEN);
