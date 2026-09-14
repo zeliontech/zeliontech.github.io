@@ -20,7 +20,7 @@ import { trackWhitepaperDownload } from "@/services/analyticsService";
 
 // PUBLISHED PDF: served from public/docs under a stable name so shared links
 // keep working. To publish a new edition, replace the file at that path.
-const PDF_URL = "/docs/ZEV-ZLN-Whitepaper.pdf";
+const PDF_URL = "/docs/ZEV-ZLN_Whitepaper.pdf";
 
 export const CHAPTERS = [
   { Icon: FileText, title: "Origin and structure", body: "How the project began, what ZelionTech built before any joint venture, and how the work is divided now." },
