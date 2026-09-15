@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Zap, BarChart3, FileCheck2, Lock, Boxes, Leaf, ChevronRight } from "lucide-react";
+import { Zap, BarChart3, FileCheck2, Lock, Leaf, ChevronRight } from "lucide-react";
+import BnbChainMark from "./BnbChainMark";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
 import { useReducedMotion } from "./hooks";
@@ -47,7 +48,7 @@ export const STEPS = [
   },
   {
     n: 5,
-    Icon: Boxes,
+    Icon: BnbChainMark, // the network's own mark in its own gold, not a generic cube icon
     tone: "primary",
     title: "Recorded to blockchain",
     body: "The proof is anchored on BNB Smart Chain, where anyone can check it.",
