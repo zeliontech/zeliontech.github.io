@@ -29,7 +29,7 @@ export const PARTNERS = [
     name: "Expofin S.R.L.",
     where: "Italy",
     title: "Industrial energy engineering and the ZEV device",
-    body: "Development of the industrial ZEV device. Manufacturing at scale is planned through Expofin Turkey once the prototype is validated.",
+    body: "Development of the industrial ZEV device. Manufacturing at scale is planned through Expofin once the prototype is validated.",
   },
 ];
 
@@ -128,8 +128,8 @@ const JointVenture = () => (
           ZelionTech leads the digital side. Expofin leads the industrial side.
         </p>
         <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
-          Nominated directors of the joint venture: Dino Vincoletto for Expofin; İhsan Serdar Eldek
-          and Roula Jamil for ZelionTech.
+          Directors of the joint venture: Dino Vincoletto for Expofin; İhsan Serdar Eldek and Roula
+          Jamil for ZelionTech.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <Button asChild size="lg">

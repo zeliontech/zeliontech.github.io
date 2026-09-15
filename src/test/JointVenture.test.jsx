@@ -45,7 +45,7 @@ describe("<JointVenture />", () => {
     expect(text).toContain(JV_NAME);
     expect(text).toMatch(/being established in the United Kingdom/);
     expect(text).toMatch(/Expofin S\.R\.L\./);
-    expect(text).toMatch(/Expofin Turkey/);
+    expect(text).toMatch(/Directors of the joint venture/);
     expect(text).toMatch(/Dino Vincoletto/);
     expect(text).not.toMatch(CONFIDENTIAL);
     expect(text).not.toMatch(HYPE);
