@@ -38,7 +38,7 @@ export const BANNER_ALT =
   "Co-branded ZelionTech and Expofin E.S.Co. banner: the ZEV Pro tower and ZEV Lite wall unit beside the Expofin Smart Tower 5G, the EOS TH solar concentrator and Solid Power graphene energy storage, in front of solar panels, wind turbines and a city skyline. The headline reads Energy. Intelligence. Infrastructure.";
 
 const JointVenture = () => (
-  <section id="joint-venture" className="section scroll-mt-16 bg-background">
+  <section id="joint-venture" className="section scroll-mt-16 overflow-x-clip bg-background">
     <div className="container mx-auto px-4 lg:px-8">
       <Reveal className="mx-auto max-w-3xl text-center">
         <p className="eyebrow">Joint venture</p>
