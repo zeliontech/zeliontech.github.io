@@ -10,7 +10,8 @@ import { JV_BANNER } from "./jv-banner";
 // word on it is baked into the pixels and a full-width crop would lose them
 // on a phone. Below 640px an art-directed crop of the left part (logos,
 // headline, ZEV Pro and ZEV Lite) is served instead, and the two partner
-// cards repeat the facts as text.
+// cards repeat the facts as text. The build script rebuilds the composite's
+// own painted corners so the poster's CSS radius does the rounding cleanly.
 //
 // Every statement here comes from the whitepaper sections "The Joint
 // Venture" and "Project Partners". Nothing about how the venture is owned,
@@ -53,11 +54,27 @@ const JointVenture = () => (
         </p>
       </Reveal>
 
-      {/* The banner, framed. Width and height travel with every source so the
-          frame is reserved before the picture arrives, at either crop. */}
+      {/* The banner as a crisp poster with an ambient glow behind it. The
+          poster keeps every printed pixel and is clipped only by the site's
+          corner radius; the glow is the scene's own colours, blurred, and it
+          dissolves into the page on all four sides through the same mask the
+          hero photograph uses. Width and height travel with every source so
+          the space is reserved before the picture arrives, at either crop. */}
       <Reveal delay={0.06} className="mx-auto mt-12 max-w-6xl">
-        <figure className="m-0">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card">
+        <figure className="relative m-0">
+          <div
+            aria-hidden="true"
+            className="hero-photo-mask pointer-events-none absolute -inset-x-[18%] -bottom-[40%] -top-[12%]"
+          >
+            <div
+              className="jv-glow h-full w-full"
+              style={{
+                "--glow": `url("${JV_BANNER.desktop.glow}")`,
+                "--glow-mobile": `url("${JV_BANNER.mobile.glow}")`,
+              }}
+            />
+          </div>
+          <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_32px_90px_-48px_rgba(15,23,42,0.5)]">
             <div
               aria-hidden="true"
               className="absolute inset-0 scale-110 blur-2xl"
@@ -115,14 +132,16 @@ const JointVenture = () => (
               />
             </picture>
           </div>
-          <figcaption className="mt-3 text-[13px] text-muted-foreground">
+          {/* Credit kept for assistive tech; the picture carries both marks
+              itself, so a printed caption only repeated them. */}
+          <figcaption className="sr-only">
             Joint product line-up. Image: ZelionTech (UK) and Expofin E.S.Co. (Italy).
           </figcaption>
         </figure>
       </Reveal>
 
       {/* What each side builds */}
-      <Reveal delay={0.1} className="mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-2">
+      <Reveal delay={0.1} className="relative mx-auto mt-10 grid max-w-6xl gap-5 md:grid-cols-2">
         {PARTNERS.map((p) => (
           <div key={p.name} className="glass-card h-full p-6 lg:p-7">
             <p className="text-[13px] font-medium text-muted-foreground">

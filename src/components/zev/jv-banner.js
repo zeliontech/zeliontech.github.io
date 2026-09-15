@@ -10,6 +10,7 @@ export const JV_BANNER = {
     fallback: "/images/jv/jv-banner-1933.jpg",
     width: 1933,
     height: 813,
+    glow: "data:image/webp;base64,UklGRpoBAABXRUJQVlA4II4BAACwDwCdASpgACgAPpE+mUglo6KhLjYPMLASCUAWo4ARcTJRw4BjpkRtkeoVciPaCKCKNheXTZ9897JJ1/nD9J3tbNFk4+lcPZiZI9x6Y1V2u3mTONlUv1syS/qd1NOzgNtfIdGD8kh9zm63uKyp2lAJsA8b8oKe7vAH8dRHKcZdFPMUJgEAAAD++k2tMsXSbYZ693Be6SL3uaMBzX9WehjVm0272OLmfijjKa2E8Kx19WXpWBmIJeM2Led+cyCvdZ9OpRRwhJSTkspmSqZmcq+08cHcPg14YVqD1lFUpNp89TUYVTH+7XQiaaTuq9LD6uPQvJMQdjyIy/t7NkvbKRhoB0zBe6lxdWWBp1kgGsmgcULo09Rp7QMrDo5dj5SezAFN4RRHWQp0MakmqD4/k6gpX1yYuFy6/St17y5rPd70KCCMZ4rhVnDJkhsc5akqA3tD/NvwA+ie1tL/iiR/uMG9sPrYDw8LKPJIVK1K6c9t24rLvZEXPGfdwLuEpxhO43gK+PzOCAen56i8OzwAAA==",
   },
   // Art-directed crop of the left part, viewports below 640px.
   mobile: {
@@ -18,9 +19,10 @@ export const JV_BANNER = {
     webp: "/images/jv/jv-banner-mobile-640.webp 640w, /images/jv/jv-banner-mobile-960.webp 960w",
     jpg: "/images/jv/jv-banner-mobile-640.jpg 640w, /images/jv/jv-banner-mobile-960.jpg 960w",
     width: 960,
-    height: 723,
+    height: 736,
+    glow: "data:image/webp;base64,UklGRmACAABXRUJQVlA4IFQCAADQFQCdASpgAEoAPo08lkglI6IhNVgNmKARiUAYZXaR75T97cAAeb8HWMO9VSHssnTjoyMjzrcWrQi7zYTJlABAu2GqsRccZzsJAyINb1olJbWMNopMX2aaAtVPplU8+f8YT4/hxBtdSs3jZAsy93ySN0jWoZ+WKlVMMmi2OHWSfT0tBaEU8sdPigF5uk36QygK80ModTux1TcEuQHEPyBlqnHdN6ur+1Pn1wtphXw01O5FWYbmMAAA/vvAMWPoXvQDEbsOTHxWPE/nnW5VQ8XFwYbgZ6BjRQLwygL4BmWc+Qm1WzLdKOFm9PNftAu9NUuXPAtv7AUuL5PUOdFv6vkpxq3pX6ge4AbYRXfnTlmtTwutOnXndogi3wYJfSx8SWchTBP0YPf1QEJ+hJbk5eH8C2Sk/8hrgC1wYs4g8U3GWoNoeS7OasuClpSDQ8Ik+srma3nql9JpxIdLknk0QAt08MyUbWnArTx73wDI0U9FdIoCInDI+b3Ql3W7vIX8APd5jy9iF2IflWxRi+lP2XRYTAYwZCKiAjRRv07wIHbbjBfjsWfJiGRBVVk6F5itfkQIEPBCZILGyitUNULig2VFbOdOUUnxwecFXE93HCAS9rIoIbZz/Mu5OtJffe+FlHYYa1cv/BXIZ97kgQ7npj16TILmrJI+sEiUqmoTWR4TKHdypejqcC0njPysh1PT5gtcjXPiPGnuR7sRmmkiMnclkAY6y6G/eXMRPY3Dh8aPHZTbQjSzf21BhpJDoyIZp/KY6Tb4l9pdYT36Gcz026aJ1nskAA==",
   },
   // The figure sits in a max-w-6xl container (72rem) with 1rem side padding.
   sizes: "(min-width: 1280px) 1152px, calc(100vw - 2rem)",
-  placeholder: "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoYAAoAPu1iqU2ppaOiMAgBMB2JQBdiZAPX/AaxaTSQIli0Js34AP6vu1WlBL9ZJnuzIVeIIVZ5VjyCV7P7++/sD6CbXcHUuSouCYDZN+hcah6SzaeSf+mNyHyX+Iivf35tR/7Czkcs+qGxsm7uaRUF0n5A+LuBYuno0grR7ITKUUTGsSseetnsCmkzAAAA",
+  placeholder: "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBACdASoYAAoAPu1iqU2ppaQiMAgBMB2JQBdiP/wGsWk3g/ZvC+c7LAD+r/dySASKd9ZuFPl26X8hVnlWPIJXs/v77+wPoJtdwfAfix4T50YPzPl+PSWbTyT/0xuPvdgCGTBszxfZeoyFn5BU8xJeOUJz8xyzPjwij0TD+gmwNdQ1Q8TXrTFr5C2XWSVgod/AAA==",
 };
