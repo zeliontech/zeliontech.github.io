@@ -109,9 +109,7 @@ const TokenomicsPage = () => {
 
             <Reveal delay={0.12} className="mx-auto mt-6 max-w-4xl">
               <p className="text-center text-[15px] leading-relaxed text-muted-foreground">
-                Team and core contributor allocations are subject to long-term vesting. Any tokens
-                granted to a partner come from the Strategic Partnerships allocation under the same
-                rules, separately from any shareholding in the joint venture.
+                Team and core contributor allocations are subject to long-term vesting.
               </p>
             </Reveal>
           </div>

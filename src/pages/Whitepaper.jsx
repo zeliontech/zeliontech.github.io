@@ -23,7 +23,7 @@ import { trackWhitepaperDownload } from "@/services/analyticsService";
 const PDF_URL = "/docs/ZEV-ZLN_Whitepaper.pdf";
 
 export const CHAPTERS = [
-  { Icon: FileText, title: "Origin and structure", body: "How the project began, what ZelionTech built before any joint venture, and how the work is divided now." },
+  { Icon: FileText, title: "Origin and structure", body: "How the project began, what ZelionTech built before the joint venture with Expofin, and how the work is divided now." },
   { Icon: Cpu, title: "The ZEV device", body: "What the hardware reads, how a measurement becomes a signed record, and the honest status of each capability." },
   { Icon: ScrollText, title: "Validation and architecture", body: "The chain from reading to anchored proof, and what goes on-chain versus what stays off it." },
   { Icon: Leaf, title: "Carbon, compute and MRV", body: "Where validated energy data is useful, and precisely where ZEV's role ends." },

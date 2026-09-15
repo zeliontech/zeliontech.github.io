@@ -90,8 +90,9 @@ const TeamSection = ({ compact = false }) => {
           <p className="lede mt-5">
             A multidisciplinary team across energy infrastructure, hardware and industrial systems,
             cybersecurity, finance and decentralised coordination. ZEV is being advanced through
-            ZelionTech Expofin Smart Energy Ltd, a joint venture with EXPOFIN E.S.Co. that is being
-            established, in which each company holds an equal share.
+            ZelionTech Expofin Smart Energy Ltd, the joint venture with Expofin S.R.L. being
+            established in the United Kingdom.
+            {!compact && " Dino Vincoletto is the nominated director for Expofin in that venture."}
           </p>
         </Reveal>
 

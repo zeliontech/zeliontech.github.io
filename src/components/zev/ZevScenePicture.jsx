@@ -15,7 +15,6 @@ export const SCENE_ALT =
 
 const MASKS = {
   frame: "hero-photo-mask", // all four edges dissolve: a picture on the page
-  band: "scene-band-mask", // top and bottom only: a full-width strip
 };
 
 const ZevScenePicture = ({

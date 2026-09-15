@@ -12,6 +12,7 @@ export const RAIL_SECTIONS = [
   { id: "why-validate", label: "Why validate" },
   { id: "ecosystem", label: "ZEV and ZLN" },
   { id: "roadmap", label: "Roadmap" },
+  { id: "joint-venture", label: "Joint venture" },
   { id: "remember", label: "What to remember" },
   { id: "team", label: "Team" },
   { id: "faq", label: "Questions" },

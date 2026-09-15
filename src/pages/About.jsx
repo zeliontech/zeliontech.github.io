@@ -7,12 +7,17 @@ import Reveal from "@/components/zev/Reveal";
 import TeamSection from "@/components/landing/TeamSection";
 import MaturityBadge from "@/components/zev/MaturityBadge";
 
-// About / Company page. Carries the project story required by the brief:
-// ZelionTech originated ZLN and the ZEV proof of concept, and the project is
-// being advanced through a 50/50 joint venture with EXPOFIN E.S.Co.
+// About / Company page. Carries the project story as the whitepaper sections
+// "The Joint Venture" and "Project Partners" record it: ZelionTech originated
+// ZLN and the ZEV proof of concept; the project is being advanced through
+// ZelionTech Expofin Smart Energy Ltd, the joint venture with Expofin S.R.L.
+// being established in the United Kingdom; LOGBOT S.R.L. supports the
+// prototype under a signed technology agreement; Expofin Turkey is the
+// planned manufacturing partner.
 //
 // The joint venture is described as being established, not as operating,
-// until the certificate of incorporation is issued.
+// until the certificate of incorporation is issued. How it is owned or
+// funded is not published on the site.
 
 const JV = "ZelionTech Expofin Smart Energy Ltd";
 
@@ -25,20 +30,20 @@ export const PHASES = [
   },
   {
     Icon: Handshake,
-    title: "A joint venture with EXPOFIN",
-    body: `To take ZEV from proof of concept to an industrial product, ZelionTech and EXPOFIN E.S.Co. are establishing ${JV}, owned equally by both companies.`,
+    title: "A joint venture with Expofin",
+    body: `To take ZEV from proof of concept to an industrial product, ZelionTech and Expofin S.R.L. are establishing ${JV} in the United Kingdom as their joint venture.`,
     level: "in-development",
   },
   {
     Icon: Factory,
     title: "Industrial development",
-    body: "Inside the joint venture, ZelionTech leads the token, blockchain, protocol and software. EXPOFIN leads the device, energy engineering and the production prototype.",
+    body: "Inside the joint venture, ZelionTech leads the token, blockchain, protocol and software. Expofin leads the device, energy engineering and the industrial prototype.",
     level: "in-development",
   },
   {
     Icon: Building2,
     title: "Scaled manufacturing",
-    body: "Once the prototype is validated, Expofin Turkey is expected to prepare production: sourcing, assembly, quality control and commercial batches.",
+    body: "Expofin Turkey is the planned manufacturing partner for mass production and scaling once the prototype has been validated.",
     level: "planned",
   },
 ];
@@ -53,7 +58,7 @@ const About = () => {
   usePageMeta({
     title: "About ZelionTech | Team and joint venture",
     description:
-      "The people behind ZelionTech and the joint venture with EXPOFIN E.S.Co. through which the ZEV energy validator is being advanced.",
+      "The people behind ZelionTech and the joint venture with Expofin S.R.L. through which the ZEV energy validator is being advanced.",
     path: "/about",
   });
 
@@ -86,7 +91,7 @@ const About = () => {
                 Two companies. One integrated <span className="metal-gradient">project.</span>
               </h2>
               <p className="lede mx-auto mt-5 max-w-2xl">
-                ZelionTech originated the technology. EXPOFIN E.S.Co. brings the industrial energy
+                ZelionTech originated the technology. Expofin S.R.L. brings the industrial energy
                 engineering needed to turn it into a machine that can be installed and certified.
               </p>
             </Reveal>
@@ -109,9 +114,10 @@ const About = () => {
             <Reveal delay={0.1} className="mx-auto mt-8 max-w-4xl">
               <div className="rounded-2xl border border-border bg-card px-6 py-5 text-center">
                 <p className="text-[15px] leading-relaxed text-muted-foreground">
-                  The 50/50 arrangement concerns ownership, governance and economic participation
-                  in the joint-venture project. It is not a division of the ZLN token supply, which
-                  remains subject to its published allocation and vesting framework.
+                  The joint venture is designated to lead the project&apos;s future operations once
+                  its incorporation and the required legal arrangements are in place. LOGBOT S.R.L.
+                  supports ZEV prototype development and technical integration under a signed
+                  technology agreement.
                 </p>
               </div>
             </Reveal>
