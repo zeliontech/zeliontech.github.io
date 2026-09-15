@@ -7,11 +7,10 @@ import { JV_BANNER } from "./jv-banner";
 // The joint venture with Expofin, on the homepage between the roadmap and
 // the takeaway. The substance is HTML text; the co-branded banner is the
 // picture, framed inside the container rather than full-bleed because every
-// word on it is baked into the pixels and a full-width crop would lose them
-// on a phone. Below 640px an art-directed crop of the left part (logos,
-// headline, ZEV Pro and ZEV Lite) is served instead, and the two partner
-// cards repeat the facts as text. The build script rebuilds the composite's
-// own painted corners so the poster's CSS radius does the rounding cleanly.
+// word on it is baked into the pixels. Phones get the whole composite too,
+// at the owner's request, and the two partner cards repeat the facts as
+// text at a readable size. The build script rebuilds the composite's own
+// painted corners so the poster's CSS radius does the rounding cleanly.
 //
 // Every statement here comes from the whitepaper sections "The Joint
 // Venture" and "Project Partners". Nothing about how the venture is owned,
@@ -36,7 +35,7 @@ export const PARTNERS = [
 
 // Describes what is pictured; the product names are read off the banner.
 export const BANNER_ALT =
-  "Co-branded ZelionTech and Expofin E.S.Co. banner: the ZEV Pro tower and ZEV Lite wall unit beside the Expofin Smart Tower 5G, the EOS TH solar concentrator and Solid Power energy storage, in front of solar panels, wind turbines and a city skyline. The headline reads Energy. Intelligence. Infrastructure.";
+  "Co-branded ZelionTech and Expofin E.S.Co. banner: the ZEV Pro tower and ZEV Lite wall unit beside the Expofin Smart Tower 5G, the EOS TH solar concentrator and Solid Power graphene energy storage, in front of solar panels, wind turbines and a city skyline. The headline reads Energy. Intelligence. Infrastructure.";
 
 const JointVenture = () => (
   <section id="joint-venture" className="section scroll-mt-16 bg-background">
@@ -66,13 +65,7 @@ const JointVenture = () => (
             aria-hidden="true"
             className="hero-photo-mask pointer-events-none absolute -inset-x-[18%] -bottom-[40%] -top-[12%]"
           >
-            <div
-              className="jv-glow h-full w-full"
-              style={{
-                "--glow": `url("${JV_BANNER.desktop.glow}")`,
-                "--glow-mobile": `url("${JV_BANNER.mobile.glow}")`,
-              }}
-            />
+            <div className="jv-glow h-full w-full" style={{ "--glow": `url("${JV_BANNER.glow}")` }} />
           </div>
           <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_32px_90px_-48px_rgba(15,23,42,0.5)]">
             <div
@@ -82,48 +75,25 @@ const JointVenture = () => (
             />
             <picture>
               <source
-                media={JV_BANNER.mobile.media}
                 type="image/avif"
-                srcSet={JV_BANNER.mobile.avif}
-                sizes="100vw"
-                width={JV_BANNER.mobile.width}
-                height={JV_BANNER.mobile.height}
-              />
-              <source
-                media={JV_BANNER.mobile.media}
-                type="image/webp"
-                srcSet={JV_BANNER.mobile.webp}
-                sizes="100vw"
-                width={JV_BANNER.mobile.width}
-                height={JV_BANNER.mobile.height}
-              />
-              <source
-                media={JV_BANNER.mobile.media}
-                srcSet={JV_BANNER.mobile.jpg}
-                sizes="100vw"
-                width={JV_BANNER.mobile.width}
-                height={JV_BANNER.mobile.height}
-              />
-              <source
-                type="image/avif"
-                srcSet={JV_BANNER.desktop.avif}
+                srcSet={JV_BANNER.avif}
                 sizes={JV_BANNER.sizes}
-                width={JV_BANNER.desktop.width}
-                height={JV_BANNER.desktop.height}
+                width={JV_BANNER.width}
+                height={JV_BANNER.height}
               />
               <source
                 type="image/webp"
-                srcSet={JV_BANNER.desktop.webp}
+                srcSet={JV_BANNER.webp}
                 sizes={JV_BANNER.sizes}
-                width={JV_BANNER.desktop.width}
-                height={JV_BANNER.desktop.height}
+                width={JV_BANNER.width}
+                height={JV_BANNER.height}
               />
               <img
-                src={JV_BANNER.desktop.fallback}
-                srcSet={JV_BANNER.desktop.jpg}
+                src={JV_BANNER.fallback}
+                srcSet={JV_BANNER.jpg}
                 sizes={JV_BANNER.sizes}
-                width={JV_BANNER.desktop.width}
-                height={JV_BANNER.desktop.height}
+                width={JV_BANNER.width}
+                height={JV_BANNER.height}
                 alt={BANNER_ALT}
                 loading="lazy"
                 decoding="async"

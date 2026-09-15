@@ -2,27 +2,14 @@
 // Responsive sources for the ZelionTech x Expofin joint-venture banner.
 
 export const JV_BANNER = {
-  // Whole composite, viewports from 640px up.
-  desktop: {
-    avif: "/images/jv/jv-banner-960.avif 960w, /images/jv/jv-banner-1440.avif 1440w, /images/jv/jv-banner-1933.avif 1933w",
-    webp: "/images/jv/jv-banner-960.webp 960w, /images/jv/jv-banner-1440.webp 1440w, /images/jv/jv-banner-1933.webp 1933w",
-    jpg: "/images/jv/jv-banner-960.jpg 960w, /images/jv/jv-banner-1440.jpg 1440w, /images/jv/jv-banner-1933.jpg 1933w",
-    fallback: "/images/jv/jv-banner-1933.jpg",
-    width: 1933,
-    height: 813,
-    glow: "data:image/webp;base64,UklGRpoBAABXRUJQVlA4II4BAACwDwCdASpgACgAPpE+mUglo6KhLjYPMLASCUAWo4ARcTJRw4BjpkRtkeoVciPaCKCKNheXTZ9897JJ1/nD9J3tbNFk4+lcPZiZI9x6Y1V2u3mTONlUv1syS/qd1NOzgNtfIdGD8kh9zm63uKyp2lAJsA8b8oKe7vAH8dRHKcZdFPMUJgEAAAD++k2tMsXSbYZ693Be6SL3uaMBzX9WehjVm0272OLmfijjKa2E8Kx19WXpWBmIJeM2Led+cyCvdZ9OpRRwhJSTkspmSqZmcq+08cHcPg14YVqD1lFUpNp89TUYVTH+7XQiaaTuq9LD6uPQvJMQdjyIy/t7NkvbKRhoB0zBe6lxdWWBp1kgGsmgcULo09Rp7QMrDo5dj5SezAFN4RRHWQp0MakmqD4/k6gpX1yYuFy6/St17y5rPd70KCCMZ4rhVnDJkhsc5akqA3tD/NvwA+ie1tL/iiR/uMG9sPrYDw8LKPJIVK1K6c9t24rLvZEXPGfdwLuEpxhO43gK+PzOCAen56i8OzwAAA==",
-  },
-  // Art-directed crop of the left part, viewports below 640px.
-  mobile: {
-    media: "(max-width: 639px)",
-    avif: "/images/jv/jv-banner-mobile-640.avif 640w, /images/jv/jv-banner-mobile-960.avif 960w",
-    webp: "/images/jv/jv-banner-mobile-640.webp 640w, /images/jv/jv-banner-mobile-960.webp 960w",
-    jpg: "/images/jv/jv-banner-mobile-640.jpg 640w, /images/jv/jv-banner-mobile-960.jpg 960w",
-    width: 960,
-    height: 736,
-    glow: "data:image/webp;base64,UklGRmACAABXRUJQVlA4IFQCAADQFQCdASpgAEoAPo08lkglI6IhNVgNmKARiUAYZXaR75T97cAAeb8HWMO9VSHssnTjoyMjzrcWrQi7zYTJlABAu2GqsRccZzsJAyINb1olJbWMNopMX2aaAtVPplU8+f8YT4/hxBtdSs3jZAsy93ySN0jWoZ+WKlVMMmi2OHWSfT0tBaEU8sdPigF5uk36QygK80ModTux1TcEuQHEPyBlqnHdN6ur+1Pn1wtphXw01O5FWYbmMAAA/vvAMWPoXvQDEbsOTHxWPE/nnW5VQ8XFwYbgZ6BjRQLwygL4BmWc+Qm1WzLdKOFm9PNftAu9NUuXPAtv7AUuL5PUOdFv6vkpxq3pX6ge4AbYRXfnTlmtTwutOnXndogi3wYJfSx8SWchTBP0YPf1QEJ+hJbk5eH8C2Sk/8hrgC1wYs4g8U3GWoNoeS7OasuClpSDQ8Ik+srma3nql9JpxIdLknk0QAt08MyUbWnArTx73wDI0U9FdIoCInDI+b3Ql3W7vIX8APd5jy9iF2IflWxRi+lP2XRYTAYwZCKiAjRRv07wIHbbjBfjsWfJiGRBVVk6F5itfkQIEPBCZILGyitUNULig2VFbOdOUUnxwecFXE93HCAS9rIoIbZz/Mu5OtJffe+FlHYYa1cv/BXIZ97kgQ7npj16TILmrJI+sEiUqmoTWR4TKHdypejqcC0njPysh1PT5gtcjXPiPGnuR7sRmmkiMnclkAY6y6G/eXMRPY3Dh8aPHZTbQjSzf21BhpJDoyIZp/KY6Tb4l9pdYT36Gcz026aJ1nskAA==",
-  },
+  avif: "/images/jv/jv-banner-960.avif 960w, /images/jv/jv-banner-1440.avif 1440w, /images/jv/jv-banner-1933.avif 1933w",
+  webp: "/images/jv/jv-banner-960.webp 960w, /images/jv/jv-banner-1440.webp 1440w, /images/jv/jv-banner-1933.webp 1933w",
+  jpg: "/images/jv/jv-banner-960.jpg 960w, /images/jv/jv-banner-1440.jpg 1440w, /images/jv/jv-banner-1933.jpg 1933w",
+  fallback: "/images/jv/jv-banner-1933.jpg",
+  width: 1933,
+  height: 813,
   // The figure sits in a max-w-6xl container (72rem) with 1rem side padding.
   sizes: "(min-width: 1280px) 1152px, calc(100vw - 2rem)",
-  placeholder: "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBACdASoYAAoAPu1iqU2ppaQiMAgBMB2JQBdiP/wGsWk3g/ZvC+c7LAD+r/dySASKd9ZuFPl26X8hVnlWPIJXs/v77+wPoJtdwfAfix4T50YPzPl+PSWbTyT/0xuPvdgCGTBszxfZeoyFn5BU8xJeOUJz8xyzPjwij0TD+gmwNdQ1Q8TXrTFr5C2XWSVgod/AAA==",
+  placeholder: "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwAwCdASoYAAoAPu1iqU2ppaQiMAgBMB2JQBdiP/wGpU8WJvEmI1cAAP6v93JIBIp31m4U+XbpfyFWeVY8glez/8e/XkzZmC+qTu+EsCHAG79R4kPENlMRcLWArj8tNUMBguQCNovBDxzIXyFlxiS8c7fvq6cAYkkzGYsdAsxrAy9Y5jyMTXrTFr5C2XWSVgod/AAA",
+  glow: "data:image/webp;base64,UklGRpYBAABXRUJQVlA4IIoBAADwDQCdASpgACgAPpE6mEglo6KhNVQOqLASCUAXsYTRYhwugWndtYgu8y8xUK0NrI3REhTOv5xFXwrSDM2IBbmxm7a6S7q3RJekXAsIsXQBxZdI42SX1gu0wh/zBfJ9HDAf9IoVJMgXRNv8fjswx2N2Q4ndODFg7IAA/vpNezHgK7SmtXTSXu1PzCbrPpyPV4sHD6xNM7ELnnCi2utSUJaEaFEb5F/i9yCfqiqQ/fFvizrHIdSz0AcQfshNtQVHw3S00CDiMqJQ9pwQs0Fq2CKazZLLf4XsfiMwxp1TZBUfv86xBaVFhbypEzJBrz70+pYdqsVm5JIPGTHHisTDsaYcZAmgRxiF0tDyHFfHOSu1z9+Ps5TTxeZ3Mcyoei9XiWHFZDG8Zs9KIZoE5QkZyh48ImylG/QGH3BBdgNVRttW7HJTLXWLYh4vnkPf3AmjnPDgj0MIhe3megq0ThOrmnpRzOKi8kSY+yYmivgO6IQqXsyUCyQ/ebXXYaA3+KUp5zFlUirSbgHA14AA",
 };

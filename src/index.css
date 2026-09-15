@@ -726,11 +726,6 @@
     opacity: 0.85;
     transform: scale(1.04);
   }
-  @media (max-width: 639px) {
-    .jv-glow {
-      background-image: var(--glow-mobile, var(--glow));
-    }
-  }
   @media (prefers-reduced-motion: reduce) {
     .hero-parallax-photo {
       transition: none;

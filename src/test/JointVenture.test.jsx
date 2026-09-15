@@ -62,28 +62,23 @@ describe("<JointVenture />", () => {
     expect(screen.getByRole("link", { name: /read the whitepaper/i })).toHaveAttribute("href", "/whitepaper");
 
     const img = screen.getByRole("img", { name: BANNER_ALT });
-    expect(img).toHaveAttribute("width", String(JV_BANNER.desktop.width));
-    expect(img).toHaveAttribute("height", String(JV_BANNER.desktop.height));
+    expect(img).toHaveAttribute("width", String(JV_BANNER.width));
+    expect(img).toHaveAttribute("height", String(JV_BANNER.height));
     expect(img).toHaveAttribute("loading", "lazy");
+    // The whole composite at every viewport: no media-specific crop.
     for (const source of container.querySelectorAll("picture source")) {
       expect(source.getAttribute("width")).toBeTruthy();
       expect(source.getAttribute("height")).toBeTruthy();
+      expect(source.getAttribute("media")).toBeNull();
     }
     expect(container.querySelector("figcaption")).toHaveTextContent(/ZelionTech.*Expofin/);
 
-    const urls = [
-      ...urlsOf(JV_BANNER.desktop.avif),
-      ...urlsOf(JV_BANNER.desktop.webp),
-      ...urlsOf(JV_BANNER.desktop.jpg),
-      ...urlsOf(JV_BANNER.mobile.avif),
-      ...urlsOf(JV_BANNER.mobile.webp),
-      ...urlsOf(JV_BANNER.mobile.jpg),
-      JV_BANNER.desktop.fallback,
-    ];
+    const urls = [...urlsOf(JV_BANNER.avif), ...urlsOf(JV_BANNER.webp), ...urlsOf(JV_BANNER.jpg), JV_BANNER.fallback];
     for (const url of urls) {
       expect(fs.existsSync(path.join(process.cwd(), "public", url)), url).toBe(true);
     }
     expect(JV_BANNER.placeholder.startsWith("data:image/webp;base64,")).toBe(true);
+    expect(JV_BANNER.glow.startsWith("data:image/webp;base64,")).toBe(true);
   });
 
   it("has a partner strip that jumps to the section, and a rail entry in the right place", () => {
