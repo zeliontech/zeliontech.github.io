@@ -1,4 +1,4 @@
-import { Mail, Globe, Send, Linkedin, Handshake, Building2, FileText } from "lucide-react";
+import { Mail, Send, Linkedin, Handshake, Building2, FileText } from "lucide-react";
 import usePageMeta from "@/hooks/usePageMeta";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -14,7 +14,6 @@ const channels = [
   { Icon: Mail, label: "Email", value: "info@zeliontech.com", href: "mailto:info@zeliontech.com", aria: "Email ZelionTech" },
   { Icon: Send, label: "Telegram", value: "@zelionglobal", href: "https://t.me/zelionglobal", aria: "ZelionTech on Telegram" },
   { Icon: Linkedin, label: "LinkedIn", value: "ZelionTech", href: "https://www.linkedin.com/company/zeliontech/", aria: "ZelionTech on LinkedIn" },
-  { Icon: Globe, label: "Website", value: "www.zeliontech.com", href: "https://www.zeliontech.com", aria: "ZelionTech website" },
 ];
 
 const enquiries = [
@@ -48,7 +47,7 @@ const ContactUs = () => {
         {/* Channels */}
         <section className="section">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-3">
               {channels.map(({ Icon, label, value, href, aria }, i) => (
                 <Reveal key={label} delay={i * 0.05}>
                   <a
