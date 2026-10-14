@@ -7,6 +7,7 @@ import PageHeader from "@/components/zev/PageHeader";
 import Reveal from "@/components/zev/Reveal";
 import MaturityBadge from "@/components/zev/MaturityBadge";
 import { trackWhitepaperDownload } from "@/services/analyticsService";
+import { WHITEPAPER } from "@/components/zev/zln";
 
 // Whitepaper page on the approved light design system.
 //
@@ -18,9 +19,10 @@ import { trackWhitepaperDownload } from "@/services/analyticsService";
 // demonstrated, so it has been replaced with what the proof of concept
 // actually showed and what the industrial platform is designed to add.
 
-// PUBLISHED PDF: served from public/docs under a stable name so shared links
-// keep working. To publish a new edition, replace the file at that path.
-const PDF_URL = "/docs/ZEV-ZLN_Whitepaper.pdf";
+// PUBLISHED PDF: each edition is a dated file under public/docs and earlier
+// editions stay in place, so links already shared keep working. The current
+// edition is named once, in components/zev/zln.js.
+const PDF_URL = WHITEPAPER.file;
 
 export const CHAPTERS = [
   { Icon: FileText, title: "Origin and structure", body: "How the project began, what ZelionTech built before the joint venture with Expofin, and how the work is divided now." },
@@ -61,7 +63,7 @@ const Whitepaper = () => {
                 <div>
                   <h2 className="subhead">Download the whitepaper</h2>
                   <p className="mt-2 text-[15px] text-muted-foreground">
-                    PDF · published edition
+                    PDF · edition of {WHITEPAPER.edition}
                   </p>
                 </div>
                 <a

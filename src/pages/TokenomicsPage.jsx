@@ -12,7 +12,7 @@ import TokenAllocation from "@/components/zev/TokenAllocation";
 // owner-approved final tokenomics. Utility is labelled Planned throughout:
 // the ecosystem services ZLN is designed to settle are not deployed yet.
 
-import { CONTRACT, PARAMETERS } from "@/components/zev/zln";
+import { CONTRACT, PARAMETERS, PRIVATE_SALE } from "@/components/zev/zln";
 
 const UTILITIES = [
   { Icon: Server, title: "Access to verified data", body: "Metered access to validated energy data streams and API endpoints." },
@@ -42,7 +42,7 @@ const TokenomicsPage = () => {
               The digital utility <span className="metal-gradient">layer.</span>
             </>
           }
-          lede="ZLN is the blockchain-based digital asset of the ZelionTech ecosystem — the digital layer around the physical ZEV infrastructure. Its tokenomics are part of the infrastructure story, not the purpose of the company."
+          lede="ZLN is the blockchain-based digital asset of the ZelionTech ecosystem, the digital layer around the physical ZEV infrastructure. Its tokenomics are part of the infrastructure story, not the purpose of the company."
         />
 
         {/* Parameters */}
@@ -109,14 +109,66 @@ const TokenomicsPage = () => {
 
             <Reveal delay={0.12} className="mx-auto mt-6 max-w-4xl">
               <p className="text-center text-[15px] leading-relaxed text-muted-foreground">
-                Team and core contributor allocations are subject to long-term vesting.
+                Team and core contributor allocations are subject to long-term vesting. The private
+                sale and strategic allocation terms are set out below; every other release policy is
+                in the whitepaper.
               </p>
             </Reveal>
           </div>
         </section>
 
+        {/* Release policies: private sale and strategic allocations */}
+        <section id="private-sale" className="section scroll-mt-16">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-12">
+              <Reveal className="lg:col-span-5">
+                <p className="eyebrow">Release policies</p>
+                <h2 className="headline mt-4">
+                  Private sale and strategic <span className="metal-gradient">allocations.</span>
+                </h2>
+                <p className="lede mt-5">
+                  Launch means the start of public trading in ZLN. Tokens becoming available under a
+                  schedule do not automatically enter circulation.
+                </p>
+                <Link
+                  to="/whitepaper"
+                  className="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-primary hover:underline"
+                >
+                  All release policies, in the whitepaper
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Reveal>
+
+              <Reveal delay={0.08} className="lg:col-span-7">
+                <div className="glass-card p-6 lg:p-8">
+                  <h3 className="text-[17px] font-bold tracking-[-0.01em] text-foreground">
+                    Private sale ({PRIVATE_SALE.pool})
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{PRIVATE_SALE.release}</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{PRIVATE_SALE.strategic}</p>
+                </div>
+
+                <div className="glass-card mt-5 p-6 lg:p-8">
+                  <h3 className="text-[17px] font-bold tracking-[-0.01em] text-foreground">
+                    Private sale participation
+                  </h3>
+                  <dl className="mt-4 divide-y divide-border">
+                    {PRIVATE_SALE.participation.map((row) => (
+                      <div key={row.label} className="grid gap-x-6 gap-y-1 py-3.5 sm:grid-cols-[9rem_1fr]">
+                        <dt className="text-[15px] font-semibold text-foreground">{row.label}</dt>
+                        <dd className="text-[15px] leading-relaxed text-muted-foreground">{row.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="mt-5 text-[13px] leading-relaxed text-muted-foreground">{PRIVATE_SALE.notice}</p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* Utility */}
-        <section className="section">
+        <section className="section section-bg-alternate">
           <div className="container mx-auto px-4 lg:px-8">
             <Reveal className="mx-auto max-w-3xl text-center">
               <p className="eyebrow">Utility</p>
@@ -144,7 +196,7 @@ const TokenomicsPage = () => {
         </section>
 
         {/* What it is not */}
-        <section className="section pt-0">
+        <section className="section">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl rounded-3xl border border-border bg-muted/50 p-8 lg:p-10">
               <h2 className="subhead">What ZLN is not</h2>

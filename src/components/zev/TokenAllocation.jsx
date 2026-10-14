@@ -25,7 +25,7 @@ export const ALLOCATIONS = [
   { label: "Ecosystem & Infrastructure", pct: 15, zln: "75,000,000", note: "Ecosystem development, integrations and infrastructure" },
   { label: "Liquidity & Market Stability", pct: 15, zln: "75,000,000", note: "Exchange liquidity and orderly market conditions" },
   { label: "Core Contributors (Team)", pct: 10, zln: "50,000,000", note: "Long-term alignment, subject to vesting" },
-  { label: "Private & Strategic Sale", pct: 10, zln: "50,000,000", note: "Strategic and institutional participants" },
+  { label: "Private & Strategic Sale", pct: 10, zln: "50,000,000", note: "Private sale purchasers and strategic allocations, one shared pool" },
   { label: "Public Sale", pct: 10, zln: "50,000,000", note: "Public distribution" },
   { label: "Strategic Partnerships", pct: 10, zln: "50,000,000", note: "Partner and integration agreements" },
   { label: "Community & Marketing", pct: 10, zln: "50,000,000", note: "Community programmes, growth and awareness" },
@@ -78,7 +78,7 @@ const TokenAllocation = () => {
 
       <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-2">
         <span className="text-[13px] text-muted-foreground">
-          Fixed maximum supply — no further minting
+          Fixed maximum supply, no further minting
         </span>
         <span className="font-body text-[13px] font-semibold text-foreground">
           {TOTAL_SUPPLY.toLocaleString("en-US")} ZLN
