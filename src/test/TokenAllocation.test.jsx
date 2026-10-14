@@ -82,9 +82,10 @@ describe("Private sale terms on the token page", () => {
     const byLabel = Object.fromEntries(PRIVATE_SALE.participation.map((p) => [p.label, p.value]));
     expect(byLabel["Minimum"]).toMatch(/USD 2,500/);
     expect(byLabel["Maximum"]).toMatch(/USD 50,000/);
-    expect(byLabel["Wallets"]).toMatch(/Up to 3 declared wallets/);
-    expect(byLabel["Verification"]).toMatch(/KYC/);
     expect(byLabel["Locked tokens"]).toMatch(/vesting contract/);
+    // The wallet and identity-verification rules stay in the sale documents.
+    expect(byLabel["Wallets"]).toBeUndefined();
+    expect(byLabel["Verification"]).toBeUndefined();
     expect(PRIVATE_SALE.notice).toMatch(/Not an offer to sell/);
 
     const { container } = render(
@@ -97,7 +98,7 @@ describe("Private sale terms on the token page", () => {
     expect(text).toMatch(/15% of purchased tokens available at launch/);
     expect(text).toMatch(/USD 50,000 per verified person or entity/);
     // No price, no per-token figure, no old price, and the pool is not split.
-    expect(text).not.toMatch(/USD 0\.\d|per ZLN|0\.06|0\.08|31,250|625,000/);
+    expect(text).not.toMatch(/USD 0\.\d|per ZLN|0\.06|0\.08|31,250|625,000|KYC|declared wallets/);
     expect(text).not.toContain(String.fromCharCode(8212)); // no em dash anywhere on the page
   });
 

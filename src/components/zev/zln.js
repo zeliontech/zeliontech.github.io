@@ -29,7 +29,8 @@ export const WHITEPAPER = {
 // Private sale and strategic allocation terms, as decided by the founders on
 // 14 October 2026 and recorded in the whitepaper (Token Distribution and
 // Release Policies). The pool is shared; no split is stated. No price appears
-// on the site; the final sale documents carry it.
+// on the site, and neither do the wallet and identity-verification rules;
+// the final sale documents carry those.
 export const PRIVATE_SALE = {
   pool: "10% of supply, 50,000,000 ZLN, shared with strategic allocations",
   release:
@@ -38,8 +39,6 @@ export const PRIVATE_SALE = {
   participation: [
     { label: "Minimum", value: "USD 2,500 per verified person or entity" },
     { label: "Maximum", value: "USD 50,000 per verified person or entity, counted across all of that investor's wallets" },
-    { label: "Wallets", value: "Up to 3 declared wallets per investor, whitelisted before purchase" },
-    { label: "Verification", value: "Identity verification (KYC) is required before any allocation is confirmed" },
     { label: "Locked tokens", value: "Held in an on-chain vesting contract; the address will be published before the sale opens" },
   ],
   notice:
