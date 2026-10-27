@@ -1,10 +1,11 @@
 import { ArrowRight } from "lucide-react";
+import { EXPOFIN_WORDMARK } from "./expofin";
 
 // One line at the seam between the hero and the six steps: who the project
 // is built with, and a jump to the section that explains it. Typographic
 // and muted on purpose, so it reads as a fact under the hero rather than as
-// a second headline. The Expofin name is set in type until a vector wordmark
-// arrives from Expofin.
+// a second headline. The Expofin wordmark is the one from expofin.eu,
+// served small; the legal name is kept for assistive tech.
 const PartnerStrip = () => (
   <div className="border-y border-border bg-background">
     <div className="container mx-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4 lg:px-8">
@@ -15,7 +16,19 @@ const PartnerStrip = () => (
         </span>
         <span aria-hidden="true" className="h-4 w-px bg-border" />
         <span>In joint venture with</span>
-        <span className="font-semibold text-foreground">Expofin S.R.L.</span>
+        <picture className="inline-flex">
+          <source type="image/webp" srcSet={EXPOFIN_WORDMARK.webp} sizes="64px" />
+          <img
+            src={EXPOFIN_WORDMARK.fallback}
+            srcSet={EXPOFIN_WORDMARK.png}
+            sizes="64px"
+            width={EXPOFIN_WORDMARK.width}
+            height={EXPOFIN_WORDMARK.height}
+            alt="Expofin S.R.L."
+            decoding="async"
+            className="h-[22px] w-auto"
+          />
+        </picture>
       </p>
       <a
         href="#joint-venture"

@@ -6,6 +6,8 @@ import Reveal from "./Reveal";
 // designed deployment scenarios, not commercial deployments: the ZEV Lite
 // proof of concept validated the core chain, and each scenario depends on
 // ZEV Pro capabilities labelled on the roadmap, so every card is Planned.
+// Three scenarios name the joint-venture partner's equipment as the reference
+// installation; the product names are Expofin's own.
 
 export const CASES = [
   {
@@ -22,6 +24,7 @@ export const CASES = [
     title: "Commercial buildings",
     sectors: "Offices · retail · campuses",
     body: "Monitor and validate energy production and consumption for energy monitoring, renewable-energy verification, efficiency analysis, sustainability reporting and carbon-data support.",
+    reference: "Expofin cascade system (EOS TH, Hydrovolt, Solid Power)",
   },
   {
     id: "industrial",
@@ -38,6 +41,7 @@ export const CASES = [
     sectors: "BESS · inverters",
     body: "Interact with battery and inverter infrastructure to monitor energy movement and operational data — what was stored, when, and where it went.",
     flow: ["Solar / wind", "Battery", "ZEV", "Grid"],
+    reference: "Expofin Solid Power graphene storage",
   },
   {
     id: "carbon",
@@ -50,8 +54,8 @@ export const CASES = [
     id: "compute",
     Icon: Cpu,
     title: "Renewable computing",
-    sectors: "AI · distributed compute",
-    body: "Available renewable energy could potentially support computing infrastructure instead of remaining an isolated resource.",
+    sectors: "Solar farms · distributed compute",
+    body: "Stored surplus renewable energy could potentially power computing infrastructure on site instead of remaining an isolated resource. This is the ZEV Pro direction.",
     flow: ["Renewables", "ZEV", "Energy allocation", "GPU / compute"],
   },
   {
@@ -60,6 +64,7 @@ export const CASES = [
     title: "Smart energy infrastructure",
     sectors: "Networks of ZEV nodes",
     body: "Longer-term deployments form networks of distributed intelligent energy nodes — a distributed energy-data infrastructure rather than isolated machines.",
+    reference: "Expofin Smart Tower 5G and Infinity Tower networks",
     wide: true,
   },
 ];
@@ -99,7 +104,7 @@ const UseCases = () => {
         </Reveal>
 
         <ul className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {CASES.map(({ Icon, title, sectors, body, flow, wide }, i) => (
+          {CASES.map(({ Icon, title, sectors, body, flow, reference, wide }, i) => (
             <Reveal key={title} delay={i * 0.05} className={wide ? "md:col-span-2 lg:col-span-3" : ""}>
               <li className={`glass-card-hover flex h-full flex-col p-6 ${wide ? "lg:flex-row lg:items-center lg:gap-8 lg:p-8" : ""}`}>
                 <div className={wide ? "lg:w-1/3" : ""}>
@@ -112,6 +117,11 @@ const UseCases = () => {
                 <div className={wide ? "mt-4 lg:mt-0 lg:flex-1" : ""}>
                   <p className={`text-[15px] leading-relaxed text-muted-foreground ${wide ? "" : "mt-3"}`}>{body}</p>
                   {flow && <Flow steps={flow} />}
+                  {reference && (
+                    <p className="mt-3 text-[13px] text-muted-foreground">
+                      Reference equipment · <span className="font-medium text-foreground">{reference}</span>
+                    </p>
+                  )}
                 </div>
               </li>
             </Reveal>

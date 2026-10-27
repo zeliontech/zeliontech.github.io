@@ -29,7 +29,7 @@ export const PARTNERS = [
     name: "Expofin S.R.L.",
     where: "Italy",
     title: "Industrial energy engineering and the ZEV device",
-    body: "Development of the industrial ZEV device. Manufacturing at scale is planned through Expofin once the prototype is validated.",
+    body: "Development of the industrial ZEV device. Manufacturing at scale will run through Expofin once the prototype is validated.",
   },
 ];
 
@@ -37,7 +37,9 @@ export const PARTNERS = [
 export const BANNER_ALT =
   "Co-branded ZelionTech and Expofin E.S.Co. banner: the ZEV Pro tower and ZEV Lite wall unit beside the Expofin Smart Tower 5G, the EOS TH solar concentrator and Solid Power graphene energy storage, in front of solar panels, wind turbines and a city skyline. The headline reads Energy. Intelligence. Infrastructure.";
 
-const JointVenture = () => (
+// `partnersLink`: the pointer to the Partners page, left off when the
+// section is shown on that page itself.
+const JointVenture = ({ partnersLink = true }) => (
   <section id="joint-venture" className="section scroll-mt-16 overflow-x-clip bg-background">
     <div className="container mx-auto px-4 lg:px-8">
       <Reveal className="mx-auto max-w-3xl text-center">
@@ -67,7 +69,13 @@ const JointVenture = () => (
           >
             <div className="jv-glow h-full w-full" style={{ "--glow": `url("${JV_BANNER.glow}")` }} />
           </div>
-          <div className="relative overflow-hidden rounded-3xl bg-card ring-1 ring-black/[0.06] shadow-[0_32px_90px_-48px_rgba(15,23,42,0.5)]">
+          {/* The box behind the poster is painted with the poster's own sky
+              colour, and the picture overpaints the box edge by a pixel, so
+              the clipped boundary can never print a hairline of page white. */}
+          <div
+            className="relative overflow-hidden rounded-3xl ring-1 ring-black/[0.06] shadow-[0_32px_90px_-48px_rgba(15,23,42,0.5)]"
+            style={{ backgroundColor: JV_BANNER.edge }}
+          >
             <div
               aria-hidden="true"
               className="absolute inset-0 scale-110 blur-2xl"
@@ -98,14 +106,16 @@ const JointVenture = () => (
                 loading="lazy"
                 decoding="async"
                 draggable={false}
-                className="relative block h-auto w-full"
+                className="relative -ml-px -mt-px block h-auto w-[calc(100%+2px)] max-w-none"
               />
             </picture>
           </div>
           {/* Credit kept for assistive tech; the picture carries both marks
               itself, so a printed caption only repeated them. */}
           <figcaption className="sr-only">
-            Joint product line-up. Image: ZelionTech (UK) and Expofin E.S.Co. (Italy).
+            Joint product line-up: ZEV Pro and ZEV Lite with the Expofin Smart Tower 5G, the EOS TH
+            solar concentrator and Solid Power graphene storage. Image: ZelionTech (UK) and Expofin
+            E.S.Co. (Italy).
           </figcaption>
         </figure>
       </Reveal>
@@ -146,6 +156,15 @@ const JointVenture = () => (
           </Button>
         </div>
         <p className="mt-3 text-[13px] text-muted-foreground">expofin.eu is an Italian-language site.</p>
+        {partnersLink && (
+          <Link
+            to="/partners"
+            className="mt-5 inline-flex items-center gap-1.5 text-[15px] font-semibold text-primary hover:underline"
+          >
+            Expofin in detail: who they are, what they build, how it connects to ZEV
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        )}
       </Reveal>
     </div>
   </section>

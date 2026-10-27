@@ -79,7 +79,6 @@ const Legal = () => {
                 <p>
                   Users are solely responsible for understanding and complying with all applicable laws
                   and regulations in their jurisdiction regarding digital assets and cryptocurrency.
-                  The availability of ZLN tokens may be restricted in certain jurisdictions.
                 </p>
               </section>
 

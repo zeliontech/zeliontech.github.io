@@ -10,7 +10,7 @@ describe("FAQ copy (brief §24)", () => {
   it("answers the ZEV questions and keeps every answer inside the rules", () => {
     const questions = faqs.map((f) => f.q);
     expect(questions).toContain("What is ZEV?");
-    expect(questions).toContain("What has actually been demonstrated?");
+    expect(questions).toContain("What actually works today?");
     expect(questions).toContain("Does ZEV generate carbon credits? Is ZLN a carbon credit?");
     expect(questions).toContain("Is ZelionTech an investment?");
     for (const f of faqs) {

@@ -25,7 +25,7 @@ describe("<WhatToRemember /> (brief §23 / §25)", () => {
     expect(SPINE.map((s) => s.label)).toEqual([
       "Renewable energy",
       "ZEV",
-      "Data + AI + blockchain",
+      "Signed data + blockchain",
       "Carbon + compute + digital energy",
       "ZLN ecosystem",
     ]);

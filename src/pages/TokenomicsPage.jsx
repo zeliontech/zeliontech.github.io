@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import usePageMeta from "@/hooks/usePageMeta";
-import { ArrowRight, ExternalLink, Users, Server, Handshake, Vote, Cpu, Lock } from "lucide-react";
+import { ArrowRight, ExternalLink, Server, Coins, Leaf, Wallet, Vote, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/zev/PageHeader";
@@ -10,18 +10,67 @@ import TokenAllocation from "@/components/zev/TokenAllocation";
 
 // ZLN token page (brief §11, §13). Parameters and allocation match the
 // owner-approved final tokenomics. Utility is labelled Planned throughout:
-// the ecosystem services ZLN is designed to settle are not deployed yet.
+// the ecosystem services ZLN is designed to settle are not deployed yet. The
+// utility list, the reward model and the private-sale schedule follow the
+// founders' project updates of October 2026 (community edition): pay, earn,
+// advise, and no stake required to run a device.
 
-import { CONTRACT, PARAMETERS, PRIVATE_SALE } from "@/components/zev/zln";
+import { CONTRACT, PARAMETERS, PRIVATE_SALE, REWARDS } from "@/components/zev/zln";
 
 const UTILITIES = [
-  { Icon: Server, title: "Access to verified data", body: "Metered access to validated energy data streams and API endpoints." },
-  { Icon: Cpu, title: "Renewable-compute services", body: "Access to, and settlement of, verified-compute services across the network." },
-  { Icon: Users, title: "Ecosystem participation", body: "Taking part in the network as ZEV deployments and their services come online." },
-  { Icon: Handshake, title: "Contributor alignment", body: "Aligning long-term contributors and partners around the infrastructure." },
-  { Icon: Lock, title: "Node participation", body: "Operators of validation nodes hold and stake ZLN, aligning them with network integrity." },
-  { Icon: Vote, title: "Governance signalling", body: "Advisory signalling on protocol parameters and ecosystem policy." },
+  { Icon: Server, title: "Pay for ZEV services", body: "Payments in ZLN for eligible energy-data access, validation and reporting services, as those services launch." },
+  { Icon: Coins, title: "Earn contribution rewards", body: "Eligible device operators receive existing ZLN from funded reward budgets, based on their verified contribution." },
+  { Icon: Leaf, title: "Carbon-sale bonus", body: "When issued credits from an eligible project are sold and paid for, the customer's agreed net proceeds can be settled in ZLN." },
+  { Icon: Wallet, title: "Claim to your own wallet", body: "Rewards are claimed to the operator's own paired wallet. Network fees are paid in BNB, separately from ZLN." },
+  { Icon: Vote, title: "Advisory input", body: "Signalling on protocol settings and ecosystem policy, as the ecosystem matures. Advisory only, with no corporate voting rights." },
+  { Icon: ShieldCheck, title: "Clear boundaries", body: "No ZLN stake or subscription is needed to run a ZEV prototype. ZLN is not a carbon credit, and service utility is still in development." },
 ];
+
+// Cumulative release, drawn as ten bars: launch, then months 1 to 9.
+const ReleaseChart = ({ schedule }) => (
+  <figure className="mt-6">
+    {/* Bars are sized against the plot area alone; the first and last
+        values sit above their bars in the top padding, so a label never
+        takes height away from the bar it names. */}
+    <div
+      role="img"
+      aria-label="Cumulative share of purchased tokens released: 10% at launch, rising by 10% each month to 100% at month 9."
+      className="flex h-40 items-end gap-1.5 pt-6 sm:gap-2"
+    >
+      {schedule.map((pct, i) => (
+        <div key={pct} className="relative flex h-full flex-1 items-end">
+          <span
+            aria-hidden="true"
+            className="block w-full rounded-t-md"
+            style={{
+              height: `${pct}%`,
+              background:
+                i === 0
+                  ? "hsl(var(--eco))"
+                  : `linear-gradient(to top, hsl(var(--primary) / ${0.55 + i * 0.045}), hsl(var(--primary) / ${0.3 + i * 0.05}))`,
+            }}
+          />
+          {(i === 0 || i === schedule.length - 1) && (
+            <span
+              aria-hidden="true"
+              className="absolute inset-x-0 text-center text-[11px] font-semibold tabular-nums text-foreground"
+              style={{ bottom: `calc(${pct}% + 6px)` }}
+            >
+              {pct}%
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+    <div aria-hidden="true" className="mt-2 flex gap-1.5 border-t border-border pt-2 sm:gap-2">
+      {schedule.map((pct, i) => (
+        <span key={pct} className="flex-1 text-center text-[11px] tabular-nums text-muted-foreground">
+          {i === 0 ? "Launch" : `M${i}`}
+        </span>
+      ))}
+    </div>
+  </figure>
+);
 
 const TokenomicsPage = () => {
   usePageMeta({
@@ -96,8 +145,8 @@ const TokenomicsPage = () => {
                 Weighted toward the <span className="metal-gradient">network.</span>
               </h2>
               <p className="lede mx-auto mt-5 max-w-2xl">
-                The single largest allocation funds compute rewards and ZEV network participation,
-                rather than any internal party.
+                The single largest allocation funds ZEV network rewards and participation, rather
+                than any internal party. Six headings, with ecosystem and partnerships kept apart.
               </p>
             </Reveal>
 
@@ -110,31 +159,30 @@ const TokenomicsPage = () => {
             <Reveal delay={0.12} className="mx-auto mt-6 max-w-4xl">
               <p className="text-center text-[15px] leading-relaxed text-muted-foreground">
                 Team and core contributor allocations are subject to long-term vesting. The private
-                sale and strategic allocation terms are set out below; every other release policy is
-                in the whitepaper.
+                sale release is set out below.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* Release policies: private sale and strategic allocations */}
+        {/* Release policy: the private sale */}
         <section id="private-sale" className="section scroll-mt-16">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-12">
               <Reveal className="lg:col-span-5">
-                <p className="eyebrow">Release policies</p>
+                <p className="eyebrow">Release policy</p>
                 <h2 className="headline mt-4">
-                  Private sale and strategic <span className="metal-gradient">allocations.</span>
+                  Private sale, in ten equal <span className="metal-gradient">releases.</span>
                 </h2>
                 <p className="lede mt-5">
                   Launch means the start of public trading in ZLN. Tokens becoming available under a
                   schedule do not automatically enter circulation.
                 </p>
                 <Link
-                  to="/whitepaper"
+                  to="/contact"
                   className="mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-primary hover:underline"
                 >
-                  All release policies, in the whitepaper
+                  Private-sale enquiries: contact the team
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </Reveal>
@@ -145,7 +193,9 @@ const TokenomicsPage = () => {
                     Private sale ({PRIVATE_SALE.pool})
                   </h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{PRIVATE_SALE.release}</p>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{PRIVATE_SALE.strategic}</p>
+                  <ReleaseChart schedule={PRIVATE_SALE.schedule} />
+                  <p className="mt-5 text-[15px] leading-relaxed text-foreground">{PRIVATE_SALE.example}</p>
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">{PRIVATE_SALE.monthNote}</p>
                 </div>
 
                 <div className="glass-card mt-5 p-6 lg:p-8">
@@ -195,8 +245,48 @@ const TokenomicsPage = () => {
           </div>
         </section>
 
+        {/* Contribution rewards */}
+        <section id="rewards" className="section scroll-mt-16">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+              <Reveal className="lg:col-span-4">
+                <p className="eyebrow">Contribution rewards</p>
+                <h2 className="headline mt-4">
+                  Earned by the <span className="metal-gradient">machine.</span>
+                </h2>
+                <p className="lede mt-5">
+                  ZEV operators are designed to earn ZLN for verified renewable participation, not
+                  for holding the token.
+                </p>
+                <div className="mt-8 rounded-2xl border border-border bg-card p-6">
+                  <p className="font-body text-[56px] font-bold leading-none tracking-[-0.045em] text-eco">
+                    {REWARDS.gate}
+                  </p>
+                  <p className="mt-3 text-[15px] leading-snug text-muted-foreground">{REWARDS.gateLabel}</p>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.08} className="lg:col-span-8">
+                <ol className="grid gap-5 sm:grid-cols-2">
+                  {REWARDS.steps.map((step, i) => (
+                    <li key={step.title} className="glass-card h-full p-6">
+                      <span className="step-dot">{i + 1}</span>
+                      <h3 className="mt-5 text-[17px] font-bold tracking-[-0.01em] text-foreground">{step.title}</h3>
+                      <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{step.body}</p>
+                    </li>
+                  ))}
+                </ol>
+                <div className="mt-5 flex flex-wrap items-start gap-2.5 text-[13px] leading-relaxed text-muted-foreground">
+                  <MaturityBadge level="planned" className="mt-px" />
+                  <span className="min-w-0 flex-1">{REWARDS.note}</span>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* What it is not */}
-        <section className="section">
+        <section className="section pt-0">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl rounded-3xl border border-border bg-muted/50 p-8 lg:p-10">
               <h2 className="subhead">What ZLN is not</h2>

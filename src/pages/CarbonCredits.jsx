@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import usePageMeta from "@/hooks/usePageMeta";
 import {
-  Leaf, Gauge, FileCheck2, Link2, ClipboardCheck, BadgeCheck, ArrowRight, ArrowDown, Building2, Factory, Sun,
+  Leaf, Gauge, FileCheck2, Link2, ClipboardCheck, BadgeCheck, ArrowRight, ArrowDown, Building2, Factory, Sun, Handshake,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -23,10 +23,21 @@ export const CHAIN = [
   { Icon: Leaf, title: "Credit issuance", body: "A registry decides, under the applicable standard. ZEV plays no part in this step.", who: "Registry" },
 ];
 
+// The carbon-sale bonus, as the founders' project update of October 2026
+// (community edition) describes it: a later commercial workstream, separate
+// from regular device rewards, that only starts once real credits have been
+// issued, sold and paid for.
+const BONUS_STEPS = [
+  { title: "Issued credits", body: "An eligible project completes independent verification and registry issuance." },
+  { title: "Paid sale", body: "The credits are sold and the customer's agreed net proceeds are received." },
+  { title: "ZLN settlement", body: "Those net proceeds can be settled in ZLN at a validated reference rate, subject to funding and the final terms." },
+];
+
 const USES = [
-  { Icon: Building2, title: "Corporate ESG disclosure", body: "Machine-verifiable energy evidence for Scope 1 and 2 reporting under CSRD, SFDR and comparable frameworks." },
+  { Icon: Building2, title: "Companies reporting emissions", body: "Machine-verifiable energy evidence for Scope 1 and 2 reporting under CSRD, SFDR and comparable frameworks, including in aviation and the oil sector." },
   { Icon: Factory, title: "Project developers", body: "A stronger evidence base for renewable projects preparing methodology-driven submissions." },
   { Icon: BadgeCheck, title: "Verification bodies", body: "Source-level data that reduces reliance on self-reported figures during assessment." },
+  { Icon: Handshake, title: "Energy service companies", body: "ESCos that deliver efficiency projects and need verifiable energy data behind the savings they report and the carbon-credit workflows they prepare. ZelionTech's joint-venture partner Expofin E.S.Co. runs such projects for public bodies and companies in Italy." },
 ];
 
 const CarbonCredits = () => {
@@ -141,7 +152,7 @@ const CarbonCredits = () => {
                 Evidence the whole chain can <span className="metal-gradient">rely on.</span>
               </h2>
             </Reveal>
-            <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+            <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-4">
               {USES.map(({ Icon, title, body }, i) => (
                 <Reveal key={title} delay={i * 0.06}>
                   <div className="glass-card-hover h-full p-7">
@@ -155,8 +166,47 @@ const CarbonCredits = () => {
           </div>
         </section>
 
+        {/* Carbon-sale bonus */}
+        <section id="carbon-sale-bonus" className="section section-bg-alternate scroll-mt-16">
+          <div className="container mx-auto px-4 lg:px-8">
+            <Reveal className="mx-auto max-w-3xl text-center">
+              <p className="eyebrow">Carbon-sale bonus</p>
+              <h2 className="headline mt-4">
+                Only after a <span className="metal-gradient">paid sale.</span>
+              </h2>
+              <p className="lede mx-auto mt-5 max-w-2xl">
+                Regular device rewards work without carbon credits. This bonus is a later commercial
+                workstream: it applies only once real credits have been issued and sold.
+              </p>
+              <div className="mt-6 flex justify-center">
+                <MaturityBadge level="planned" />
+              </div>
+            </Reveal>
+
+            <ol className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+              {BONUS_STEPS.map(({ title, body }, i) => (
+                <Reveal key={title} delay={i * 0.06} className="h-full">
+                  <li className="glass-card relative h-full p-7">
+                    <span className="step-dot">{i + 1}</span>
+                    <h3 className="mt-5 text-[17px] font-bold tracking-[-0.01em] text-foreground">{title}</h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{body}</p>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
+
+            <Reveal delay={0.1} className="mx-auto mt-6 max-w-5xl">
+              <p className="rounded-2xl border border-border bg-card px-6 py-5 text-[15px] leading-relaxed text-muted-foreground">
+                <span className="font-semibold text-foreground">ZLN tokens are not carbon credits.</span>{" "}
+                ZEV evidence alone does not issue credits, and paying in ZLN does not transfer or
+                retire them. Credit ownership and environmental claims stay separate.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ZLN separation (brief §10) */}
-        <section className="section pt-0">
+        <section className="section">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl rounded-3xl border border-border bg-muted/50 p-8 lg:p-10">
               <h2 className="subhead">ZLN is not a carbon credit</h2>

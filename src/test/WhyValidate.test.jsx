@@ -31,7 +31,7 @@ describe("<WhyValidate /> (brief §1: why validate at the source)", () => {
   it("names renewable sources beyond solar and keeps claims inside the proof of concept", () => {
     const { container } = render(<WhyValidate />);
     expect(container.textContent).toMatch(/solar, wind, hydro/i);
-    expect(screen.getAllByText("Demonstrated")).toHaveLength(1);
+    expect(screen.getAllByText("Working")).toHaveLength(1);
     expect(screen.queryByText("In Development")).toBeNull();
     expect(container.textContent).not.toMatch(FORBIDDEN);
   });

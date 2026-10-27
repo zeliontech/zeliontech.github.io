@@ -8,12 +8,16 @@ import { useReducedMotion } from "./hooks";
  *
  * Form: a ranked single-hue horizontal bar chart, plus a slim segmented
  * supply bar showing parts-of-a-whole. Deliberately not a pie chart, which
- * the brief rules out, and deliberately not an eight-colour categorical
- * palette: four allocations share the same 10% value, so colour would carry
- * no information those ties do not already break, and eight competing hues
- * would fight the restrained brand. Identity comes from the row labels,
- * never from colour alone, and every row is directly labelled with its
- * percentage and token count.
+ * the brief rules out, and deliberately not a six-colour categorical
+ * palette: competing hues would fight the restrained brand and carry no
+ * information the labels do not. Identity comes from the row labels, never
+ * from colour alone, and every row is directly labelled with its percentage
+ * and token count.
+ *
+ * Allocation as the founders set it on 26 October 2026: six headings, with
+ * ecosystem and partnerships kept apart. Inside Treasury, Growth & Liquidity
+ * the earlier split stands: half for exchange liquidity, half for treasury,
+ * community and marketing.
  *
  * Hovering or focusing a row highlights its segment in the supply bar. The
  * bars grow in and the percentages count up the first time the chart is
@@ -21,17 +25,16 @@ import { useReducedMotion } from "./hooks";
  */
 
 export const ALLOCATIONS = [
-  { label: "Compute Rewards & ZEV Network", pct: 20, zln: "100,000,000", note: "Network participation and validated-compute rewards" },
+  { label: "ZEV Network & Rewards", pct: 30, zln: "150,000,000", note: "Operator contribution rewards and network participation" },
+  { label: "Token Sales", pct: 20, zln: "100,000,000", note: "Private sale and public sale purchasers" },
+  { label: "Treasury, Growth & Liquidity", pct: 20, zln: "100,000,000", note: "Half for exchange liquidity; half for treasury, community and marketing" },
   { label: "Ecosystem & Infrastructure", pct: 15, zln: "75,000,000", note: "Ecosystem development, integrations and infrastructure" },
-  { label: "Liquidity & Market Stability", pct: 15, zln: "75,000,000", note: "Exchange liquidity and orderly market conditions" },
-  { label: "Core Contributors (Team)", pct: 10, zln: "50,000,000", note: "Long-term alignment, subject to vesting" },
-  { label: "Private & Strategic Sale", pct: 10, zln: "50,000,000", note: "Private sale purchasers and strategic allocations, one shared pool" },
-  { label: "Public Sale", pct: 10, zln: "50,000,000", note: "Public distribution" },
-  { label: "Strategic Partnerships", pct: 10, zln: "50,000,000", note: "Partner and integration agreements" },
-  { label: "Community & Marketing", pct: 10, zln: "50,000,000", note: "Community programmes, growth and awareness" },
+  { label: "Team & Contributors", pct: 10, zln: "50,000,000", note: "Long-term alignment, subject to vesting" },
+  { label: "Strategic Partnerships", pct: 5, zln: "25,000,000", note: "Partner and integration agreements" },
 ];
 
 export const TOTAL_SUPPLY = 500_000_000;
+const LARGEST = Math.max(...ALLOCATIONS.map((a) => a.pct));
 
 
 // In-view stagger for a container: attached only when motion is allowed, so
@@ -111,7 +114,7 @@ const TokenAllocation = () => {
                   variants={grow}
                   className="h-full origin-left rounded-full transition-opacity duration-200"
                   style={{
-                    width: `${(a.pct / 20) * 100}%`,
+                    width: `${(a.pct / LARGEST) * 100}%`,
                     backgroundColor: "hsl(var(--primary))",
                     opacity: active === null || active === i ? 1 : 0.35,
                   }}

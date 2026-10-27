@@ -14,11 +14,15 @@ import {
 export const faqs = [
   {
     q: "What is ZEV?",
-    a: "An intelligent hardware-and-software platform that connects to real energy infrastructure — solar, wind, hydro and other renewable generation, batteries, inverters, meters and the grid — to collect, process, validate and digitally record energy information. ZEV Lite is a working proof of concept; ZEV Pro is the industrial platform in development.",
+    a: "An intelligent hardware-and-software platform that connects to real energy infrastructure — solar, wind, hydro and other renewable generation, batteries, inverters, meters and the grid — to collect, process, validate and digitally record energy information. There are two devices: ZEV Lite for connected energy systems, and ZEV Pro, which adds industrial computing powered by stored surplus energy. Both are in prototype development.",
   },
   {
-    q: "What has actually been demonstrated?",
-    a: "The ZEV Lite proof of concept: physical energy measurement with an ESP32-based controller and energy-meter integration, energy-data processing, SHA-256 hashing, timestamping, anchoring on BNB Smart Chain and a dashboard. Everything labelled Planned or In Development on this site is not built yet, and we say so on every capability.",
+    q: "What actually works today?",
+    a: "The ZEV Lite proof of concept: physical energy measurement with an ESP32-based controller and energy-meter integration, energy-data processing, SHA-256 hashing, timestamping, anchoring on BNB Smart Chain and a dashboard. Patent applications have been filed for ZEV Lite and ZEV Pro. Everything labelled Upcoming or In Development on this site is not built yet, and we say so on every capability.",
+  },
+  {
+    q: "How do ZEV operators earn ZLN?",
+    a: "Through contribution rewards, now in development. A device records and signs energy data, eligible activity earns contribution points, and the points set each operator's share of a funded ZLN reward budget, which they claim to their own wallet. At least 98% of the energy must be verified as renewable. Rewards distribute existing ZLN rather than creating new tokens, and buying or holding ZLN alone does not earn them.",
   },
   {
     q: "Does ZEV generate carbon credits? Is ZLN a carbon credit?",

@@ -52,7 +52,7 @@ const Whitepaper = () => {
               The technical <span className="metal-gradient">whitepaper.</span>
             </>
           }
-          lede="The full account of ZEV and ZLN: what has been demonstrated, what is being engineered, how the project is owned and governed, and the terms on which any of it should be read."
+          lede="The full account of ZEV and ZLN: what works today, what is being engineered, how the project is owned and governed, and the terms on which any of it should be read."
         />
 
         {/* Download */}
@@ -129,11 +129,12 @@ const Whitepaper = () => {
                   means verification does not require trusting ZelionTech.
                 </p>
                 <p>
-                  The ZEV Lite proof of concept demonstrated that chain end to end in a controlled
-                  environment, using an ESP32-based controller and energy-meter integration. The
-                  ZEV Pro industrial platform is being engineered to add industrial metering,
-                  secure-element device identity, inverter, battery and grid integration, AI
-                  anomaly detection at the edge, and enterprise interfaces.
+                  The ZEV Lite proof of concept ran that chain end to end in a controlled
+                  environment, using an ESP32-based controller and energy-meter integration.
+                  Dedicated ZEV Lite and ZEV Pro prototypes are now in development in parallel,
+                  both signing records through a secure element; ZEV Pro adds industrial
+                  integration and computing powered by stored surplus energy. Patent applications
+                  have been filed for both devices.
                 </p>
                 <p>
                   ZLN is the ecosystem&apos;s digital utility layer: a fixed supply of 500,000,000
@@ -150,7 +151,7 @@ const Whitepaper = () => {
                 </div>
                 <div className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
                   <MaturityBadge level="in-development" />
-                  <span>ZEV Pro industrial platform</span>
+                  <span>ZEV Lite and ZEV Pro prototypes</span>
                 </div>
               </div>
             </Reveal>

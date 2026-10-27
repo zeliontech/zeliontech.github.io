@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import CursorSpotlight from "./components/CursorSpotlight";
 import usePageTracking from "./hooks/usePageTracking";
@@ -13,6 +13,7 @@ const TokenomicsPage = lazy(() => import("./pages/TokenomicsPage"));
 const Technology = lazy(() => import("./pages/Technology"));
 const CarbonCredits = lazy(() => import("./pages/CarbonCredits"));
 const About = lazy(() => import("./pages/About"));
+const Partners = lazy(() => import("./pages/Partners"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
 const Legal = lazy(() => import("./pages/Legal"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -36,9 +37,7 @@ const AppContent = () => {
               alias so older links and the previous navigation still resolve. */}
           <Route path="/zev" element={<Technology />} />
           <Route path="/technology" element={<Technology />} />
-          {/* The previous site had a Partners page; the approved navigation
-              folds that story into About, so old links land there. */}
-          <Route path="/partners" element={<Navigate to="/about" replace />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/carbon" element={<CarbonCredits />} />
           <Route path="/about" element={<About />} />
           <Route path="/whitepaper" element={<Whitepaper />} />

@@ -12,6 +12,7 @@ const navLinks = [
   { label: "ZLN Token", href: "/tokenomics" },
   { label: "Carbon Credits", href: "/carbon" },
   { label: "About", href: "/about" },
+  { label: "Partners", href: "/partners" },
   { label: "Contact", href: "/contact" },
 ];
 

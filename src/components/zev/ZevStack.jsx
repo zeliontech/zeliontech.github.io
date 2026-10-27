@@ -9,7 +9,9 @@ import { useReducedMotion } from "./hooks";
 // site. Light zone: physical world → ZEV → digital world → ZLN ecosystem,
 // with energy flowing down the spine. Every capability carries a maturity
 // label; anything not demonstrated in the ZEV Lite proof of concept (brief §15)
-// is labeled Planned.
+// is in development or planned. The ZEV and ZLN layers follow the project
+// update of October 2026: secure-element signing in both prototypes, and
+// ZLN for service payments, contribution rewards and advisory input.
 
 const TIERS = [
   {
@@ -30,8 +32,7 @@ const TIERS = [
     items: [
       { label: "Measurement", level: "demonstrated" },
       { label: "Validation & hashing", level: "demonstrated" },
-      { label: "Secure Element", level: "planned" },
-      { label: "AI edge analysis", level: "planned" },
+      { label: "Secure-element signing", level: "in-development" },
     ],
     accent: "primary",
     emphasis: true,
@@ -55,10 +56,11 @@ const TIERS = [
     eyebrow: "Layer 04 — Ecosystem Layer",
     title: "ZLN",
     Icon: Coins,
-    body: "ZLN is the ecosystem's blockchain-based digital utility layer. It can support participation and economic interactions within the ZelionTech ecosystem as those utilities are deployed.",
+    body: "ZLN is the ecosystem's blockchain-based digital utility layer: payments for ZEV services, contribution rewards for device operators and advisory input, each deployed as the utility launches.",
     items: [
-      { label: "Digital utility", level: "planned" },
-      { label: "Ecosystem participation", level: "planned" },
+      { label: "Service payments", level: "planned" },
+      { label: "Contribution rewards", level: "planned" },
+      { label: "Advisory input", level: "planned" },
     ],
     accent: "primary",
   },
@@ -116,9 +118,10 @@ const Chip = ({ item, accent }) => {
   }
   // One glyph per capability instead of a badge per capability: a filled
   // eco dot for what the ZEV Lite proof of concept demonstrated, a hollow
-  // dot for what ZEV Pro plans. The legend under the stack spells it out
-  // once; assistive tech gets the word inline.
+  // dot for what is in development or planned. The legend under the stack
+  // spells it out once; assistive tech gets the word inline.
   const demonstrated = item.level === "demonstrated";
+  const status = demonstrated ? "working" : item.level === "in-development" ? "in development" : "upcoming";
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[13px] font-medium text-foreground">
       <span
@@ -126,7 +129,7 @@ const Chip = ({ item, accent }) => {
         className={`h-2 w-2 shrink-0 rounded-full ${demonstrated ? "bg-eco" : "border border-muted-foreground/60"}`}
       />
       {item.label}
-      <span className="sr-only">{demonstrated ? " (demonstrated)" : " (planned)"}</span>
+      <span className="sr-only"> ({status})</span>
     </span>
   );
 };
@@ -135,11 +138,11 @@ const StackLegend = () => (
   <p className="mx-auto mt-6 flex max-w-3xl flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-muted-foreground">
     <span className="inline-flex items-center gap-2">
       <span aria-hidden="true" className="h-2 w-2 rounded-full bg-eco" />
-      Demonstrated in the ZEV Lite proof of concept
+      Working in the ZEV Lite proof of concept
     </span>
     <span className="inline-flex items-center gap-2">
       <span aria-hidden="true" className="h-2 w-2 rounded-full border border-muted-foreground/60" />
-      Planned for ZEV Pro
+      In development or upcoming
     </span>
   </p>
 );

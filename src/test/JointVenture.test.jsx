@@ -60,6 +60,7 @@ describe("<JointVenture />", () => {
     expect(expofin.getAttribute("rel")).toMatch(/noopener/);
     expect(expofin.getAttribute("rel")).toMatch(/noreferrer/);
     expect(screen.getByRole("link", { name: /read the whitepaper/i })).toHaveAttribute("href", "/whitepaper");
+    expect(screen.getByRole("link", { name: /Expofin in detail/i })).toHaveAttribute("href", "/partners");
 
     const img = screen.getByRole("img", { name: BANNER_ALT });
     expect(img).toHaveAttribute("width", String(JV_BANNER.width));
@@ -72,6 +73,7 @@ describe("<JointVenture />", () => {
       expect(source.getAttribute("media")).toBeNull();
     }
     expect(container.querySelector("figcaption")).toHaveTextContent(/ZelionTech.*Expofin/);
+    expect(container.querySelector("figcaption")).toHaveTextContent(/Smart Tower 5G.*EOS TH.*Solid Power/);
 
     const urls = [...urlsOf(JV_BANNER.avif), ...urlsOf(JV_BANNER.webp), ...urlsOf(JV_BANNER.jpg), JV_BANNER.fallback];
     for (const url of urls) {
@@ -84,7 +86,8 @@ describe("<JointVenture />", () => {
   it("has a partner strip that jumps to the section, and a rail entry in the right place", () => {
     const { container } = render(<PartnerStrip />);
     expect(container.textContent).toMatch(/In joint venture with/);
-    expect(container.textContent).toMatch(/Expofin S\.R\.L\./);
+    // The partner's wordmark carries the legal name for assistive tech.
+    expect(screen.getByRole("img", { name: "Expofin S.R.L." })).toHaveAttribute("width");
     expect(container.textContent).not.toMatch(CONFIDENTIAL);
     expect(screen.getByRole("link", { name: /about the joint venture/i })).toHaveAttribute("href", "#joint-venture");
 

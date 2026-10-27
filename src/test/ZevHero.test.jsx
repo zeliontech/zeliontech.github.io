@@ -34,7 +34,7 @@ describe("<ZevHero /> (brief §17)", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/From physical energy to/);
     expect(screen.getByRole("link", { name: /explore zev/i })).toHaveAttribute("href", "/zev");
     expect(screen.getByRole("link", { name: /see how it works/i })).toHaveAttribute("href", "#how-zev-works");
-    expect(screen.getByText("Demonstrated")).toBeInTheDocument();
+    expect(screen.getByText("Working")).toBeInTheDocument();
     expect(screen.getByText("In Development")).toBeInTheDocument();
     expect(container.textContent).toMatch(/ZEV Lite/);
     expect(container.textContent).toMatch(/ZEV Pro/);

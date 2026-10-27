@@ -6,14 +6,17 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/zev/Reveal";
 import TeamSection from "@/components/landing/TeamSection";
 import MaturityBadge from "@/components/zev/MaturityBadge";
+import { EXPOFIN_URL, EXPOFIN_WORDMARK } from "@/components/zev/expofin";
 
 // About / Company page. Carries the project story as the whitepaper sections
 // "The Joint Venture" and "Project Partners" record it: ZelionTech originated
 // ZLN and the ZEV proof of concept; the project is being advanced through
 // ZelionTech Expofin Smart Energy Ltd, the joint venture with Expofin S.R.L.
 // being established in the United Kingdom; LOGBOT S.R.L. supports the
-// prototype under a signed technology agreement; Expofin Turkey is the
-// planned manufacturing partner.
+// prototype under a signed technology agreement; Expofin will be the
+// manufacturing partner. The partner profile states only what expofin.eu
+// publishes about Expofin E.S.Co., with the source named; the Partners page
+// carries the full picture.
 //
 // The joint venture is described as being established, not as operating,
 // until the certificate of incorporation is issued. How it is owned or
@@ -43,7 +46,7 @@ export const PHASES = [
   {
     Icon: Building2,
     title: "Scaled manufacturing",
-    body: "Expofin Turkey is the planned manufacturing partner for mass production and scaling once the prototype has been validated.",
+    body: "Expofin will be the manufacturing partner for mass production and scaling once the prototype has been validated.",
     level: "planned",
   },
 ];
@@ -111,9 +114,55 @@ const About = () => {
               ))}
             </div>
 
-            <Reveal delay={0.1} className="mx-auto mt-8 max-w-4xl">
-              <div className="rounded-2xl border border-border bg-card px-6 py-5 text-center">
-                <p className="text-[15px] leading-relaxed text-muted-foreground">
+            {/* Who the partner is, in Expofin's own published terms, beside
+                the status of the venture. */}
+            <Reveal delay={0.1} className="mx-auto mt-8 grid max-w-6xl gap-5 lg:grid-cols-5">
+              <div className="rounded-2xl border border-border bg-card p-6 lg:col-span-3 lg:p-7">
+                <div className="flex items-center justify-between gap-4">
+                  <p className="text-[13px] font-medium text-muted-foreground">The partner</p>
+                  <picture>
+                    <source type="image/webp" srcSet={EXPOFIN_WORDMARK.webp} sizes="88px" />
+                    <img
+                      src={EXPOFIN_WORDMARK.fallback}
+                      srcSet={EXPOFIN_WORDMARK.png}
+                      sizes="88px"
+                      width={EXPOFIN_WORDMARK.width}
+                      height={EXPOFIN_WORDMARK.height}
+                      alt="Expofin"
+                      loading="lazy"
+                      decoding="async"
+                      className="h-7 w-auto"
+                    />
+                  </picture>
+                </div>
+                <h3 className="mt-3 text-[17px] font-bold tracking-[-0.01em] text-foreground">Expofin E.S.Co.</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                  An Italian energy service company with an innovation centre in Padua and a
+                  production plant in Verona. It designs, builds and finances energy-efficiency
+                  projects, and makes its own generation, storage and smart-city equipment, the
+                  installed base ZEV is designed to read first.
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+                  <Link
+                    to="/partners"
+                    className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-primary hover:underline"
+                  >
+                    The Partners page: who they are, what they build, how it connects to ZEV
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                  <a
+                    href={EXPOFIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13px] font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                  >
+                    expofin.eu (Italian)
+                  </a>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-border bg-card p-6 lg:col-span-2 lg:p-7">
+                <p className="text-[13px] font-medium text-muted-foreground">Status</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
                   The joint venture is designated to lead the project&apos;s future operations once
                   its incorporation and the required legal arrangements are in place. LOGBOT S.R.L.
                   supports ZEV prototype development and technical integration under a signed

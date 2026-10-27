@@ -3,19 +3,19 @@ import { ArrowRight, Check } from "lucide-react";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
 
-// ZEV evolution (brief §15, §16 "PoC → ZEV Lite → ZEV Pro → Pilot Deployment →
-// Network Expansion"). Replaces the generic Phase 1/2/3 roadmap. Only the
-// ZEV Lite proof of concept is Demonstrated; ZEV Pro is In Development; the
-// pilot and the network are Planned. No dates: the brief gives none and
-// §24 forbids promising them.
+// ZEV roadmap, following the milestones of the founders' project update of
+// October 2026: the demonstrated proof of concept, the two prototypes in
+// parallel development, then rewards and security, then pilots. Only the
+// proof of concept is Demonstrated; the prototypes are In Development; the
+// rest is Planned. No dates: none are given and §24 forbids promising them.
 
 export const PHASES = [
   {
-    id: "zev1",
+    id: "poc",
     step: "01",
-    title: "ZEV Lite — Proof of concept",
+    title: "ZEV Lite proof of concept",
     level: "demonstrated",
-    body: "The initial architecture showed the idea works end to end: physical energy information captured by hardware, turned into cryptographically verifiable information and connected with blockchain infrastructure.",
+    body: "Shown working end to end: physical energy information captured by hardware, hashed, timestamped and anchored on BNB Smart Chain. Patent applications have since been filed for ZEV Lite and ZEV Pro.",
     items: [
       "Physical energy measurement",
       "ESP32-based controller",
@@ -30,42 +30,48 @@ export const PHASES = [
     ],
   },
   {
-    id: "zev2",
+    id: "prototypes",
     step: "02",
-    title: "ZEV Pro — Industrial evolution",
+    title: "Two prototypes in parallel",
     level: "in-development",
-    body: "The industrial platform being engineered around the proof of concept. Every capability listed is a planned part of ZEV Pro, not something deployed commercially today.",
+    body: "Dedicated ZEV Lite and ZEV Pro prototypes are being built side by side on the same foundation. Nothing listed here is deployed commercially today.",
     items: [
-      "Industrial hardware",
-      "Secure Element",
+      "Dedicated ZEV Lite hardware",
+      "ZEV Pro industrial hardware",
+      "Secure-element signing in both",
+      "Computing powered by stored surplus energy (ZEV Pro)",
+      "Hardware integration and measurement testing",
       "Inverter, battery and grid integration",
-      "AI edge processing",
-      "Anomaly and tamper detection",
-      "Advanced energy analytics",
-      "Carbon / MRV data",
-      "Renewable computing",
-      "Enterprise APIs",
-      "Scalable deployment",
+    ],
+    itemLevel: "in-development",
+    more: { label: "Both devices, in detail", to: "/zev#hardware" },
+  },
+  {
+    id: "readiness",
+    step: "03",
+    title: "Rewards and security",
+    level: "planned",
+    body: "Test verified participation and funded reward claims from device to wallet, finalise multi-signature custody and complete an independent security review.",
+    items: [
+      "Contribution rewards tested end to end",
+      "Funded reward claims to operator wallets",
+      "Multi-signature custody",
+      "Independent security review",
     ],
     itemLevel: "planned",
-    more: { label: "Full ZEV Pro capability list", to: "/technology#hardware" },
   },
   {
-    id: "pilot",
-    step: "03",
-    title: "Pilot deployment",
-    level: "planned",
-    body: "First ZEV Pro units operating at real renewable installations — solar, wind, storage — with validated data used by the operators and the first carbon and ESG data integrations tested.",
-    items: ["Units in the field", "Operator dashboards on validated data", "Carbon / ESG data integration trials"],
-    itemLevel: "planned",
-  },
-  {
-    id: "network",
+    id: "pilots",
     step: "04",
-    title: "Network expansion",
+    title: "Pilot installations",
     level: "planned",
-    body: "Distributed networks of ZEV nodes forming a shared energy-data infrastructure rather than isolated machines, with ecosystem utilities deployed alongside it.",
-    items: ["Networks of ZEV nodes", "Distributed energy-data infrastructure", "Ecosystem utilities deployed"],
+    body: "Validate the system with initial customer installations, then grow towards networks of ZEV nodes rather than isolated machines.",
+    items: [
+      "Initial customer installations",
+      "Operator dashboards on validated data",
+      "Carbon / ESG data integration trials",
+      "Networks of ZEV nodes",
+    ],
     itemLevel: "planned",
   },
 ];

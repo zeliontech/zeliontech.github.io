@@ -10,13 +10,14 @@ import Reveal from "./Reveal";
 // rest recede, so the diagram explains itself without a legend.
 
 export const SENTENCE =
-  "ZelionTech is developing ZEV, an intelligent energy-validation machine that connects renewable-energy infrastructure with secure data, AI, blockchain, carbon systems and digital utilities, supported by the ZLN ecosystem.";
+  "ZelionTech is developing ZEV, an intelligent energy-validation machine that connects renewable-energy infrastructure with secure data, blockchain, carbon systems and digital utilities, supported by the ZLN ecosystem.";
 
-// §25: ☀ RENEWABLE ENERGY → ⚡ ZEV → DATA + AI + BLOCKCHAIN → 🌍 CARBON + COMPUTE + DIGITAL ENERGY → ZLN ECOSYSTEM
+// §25, without the AI layer the October 2026 project update no longer claims:
+// ☀ RENEWABLE ENERGY → ⚡ ZEV → SIGNED DATA + BLOCKCHAIN → 🌍 CARBON + COMPUTE + DIGITAL ENERGY → ZLN ECOSYSTEM
 export const SPINE = [
   { Icon: Sun, label: "Renewable energy", tone: "eco", beats: [0] },
   { Icon: Cpu, label: "ZEV", tone: "ink", beats: [1, 2], emphasis: true },
-  { Icon: Database, label: "Data + AI + blockchain", tone: "primary", beats: [3] },
+  { Icon: Database, label: "Signed data + blockchain", tone: "primary", beats: [3] },
   { Icon: Leaf, label: "Carbon + compute + digital energy", tone: "primary", beats: [4, 5] },
   { Icon: Coins, label: "ZLN ecosystem", tone: "primary", beats: [6] },
 ];
@@ -26,7 +27,7 @@ export const STORY = [
   { head: "Energy is physical.", body: "Solar panels, wind turbines, batteries and grids produce and move electricity." },
   { head: "ZEV makes energy digital.", body: "ZEV measures and processes energy information at the equipment." },
   { head: "ZEV makes the data verifiable.", body: "Cryptography and blockchain create an auditable digital trail." },
-  { head: "AI makes the data intelligent.", body: "Energy information can be analysed and optimised." },
+  { head: "Signing ties the data to its device.", body: "Both ZEV prototypes sign records through a secure element." },
   { head: "Carbon systems can use trusted data.", body: "Validated renewable-energy information can support carbon accounting and MRV." },
   { head: "Computing can use energy.", body: "Renewable-energy infrastructure can potentially support computational workloads." },
   { head: "ZLN connects the digital economy.", body: "ZLN provides the blockchain-based digital utility layer of the broader ZelionTech ecosystem." },
@@ -59,8 +60,8 @@ const WhatToRemember = () => {
             <span className="metal-gradient">ZEV,</span>
             <span className="text-foreground">
               {" "}an intelligent energy-validation machine that connects renewable-energy
-              infrastructure with secure data, AI, blockchain, carbon systems and digital
-              utilities, supported by the ZLN ecosystem.
+              infrastructure with secure data, blockchain, carbon systems and digital utilities,
+              supported by the ZLN ecosystem.
             </span>
           </h2>
         </Reveal>

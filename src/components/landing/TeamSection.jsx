@@ -10,24 +10,25 @@ import { Button } from "@/components/ui/button";
 //
 // Roster note: Ralph Saab is no longer listed. His strategy, innovation and
 // tokenomics mandate moved to Allam Jamil, as recorded in the whitepaper.
+// Order and titles follow the founders' project update of October 2026.
 
 // Portraits: public/team/<slug>.{avif,webp,jpg}, 280px squares built by
 // scripts/images/build-team.mjs from the originals in assets-source/team.
 const leadership = [
-  { name: "İhsan Serdar Eldek", role: "Co-Founder & CEO", slug: "ihsan-serdar-eldek" },
-  { name: "Roula Jamil", role: "Co-Founder & President", slug: "roula-jamil" },
-  { name: "Allam Jamil", role: "Chief Financial, Investment & Data Officer (CFIDO)", slug: "allam-jamil" },
-  { name: "Eng. Dino Vincoletto", role: "Chief Renewable Technology & Energy Validation Officer", slug: "dino-vincoletto" },
-  { name: "Eng. Alessio Munerato", role: "Chief Infrastructure & Cybersecurity Officer", slug: "alessio-munerato" },
-  { name: "Eng. Federico Davoli", role: "Chief Hardware & Industrial Systems Officer", slug: "federico-davoli" },
+  { name: "Roula Jamil", role: "Founder & Chief Executive Officer", slug: "roula-jamil" },
+  { name: "İhsan Serdar Eldek", role: "Chief ZEV Product and Blockchain Officer", slug: "ihsan-serdar-eldek" },
+  { name: "Allam Jamil", role: "Chief Financial Officer", slug: "allam-jamil" },
+  { name: "Eng. Dino Vincoletto", role: "Chief Energy Technology and Industrial Development Officer", slug: "dino-vincoletto" },
   { name: "Luigi Benacchio", role: "Chief Information Officer", slug: "luigi-benacchio" },
-  { name: "Eleonora Passarella", role: "Chief Marketing & Communications Officer", slug: "eleonora-passarella" },
+  { name: "Eleonora Passarella", role: "Marketing & Communications", slug: "eleonora-passarella" },
+  { name: "Eng. Federico Davoli", role: "Hardware & Industrial Systems", slug: "federico-davoli" },
+  { name: "Eng. Alessio Munerato", role: "Infrastructure & Cybersecurity", slug: "alessio-munerato" },
 ];
 
 const advisory = [
-  { name: "Francesco Di Bernardo", role: "Director of Legal Affairs & Corporate Governance", initials: "FB" },
-  { name: "Antonio Guadagnino", role: "Director of Compliance & Regulatory Affairs", slug: "antonio-guadagnino" },
-  { name: "Prof. Michele De Carli", role: "Department of Industrial Engineering – University of Padua", slug: "michele-de-carli" },
+  { name: "Prof. Michele De Carli", role: "University of Padua. Academic and technical guidance", slug: "michele-de-carli" },
+  { name: "Francesco Di Bernardo", role: "Legal affairs and corporate governance", initials: "FB" },
+  { name: "Antonio Guadagnino", role: "Compliance and regulatory requirements", slug: "antonio-guadagnino" },
 ];
 
 // One treatment for every portrait: greyscale at rest so mixed lighting and
@@ -124,7 +125,7 @@ const TeamSection = ({ compact = false }) => {
             aria-controls={panelId}
             className="group inline-flex h-12 items-center gap-3 rounded-full border border-border bg-card pl-6 pr-5 text-[15px] font-semibold text-foreground transition-all duration-200 hover:border-foreground/20 hover:bg-muted hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            {open ? "Hide directors & advisors" : "Meet the directors & advisors"}
+            {open ? "Hide the advisors" : "Meet the advisors"}
             <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-foreground px-1.5 text-[13px] font-semibold tabular-nums text-background">
               {advisory.length}
             </span>
@@ -149,9 +150,9 @@ const TeamSection = ({ compact = false }) => {
           <div className="min-h-0 overflow-hidden">
             <div className="border-t border-border pt-10">
               <div>
-                <h3 className="subhead">Directors, governance, scientific &amp; strategic advisory</h3>
+                <h3 className="subhead">Advisors</h3>
                 <p className="mt-3 max-w-[62ch] text-[15px] leading-relaxed text-muted-foreground">
-                  Legal, compliance and academic oversight around the company and the joint venture.
+                  Academic, legal and compliance guidance around the company and the joint venture.
                 </p>
               </div>
               <div className="mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-2">

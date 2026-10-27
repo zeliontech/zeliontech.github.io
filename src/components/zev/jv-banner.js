@@ -2,14 +2,16 @@
 // Responsive sources for the ZelionTech x Expofin joint-venture banner.
 
 export const JV_BANNER = {
-  avif: "/images/jv/jv-banner-960.avif 960w, /images/jv/jv-banner-1440.avif 1440w, /images/jv/jv-banner-1933.avif 1933w",
-  webp: "/images/jv/jv-banner-960.webp 960w, /images/jv/jv-banner-1440.webp 1440w, /images/jv/jv-banner-1933.webp 1933w",
-  jpg: "/images/jv/jv-banner-960.jpg 960w, /images/jv/jv-banner-1440.jpg 1440w, /images/jv/jv-banner-1933.jpg 1933w",
-  fallback: "/images/jv/jv-banner-1933.jpg",
+  avif: "/images/jv/jv-banner-v2-960.avif 960w, /images/jv/jv-banner-v2-1440.avif 1440w, /images/jv/jv-banner-v2-1933.avif 1933w",
+  webp: "/images/jv/jv-banner-v2-960.webp 960w, /images/jv/jv-banner-v2-1440.webp 1440w, /images/jv/jv-banner-v2-1933.webp 1933w",
+  jpg: "/images/jv/jv-banner-v2-960.jpg 960w, /images/jv/jv-banner-v2-1440.jpg 1440w, /images/jv/jv-banner-v2-1933.jpg 1933w",
+  fallback: "/images/jv/jv-banner-v2-1933.jpg",
   width: 1933,
-  height: 813,
+  height: 811,
+  // The poster's own sky at its top edge, painted behind it.
+  edge: "rgb(152, 189, 227)",
   // The figure sits in a max-w-6xl container (72rem) with 1rem side padding.
   sizes: "(min-width: 1280px) 1152px, calc(100vw - 2rem)",
-  placeholder: "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwAwCdASoYAAoAPu1iqU2ppaQiMAgBMB2JQBdiP/wGpU8WJvEmI1cAAP6v93JIBIp31m4U+XbpfyFWeVY8glez/8e/XkzZmC+qTu+EsCHAG79R4kPENlMRcLWArj8tNUMBguQCNovBDxzIXyFlxiS8c7fvq6cAYkkzGYsdAsxrAy9Y5jyMTXrTFr5C2XWSVgod/AAA",
-  glow: "data:image/webp;base64,UklGRpYBAABXRUJQVlA4IIoBAADwDQCdASpgACgAPpE6mEglo6KhNVQOqLASCUAXsYTRYhwugWndtYgu8y8xUK0NrI3REhTOv5xFXwrSDM2IBbmxm7a6S7q3RJekXAsIsXQBxZdI42SX1gu0wh/zBfJ9HDAf9IoVJMgXRNv8fjswx2N2Q4ndODFg7IAA/vpNezHgK7SmtXTSXu1PzCbrPpyPV4sHD6xNM7ELnnCi2utSUJaEaFEb5F/i9yCfqiqQ/fFvizrHIdSz0AcQfshNtQVHw3S00CDiMqJQ9pwQs0Fq2CKazZLLf4XsfiMwxp1TZBUfv86xBaVFhbypEzJBrz70+pYdqsVm5JIPGTHHisTDsaYcZAmgRxiF0tDyHFfHOSu1z9+Ps5TTxeZ3Mcyoei9XiWHFZDG8Zs9KIZoE5QkZyh48ImylG/QGH3BBdgNVRttW7HJTLXWLYh4vnkPf3AmjnPDgj0MIhe3megq0ThOrmnpRzOKi8kSY+yYmivgO6IQqXsyUCyQ/ebXXYaA3+KUp5zFlUirSbgHA14AA",
+  placeholder: "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoYAAoAPu1iqU2ppaOiMAgBMB2JQBdiP/0r/BmZsUodmMvCZdhsAP6wzHh8YZUeskz3kH8rpnJ5nlWPIJXtAEgxQu+WCRVAe9XFr+B2UF1DHIBspiLhawFcfmEzLrNimvXuPWS3uf01ANDd3MVm/alhdDkH9EaibXVXlSLQFWuUoEiwBaDVE9am45AAAAAA",
+  glow: "data:image/webp;base64,UklGRpgBAABXRUJQVlA4IIwBAACQDwCdASpgACgAPpE8mUglo6KhMBVfGLASCUAXwHjxmzDx24ADp/xtkqtQdBh53iihMH50dp4Ir3YayyIzwW8LzWz60L80E2OVB8i+7StcYUgYMgdzZh7R58DzTEdP4KxxpPZmEr2mvxbd58wT5DlmXktKicPzhUz/dHeHiXCk/TYDz8gAAP76Ta00XkHdotFpif/GO5bLh/kZyFrnvPQbbQ+HG6EFmESyZ86bRFD5+q5S4v7XIeMOtoTMwL36zTTUTJJEn8efLVTmtbwpdiixtT4nHp7j7Ej3wlHXnZCSacUBdsSQa5k38S98blGZ8FR0TowHwlYruR07N97erVDX69nt5FDPOcr5O3+OD+o4rdWOvsQOeAsI9IilyTweHDGTbMwdr4JQmCy6xFq4g+nuL6fdMOXAbHHUWAGVRSlboawWMC3vb5cUMA9YIXYpwigSLDxTWTUuqAGjEVD/cPJaSixqEMPueeIZUUp6/OmAfpXoetgbxineKgE6hrcV0ex32SlkGJY5AjkNgAA=",
 };

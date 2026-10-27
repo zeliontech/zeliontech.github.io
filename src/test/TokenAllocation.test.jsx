@@ -38,16 +38,15 @@ describe("ZLN facts (brief §11–§13)", () => {
   });
 
   it("matches the approved final allocation exactly and sums to the supply", () => {
-    expect(ALLOCATIONS).toHaveLength(8);
+    // The six headings the founders set on 26 October 2026.
+    expect(ALLOCATIONS).toHaveLength(6);
     expect(ALLOCATIONS.map((a) => [a.label, a.pct])).toEqual([
-      ["Compute Rewards & ZEV Network", 20],
+      ["ZEV Network & Rewards", 30],
+      ["Token Sales", 20],
+      ["Treasury, Growth & Liquidity", 20],
       ["Ecosystem & Infrastructure", 15],
-      ["Liquidity & Market Stability", 15],
-      ["Core Contributors (Team)", 10],
-      ["Private & Strategic Sale", 10],
-      ["Public Sale", 10],
-      ["Strategic Partnerships", 10],
-      ["Community & Marketing", 10],
+      ["Team & Contributors", 10],
+      ["Strategic Partnerships", 5],
     ]);
     expect(ALLOCATIONS.reduce((sum, a) => sum + a.pct, 0)).toBe(100);
     const summed = ALLOCATIONS.reduce((n, a) => n + Number(a.zln.replace(/,/g, "")), 0);
@@ -71,18 +70,20 @@ describe("ZLN facts (brief §11–§13)", () => {
   });
 });
 
-// Private sale and strategic allocation terms as decided on 14 October 2026.
-// The site states the schedule and the participation limits; it never states
-// a price or a token equivalent that would reveal one.
+// Private sale terms as set out in the founders' project updates of October
+// 2026: ten equal releases, the first at launch. The site states the schedule
+// and the limit; it never states a price, a fundraising target or a token
+// equivalent that would reveal one.
 describe("Private sale terms on the token page", () => {
-  it("states the agreed schedule and limits and no price", () => {
-    expect(PRIVATE_SALE.release).toMatch(/^15% of purchased tokens available at launch\./);
-    expect(PRIVATE_SALE.release).toMatch(/remaining 85% is locked for 6 months \(the cliff\), then released monthly over 24 months/);
-    expect(PRIVATE_SALE.strategic).toMatch(/fully locked for 6 months, then released monthly over 24 months/);
+  it("states the agreed schedule and limit and no price", () => {
+    expect(PRIVATE_SALE.release).toMatch(/^10% of purchased tokens available at launch, then 10% of the original purchase each month for nine months\./);
+    expect(PRIVATE_SALE.release).toMatch(/released by month 9, with no waiting period \(cliff\)/);
+    expect(PRIVATE_SALE.schedule).toEqual([10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
+    expect(PRIVATE_SALE.strategic).toBeUndefined();
     const byLabel = Object.fromEntries(PRIVATE_SALE.participation.map((p) => [p.label, p.value]));
-    expect(byLabel["Minimum"]).toMatch(/USD 2,500/);
-    expect(byLabel["Maximum"]).toMatch(/USD 50,000/);
-    expect(byLabel["Locked tokens"]).toMatch(/vesting contract/);
+    expect(byLabel["Minimum"]).toBeUndefined();
+    expect(byLabel["Maximum"]).toBe("USD 50,000 per person or entity, across all wallets");
+    expect(byLabel["Locked tokens"]).toMatch(/vesting wallet/);
     // The wallet and identity-verification rules stay in the sale documents.
     expect(byLabel["Wallets"]).toBeUndefined();
     expect(byLabel["Verification"]).toBeUndefined();
@@ -95,17 +96,25 @@ describe("Private sale terms on the token page", () => {
     );
     const text = container.textContent;
     expect(container.querySelector("#private-sale")).not.toBeNull();
-    expect(text).toMatch(/15% of purchased tokens available at launch/);
-    expect(text).toMatch(/USD 50,000 per verified person or entity/);
-    // No price, no per-token figure, no old price, and the pool is not split.
-    expect(text).not.toMatch(/USD 0\.\d|per ZLN|0\.06|0\.08|31,250|625,000|KYC|declared wallets/);
+    expect(container.querySelector("#rewards")).not.toBeNull();
+    expect(text).toMatch(/10% of purchased tokens available at launch/);
+    expect(text).toMatch(/USD 50,000 per person or entity/);
+    expect(text).not.toMatch(/verified person|jurisdiction restrictions|strategic allocations|24 months/);
+    // No price, no target, no per-token figure, no old price.
+    expect(text).not.toMatch(/USD 0\.\d|US\$|per ZLN|0\.06|0\.08|4 million|31,250|625,000|KYC|declared wallets/);
+    // The deck calls it contribution mining; the site never does.
+    expect(text).not.toMatch(/mining|\bstake (and|ZLN)|hold and stake/i);
+    // The partner stays off the token page (the footer's mark excepted).
+    expect(container.querySelector("main").textContent).not.toMatch(/Expofin/);
     expect(text).not.toContain(String.fromCharCode(8212)); // no em dash anywhere on the page
   });
 
   it("links the whitepaper edition that exists in public/docs", () => {
-    expect(WHITEPAPER.file).toMatch(/^\/docs\/ZEV-ZLN_Whitepaper_\d{4}-\d{2}\.pdf$/);
+    expect(WHITEPAPER.file).toMatch(/^\/docs\/ZEV-ZLN_Whitepaper_\d{4}-\d{2}(-\d{2})?\.pdf$/);
     expect(fs.existsSync(path.join(process.cwd(), "public", WHITEPAPER.file))).toBe(true);
-    // The previous edition stays in place so shared links keep working.
-    expect(fs.existsSync(path.join(process.cwd(), "public", "docs", "ZEV-ZLN_Whitepaper.pdf"))).toBe(true);
+    // Earlier editions stay in place so shared links keep working.
+    for (const earlier of ["ZEV-ZLN_Whitepaper.pdf", "ZEV-ZLN_Whitepaper_2026-10.pdf"]) {
+      expect(fs.existsSync(path.join(process.cwd(), "public", "docs", earlier))).toBe(true);
+    }
   });
 });

@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import { Leaf, Cpu, Brain, ArrowRight, ArrowDown } from "lucide-react";
+import { Leaf, Cpu, Coins, ArrowRight, ArrowDown } from "lucide-react";
 import Reveal from "./Reveal";
 import MaturityBadge from "./MaturityBadge";
+import { REWARDS } from "./zln";
+import { ZevComputeConcept } from "./ZevProFigures";
 
-// Digital utilities (brief §6 AI, §8 renewable-powered computing, §9 carbon
-// data & MRV): what a validated, anchored record is for beyond a dashboard.
-// All three are ahead of the ZEV Lite proof of concept, so every card is
-// Planned. Carbon wording follows §9 exactly — ZEV supports MRV; it does not
-// create credits. Compute is framed as renewable compute infrastructure,
-// never as a mining pitch (§8).
+// Digital utilities (brief §8 renewable-powered computing, §9 carbon data &
+// MRV, and the contribution rewards of the October 2026 project update):
+// what a validated, anchored record is for beyond a dashboard. All three are
+// ahead of the ZEV Lite proof of concept, so every card is Planned. Carbon
+// wording follows §9 exactly: ZEV supports MRV; it does not create credits.
+// Compute is framed as renewable compute infrastructure and rewards as
+// contribution rewards, never as a mining pitch (§8).
 
 export const UTILITIES = [
   {
@@ -32,17 +35,18 @@ export const UTILITIES = [
     id: "compute",
     Icon: Cpu,
     title: "Renewable compute",
-    body: "Where technically and economically appropriate, excess or allocated renewable capacity could support useful computing — AI, distributed computing, blockchain and validation infrastructure — instead of remaining an isolated energy resource.",
+    body: "Where technically and economically appropriate, stored surplus renewable energy could power useful computing on site, for example at solar farms, instead of remaining an isolated energy resource. This is the ZEV Pro direction.",
     flow: ["Renewable generation", "ZEV", "Validated available capacity", "Energy allocation", "Computing workloads"],
     caveat: "A development direction and architecture capability, not a commercially deployed service.",
   },
   {
-    id: "ai",
-    Icon: Brain,
-    title: "AI edge intelligence",
-    body: "ZEV Pro is designed to analyse energy information on the device itself: pattern analysis, anomaly and abnormal-equipment detection, data-integrity monitoring, optimisation and operational alerts.",
-    flow: ["Validated readings", "On-device analysis", "Anomaly & tamper detection", "Predictive insights", "Operational alerts"],
-    more: { label: "AI functions, in detail", to: "/zev#ai" },
+    id: "rewards",
+    Icon: Coins,
+    title: "Contribution rewards",
+    body: "Eligible ZEV operators are designed to earn ZLN for verified renewable participation, paid from funded reward budgets of existing tokens.",
+    flow: REWARDS.steps.map((s) => s.title),
+    caveat: `At least ${REWARDS.gate} of the energy must be verified as renewable. Buying or holding ZLN alone does not earn device rewards.`,
+    more: { label: "How rewards work", to: "/tokenomics#rewards" },
   },
 ];
 
@@ -107,6 +111,10 @@ const DigitalUtilities = () => {
             </Reveal>
           ))}
         </div>
+
+        {/* ZEV Compute: the owner's design concept for renewable compute,
+            shown beside the utility it belongs to. */}
+        <ZevComputeConcept />
       </div>
     </section>
   );

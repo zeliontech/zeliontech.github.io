@@ -80,7 +80,7 @@ const ZevHero = ({ children }) => {
               </div>
               <div className="flex flex-wrap items-center gap-2.5 text-[13px] text-muted-foreground">
                 <MaturityBadge level="in-development" />
-                <span>ZEV Pro industrial platform</span>
+                <span>ZEV Lite and ZEV Pro prototypes, with patent applications filed</span>
               </div>
             </div>
           </div>

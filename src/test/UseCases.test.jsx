@@ -30,8 +30,8 @@ describe("<UseCases /> (brief §14)", () => {
     for (const c of CASES) expect(screen.getByRole("heading", { level: 3, name: c.title })).toBeInTheDocument();
     // The owner removed the maturity chip from this section (2026-09-08);
     // the caveat sentence below the heading carries the status instead.
-    expect(screen.queryByText("Planned")).toBeNull();
-    expect(screen.queryByText("Demonstrated")).toBeNull();
+    expect(screen.queryByText("Upcoming")).toBeNull();
+    expect(screen.queryByText("Working")).toBeNull();
     expect(container.textContent).toMatch(/not commercial deployments/i);
     expect(container.textContent).not.toMatch(FORBIDDEN);
     expect(container.querySelector("#use-cases")).not.toBeNull();

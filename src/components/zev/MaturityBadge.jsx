@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
  */
 export const MATURITY_LEVELS = {
   demonstrated: {
-    label: "Demonstrated",
+    label: "Working",
     description: "Shown working in the ZEV Lite proof of concept.",
     tone: "demonstrated",
     solidDot: true,
@@ -21,12 +21,12 @@ export const MATURITY_LEVELS = {
   },
   "in-development": {
     label: "In Development",
-    description: "Actively being engineered for ZEV Pro.",
+    description: "Actively being engineered in the ZEV Lite and ZEV Pro prototypes.",
     tone: "progress",
     solidDot: false,
   },
   planned: {
-    label: "Planned",
+    label: "Upcoming",
     description: "On the architecture roadmap; not yet built.",
     tone: "planned",
     solidDot: false,

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Send } from "lucide-react";
 import { trackExternalLink } from "@/services/analyticsService";
+import { EXPOFIN_URL, EXPOFIN_WORDMARK } from "@/components/zev/expofin";
 
 // Footer per the approved design reference: wordmark and one-line positioning
-// on the left, page links in the middle, channel icons on the right, then a
-// hairline rule with the copyright and the closing line.
+// on the left (with the joint-venture partner's mark beneath), page links in
+// the middle, channel icons on the right, then a hairline rule with the
+// copyright and the closing line.
 
 const pageLinks = [
   { label: "Home", to: "/" },
@@ -12,6 +14,7 @@ const pageLinks = [
   { label: "ZLN", to: "/tokenomics" },
   { label: "Carbon Credits", to: "/carbon" },
   { label: "About", to: "/about" },
+  { label: "Partners", to: "/partners" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -67,6 +70,30 @@ const Footer = () => {
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
               Technology for a cleaner, more transparent world.
             </p>
+            {/* The partner, once, at the foot of every page. */}
+            <a
+              href={EXPOFIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackExternalLink(EXPOFIN_URL, "Expofin")}
+              className="group mt-6 inline-flex items-center gap-3"
+            >
+              <span className="text-[13px] text-muted-foreground">In joint venture with</span>
+              <picture>
+                <source type="image/webp" srcSet={EXPOFIN_WORDMARK.webp} sizes="88px" />
+                <img
+                  src={EXPOFIN_WORDMARK.fallback}
+                  srcSet={EXPOFIN_WORDMARK.png}
+                  sizes="88px"
+                  width={EXPOFIN_WORDMARK.width}
+                  height={EXPOFIN_WORDMARK.height}
+                  alt="Expofin E.S.Co."
+                  loading="lazy"
+                  decoding="async"
+                  className="h-7 w-auto opacity-80 transition-opacity group-hover:opacity-100"
+                />
+              </picture>
+            </a>
           </div>
 
           {/* Links */}

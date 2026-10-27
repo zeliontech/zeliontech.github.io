@@ -8,8 +8,8 @@ import MaturityBadge from "./MaturityBadge";
 // One step is open at a time; click or arrow through them. Every capability
 // in a step carries its maturity label (brief §24): the ZEV Lite proof of
 // concept demonstrated meter reading, processing, SHA-256 hashing,
-// timestamping and BNB Smart Chain anchoring; Secure Element signing and AI
-// analysis are ZEV Pro and stay Planned.
+// timestamping and BNB Smart Chain anchoring; secure-element signing is in
+// development in both dedicated prototypes, ZEV Lite and ZEV Pro.
 
 export const PIPELINE_STEPS = [
   {
@@ -33,20 +33,17 @@ export const PIPELINE_STEPS = [
     id: "processing",
     label: "Processing",
     where: "On the device",
-    body: "The reading is structured into a record and checked for integrity and consistency before anything is recorded. ZEV Pro is designed to add AI edge analysis here — pattern analysis and anomaly detection on the device itself.",
-    labels: [
-      { label: "Energy-data processing", level: "demonstrated" },
-      { label: "AI edge analysis", level: "planned" },
-    ],
+    body: "The reading is structured into a record and checked for integrity and consistency before anything is recorded.",
+    labels: [{ label: "Energy-data processing", level: "demonstrated" }],
   },
   {
     id: "hash",
     label: "Hash / digital signature",
     where: "On the device",
-    body: "A SHA-256 hash of the record is computed: a fixed-length fingerprint that changes completely if a single value in the record changes. ZEV Pro is designed to also sign the record inside a hardware Secure Element, binding it to one specific device identity.",
+    body: "A SHA-256 hash of the record is computed: a fixed-length fingerprint that changes completely if a single value in the record changes. The ZEV Lite and ZEV Pro prototypes also sign the record through a secure element, binding it to one specific device.",
     labels: [
       { label: "SHA-256 hashing", level: "demonstrated" },
-      { label: "Secure Element signature", level: "planned" },
+      { label: "Secure-element signature", level: "in-development" },
     ],
   },
   {

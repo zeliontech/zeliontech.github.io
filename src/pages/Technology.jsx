@@ -15,15 +15,7 @@ import {
   KeyRound,
   Lock,
   Link2,
-  Activity,
-  AlertTriangle,
-  Cpu,
-  FileCheck,
-  Radar,
-  Leaf,
-  SlidersHorizontal,
-  TrendingUp,
-  Bell,
+  FileBadge2,
   Hash,
   Clock,
   Database,
@@ -41,19 +33,22 @@ import ValidationPipeline from "@/components/zev/ValidationPipeline";
 import ZevScenePicture from "@/components/zev/ZevScenePicture";
 import DigitalUtilities from "@/components/zev/DigitalUtilities";
 import UseCases from "@/components/zev/UseCases";
+import { DevelopmentToDesign, ZevProShowcase } from "@/components/zev/ZevProFigures";
+import { EXPOFIN_PRODUCTS, EXPOFIN_URL } from "@/components/zev/expofin";
 
-// Technology page (ZEV brief §16: hardware, Secure Element, AI, blockchain,
-// energy data, validation, APIs, security). Content follows brief §3–§6 and
-// §15. Claims discipline (§24): the ZEV Lite proof of concept list is the only
-// thing labelled Demonstrated; every ZEV Pro capability is Planned and the
-// ZEV Pro platform as a whole is In Development, matching the homepage hero.
+// Technology page (ZEV brief §16: hardware, Secure Element, blockchain,
+// energy data, validation, APIs, security). Content follows brief §3–§5 and
+// §15, with the device line-up of the founders' project update of October
+// 2026: one demonstrated proof of concept, then two dedicated prototypes,
+// ZEV Lite and ZEV Pro, developed in parallel and both signing through a
+// secure element. Claims discipline (§24): only the proof-of-concept list is
+// labelled Demonstrated.
 
 const PILLS = [
   { label: "Energy data", href: "#energy-data" },
   { label: "Validation", href: "#validation" },
-  { label: "Hardware", href: "#hardware" },
+  { label: "Devices", href: "#hardware" },
   { label: "Security", href: "#security" },
-  { label: "AI & edge", href: "#ai" },
   { label: "Blockchain", href: "#blockchain" },
   { label: "APIs", href: "#apis" },
   { label: "Utilities", href: "#utilities" },
@@ -94,8 +89,8 @@ const INTEGRATIONS = [
   { label: "Grid integration", level: "planned", note: "ZEV Pro" },
 ];
 
-// Brief §15, verbatim capability lists.
-export const ZEV_LITE = [
+// Brief §15: what the ZEV Lite proof of concept demonstrated.
+export const POC = [
   "ESP32-based controller",
   "Energy meter integration",
   "Wi-Fi / network communication",
@@ -107,18 +102,26 @@ export const ZEV_LITE = [
   "Dashboard visualization",
 ];
 
+// The two dedicated prototypes now in development (project update, October
+// 2026). Both carry the same verification foundation and secure-element
+// signing; ZEV Pro adds industrial integration and computing powered by
+// stored surplus energy.
+export const ZEV_LITE = [
+  "Dedicated validation hardware",
+  "Energy measurement for connected systems",
+  "Record checking and hashing",
+  "Secure-element signing",
+  "BNB Smart Chain anchoring",
+  "Contribution rewards for operators",
+];
+
 export const ZEV_PRO = [
+  "The ZEV Lite verification foundation",
   "Industrial hardware",
-  "Secure Element",
-  "Inverter integration",
-  "Battery integration",
-  "Grid integration",
-  "AI edge processing",
-  "Anomaly detection",
+  "Inverter, battery and grid integration",
+  "Computing powered by stored surplus energy",
   "Tamper detection",
-  "Advanced energy analytics",
   "Carbon / MRV data",
-  "Renewable computing",
   "Enterprise APIs",
   "Scalable deployment",
 ];
@@ -140,8 +143,8 @@ export const TRUST_CHAIN = [
   {
     Icon: KeyRound,
     title: "Cryptographic signing",
-    body: "ZEV Pro is designed to sign each record with a key that never leaves the Secure Element.",
-    level: "planned",
+    body: "Both the ZEV Lite and ZEV Pro prototypes sign records through a secure element, with a key that never leaves it.",
+    level: "in-development",
   },
   {
     Icon: Lock,
@@ -155,19 +158,6 @@ export const TRUST_CHAIN = [
     body: "Hashes anchored on BNB Smart Chain let anyone verify a record independently of ZelionTech.",
     level: "demonstrated",
   },
-];
-
-// Brief §6: potential functions of the future edge architecture.
-export const AI_FUNCTIONS = [
-  { Icon: Activity, label: "Energy pattern analysis" },
-  { Icon: AlertTriangle, label: "Anomaly detection" },
-  { Icon: Cpu, label: "Abnormal equipment behaviour detection" },
-  { Icon: FileCheck, label: "Data-integrity monitoring" },
-  { Icon: Radar, label: "Tamper detection" },
-  { Icon: Leaf, label: "Renewable-production analysis" },
-  { Icon: SlidersHorizontal, label: "Energy optimization" },
-  { Icon: TrendingUp, label: "Predictive insights" },
-  { Icon: Bell, label: "Operational alerts" },
 ];
 
 const ON_CHAIN = [
@@ -231,7 +221,7 @@ const Technology = () => {
   usePageMeta({
     title: "ZEV, the Zelion Energy Validator | ZelionTech",
     description:
-      "Inside ZEV: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a verifiable record, and the layers ZEV Pro is designed to add.",
+      "Inside ZEV: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a verifiable record, and the ZEV Lite and ZEV Pro prototypes now in development.",
     path: "/zev",
   });
 
@@ -248,7 +238,7 @@ const Technology = () => {
               Hardware, cryptography, blockchain.
             </>
           }
-          lede="What the Zelion Energy Validator is made of: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a record anyone can verify, and the security and intelligence layers ZEV Pro is designed to add."
+          lede="What the Zelion Energy Validator is made of: the hardware that reads renewable-energy equipment on site, the validation chain that turns a reading into a record anyone can verify, and the two prototypes now in development, ZEV Lite and ZEV Pro."
           legend
           media={
             <ZevScenePicture
@@ -319,6 +309,83 @@ const Technology = () => {
                 </ul>
               </Reveal>
             </div>
+
+            {/* Reference equipment: the joint-venture partner's installed
+                base, the generation, storage and charging equipment ZEV is
+                being designed to read first. Product names and descriptions
+                are Expofin's own; no performance figures are repeated here,
+                and the whole row is labelled Upcoming because the proof of
+                concept integrates an energy meter only. */}
+            <Reveal delay={0.12} className="mx-auto mt-6 max-w-6xl">
+              <div className="glass-card p-6 sm:p-8">
+                <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
+                  <div className="max-w-2xl">
+                    <p className="text-[13px] font-medium text-muted-foreground">
+                      Reference equipment · Expofin E.S.Co.
+                    </p>
+                    <h3 className="mt-1 subhead">The installed base ZEV is designed to read first</h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                      ZelionTech&apos;s joint-venture partner builds and installs the equipment below.
+                      ZEV is being designed to read it first, through the meters, inverters and
+                      storage controllers on site.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-[13px] text-muted-foreground">
+                    <MaturityBadge level="planned" />
+                    <span>ZEV integration</span>
+                  </div>
+                </div>
+
+                <ul className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {EXPOFIN_PRODUCTS.map((p) => (
+                    <li key={p.id} className="flex flex-col rounded-2xl border border-border bg-card p-4">
+                      <div className="flex h-44 items-center justify-center rounded-xl bg-muted/60 p-5">
+                        {/* min-w-0: a flex item will not shrink below the
+                            render's intrinsic width otherwise, and the tile
+                            overflows on phones once the lazy image lands. */}
+                        <picture className="flex min-w-0 max-w-full justify-center">
+                          <source type="image/avif" srcSet={p.avif} sizes="220px" />
+                          <source type="image/webp" srcSet={p.webp} sizes="220px" />
+                          <img
+                            src={p.fallback}
+                            srcSet={p.png}
+                            sizes="220px"
+                            width={p.width}
+                            height={p.height}
+                            alt={`${p.name}, Expofin ${p.kind.toLowerCase()}`}
+                            loading="lazy"
+                            decoding="async"
+                            className="max-h-36 w-auto max-w-full object-contain"
+                            draggable={false}
+                          />
+                        </picture>
+                      </div>
+                      <p className="mt-4 text-[13px] font-medium text-muted-foreground">{p.kind}</p>
+                      <h4 className="mt-0.5 text-[17px] font-bold tracking-[-0.01em] text-foreground">{p.name}</h4>
+                      <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{p.body}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-5 text-[13px] leading-relaxed text-muted-foreground">
+                  Also in Expofin&apos;s range: Hydrovolt hybrid photovoltaic and thermal panels, Solar
+                  Bloom vertical agrivoltaics and the Infinity Tower. Product pages on{" "}
+                  <a
+                    href={EXPOFIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline-offset-4 hover:underline"
+                  >
+                    expofin.eu
+                  </a>{" "}
+                  (Italian); the whole range and the partnership on the{" "}
+                  <Link to="/partners" className="font-medium text-foreground underline-offset-4 hover:underline">
+                    Partners page
+                  </Link>
+                  .
+                </p>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -336,26 +403,31 @@ const Technology = () => {
           </div>
         </section>
 
-        {/* ── Hardware (§15) ────────────────────────────────────────────── */}
+        {/* ── Devices (§15, project update of October 2026) ─────────────── */}
         <section id="hardware" className="scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
-              eyebrow="Hardware"
-              title="Two generations of one machine"
-              lede="ZEV Lite is the proof of concept that showed the idea works end to end. ZEV Pro is the industrial platform being engineered around it."
+              eyebrow="Devices"
+              title="Two devices, one energy network"
+              lede="The ZEV Lite proof of concept showed the idea works end to end. Dedicated ZEV Lite and ZEV Pro prototypes are now being developed in parallel, both with secure-element signing."
             />
-            <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2">
+
+            {/* The owner's ZEV Pro material of 26 October 2026: the
+                development assembly beside the enclosure concept. */}
+            <DevelopmentToDesign />
+
+            <div className="mx-auto mt-6 grid max-w-6xl gap-6 lg:grid-cols-3">
               <Reveal className="glass-card p-6 sm:p-8">
                 <div>
                   <p className="text-[13px] font-medium text-muted-foreground">ZEV Lite</p>
                   <h3 className="mt-1 subhead">Proof of concept</h3>
                 </div>
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                  Physical energy information captured by hardware, transformed into cryptographically verifiable
-                  information and connected with blockchain infrastructure.
+                  Shown working end to end: energy data captured by hardware, hashed, timestamped and
+                  anchored on BNB Smart Chain.
                 </p>
-                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {ZEV_LITE.map((item) => (
+                <ul className="mt-5 grid gap-2">
+                  {POC.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
                       <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-eco" />
                       {item}
@@ -363,28 +435,47 @@ const Technology = () => {
                   ))}
                 </ul>
               </Reveal>
-              <Reveal delay={0.08} className="glass-card p-6 ring-1 ring-primary/20 sm:p-8">
-                <div>
-                  <p className="text-[13px] font-medium text-muted-foreground">ZEV Pro</p>
-                  <h3 className="mt-1 subhead">Industrial evolution</h3>
-                </div>
-                <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                  The next architecture, under development. Each item is a capability of the ZEV Pro
-                  platform — not something deployed commercially today.
-                </p>
-                {/* Same list treatment as ZEV Lite: a hollow azure dot for what is
-                    being engineered, against the solid eco dot of what the proof of
-                    concept showed. */}
-                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                  {ZEV_PRO.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
-                      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full border border-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
+              {/* The two prototypes share one list treatment: a hollow azure dot
+                  for what is being engineered, against the solid eco dot of
+                  what the proof of concept showed. */}
+              {[
+                { name: "ZEV Lite", title: "Dedicated prototype", body: "Validation hardware for connected energy equipment, now in development.", items: ZEV_LITE },
+                { name: "ZEV Pro", title: "Industrial prototype", body: "Developed alongside ZEV Lite on the same signing foundation, for industrial sites such as the solar and storage installations Expofin builds.", items: ZEV_PRO },
+              ].map((device, i) => (
+                <Reveal
+                  key={device.name}
+                  delay={0.06 * (i + 1)}
+                  className={`glass-card p-6 sm:p-8 ${i === 1 ? "ring-1 ring-primary/20" : ""}`}
+                >
+                  <div>
+                    <p className="text-[13px] font-medium text-muted-foreground">{device.name}</p>
+                    <h3 className="mt-1 subhead">{device.title}</h3>
+                  </div>
+                  <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{device.body}</p>
+                  <ul className="mt-5 grid gap-2">
+                    {device.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-[15px] text-foreground">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full border border-primary" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              ))}
             </div>
+
+            {/* The enclosure on site, with its two detail views. */}
+            <ZevProShowcase />
+
+            <Reveal delay={0.1} className="mx-auto mt-6 max-w-6xl">
+              <div className="flex items-center gap-4 rounded-2xl border border-border bg-card px-6 py-5">
+                <IconTile Icon={FileBadge2} />
+                <p className="text-[15px] leading-relaxed text-muted-foreground">
+                  <span className="font-semibold text-foreground">Patent applications filed</span> for
+                  ZEV Lite and ZEV Pro, with the patent process underway.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -411,35 +502,8 @@ const Technology = () => {
           </div>
         </section>
 
-        {/* ── AI & edge intelligence (§6) ───────────────────────────────── */}
-        <section id="ai" className="scroll-mt-16 section">
-          <div className="container mx-auto px-4 lg:px-8">
-            <SectionHead
-              eyebrow="AI & edge intelligence"
-              title="More than a meter"
-              lede="ZEV does not only measure energy. The future architecture is designed to make it an intelligent layer between physical energy infrastructure and digital infrastructure — analysing on the device, at the edge."
-            />
-            <div className="mx-auto max-w-5xl">
-              <div className="mb-6 flex flex-wrap items-center justify-center gap-2.5 text-[15px] text-muted-foreground">
-                <MaturityBadge level="planned" />
-                <span>Potential functions of the ZEV Pro edge architecture</span>
-              </div>
-              <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {AI_FUNCTIONS.map(({ Icon, label }, i) => (
-                  <Reveal key={label} delay={i * 0.03}>
-                    <li className="glass-card flex items-center gap-3 p-4 text-[15px] text-foreground">
-                      <IconTile Icon={Icon} />
-                      {label}
-                    </li>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
         {/* ── Blockchain (§5) ───────────────────────────────────────────── */}
-        <section id="blockchain" className="section-bg-alternate scroll-mt-16 section">
+        <section id="blockchain" className="scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="Blockchain"
@@ -485,7 +549,7 @@ const Technology = () => {
         </section>
 
         {/* ── APIs & integration ───────────────────────────────────────── */}
-        <section id="apis" className="scroll-mt-16 section">
+        <section id="apis" className="section-bg-alternate scroll-mt-16 section">
           <div className="container mx-auto px-4 lg:px-8">
             <SectionHead
               eyebrow="APIs & integration"

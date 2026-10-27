@@ -9,9 +9,9 @@ import { useReducedMotion } from "./hooks";
 //
 // Claims discipline (brief §15/§24): the ZEV Lite proof of concept demonstrated
 // measurement, validation, SHA-256 hashing, timestamping and on-chain
-// anchoring. AI anomaly detection and secure-element signing are ZEV Pro and
-// are labelled Planned. Step six deliberately says the data *supports*
-// carbon accounting rather than that ZEV issues credits (brief §9).
+// anchoring, and those steps are labelled Demonstrated. Step six deliberately
+// says the data *supports* carbon accounting rather than that ZEV issues
+// credits (brief §9).
 
 export const STEPS = [
   {
@@ -35,7 +35,7 @@ export const STEPS = [
     Icon: FileCheck2,
     tone: "eco",
     title: "ZEV validates the reading",
-    body: "Integrity checks on the device, with AI anomaly detection in development.",
+    body: "Record and hash consistency is checked on the device itself.",
     level: "demonstrated",
   },
   {

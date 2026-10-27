@@ -24,14 +24,34 @@ const walk = (dir, out = []) => {
   return out;
 };
 
+// The founders' project update of October 2026 exists in two editions: a
+// community deck that may be shared, and an investor briefing shared only
+// under a non-disclosure agreement. The site draws on the community edition.
+// These are markers of material found only in the investor briefing (the
+// sale price and target, the proof-of-concept contract reference, competitor
+// analysis, anchoring-cost figures, reward-scoring internals, the price
+// oracle, partner fleet-management plans, treasury signer controls and the
+// prototype bench equipment), so none of it can reach a page by accident.
+const NDA_ONLY = /US\$\s?0\.08|0\.08 per|US\$\s?4 million|4 million|0x93754358|Sourceful|EnergyTag|Association of Issuing Bodies|731\.77|Contribution Performance Score|System Schema|\boracle\b|fleet.management|authori[sz]ed signers|approval controls|SIMATIC|Siemens/i;
+
+const scan = (pattern) => {
+  const hits = [];
+  for (const file of walk(SRC)) {
+    const text = fs.readFileSync(file, "utf8");
+    const m = text.match(pattern);
+    if (m) hits.push(`${path.relative(process.cwd(), file)}: "${m[0]}"`);
+  }
+  return hits;
+};
+
 describe("Joint-venture confidentiality", () => {
   it("keeps ownership and economics wording out of every shipped source file", () => {
-    const hits = [];
-    for (const file of walk(SRC)) {
-      const text = fs.readFileSync(file, "utf8");
-      const m = text.match(FORBIDDEN);
-      if (m) hits.push(`${path.relative(process.cwd(), file)}: "${m[0]}"`);
-    }
-    expect(hits).toEqual([]);
+    expect(scan(FORBIDDEN)).toEqual([]);
+  });
+});
+
+describe("Investor-briefing confidentiality", () => {
+  it("keeps material found only in the NDA edition out of every shipped source file", () => {
+    expect(scan(NDA_ONLY)).toEqual([]);
   });
 });
