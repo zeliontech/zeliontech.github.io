@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 // Roster note: Ralph Saab is no longer listed. His strategy, innovation and
 // tokenomics mandate moved to Allam Jamil, as recorded in the whitepaper.
 // Order and titles follow the founders' project update of October 2026.
+// Zaydan Sukkar joined on 28 October 2026, listed after the chief officers.
 
 // Portraits: public/team/<slug>.{avif,webp,jpg}, 280px squares built by
 // scripts/images/build-team.mjs from the originals in assets-source/team.
@@ -20,6 +21,7 @@ const leadership = [
   { name: "Allam Jamil", role: "Chief Financial Officer", slug: "allam-jamil" },
   { name: "Eng. Dino Vincoletto", role: "Chief Energy Technology and Industrial Development Officer", slug: "dino-vincoletto" },
   { name: "Luigi Benacchio", role: "Chief Information Officer", slug: "luigi-benacchio" },
+  { name: "Zaydan Sukkar", role: "Head of Technology & Digital Assets", slug: "zaydan-sukkar" },
   { name: "Eleonora Passarella", role: "Marketing & Communications", slug: "eleonora-passarella" },
   { name: "Eng. Federico Davoli", role: "Hardware & Industrial Systems", slug: "federico-davoli" },
   { name: "Eng. Alessio Munerato", role: "Infrastructure & Cybersecurity", slug: "alessio-munerato" },

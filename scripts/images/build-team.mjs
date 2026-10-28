@@ -29,6 +29,7 @@ const PEOPLE = [
   { slug: "alessio-munerato", source: "alessio-munerato.png" },
   { slug: "federico-davoli", source: "federico-davoli.png" },
   { slug: "luigi-benacchio", source: "luigi-benacchio.jpeg" },
+  { slug: "zaydan-sukkar", source: "zaydan-sukkar.webp" },
   { slug: "eleonora-passarella", source: "eleonora-passarella.png" },
   { slug: "antonio-guadagnino", source: "antonio-guadagnino.png" },
   { slug: "michele-de-carli", source: "michele-de-carli.png" },
